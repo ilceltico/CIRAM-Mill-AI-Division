@@ -32,9 +32,9 @@ public class MulinoClientFirstMiniMaxTest {
 		Action a;
 		
 		try {
-			for (int i=0; i<9; i++) {
+			for (int i=0; i<5000; i++) {
 				MulinoClientFirstMiniMax.player = Checker.WHITE;
-				a = MulinoClientFirstMiniMax.minimaxDecision(state, 3);
+				a = MulinoClientFirstMiniMax.minimaxDecision(state, 4);
 				
 				switch(state.getCurrentPhase()) {
 				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
@@ -54,6 +54,9 @@ public class MulinoClientFirstMiniMaxTest {
 				default: throw new Exception("Illegal Phase");
 				}
 				System.out.println(state);
+				
+
+				System.out.println(i);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

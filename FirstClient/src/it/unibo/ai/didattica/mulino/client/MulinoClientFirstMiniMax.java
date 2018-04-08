@@ -27,6 +27,7 @@ import it.unibo.ai.didattica.mulino.actions.WrongPhaseException;
 import it.unibo.ai.didattica.mulino.actions.WrongPositionException;
 import it.unibo.ai.didattica.mulino.domain.State;
 import it.unibo.ai.didattica.mulino.domain.State.Checker;
+import it.unibo.ai.didattica.mulino.domain.State.Phase;
 import it.unibo.ai.didattica.mulino.domain.ValuedAction;
 
 public class MulinoClientFirstMiniMax extends MulinoClient {
@@ -41,7 +42,13 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 	public static final int MAXDEPTH = 1;
 //	public static final int THREAD_NUMBER = 4;
 	public static void main(String[] args) throws Exception {
-		MulinoClient mulinoClient = new MulinoClientFirstMiniMax(Checker.WHITE);
+		MulinoClient mulinoClient = null;
+		if (args[0].toLowerCase().equals("white"))
+			mulinoClient = new MulinoClientFirstMiniMax(Checker.WHITE);
+		else if (args[0].toLowerCase().equals("black"))
+			mulinoClient = new MulinoClientFirstMiniMax(Checker.BLACK);
+		else
+			System.exit(-2);
 		player = mulinoClient.getPlayer();
 		State currentState = null;
 		
@@ -103,22 +110,17 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		HashMap<Action, State> successors = successors(state, player);
 		ValuedAction result = new ValuedAction(null, Integer.MIN_VALUE);
 		ValuedAction temp;
+		State newState;
 		
 		for (Action a : successors.keySet()) {
-			if (isWinningState(successors.get(a), player)) {
+			newState = successors.get(a);
+			if (isWinningState(newState, player)) {
 				result = new ValuedAction(a, Integer.MAX_VALUE);
 				return result;
 			}
 			if (maxDepth > 1)
-				temp = min((State) successors.get(a), maxDepth-1);
+				temp = min(newState, maxDepth-1);
 			else {
-				State newState = null;
-				switch(state.getCurrentPhase()) {
-				case FIRST: newState = Phase1.applyMove(state, a, player); break;
-				case SECOND: newState = Phase2.applyMove(state, a, player); break;
-				case FINAL: newState = PhaseFinal.applyMove(state, a, player); break;
-				default: throw new Exception("Illegal Phase");
-				}
 				switch(state.getCurrentPhase()) {
 				case FIRST: Phase1Action action1 = (Phase1Action) a; 
 							temp = new ValuedAction(a, heuristic(newState, action1.getPutPosition(), player)); 
@@ -133,7 +135,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				}
 			}
 			if (temp.getValue() > result.getValue()) {
-				result = temp;
+				result = new ValuedAction(a, temp.getValue());
 			}
 		}
 		return result;
@@ -144,22 +146,18 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		HashMap<Action, State> successors = successors(state, minPlayer);
 		ValuedAction result = new ValuedAction(null, Integer.MAX_VALUE);
 		ValuedAction temp;
+		State newState;
+		
 		for (Action a : successors.keySet()) {
-			if (isWinningState(successors.get(a), minPlayer)) {
+			newState = successors.get(a);
+			if (isWinningState(newState, minPlayer)) {
 				result = new ValuedAction(a, Integer.MIN_VALUE);
 				return result;
 			}
 			if (maxDepth > 1) {
-				temp = max((State) successors.get(a), maxDepth-1);
+				temp = max(newState, maxDepth-1);
 			}
 			else {
-				State newState = null;
-				switch(state.getCurrentPhase()) {
-				case FIRST: newState = Phase1.applyMove(state, a, minPlayer); break;
-				case SECOND: newState = Phase2.applyMove(state, a, minPlayer); break;
-				case FINAL: newState = PhaseFinal.applyMove(state, a, minPlayer); break;
-				default: throw new Exception("Illegal Phase");
-				}
 				switch(state.getCurrentPhase()) {
 				case FIRST: Phase1Action action1 = (Phase1Action) a; 
 							temp = new ValuedAction(a, heuristic(newState, action1.getPutPosition(), player)); 
@@ -174,7 +172,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				}
 			}
 			if (temp.getValue() < result.getValue()) {
-				result = temp;
+				result = new ValuedAction(a, temp.getValue());
 			}
 		}
 		return result;
@@ -195,6 +193,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		Phase1Action temp;
 		State newState;
 		HashMap<String, Checker> board = state.getBoard();
+		State.Checker otherChecker = p==Checker.WHITE ? Checker.BLACK : Checker.WHITE;
 		
 		for (String position : state.positions) {
 			if (board.get(position) == State.Checker.EMPTY) {
@@ -204,13 +203,24 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				newState.getBoard().put(position, p);
 				try {
 					if (Util.hasCompletedTriple(newState, position, p)) {
+						boolean foundRemovableChecker = false;
 						for (String otherPosition : state.positions) {
-							State.Checker otherChecker = p==Checker.WHITE ? Checker.BLACK : Checker.WHITE;
-							if (board.get(otherPosition) == otherChecker) {
+							if (board.get(otherPosition) == otherChecker && !Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
 								temp.setRemoveOpponentChecker(otherPosition);
 								newState = Phase1.applyMove(state, temp, p);
 								result.put(temp, newState);
 								expandedStates++;
+								foundRemovableChecker = true;
+							}
+						}
+						if (!foundRemovableChecker) {
+							for (String otherPosition : state.positions) {
+								if (board.get(otherPosition) == otherChecker && Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
+									temp.setRemoveOpponentChecker(otherPosition);
+									newState = Phase1.applyMove(state, temp, p);
+									result.put(temp, newState);
+									expandedStates++;
+								}
 							}
 						}
 					} else {
@@ -236,6 +246,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		Phase2Action temp;
 		State newState;
 		HashMap<String, Checker> board = state.getBoard();
+		State.Checker otherChecker = p==Checker.WHITE ? Checker.BLACK : Checker.WHITE;
 		
 		for (String position : state.positions) {
 			if (board.get(position) == p) {
@@ -251,17 +262,52 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 							newState.getBoard().put(position, Checker.EMPTY);
 							try {
 								if (Util.hasCompletedTriple(newState, adjPos, p)) {
+									boolean foundRemovableChecker = false;
 									for (String otherPosition : state.positions) {
-										State.Checker otherChecker = p==Checker.WHITE ? Checker.BLACK : Checker.WHITE;
-										if (board.get(otherPosition) == otherChecker) {
+										if (board.get(otherPosition) == otherChecker && !Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
 											temp.setRemoveOpponentChecker(otherPosition);
-											newState = Phase2.applyMove(state, temp, p);
+											if (state.getCurrentPhase() == Phase.SECOND)
+												newState = Phase2.applyMove(state, temp, p);
+											else {
+												PhaseFinalAction finalAction = new PhaseFinalAction();
+												finalAction.setFrom(temp.getFrom());
+												finalAction.setTo(temp.getTo());
+												finalAction.setRemoveOpponentChecker(temp.getRemoveOpponentChecker());
+												newState = PhaseFinal.applyMove(state, finalAction, p);
+											}
 											result.put(temp, newState);
 											expandedStates++;
+											foundRemovableChecker = true;
+										}
+									}
+									if (!foundRemovableChecker) {
+										for (String otherPosition : state.positions) {
+											if (board.get(otherPosition) == otherChecker && Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
+												temp.setRemoveOpponentChecker(otherPosition);
+												if (state.getCurrentPhase() == Phase.SECOND)
+													newState = Phase2.applyMove(state, temp, p);
+												else {
+													PhaseFinalAction finalAction = new PhaseFinalAction();
+													finalAction.setFrom(temp.getFrom());
+													finalAction.setTo(temp.getTo());
+													finalAction.setRemoveOpponentChecker(temp.getRemoveOpponentChecker());
+													newState = PhaseFinal.applyMove(state, finalAction, p);
+												}
+												result.put(temp, newState);
+												expandedStates++;
+											}
 										}
 									}
 								} else {
-									newState = Phase2.applyMove(state, temp, p);
+									if (state.getCurrentPhase() == Phase.SECOND)
+										newState = Phase2.applyMove(state, temp, p);
+									else {
+										PhaseFinalAction finalAction = new PhaseFinalAction();
+										finalAction.setFrom(temp.getFrom());
+										finalAction.setTo(temp.getTo());
+										finalAction.setRemoveOpponentChecker(temp.getRemoveOpponentChecker());
+										newState = PhaseFinal.applyMove(state, finalAction, p);
+									}
 									result.put(temp, newState);
 									expandedStates++;
 								}
@@ -308,6 +354,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		PhaseFinalAction temp;
 		State newState;
 		HashMap<String, Checker> board = state.getBoard();
+		State.Checker otherChecker = p==Checker.WHITE ? Checker.BLACK : Checker.WHITE;
 		
 		for (String position : state.positions) {
 			if (board.get(position) == p) {
@@ -322,13 +369,24 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 						newState.getBoard().put(position, Checker.EMPTY);
 						try {
 							if (Util.hasCompletedTriple(newState, toPos, p)) {
+								boolean foundRemovableChecker = false;
 								for (String otherPosition : state.positions) {
-									State.Checker otherChecker = p==Checker.WHITE ? Checker.BLACK : Checker.WHITE;
-									if (board.get(otherPosition) == otherChecker) {
+									if (board.get(otherPosition) == otherChecker && !Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
 										temp.setRemoveOpponentChecker(otherPosition);
 										newState = PhaseFinal.applyMove(state, temp, p);
 										result.put(temp, newState);
 										expandedStates++;
+										foundRemovableChecker = true;
+									}
+								}
+								if (!foundRemovableChecker) {
+									for (String otherPosition : state.positions) {
+										if (board.get(otherPosition) == otherChecker && Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
+											temp.setRemoveOpponentChecker(otherPosition);
+											newState = PhaseFinal.applyMove(state, temp, p);
+											result.put(temp, newState);
+											expandedStates++;
+										}
 									}
 								}
 							} else {

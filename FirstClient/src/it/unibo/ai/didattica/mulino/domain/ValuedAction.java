@@ -22,7 +22,8 @@ public class ValuedAction {
 	
 	@Override
 	public String toString() {
-		return action.toString() + ", value: " + value;
+		return (action!=null?action.toString():"") + ", value: " + value;
+//		return action.toString() + ", value:" + value;
 	}
 
 }

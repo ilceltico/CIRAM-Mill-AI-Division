@@ -65,7 +65,7 @@ public class PhaseFinal {
 			enemyCheckers = result.getWhiteCheckersOnBoard();
 		if (enemyCheckers < 3) {
 			System.out.println("Player " + checker.toString() + " WIN!!!");
-			System.exit(100);
+//			System.exit(100);
 		}
 		
 		return result;
