@@ -5,6 +5,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import it.unibo.ai.didattica.mulino.actions.Action;
 import it.unibo.ai.didattica.mulino.actions.FromAndToAreEqualsException;
@@ -135,26 +136,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 					temp = new ValuedAction(a, heuristic(newState, action2.getTo(), player));
 					break;
 				case FINAL:
-					if (player == Checker.WHITE) {
-						if (state.getWhiteCheckersOnBoard() > 3) {
-							Phase2Action actionFinal = (Phase2Action) a;
-							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
-						} else {
-							PhaseFinalAction actionFinal = (PhaseFinalAction) a;
-							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
-						}
-					}
-					// Player is BLACK
-					else {
-						if (state.getBlackCheckersOnBoard() > 3) {
-							Phase2Action actionFinal = (Phase2Action) a;
-							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
-						} else {
-							PhaseFinalAction actionFinal = (PhaseFinalAction) a;
-							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
-						}
-					}
-
+					PhaseFinalAction actionFinal = (PhaseFinalAction) a;
+					temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
 					break;
 				default:
 					throw new Exception("Illegal Phase");
@@ -191,32 +174,15 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				switch (state.getCurrentPhase()) {
 				case FIRST:
 					Phase1Action action1 = (Phase1Action) a;
-					temp = new ValuedAction(a, heuristic(newState, action1.getPutPosition(), player));
+					temp = new ValuedAction(a, heuristic(newState, action1.getPutPosition(), minPlayer));
 					break;
 				case SECOND:
 					Phase2Action action2 = (Phase2Action) a;
-					temp = new ValuedAction(a, heuristic(newState, action2.getTo(), player));
+					temp = new ValuedAction(a, heuristic(newState, action2.getTo(), minPlayer));
 					break;
 				case FINAL:
-					if (minPlayer == Checker.WHITE) {
-						if (state.getWhiteCheckersOnBoard() > 3) {
-							Phase2Action actionFinal = (Phase2Action) a;
-							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
-						} else {
-							PhaseFinalAction actionFinal = (PhaseFinalAction) a;
-							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
-						}
-					}
-					// Player is BLACK
-					else {
-						if (state.getBlackCheckersOnBoard() > 3) {
-							Phase2Action actionFinal = (Phase2Action) a;
-							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
-						} else {
-							PhaseFinalAction actionFinal = (PhaseFinalAction) a;
-							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
-						}
-					}
+					PhaseFinalAction actionFinal = (PhaseFinalAction) a;
+					temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), minPlayer));
 					break;
 				default:
 					throw new Exception("Illegal Phase");
@@ -396,18 +362,38 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		return result;
 	}
 
-	public static HashMap<Action, State> successorsFinalOrSecond(State state, Checker p) {
+	public static HashMap<Action, State> successorsFinalOrSecond(State state, Checker p) {		
 		if (p == Checker.WHITE) {
-			if (state.getWhiteCheckersOnBoard() > 3)
-				return successorsSecond(state, p);
+			if (state.getWhiteCheckersOnBoard() > 3) {
+				HashMap<Action, State> resultMap = new HashMap<>();
+				successorsSecond(state, p).
+						forEach((k, v) -> {Phase2Action action = (Phase2Action) k;
+									PhaseFinalAction result = new PhaseFinalAction();
+									result.setFrom(action.getFrom());
+									result.setTo(action.getTo());
+									result.setRemoveOpponentChecker(action.getRemoveOpponentChecker());
+									resultMap.put(result, v);
+				});
+				return resultMap;
+			}
 			else {
 				return successorsFinal(state, p);
 			}
 		}
 		// Player is BLACK
 		else {
-			if (state.getBlackCheckersOnBoard() > 3)
-				return successorsSecond(state, p);
+			if (state.getBlackCheckersOnBoard() > 3) {
+				HashMap<Action, State> resultMap = new HashMap<>();
+				successorsSecond(state, p).
+						forEach((k, v) -> {Phase2Action action = (Phase2Action) k;
+									PhaseFinalAction result = new PhaseFinalAction();
+									result.setFrom(action.getFrom());
+									result.setTo(action.getTo());
+									result.setRemoveOpponentChecker(action.getRemoveOpponentChecker());
+									resultMap.put(result, v);
+				});
+				return resultMap;
+			}
 			else {
 				return successorsFinal(state, p);
 			}
@@ -745,7 +731,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		else
 			result += 6 * (state.getBlackCheckersOnBoard() - state.getWhiteCheckersOnBoard());
 
-		// opened morris (che cazzo è???)
+		// opened morris (che cazzo ï¿½???)
 
 		// double morris
 		int doubleMorrisPlayer = 0;

@@ -32,9 +32,9 @@ public class MulinoClientFirstMiniMaxTest {
 		Action a;
 		
 		try {
-			for (int i=0; i<5000; i++) {
+			for (int i=0; i<500; i++) {
 				MulinoClientFirstMiniMax.player = Checker.WHITE;
-				a = MulinoClientFirstMiniMax.minimaxDecision(state, 4);
+				a = MulinoClientFirstMiniMax.minimaxDecision(state, 1);
 				
 				switch(state.getCurrentPhase()) {
 				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
