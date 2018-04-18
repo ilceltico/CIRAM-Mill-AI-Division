@@ -2,7 +2,9 @@ package it.unibo.ai.didattica.mulino.client;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import it.unibo.ai.didattica.mulino.actions.Action;
 import it.unibo.ai.didattica.mulino.actions.FromAndToAreEqualsException;
@@ -41,6 +43,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 	private static long elapsedTime;
 	public static final int MAXDEPTH = 1;
 //	public static final int THREAD_NUMBER = 4;
+	private static List<State> statesAlreadySeen = new ArrayList<>();
 	public static void main(String[] args) throws Exception {
 		MulinoClient mulinoClient = null;
 		if (args[0].toLowerCase().equals("white"))
@@ -111,6 +114,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		ValuedAction result = new ValuedAction(null, Integer.MIN_VALUE);
 		ValuedAction temp;
 		State newState;
+		State nextState = null;
 		
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
@@ -136,8 +140,12 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 			}
 			if (temp.getValue() > result.getValue()) {
 				result = new ValuedAction(a, temp.getValue());
+				nextState = newState;
 			}
 		}
+		
+		statesAlreadySeen.add(nextState);
+		
 		return result;
 	}
 	
@@ -147,6 +155,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		ValuedAction result = new ValuedAction(null, Integer.MAX_VALUE);
 		ValuedAction temp;
 		State newState;
+		State nextState = null;
 		
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
@@ -173,8 +182,12 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 			}
 			if (temp.getValue() < result.getValue()) {
 				result = new ValuedAction(a, temp.getValue());
+				nextState = newState;
 			}
 		}
+		
+		statesAlreadySeen.add(nextState);
+		
 		return result;
 	}
 		
@@ -410,6 +423,10 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 	}
 	
 	public static int heuristic (State state, String position, Checker p) throws Exception {
+		// controllo se vado in pareggio
+		if(statesAlreadySeen.contains(state))
+			return 0;
+		
 		switch(state.getCurrentPhase()) {
 		case FIRST: return heuristicPhase1(state, position, p);
 		case SECOND: return heuristicPhase2(state, position, p);
