@@ -36,14 +36,17 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 
 	public MulinoClientFirstMiniMax(Checker player) throws UnknownHostException, IOException {
 		super(player);
+		otherPlayer = player == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
 	}
-	
+
 	public static Checker player;
+	public static Checker otherPlayer;
 	private static int expandedStates;
 	private static long elapsedTime;
 	public static final int MAXDEPTH = 1;
-//	public static final int THREAD_NUMBER = 4;
+	// public static final int THREAD_NUMBER = 4;
 	private static List<State> statesAlreadySeen = new ArrayList<>();
+
 	public static void main(String[] args) throws Exception {
 		MulinoClient mulinoClient = null;
 		if (args[0].toLowerCase().equals("white"))
@@ -54,51 +57,48 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 			System.exit(-2);
 		player = mulinoClient.getPlayer();
 		State currentState = null;
-		
-		
+
 		do {
 			expandedStates = 0;
-			
+
 			if (player == Checker.WHITE) {
 				currentState = mulinoClient.read();
 				System.out.println("Current state is:");
 				System.out.println(currentState.toString());
-				
+
 				Action a = minimaxDecision(currentState, MAXDEPTH);
-				
+
 				mulinoClient.write(a);
-				
+
 				currentState = mulinoClient.read();
 				System.out.println("New state is:");
 				System.out.println(currentState.toString());
-				
+
 				System.out.println("\nWaiting for opponent move...");
-				
-				
+
 			} else if (player == Checker.BLACK) {
 				currentState = mulinoClient.read();
 				System.out.println("New state is:");
 				System.out.println(currentState.toString());
-				
+
 				System.out.println("\nWaiting for opponent move...");
-				
+
 				currentState = mulinoClient.read();
 				System.out.println("Current state is:");
 				System.out.println(currentState.toString());
-				
+
 				Action a = minimaxDecision(currentState, MAXDEPTH);
-				
+
 				mulinoClient.write(a);
 			} else {
 				System.out.println("Wrong checker");
 				System.exit(-1);
 			}
-			
-			
-		} while(currentState.getBlackCheckers() > 3 && currentState.getWhiteCheckers() > 3);
-		
+
+		} while (currentState.getBlackCheckers() > 3 && currentState.getWhiteCheckers() > 3);
+
 	}
-	
+
 	public static Action minimaxDecision(State state, int maxDepth) throws Exception {
 		elapsedTime = System.currentTimeMillis();
 		ValuedAction a = max(state, maxDepth);
@@ -108,14 +108,14 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		System.out.println("Selected action is: " + a);
 		return a.getAction();
 	}
-	
-	public static ValuedAction max (State state, int maxDepth) throws Exception {
+
+	public static ValuedAction max(State state, int maxDepth) throws Exception {
 		HashMap<Action, State> successors = successors(state, player);
 		ValuedAction result = new ValuedAction(null, Integer.MIN_VALUE);
 		ValuedAction temp;
 		State newState;
 		State nextState = null;
-		
+
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
 			if (isWinningState(newState, player)) {
@@ -123,19 +123,23 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				return result;
 			}
 			if (maxDepth > 1)
-				temp = min(newState, maxDepth-1);
+				temp = min(newState, maxDepth - 1);
 			else {
-				switch(state.getCurrentPhase()) {
-				case FIRST: Phase1Action action1 = (Phase1Action) a; 
-							temp = new ValuedAction(a, heuristic(newState, action1.getPutPosition(), player)); 
-							break;
-				case SECOND: Phase2Action action2 = (Phase2Action) a; 
-							temp = new ValuedAction(a, heuristic(newState, action2.getTo(), player)); 
-							break;
-				case FINAL: PhaseFinalAction actionFinal = (PhaseFinalAction) a; 
-							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player)); 
-							break;
-				default: throw new Exception("Illegal Phase");
+				switch (state.getCurrentPhase()) {
+				case FIRST:
+					Phase1Action action1 = (Phase1Action) a;
+					temp = new ValuedAction(a, heuristic(newState, action1.getPutPosition(), player));
+					break;
+				case SECOND:
+					Phase2Action action2 = (Phase2Action) a;
+					temp = new ValuedAction(a, heuristic(newState, action2.getTo(), player));
+					break;
+				case FINAL:
+					PhaseFinalAction actionFinal = (PhaseFinalAction) a;
+					temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
+					break;
+				default:
+					throw new Exception("Illegal Phase");
 				}
 			}
 			if (temp.getValue() > result.getValue()) {
@@ -143,20 +147,20 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				nextState = newState;
 			}
 		}
-		
+
 		statesAlreadySeen.add(nextState);
-		
+
 		return result;
 	}
-	
-	public static ValuedAction min (State state, int maxDepth) throws Exception {
-		Checker minPlayer = player==Checker.BLACK ? Checker.WHITE : Checker.BLACK;
+
+	public static ValuedAction min(State state, int maxDepth) throws Exception {
+		Checker minPlayer = player == Checker.BLACK ? Checker.WHITE : Checker.BLACK;
 		HashMap<Action, State> successors = successors(state, minPlayer);
 		ValuedAction result = new ValuedAction(null, Integer.MAX_VALUE);
 		ValuedAction temp;
 		State newState;
 		State nextState = null;
-		
+
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
 			if (isWinningState(newState, minPlayer)) {
@@ -164,20 +168,23 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				return result;
 			}
 			if (maxDepth > 1) {
-				temp = max(newState, maxDepth-1);
-			}
-			else {
-				switch(state.getCurrentPhase()) {
-				case FIRST: Phase1Action action1 = (Phase1Action) a; 
-							temp = new ValuedAction(a, heuristic(newState, action1.getPutPosition(), player)); 
-							break;
-				case SECOND: Phase2Action action2 = (Phase2Action) a; 
-							temp = new ValuedAction(a, heuristic(newState, action2.getTo(), player)); 
-							break;
-				case FINAL: PhaseFinalAction actionFinal = (PhaseFinalAction) a; 
-							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player)); 
-							break;
-				default: throw new Exception("Illegal Phase");
+				temp = max(newState, maxDepth - 1);
+			} else {
+				switch (state.getCurrentPhase()) {
+				case FIRST:
+					Phase1Action action1 = (Phase1Action) a;
+					temp = new ValuedAction(a, heuristic(newState, action1.getPutPosition(), player));
+					break;
+				case SECOND:
+					Phase2Action action2 = (Phase2Action) a;
+					temp = new ValuedAction(a, heuristic(newState, action2.getTo(), player));
+					break;
+				case FINAL:
+					PhaseFinalAction actionFinal = (PhaseFinalAction) a;
+					temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
+					break;
+				default:
+					throw new Exception("Illegal Phase");
 				}
 			}
 			if (temp.getValue() < result.getValue()) {
@@ -185,28 +192,32 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				nextState = newState;
 			}
 		}
-		
+
 		statesAlreadySeen.add(nextState);
-		
+
 		return result;
 	}
-		
+
 	public static HashMap<Action, State> successors(State state, Checker p) throws Exception {
-		switch(state.getCurrentPhase()) {
-		case FIRST: return successorsFirst(state, p); 
-		case SECOND: return successorsSecond(state, p);
-		case FINAL: return successorsFinalOrSecond(state, p);
-		default: throw new Exception("Illegal Phase");
+		switch (state.getCurrentPhase()) {
+		case FIRST:
+			return successorsFirst(state, p);
+		case SECOND:
+			return successorsSecond(state, p);
+		case FINAL:
+			return successorsFinalOrSecond(state, p);
+		default:
+			throw new Exception("Illegal Phase");
 		}
 	}
-	
+
 	public static HashMap<Action, State> successorsFirst(State state, Checker p) {
 		HashMap<Action, State> result = new HashMap<Action, State>();
 		Phase1Action temp;
 		State newState;
 		HashMap<String, Checker> board = state.getBoard();
-		State.Checker otherChecker = p==Checker.WHITE ? Checker.BLACK : Checker.WHITE;
-		
+		State.Checker otherChecker = p == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
+
 		for (String position : state.positions) {
 			if (board.get(position) == State.Checker.EMPTY) {
 				temp = new Phase1Action();
@@ -217,7 +228,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 					if (Util.hasCompletedTriple(newState, position, p)) {
 						boolean foundRemovableChecker = false;
 						for (String otherPosition : state.positions) {
-							if (board.get(otherPosition) == otherChecker && !Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
+							if (board.get(otherPosition) == otherChecker
+									&& !Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
 								temp.setRemoveOpponentChecker(otherPosition);
 								newState = Phase1.applyMove(state, temp, p);
 								result.put(temp, newState);
@@ -227,7 +239,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 						}
 						if (!foundRemovableChecker) {
 							for (String otherPosition : state.positions) {
-								if (board.get(otherPosition) == otherChecker && Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
+								if (board.get(otherPosition) == otherChecker
+										&& Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
 									temp.setRemoveOpponentChecker(otherPosition);
 									newState = Phase1.applyMove(state, temp, p);
 									result.put(temp, newState);
@@ -249,17 +262,17 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				}
 			}
 		}
-		
+
 		return result;
 	}
-	
+
 	public static HashMap<Action, State> successorsSecond(State state, Checker p) {
 		HashMap<Action, State> result = new HashMap<Action, State>();
 		Phase2Action temp;
 		State newState;
 		HashMap<String, Checker> board = state.getBoard();
-		State.Checker otherChecker = p==Checker.WHITE ? Checker.BLACK : Checker.WHITE;
-		
+		State.Checker otherChecker = p == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
+
 		for (String position : state.positions) {
 			if (board.get(position) == p) {
 				temp = new Phase2Action();
@@ -267,7 +280,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				try {
 					for (String adjPos : Util.getAdiacentTiles(position)) {
 						if (board.get(adjPos) == Checker.EMPTY) {
-							
+
 							temp.setTo(adjPos);
 							newState = state.clone();
 							newState.getBoard().put(adjPos, p);
@@ -276,7 +289,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 								if (Util.hasCompletedTriple(newState, adjPos, p)) {
 									boolean foundRemovableChecker = false;
 									for (String otherPosition : state.positions) {
-										if (board.get(otherPosition) == otherChecker && !Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
+										if (board.get(otherPosition) == otherChecker
+												&& !Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
 											temp.setRemoveOpponentChecker(otherPosition);
 											if (state.getCurrentPhase() == Phase.SECOND)
 												newState = Phase2.applyMove(state, temp, p);
@@ -294,7 +308,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 									}
 									if (!foundRemovableChecker) {
 										for (String otherPosition : state.positions) {
-											if (board.get(otherPosition) == otherChecker && Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
+											if (board.get(otherPosition) == otherChecker
+													&& Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
 												temp.setRemoveOpponentChecker(otherPosition);
 												if (state.getCurrentPhase() == Phase.SECOND)
 													newState = Phase2.applyMove(state, temp, p);
@@ -302,7 +317,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 													PhaseFinalAction finalAction = new PhaseFinalAction();
 													finalAction.setFrom(temp.getFrom());
 													finalAction.setTo(temp.getTo());
-													finalAction.setRemoveOpponentChecker(temp.getRemoveOpponentChecker());
+													finalAction
+															.setRemoveOpponentChecker(temp.getRemoveOpponentChecker());
 													newState = PhaseFinal.applyMove(state, finalAction, p);
 												}
 												result.put(temp, newState);
@@ -326,11 +342,13 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 							} catch (WrongPhaseException | PositionNotEmptyException | NullCheckerException
 									| WrongPositionException | TryingToRemoveOwnCheckerException
 									| TryingToRemoveEmptyCheckerException | NullStateException
-									| TryingToRemoveCheckerInTripleException | NullActionException | TryingToMoveOpponentCheckerException | FromAndToAreEqualsException | FromAndToAreNotConnectedException e) {
+									| TryingToRemoveCheckerInTripleException | NullActionException
+									| TryingToMoveOpponentCheckerException | FromAndToAreEqualsException
+									| FromAndToAreNotConnectedException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
-							
+
 						}
 					}
 				} catch (WrongPositionException e) {
@@ -339,7 +357,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				}
 			}
 		}
-		
+
 		return result;
 	}
 
@@ -351,7 +369,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				return successorsFinal(state, p);
 			}
 		}
-		//Player is BLACK
+		// Player is BLACK
 		else {
 			if (state.getBlackCheckersOnBoard() > 3)
 				return successorsSecond(state, p);
@@ -360,21 +378,21 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 			}
 		}
 	}
-	
+
 	public static HashMap<Action, State> successorsFinal(State state, Checker p) {
 		HashMap<Action, State> result = new HashMap<Action, State>();
 		PhaseFinalAction temp;
 		State newState;
 		HashMap<String, Checker> board = state.getBoard();
-		State.Checker otherChecker = p==Checker.WHITE ? Checker.BLACK : Checker.WHITE;
-		
+		State.Checker otherChecker = p == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
+
 		for (String position : state.positions) {
 			if (board.get(position) == p) {
 				temp = new PhaseFinalAction();
 				temp.setFrom(position);
 				for (String toPos : state.positions) {
 					if (board.get(toPos) == Checker.EMPTY) {
-						
+
 						temp.setTo(toPos);
 						newState = state.clone();
 						newState.getBoard().put(toPos, p);
@@ -383,7 +401,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 							if (Util.hasCompletedTriple(newState, toPos, p)) {
 								boolean foundRemovableChecker = false;
 								for (String otherPosition : state.positions) {
-									if (board.get(otherPosition) == otherChecker && !Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
+									if (board.get(otherPosition) == otherChecker
+											&& !Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
 										temp.setRemoveOpponentChecker(otherPosition);
 										newState = PhaseFinal.applyMove(state, temp, p);
 										result.put(temp, newState);
@@ -393,7 +412,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 								}
 								if (!foundRemovableChecker) {
 									for (String otherPosition : state.positions) {
-										if (board.get(otherPosition) == otherChecker && Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
+										if (board.get(otherPosition) == otherChecker
+												&& Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
 											temp.setRemoveOpponentChecker(otherPosition);
 											newState = PhaseFinal.applyMove(state, temp, p);
 											result.put(temp, newState);
@@ -409,29 +429,35 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 						} catch (WrongPhaseException | PositionNotEmptyException | NullCheckerException
 								| WrongPositionException | TryingToRemoveOwnCheckerException
 								| TryingToRemoveEmptyCheckerException | NullStateException
-								| TryingToRemoveCheckerInTripleException | NullActionException | TryingToMoveOpponentCheckerException | FromAndToAreEqualsException | FromAndToAreNotConnectedException e) {
+								| TryingToRemoveCheckerInTripleException | NullActionException
+								| TryingToMoveOpponentCheckerException | FromAndToAreEqualsException
+								| FromAndToAreNotConnectedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						
+
 					}
 				}
 			}
 		}
-		
+
 		return result;
 	}
-	
-	public static int heuristic (State state, String position, Checker p) throws Exception {
+
+	public static int heuristic(State state, String position, Checker p) throws Exception {
 		// controllo se vado in pareggio
-		if(statesAlreadySeen.contains(state))
+		if (statesAlreadySeen.contains(state))
 			return 0;
-		
-		switch(state.getCurrentPhase()) {
-		case FIRST: return heuristicPhase1(state, position, p);
-		case SECOND: return heuristicPhase2(state, position, p);
-		case FINAL: return heuristicPhaseFinalOr2(state, position, p);
-		default: throw new Exception("Illegal Phase");
+
+		switch (state.getCurrentPhase()) {
+		case FIRST:
+			return heuristicPhase1(state, position, p);
+		case SECOND:
+			return heuristicPhase2(state, position, p);
+		case FINAL:
+			return heuristicPhaseFinalOr2(state, position, p);
+		default:
+			throw new Exception("Illegal Phase");
 		}
 	}
 
@@ -443,7 +469,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				return heuristicPhaseFinal(state, position, p);
 			}
 		}
-		//Player is BLACK
+		// Player is BLACK
 		else {
 			if (state.getBlackCheckersOnBoard() > 3)
 				return heuristicPhase2(state, position, p);
@@ -455,194 +481,190 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 
 	private static int heuristicPhaseFinal(State state, String position, Checker p) {
 		int result = 0;
-		Checker otherPlayer = player==Checker.WHITE ? Checker.BLACK : Checker.WHITE;
-		
+
 		// number of 2 pieces configuration
-				int twoPiecesConfigurationPlayer = 0;
-				int twoPiecesConfigurationOtherPlayer = 0;
-				for(String pos : state.positions) {
-					if(state.getBoard().get(pos) == player) {
-						int emptyPosH = 0;
-						int occupiedPosH = 0;
+		int twoPiecesConfigurationPlayer = 0;
+		int twoPiecesConfigurationOtherPlayer = 0;
+		for (String pos : state.positions) {
+			if (state.getBoard().get(pos) == player) {
+				int emptyPosH = 0;
+				int occupiedPosH = 0;
 
-						String[] hSet = Util.getHSet(pos);
-						
-						for(String hPos : hSet) {
-							if(state.getBoard().get(hPos) == player)
-								occupiedPosH++;
-							if(state.getBoard().get(hPos) == Checker.EMPTY)
-								emptyPosH++;
-						}
-						
-						if(emptyPosH == 1 && occupiedPosH == 2)
-							twoPiecesConfigurationPlayer++;
-						
-						int emptyPosV = 0;
-						int occupiedPosV = 0;
-						
-						String[] vSet = Util.getVSet(pos);
-						
-						for(String vPos : vSet) {
-							if(state.getBoard().get(vPos) == player)
-								occupiedPosV++;
-							if(state.getBoard().get(vPos) == Checker.EMPTY)
-								emptyPosV++;
-						}
-						
-						if(emptyPosV == 1 && occupiedPosV == 2)
-							twoPiecesConfigurationPlayer++;
-					}
-					
-					if(state.getBoard().get(pos) == otherPlayer) {
-						int emptyPosH = 0;
-						int occupiedPosH = 0;
+				String[] hSet = Util.getHSet(pos);
 
-						String[] hSet = Util.getHSet(pos);
-						
-						for(String hPos : hSet) {
-							if(state.getBoard().get(hPos) == otherPlayer)
-								occupiedPosH++;
-							if(state.getBoard().get(hPos) == Checker.EMPTY)
-								emptyPosH++;
-						}
-						
-						if(emptyPosH == 1 && occupiedPosH == 2)
-							twoPiecesConfigurationOtherPlayer++;
-						
-						int emptyPosV = 0;
-						int occupiedPosV = 0;
-						
-						String[] vSet = Util.getVSet(pos);
-						
-						for(String vPos : vSet) {
-							if(state.getBoard().get(vPos) == otherPlayer)
-								occupiedPosV++;
-							if(state.getBoard().get(vPos) == Checker.EMPTY)
-								emptyPosV++;
-						}
-						
-						if(emptyPosV == 1 && occupiedPosV == 2)
-							twoPiecesConfigurationOtherPlayer++;
-					}
+				for (String hPos : hSet) {
+					if (state.getBoard().get(hPos) == player)
+						occupiedPosH++;
+					if (state.getBoard().get(hPos) == Checker.EMPTY)
+						emptyPosH++;
 				}
-				result += 10*(twoPiecesConfigurationPlayer/2);
-				result -= 10*(twoPiecesConfigurationOtherPlayer/2); 
-				
-				// number of 3 pieces configuration
-				int threePiecesConfigurationPlayer = 0;
-				int threePiecesConfigurationOtherPlayer = 0;
-				for(String pos : state.positions) {
-					if(state.getBoard().get(pos) == player) {
-						int emptyPosH = 0;
-						int occupiedPosH = 0;
 
-						String[] hSet = Util.getHSet(pos);
-						
-						for(String hPos : hSet) {
-							if(state.getBoard().get(hPos) == player)
-								occupiedPosH++;
-							if(state.getBoard().get(hPos) == Checker.EMPTY)
-								emptyPosH++;
-						}
-						
-						int emptyPosV = 0;
-						int occupiedPosV = 0;
-						
-						String[] vSet = Util.getVSet(pos);
-						
-						for(String vPos : vSet) {
-							if(state.getBoard().get(vPos) == player)
-								occupiedPosV++;
-							if(state.getBoard().get(vPos) == Checker.EMPTY)
-								emptyPosV++;
-						}
-						
-						if(emptyPosH == 1 && occupiedPosH == 2 && emptyPosV == 1 && occupiedPosV == 2)
-							threePiecesConfigurationPlayer++;
-					}
-					
-					if(state.getBoard().get(pos) == otherPlayer) {
-						int emptyPosH = 0;
-						int occupiedPosH = 0;
+				if (emptyPosH == 1 && occupiedPosH == 2)
+					twoPiecesConfigurationPlayer++;
 
-						String[] hSet = Util.getHSet(pos);
-						
-						for(String hPos : hSet) {
-							if(state.getBoard().get(hPos) == otherPlayer)
-								occupiedPosH++;
-							if(state.getBoard().get(hPos) == Checker.EMPTY)
-								emptyPosH++;
-						}
-						
-						int emptyPosV = 0;
-						int occupiedPosV = 0;
-						
-						String[] vSet = Util.getVSet(pos);
-						
-						for(String vPos : vSet) {
-							if(state.getBoard().get(vPos) == otherPlayer)
-								occupiedPosV++;
-							if(state.getBoard().get(vPos) == Checker.EMPTY)
-								emptyPosV++;
-						}
-						
-						if(emptyPosH == 1 && occupiedPosH == 2 && emptyPosV == 1 && occupiedPosV == 2)
-							threePiecesConfigurationOtherPlayer++;
-					}
+				int emptyPosV = 0;
+				int occupiedPosV = 0;
+
+				String[] vSet = Util.getVSet(pos);
+
+				for (String vPos : vSet) {
+					if (state.getBoard().get(vPos) == player)
+						occupiedPosV++;
+					if (state.getBoard().get(vPos) == Checker.EMPTY)
+						emptyPosV++;
 				}
-				result += threePiecesConfigurationPlayer;
-				result -= threePiecesConfigurationOtherPlayer;
 
-		
+				if (emptyPosV == 1 && occupiedPosV == 2)
+					twoPiecesConfigurationPlayer++;
+			}
+
+			if (state.getBoard().get(pos) == otherPlayer) {
+				int emptyPosH = 0;
+				int occupiedPosH = 0;
+
+				String[] hSet = Util.getHSet(pos);
+
+				for (String hPos : hSet) {
+					if (state.getBoard().get(hPos) == otherPlayer)
+						occupiedPosH++;
+					if (state.getBoard().get(hPos) == Checker.EMPTY)
+						emptyPosH++;
+				}
+
+				if (emptyPosH == 1 && occupiedPosH == 2)
+					twoPiecesConfigurationOtherPlayer++;
+
+				int emptyPosV = 0;
+				int occupiedPosV = 0;
+
+				String[] vSet = Util.getVSet(pos);
+
+				for (String vPos : vSet) {
+					if (state.getBoard().get(vPos) == otherPlayer)
+						occupiedPosV++;
+					if (state.getBoard().get(vPos) == Checker.EMPTY)
+						emptyPosV++;
+				}
+
+				if (emptyPosV == 1 && occupiedPosV == 2)
+					twoPiecesConfigurationOtherPlayer++;
+			}
+		}
+		result += 10 * (twoPiecesConfigurationPlayer / 2);
+		result -= 10 * (twoPiecesConfigurationOtherPlayer / 2);
+
+		// number of 3 pieces configuration
+		int threePiecesConfigurationPlayer = 0;
+		int threePiecesConfigurationOtherPlayer = 0;
+		for (String pos : state.positions) {
+			if (state.getBoard().get(pos) == player) {
+				int emptyPosH = 0;
+				int occupiedPosH = 0;
+
+				String[] hSet = Util.getHSet(pos);
+
+				for (String hPos : hSet) {
+					if (state.getBoard().get(hPos) == player)
+						occupiedPosH++;
+					if (state.getBoard().get(hPos) == Checker.EMPTY)
+						emptyPosH++;
+				}
+
+				int emptyPosV = 0;
+				int occupiedPosV = 0;
+
+				String[] vSet = Util.getVSet(pos);
+
+				for (String vPos : vSet) {
+					if (state.getBoard().get(vPos) == player)
+						occupiedPosV++;
+					if (state.getBoard().get(vPos) == Checker.EMPTY)
+						emptyPosV++;
+				}
+
+				if (emptyPosH == 1 && occupiedPosH == 2 && emptyPosV == 1 && occupiedPosV == 2)
+					threePiecesConfigurationPlayer++;
+			}
+
+			if (state.getBoard().get(pos) == otherPlayer) {
+				int emptyPosH = 0;
+				int occupiedPosH = 0;
+
+				String[] hSet = Util.getHSet(pos);
+
+				for (String hPos : hSet) {
+					if (state.getBoard().get(hPos) == otherPlayer)
+						occupiedPosH++;
+					if (state.getBoard().get(hPos) == Checker.EMPTY)
+						emptyPosH++;
+				}
+
+				int emptyPosV = 0;
+				int occupiedPosV = 0;
+
+				String[] vSet = Util.getVSet(pos);
+
+				for (String vPos : vSet) {
+					if (state.getBoard().get(vPos) == otherPlayer)
+						occupiedPosV++;
+					if (state.getBoard().get(vPos) == Checker.EMPTY)
+						emptyPosV++;
+				}
+
+				if (emptyPosH == 1 && occupiedPosH == 2 && emptyPosV == 1 && occupiedPosV == 2)
+					threePiecesConfigurationOtherPlayer++;
+			}
+		}
+		result += threePiecesConfigurationPlayer;
+		result -= threePiecesConfigurationOtherPlayer;
+
 		// closed morris
-		if(p == player) {
+		if (p == player) {
 			if (Util.hasCompletedTriple(state, position, p)) {
 				result += 16;
 			}
 		} else { // other player
 			if (Util.hasCompletedTriple(state, position, p)) {
-			result -= 16;
+				result -= 16;
 			}
 		}
-		
-		
+
 		return result;
 	}
 
 	private static int heuristicPhase2(State state, String position, Checker p) {
 		int result = 0;
-		Checker otherPlayer = player==Checker.WHITE ? Checker.BLACK : Checker.WHITE;
-		
+
 		// closed morris
-		if(p == player) {
+		if (p == player) {
 			if (Util.hasCompletedTriple(state, position, p)) {
 				result += 14;
 			}
 		} else { // other player
 			if (Util.hasCompletedTriple(state, position, p)) {
-			result -= 14;
+				result -= 14;
 			}
 		}
-		
+
 		// morrises number
 		int morrisClosed3player = 0;
 		int morrisClosed3OtherPlayer = 0;
 		for (String pos : state.positions) {
-				if (state.getBoard().get(pos) == player) {
+			if (state.getBoard().get(pos) == player) {
 				if (Util.hasCompletedTriple(state, pos, player)) {
 					morrisClosed3player++;
 				}
 			}
-			
+
 			if (state.getBoard().get(pos) == otherPlayer) {
 				if (Util.hasCompletedTriple(state, pos, otherPlayer)) {
 					morrisClosed3OtherPlayer++;
 				}
 			}
 		}
-		result += 43*(morrisClosed3player/3);
-		result -= 43*(morrisClosed3OtherPlayer/3);
-		
+		result += 43 * (morrisClosed3player / 3);
+		result -= 43 * (morrisClosed3OtherPlayer / 3);
+
 		// number of blocked oppenent pieces
 		int blockedPiecesPlayer = 0;
 		int blockedPiecesOtherPlayer = 0;
@@ -662,7 +684,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 					blockedPiecesPlayer++;
 				}
 			}
-			
+
 			if (state.getBoard().get(pos) == player) {
 				boolean isBlocked = true;
 				try {
@@ -679,44 +701,43 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				}
 			}
 		}
-		result += 10*blockedPiecesPlayer;
-		result -= 10*blockedPiecesOtherPlayer;
-		
+		result += 10 * blockedPiecesPlayer;
+		result -= 10 * blockedPiecesOtherPlayer;
+
 		// pieces number
-		if (p == Checker.WHITE)
-			result += 8*(state.getWhiteCheckersOnBoard() - state.getBlackCheckersOnBoard());
-		else 
-			result += 8*(state.getBlackCheckersOnBoard() - state.getBlackCheckersOnBoard());
+		if (player == Checker.WHITE)
+			result += 6 * (state.getWhiteCheckersOnBoard() - state.getBlackCheckersOnBoard());
+		else
+			result += 6 * (state.getBlackCheckersOnBoard() - state.getWhiteCheckersOnBoard());
 
 		// opened morris (che cazzo è???)
-			
+
 		// double morris
 		int doubleMorrisPlayer = 0;
 		int doubleMorrisOtherPlayer = 0;
-		for(String pos : state.positions) {
-			if(state.getBoard().get(pos) == player) {
-				if(Util.isInHTriple(state, pos) && Util.isInVTriple(state, pos))
+		for (String pos : state.positions) {
+			if (state.getBoard().get(pos) == player) {
+				if (Util.isInHTriple(state, pos) && Util.isInVTriple(state, pos))
 					doubleMorrisPlayer++;
 			}
-			
-			if(state.getBoard().get(pos) == otherPlayer) {
-				if(Util.isInHTriple(state, pos) && Util.isInVTriple(state, pos))
+
+			if (state.getBoard().get(pos) == otherPlayer) {
+				if (Util.isInHTriple(state, pos) && Util.isInVTriple(state, pos))
 					doubleMorrisOtherPlayer++;
-				
+
 			}
 		}
-		result += 42*doubleMorrisPlayer;
-		result -= 42*doubleMorrisOtherPlayer;
-		
+		result += 42 * doubleMorrisPlayer;
+		result -= 42 * doubleMorrisOtherPlayer;
+
 		return result;
 	}
 
 	private static int heuristicPhase1(State state, String position, Checker p) {
-		int result=0;
-		Checker otherPlayer = player==Checker.WHITE ? Checker.BLACK : Checker.WHITE;
-		
+		int result = 0;
+
 		// closed morris
-		if(p == player) {
+		if (p == player) {
 			if (Util.hasCompletedTriple(state, position, p)) {
 				result += 18;
 			}
@@ -725,7 +746,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				result -= 18;
 			}
 		}
-		
+
 		// morrises number
 		int morrisClosed3player = 0;
 		int morrisClosed3OtherPlayer = 0;
@@ -735,16 +756,16 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 					morrisClosed3player++;
 				}
 			}
-			
+
 			if (state.getBoard().get(pos) == otherPlayer) {
 				if (Util.hasCompletedTriple(state, pos, otherPlayer)) {
 					morrisClosed3OtherPlayer++;
 				}
 			}
 		}
-		result += 26*(morrisClosed3player/3);
-		result -= 26*(morrisClosed3OtherPlayer/3);
-		
+		result += 26 * (morrisClosed3player / 3);
+		result -= 26 * (morrisClosed3OtherPlayer / 3);
+
 		// number of blocked oppenent pieces
 		int blockedPiecesPlayer = 0;
 		int blockedPiecesOtherPlayer = 0;
@@ -764,7 +785,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 					blockedPiecesPlayer++;
 				}
 			}
-			
+
 			if (state.getBoard().get(pos) == player) {
 				boolean isBlocked = true;
 				try {
@@ -783,153 +804,152 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		}
 		result += blockedPiecesPlayer;
 		result -= blockedPiecesOtherPlayer;
-		
+
 		// pieces number
-		if (p == Checker.WHITE)
-			result += 6*(state.getWhiteCheckersOnBoard() - state.getBlackCheckersOnBoard());
-		else 
-			result += 6*(state.getBlackCheckersOnBoard() - state.getBlackCheckersOnBoard());
-		
-		
+		if (player == Checker.WHITE)
+			result += 6 * (state.getWhiteCheckersOnBoard() - state.getBlackCheckersOnBoard());
+		else
+			result += 6 * (state.getBlackCheckersOnBoard() - state.getWhiteCheckersOnBoard());
+
 		// number of 2 pieces configuration
 		int twoPiecesConfigurationPlayer = 0;
 		int twoPiecesConfigurationOtherPlayer = 0;
-		for(String pos : state.positions) {
-			if(state.getBoard().get(pos) == player) {
+		for (String pos : state.positions) {
+			if (state.getBoard().get(pos) == player) {
 				int emptyPosH = 0;
 				int occupiedPosH = 0;
 
 				String[] hSet = Util.getHSet(pos);
-				
-				for(String hPos : hSet) {
-					if(state.getBoard().get(hPos) == player)
+
+				for (String hPos : hSet) {
+					if (state.getBoard().get(hPos) == player)
 						occupiedPosH++;
-					if(state.getBoard().get(hPos) == Checker.EMPTY)
+					if (state.getBoard().get(hPos) == Checker.EMPTY)
 						emptyPosH++;
 				}
-				
-				if(emptyPosH == 1 && occupiedPosH == 2)
+
+				if (emptyPosH == 1 && occupiedPosH == 2)
 					twoPiecesConfigurationPlayer++;
-				
+
 				int emptyPosV = 0;
 				int occupiedPosV = 0;
-				
+
 				String[] vSet = Util.getVSet(pos);
-				
-				for(String vPos : vSet) {
-					if(state.getBoard().get(vPos) == player)
+
+				for (String vPos : vSet) {
+					if (state.getBoard().get(vPos) == player)
 						occupiedPosV++;
-					if(state.getBoard().get(vPos) == Checker.EMPTY)
+					if (state.getBoard().get(vPos) == Checker.EMPTY)
 						emptyPosV++;
 				}
-				
-				if(emptyPosV == 1 && occupiedPosV == 2)
+
+				if (emptyPosV == 1 && occupiedPosV == 2)
 					twoPiecesConfigurationPlayer++;
 			}
-			
-			if(state.getBoard().get(pos) == otherPlayer) {
+
+			if (state.getBoard().get(pos) == otherPlayer) {
 				int emptyPosH = 0;
 				int occupiedPosH = 0;
 
 				String[] hSet = Util.getHSet(pos);
-				
-				for(String hPos : hSet) {
-					if(state.getBoard().get(hPos) == otherPlayer)
+
+				for (String hPos : hSet) {
+					if (state.getBoard().get(hPos) == otherPlayer)
 						occupiedPosH++;
-					if(state.getBoard().get(hPos) == Checker.EMPTY)
+					if (state.getBoard().get(hPos) == Checker.EMPTY)
 						emptyPosH++;
 				}
-				
-				if(emptyPosH == 1 && occupiedPosH == 2)
+
+				if (emptyPosH == 1 && occupiedPosH == 2)
 					twoPiecesConfigurationOtherPlayer++;
-				
+
 				int emptyPosV = 0;
 				int occupiedPosV = 0;
-				
+
 				String[] vSet = Util.getVSet(pos);
-				
-				for(String vPos : vSet) {
-					if(state.getBoard().get(vPos) == otherPlayer)
+
+				for (String vPos : vSet) {
+					if (state.getBoard().get(vPos) == otherPlayer)
 						occupiedPosV++;
-					if(state.getBoard().get(vPos) == Checker.EMPTY)
+					if (state.getBoard().get(vPos) == Checker.EMPTY)
 						emptyPosV++;
 				}
-				
-				if(emptyPosV == 1 && occupiedPosV == 2)
+
+				if (emptyPosV == 1 && occupiedPosV == 2)
 					twoPiecesConfigurationOtherPlayer++;
 			}
 		}
-		result += 12*(twoPiecesConfigurationPlayer/2);
-		result -= 12*(twoPiecesConfigurationOtherPlayer/2); 
-		
+		result += 12 * (twoPiecesConfigurationPlayer / 2);
+		result -= 12 * (twoPiecesConfigurationOtherPlayer / 2);
+
 		// number of 3 pieces configuration
 		int threePiecesConfigurationPlayer = 0;
 		int threePiecesConfigurationOtherPlayer = 0;
-		for(String pos : state.positions) {
-			if(state.getBoard().get(pos) == player) {
+		for (String pos : state.positions) {
+			if (state.getBoard().get(pos) == player) {
 				int emptyPosH = 0;
 				int occupiedPosH = 0;
 
 				String[] hSet = Util.getHSet(pos);
-				
-				for(String hPos : hSet) {
-					if(state.getBoard().get(hPos) == player)
+
+				for (String hPos : hSet) {
+					if (state.getBoard().get(hPos) == player)
 						occupiedPosH++;
-					if(state.getBoard().get(hPos) == Checker.EMPTY)
+					if (state.getBoard().get(hPos) == Checker.EMPTY)
 						emptyPosH++;
 				}
-				
+
 				int emptyPosV = 0;
 				int occupiedPosV = 0;
-				
+
 				String[] vSet = Util.getVSet(pos);
-				
-				for(String vPos : vSet) {
-					if(state.getBoard().get(vPos) == player)
+
+				for (String vPos : vSet) {
+					if (state.getBoard().get(vPos) == player)
 						occupiedPosV++;
-					if(state.getBoard().get(vPos) == Checker.EMPTY)
+					if (state.getBoard().get(vPos) == Checker.EMPTY)
 						emptyPosV++;
 				}
-				
-				if(emptyPosH == 1 && occupiedPosH == 2 && emptyPosV == 1 && occupiedPosV == 2)
+
+				if (emptyPosH == 1 && occupiedPosH == 2 && emptyPosV == 1 && occupiedPosV == 2)
 					threePiecesConfigurationPlayer++;
 			}
-			
-			if(state.getBoard().get(pos) == otherPlayer) {
+
+			if (state.getBoard().get(pos) == otherPlayer) {
 				int emptyPosH = 0;
 				int occupiedPosH = 0;
 
 				String[] hSet = Util.getHSet(pos);
-				
-				for(String hPos : hSet) {
-					if(state.getBoard().get(hPos) == otherPlayer)
+
+				for (String hPos : hSet) {
+					if (state.getBoard().get(hPos) == otherPlayer)
 						occupiedPosH++;
-					if(state.getBoard().get(hPos) == Checker.EMPTY)
+					if (state.getBoard().get(hPos) == Checker.EMPTY)
 						emptyPosH++;
 				}
-				
+
 				int emptyPosV = 0;
 				int occupiedPosV = 0;
-				
+
 				String[] vSet = Util.getVSet(pos);
-				
-				for(String vPos : vSet) {
-					if(state.getBoard().get(vPos) == otherPlayer)
+
+				for (String vPos : vSet) {
+					if (state.getBoard().get(vPos) == otherPlayer)
 						occupiedPosV++;
-					if(state.getBoard().get(vPos) == Checker.EMPTY)
+					if (state.getBoard().get(vPos) == Checker.EMPTY)
 						emptyPosV++;
 				}
-				
-				if(emptyPosH == 1 && occupiedPosH == 2 && emptyPosV == 1 && occupiedPosV == 2)
+
+				if (emptyPosH == 1 && occupiedPosH == 2 && emptyPosV == 1 && occupiedPosV == 2)
 					threePiecesConfigurationOtherPlayer++;
 			}
 		}
-		result += 7*threePiecesConfigurationPlayer;
-		result -= 7*threePiecesConfigurationOtherPlayer;
-			
+		result += 7 * threePiecesConfigurationPlayer;
+		result -= 7 * threePiecesConfigurationOtherPlayer;
+
 		return result;
 	}
-	
+
 	private static boolean isWinningState(State state, Checker p) {
 		if (state.getCurrentPhase() == State.Phase.FIRST)
 			return false;
@@ -937,8 +957,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 			return true;
 		else if (p == Checker.BLACK && state.getWhiteCheckersOnBoard() < 3)
 			return true;
-		
-		Checker otherPlayer = player==Checker.WHITE ? Checker.BLACK : Checker.WHITE;
+
+		Checker otherPlayer = player == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
 		for (String position : state.positions) {
 			if (state.getBoard().get(position) == otherPlayer) {
 				boolean isBlocked = true;
