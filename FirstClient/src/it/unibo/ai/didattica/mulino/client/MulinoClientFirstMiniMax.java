@@ -3,7 +3,7 @@ package it.unibo.ai.didattica.mulino.client;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -111,7 +111,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 	}
 
 	public static ValuedAction max(State state, int maxDepth) throws Exception {
-		HashMap<Action, State> successors = successors(state, player);
+		LinkedHashMap<Action, State> successors = successors(state, player);
 		ValuedAction result = new ValuedAction(null, Integer.MIN_VALUE);
 		ValuedAction temp;
 		State newState;
@@ -156,7 +156,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 
 	public static ValuedAction min(State state, int maxDepth) throws Exception {
 		Checker minPlayer = player == Checker.BLACK ? Checker.WHITE : Checker.BLACK;
-		HashMap<Action, State> successors = successors(state, minPlayer);
+		LinkedHashMap<Action, State> successors = successors(state, minPlayer);
 		ValuedAction result = new ValuedAction(null, Integer.MAX_VALUE);
 		ValuedAction temp;
 		State newState;
@@ -199,7 +199,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		return result;
 	}
 
-	public static HashMap<Action, State> successors(State state, Checker p) throws Exception {
+	public static LinkedHashMap<Action, State> successors(State state, Checker p) throws Exception {
 		switch (state.getCurrentPhase()) {
 		case FIRST:
 			return successorsFirst(state, p);
@@ -212,11 +212,11 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		}
 	}
 
-	public static HashMap<Action, State> successorsFirst(State state, Checker p) {
-		HashMap<Action, State> result = new HashMap<Action, State>();
+	public static LinkedHashMap<Action, State> successorsFirst(State state, Checker p) {
+		LinkedHashMap<Action, State> result = new LinkedHashMap<Action, State>();
 		Phase1Action temp;
 		State newState;
-		HashMap<String, Checker> board = state.getBoard();
+		LinkedHashMap<String, Checker> board = new LinkedHashMap<String, Checker>(state.getBoard());
 		State.Checker otherChecker = p == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
 
 		for (String position : state.positions) {
@@ -267,11 +267,11 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		return result;
 	}
 
-	public static HashMap<Action, State> successorsSecond(State state, Checker p) {
-		HashMap<Action, State> result = new HashMap<Action, State>();
+	public static LinkedHashMap<Action, State> successorsSecond(State state, Checker p) {
+		LinkedHashMap<Action, State> result = new LinkedHashMap<Action, State>();
 		Phase2Action temp;
 		State newState;
-		HashMap<String, Checker> board = state.getBoard();
+		LinkedHashMap<String, Checker> board = new LinkedHashMap<String, Checker>(state.getBoard());
 		State.Checker otherChecker = p == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
 
 		for (String position : state.positions) {
@@ -362,10 +362,10 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		return result;
 	}
 
-	public static HashMap<Action, State> successorsFinalOrSecond(State state, Checker p) {		
+	public static LinkedHashMap<Action, State> successorsFinalOrSecond(State state, Checker p) {		
 		if (p == Checker.WHITE) {
 			if (state.getWhiteCheckersOnBoard() > 3) {
-				HashMap<Action, State> resultMap = new HashMap<>();
+				LinkedHashMap<Action, State> resultMap = new LinkedHashMap<>();
 				successorsSecond(state, p).
 						forEach((k, v) -> {Phase2Action action = (Phase2Action) k;
 									PhaseFinalAction result = new PhaseFinalAction();
@@ -383,7 +383,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		// Player is BLACK
 		else {
 			if (state.getBlackCheckersOnBoard() > 3) {
-				HashMap<Action, State> resultMap = new HashMap<>();
+				LinkedHashMap<Action, State> resultMap = new LinkedHashMap<>();
 				successorsSecond(state, p).
 						forEach((k, v) -> {Phase2Action action = (Phase2Action) k;
 									PhaseFinalAction result = new PhaseFinalAction();
@@ -400,11 +400,11 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		}
 	}
 
-	public static HashMap<Action, State> successorsFinal(State state, Checker p) {
-		HashMap<Action, State> result = new HashMap<Action, State>();
+	public static LinkedHashMap<Action, State> successorsFinal(State state, Checker p) {
+		LinkedHashMap<Action, State> result = new LinkedHashMap<Action, State>();
 		PhaseFinalAction temp;
 		State newState;
-		HashMap<String, Checker> board = state.getBoard();
+		LinkedHashMap<String, Checker> board = new LinkedHashMap<String, Checker>(state.getBoard());
 		State.Checker otherChecker = p == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
 
 		for (String position : state.positions) {

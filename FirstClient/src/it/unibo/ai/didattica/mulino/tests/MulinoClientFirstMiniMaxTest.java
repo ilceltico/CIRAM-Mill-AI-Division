@@ -32,7 +32,7 @@ public class MulinoClientFirstMiniMaxTest {
 		Action a;
 		
 		try {
-			for (int i=0; i<500; i++) {
+			for (int i=0; i<10; i++) {
 				MulinoClientFirstMiniMax.player = Checker.WHITE;
 				a = MulinoClientFirstMiniMax.minimaxDecision(state, 1);
 				
@@ -45,7 +45,7 @@ public class MulinoClientFirstMiniMaxTest {
 				System.out.println(state);
 				
 				MulinoClientFirstMiniMax.player = Checker.BLACK;
-				a = MulinoClientFirstMiniMax.minimaxDecision(state, 3);
+				a = MulinoClientFirstMiniMax.minimaxDecision(state, 1);
 				
 				switch(state.getCurrentPhase()) {
 				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
