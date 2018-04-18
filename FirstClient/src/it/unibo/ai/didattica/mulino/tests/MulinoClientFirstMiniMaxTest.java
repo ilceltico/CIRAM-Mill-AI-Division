@@ -32,8 +32,28 @@ public class MulinoClientFirstMiniMaxTest {
 		Action a;
 		
 		try {
-			for (int i=0; i<30; i++) {
+			for (int i=0; i<1000; i++) {
 				MulinoClientFirstMiniMax.player = Checker.WHITE;
+				a = MulinoClientFirstMiniMax.minimaxDecision(state, 4);
+				
+				switch(state.getCurrentPhase()) {
+				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
+				case SECOND: state = Phase2.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
+				case FINAL: state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
+				default: throw new Exception("Illegal Phase");
+				}
+				System.out.println(state);
+				if (MulinoClientFirstMiniMax.statesAlreadySeen.contains(state)) {
+					System.out.println("Pareggio scatenato dal W in " + (i+1) + " mosse");
+					System.exit(0);
+				}
+				if (MulinoClientFirstMiniMax.isWinningState(state, Checker.WHITE)) {
+					System.out.println("Vittoria W in " + (i+1) + " mosse");
+					System.exit(0);
+				}
+				MulinoClientFirstMiniMax.statesAlreadySeen.add(state);
+				
+				MulinoClientFirstMiniMax.player = Checker.BLACK;
 				a = MulinoClientFirstMiniMax.minimaxDecision(state, 3);
 				
 				switch(state.getCurrentPhase()) {
@@ -43,17 +63,15 @@ public class MulinoClientFirstMiniMaxTest {
 				default: throw new Exception("Illegal Phase");
 				}
 				System.out.println(state);
-				
-				MulinoClientFirstMiniMax.player = Checker.BLACK;
-				a = MulinoClientFirstMiniMax.minimaxDecision(state, 1);
-				
-				switch(state.getCurrentPhase()) {
-				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
-				case SECOND: state = Phase2.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
-				case FINAL: state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
-				default: throw new Exception("Illegal Phase");
+				if (MulinoClientFirstMiniMax.statesAlreadySeen.contains(state)) {
+					System.out.println("Pareggio scatenato dal B in " + (i+1) + " mosse");
+					System.exit(0);
 				}
-				System.out.println(state);
+				if (MulinoClientFirstMiniMax.isWinningState(state, Checker.BLACK)) {
+					System.out.println("Vittoria B in " + (i+1) + " mosse");
+					System.exit(0);
+				}
+				MulinoClientFirstMiniMax.statesAlreadySeen.add(state);
 				
 
 				System.out.println(i);

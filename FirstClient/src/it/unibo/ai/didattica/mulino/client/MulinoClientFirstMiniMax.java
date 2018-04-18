@@ -46,7 +46,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 	private static long elapsedTime;
 	public static final int MAXDEPTH = 1;
 	// public static final int THREAD_NUMBER = 4;
-	private static List<State> statesAlreadySeen = new ArrayList<>();
+	public static List<State> statesAlreadySeen = new ArrayList<>();
 
 	public static void main(String[] args) throws Exception {
 		MulinoClient mulinoClient = null;
@@ -107,6 +107,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
 		System.out.println("Selected action is: " + a);
+		expandedStates = 0;
 		return a.getAction();
 	}
 
@@ -120,11 +121,14 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
 			if (isWinningState(newState, player)) {
-				result = new ValuedAction(a, Integer.MAX_VALUE);
+				result = new ValuedAction(a, Integer.MAX_VALUE-1);
 				return result;
 			}
-			if (maxDepth > 1)
+			if (maxDepth > 1) {
+				statesAlreadySeen.add(newState);
 				temp = min(newState, maxDepth - 1);
+				statesAlreadySeen.remove(newState);
+			}
 			else {
 				switch (state.getCurrentPhase()) {
 				case FIRST:
@@ -149,8 +153,6 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 			}
 		}
 
-		statesAlreadySeen.add(nextState);
-
 		return result;
 	}
 
@@ -165,11 +167,13 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
 			if (isWinningState(newState, minPlayer)) {
-				result = new ValuedAction(a, Integer.MIN_VALUE);
+				result = new ValuedAction(a, Integer.MIN_VALUE+1);
 				return result;
 			}
 			if (maxDepth > 1) {
+				statesAlreadySeen.add(newState);
 				temp = max(newState, maxDepth - 1);
+				statesAlreadySeen.remove(newState);
 			} else {
 				switch (state.getCurrentPhase()) {
 				case FIRST:
@@ -193,8 +197,6 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				nextState = newState;
 			}
 		}
-
-		statesAlreadySeen.add(nextState);
 
 		return result;
 	}
@@ -979,7 +981,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		return result;
 	}
 
-	private static boolean isWinningState(State state, Checker p) {
+	public static boolean isWinningState(State state, Checker p) {
 		if (state.getCurrentPhase() == State.Phase.FIRST)
 			return false;
 		if (p == Checker.WHITE && state.getBlackCheckersOnBoard() < 3)
