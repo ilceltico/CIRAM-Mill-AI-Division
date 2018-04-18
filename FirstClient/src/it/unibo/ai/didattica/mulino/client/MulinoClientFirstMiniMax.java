@@ -135,8 +135,26 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 					temp = new ValuedAction(a, heuristic(newState, action2.getTo(), player));
 					break;
 				case FINAL:
-					PhaseFinalAction actionFinal = (PhaseFinalAction) a;
-					temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
+					if (player == Checker.WHITE) {
+						if (state.getWhiteCheckersOnBoard() > 3) {
+							Phase2Action actionFinal = (Phase2Action) a;
+							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
+						} else {
+							PhaseFinalAction actionFinal = (PhaseFinalAction) a;
+							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
+						}
+					}
+					// Player is BLACK
+					else {
+						if (state.getBlackCheckersOnBoard() > 3) {
+							Phase2Action actionFinal = (Phase2Action) a;
+							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
+						} else {
+							PhaseFinalAction actionFinal = (PhaseFinalAction) a;
+							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
+						}
+					}
+
 					break;
 				default:
 					throw new Exception("Illegal Phase");
@@ -180,8 +198,25 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 					temp = new ValuedAction(a, heuristic(newState, action2.getTo(), player));
 					break;
 				case FINAL:
-					PhaseFinalAction actionFinal = (PhaseFinalAction) a;
-					temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
+					if (minPlayer == Checker.WHITE) {
+						if (state.getWhiteCheckersOnBoard() > 3) {
+							Phase2Action actionFinal = (Phase2Action) a;
+							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
+						} else {
+							PhaseFinalAction actionFinal = (PhaseFinalAction) a;
+							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
+						}
+					}
+					// Player is BLACK
+					else {
+						if (state.getBlackCheckersOnBoard() > 3) {
+							Phase2Action actionFinal = (Phase2Action) a;
+							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
+						} else {
+							PhaseFinalAction actionFinal = (PhaseFinalAction) a;
+							temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
+						}
+					}
 					break;
 				default:
 					throw new Exception("Illegal Phase");
