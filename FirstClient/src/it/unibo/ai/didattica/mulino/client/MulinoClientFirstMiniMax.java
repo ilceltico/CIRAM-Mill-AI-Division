@@ -285,6 +285,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 						if (board.get(adjPos) == Checker.EMPTY) {
 
 							temp.setTo(adjPos);
+							temp.setRemoveOpponentChecker(null);
 							newState = state.clone();
 							newState.getBoard().put(adjPos, p);
 							newState.getBoard().put(position, Checker.EMPTY);
@@ -415,6 +416,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 					if (board.get(toPos) == Checker.EMPTY) {
 
 						temp.setTo(toPos);
+						temp.setRemoveOpponentChecker(null);
 						newState = state.clone();
 						newState.getBoard().put(toPos, p);
 						newState.getBoard().put(position, Checker.EMPTY);
