@@ -993,27 +993,30 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 			return true;
 		else if (p == Checker.BLACK && state.getWhiteCheckersOnBoard() < 3)
 			return true;
-
-		Checker otherPlayer = player == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
-		for (String position : state.positions) {
-			if (state.getBoard().get(position) == otherPlayer) {
-				boolean isBlocked = true;
-				try {
-					for (String adjPos : Util.getAdiacentTiles(position)) {
-						if (state.getBoard().get(adjPos) == Checker.EMPTY) {
-							isBlocked = false;
-							break;
+		
+		if (state.getCurrentPhase() == State.Phase.SECOND) {
+			Checker otherPlayer = player == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
+			for (String position : state.positions) {
+				if (state.getBoard().get(position) == otherPlayer) {
+					boolean isBlocked = true;
+					try {
+						for (String adjPos : Util.getAdiacentTiles(position)) {
+							if (state.getBoard().get(adjPos) == Checker.EMPTY) {
+								isBlocked = false;
+								break;
+							}
 						}
+					} catch (WrongPositionException e) {
+						e.printStackTrace();
 					}
-				} catch (WrongPositionException e) {
-					e.printStackTrace();
-				}
-				if (!isBlocked) {
-					return false;
+					if (!isBlocked) {
+						return false;
+					}
 				}
 			}
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 }
