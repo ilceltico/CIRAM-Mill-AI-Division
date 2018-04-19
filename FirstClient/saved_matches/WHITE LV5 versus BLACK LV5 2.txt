@@ -1,0 +1,1636 @@
+WHITE LV5 versus BLACK LV5
+Dopo modifiche delle 2.35 di notte del 19 Aprile 2018.
+
+Elapsed time: 28036
+Expanded states: 5408544
+Selected action is: a4, value: 18
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 W--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 8;
+Black Checkers: 9;
+White Checkers On Board: 1;
+Black Checkers On Board: 0;
+
+Elapsed time: 21994
+Expanded states: 4328179
+Selected action is: a1, value: 11
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 W--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 8;
+Black Checkers: 8;
+White Checkers On Board: 1;
+Black Checkers On Board: 1;
+
+0
+Elapsed time: 19962
+Expanded states: 3456752
+Selected action is: b4, value: 18
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 W--W--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 8;
+White Checkers On Board: 2;
+Black Checkers On Board: 1;
+
+Elapsed time: 15098
+Expanded states: 2760169
+Selected action is: c4, value: 11
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 W--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 7;
+White Checkers On Board: 2;
+Black Checkers On Board: 2;
+
+1
+Elapsed time: 13240
+Expanded states: 2101524
+Selected action is: d1, value: 18
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 W--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 7;
+White Checkers On Board: 3;
+Black Checkers On Board: 2;
+
+Elapsed time: 9690
+Expanded states: 1621467
+Selected action is: d5, value: 11
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 6;
+White Checkers On Board: 3;
+Black Checkers On Board: 3;
+
+2
+Elapsed time: 8202
+Expanded states: 1260860
+Selected action is: d2, value: 38
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----W-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 5;
+Black Checkers: 6;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Elapsed time: 5978
+Expanded states: 1015161
+Selected action is: c5, value: 52
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--B--B--O--|--|
+4 W--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----W-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 5;
+Black Checkers: 5;
+White Checkers On Board: 4;
+Black Checkers On Board: 4;
+
+3
+Elapsed time: 5054
+Expanded states: 866707
+Selected action is: d3d5, value: 44
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--B--O--O--|--|
+4 W--W--B     O--O--O
+3 |--|--O--W--O--|--|
+2 |--O-----W-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 4;
+Black Checkers: 5;
+White Checkers On Board: 5;
+Black Checkers On Board: 3;
+
+Elapsed time: 4331
+Expanded states: 735518
+Selected action is: d5, value: 36
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--B--B--O--|--|
+4 W--W--B     O--O--O
+3 |--|--O--W--O--|--|
+2 |--O-----W-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 4;
+Black Checkers: 4;
+White Checkers On Board: 5;
+Black Checkers On Board: 4;
+
+4
+Elapsed time: 3496
+Expanded states: 529729
+Selected action is: b2, value: 57
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--B--B--O--|--|
+4 W--W--B     O--O--O
+3 |--|--O--W--O--|--|
+2 |--W-----W-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 3;
+Black Checkers: 4;
+White Checkers On Board: 6;
+Black Checkers On Board: 4;
+
+Elapsed time: 2473
+Expanded states: 455362
+Selected action is: b6, value: 46
+7 O--------O--------O
+6 |--B-----O-----O--|
+5 |--|--B--B--O--|--|
+4 W--W--B     O--O--O
+3 |--|--O--W--O--|--|
+2 |--W-----W-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 3;
+Black Checkers: 3;
+White Checkers On Board: 6;
+Black Checkers On Board: 5;
+
+5
+Elapsed time: 1816
+Expanded states: 295685
+Selected action is: f2d5, value: 48
+7 O--------O--------O
+6 |--B-----O-----O--|
+5 |--|--B--O--O--|--|
+4 W--W--B     O--O--O
+3 |--|--O--W--O--|--|
+2 |--W-----W-----W--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 2;
+Black Checkers: 3;
+White Checkers On Board: 7;
+Black Checkers On Board: 4;
+
+Elapsed time: 984
+Expanded states: 251389
+Selected action is: d7, value: 11
+7 O--------B--------O
+6 |--B-----O-----O--|
+5 |--|--B--O--O--|--|
+4 W--W--B     O--O--O
+3 |--|--O--W--O--|--|
+2 |--W-----W-----W--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 2;
+Black Checkers: 2;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+6
+Elapsed time: 432
+Expanded states: 90355
+Selected action is: f4, value: 51
+7 O--------B--------O
+6 |--B-----O-----O--|
+5 |--|--B--O--O--|--|
+4 W--W--B     O--W--O
+3 |--|--O--W--O--|--|
+2 |--W-----W-----W--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 1;
+Black Checkers: 2;
+White Checkers On Board: 8;
+Black Checkers On Board: 5;
+
+Elapsed time: 159
+Expanded states: 43974
+Selected action is: d5, value: 7
+7 O--------B--------O
+6 |--B-----O-----O--|
+5 |--|--B--B--O--|--|
+4 W--W--B     O--W--O
+3 |--|--O--W--O--|--|
+2 |--W-----W-----W--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 1;
+Black Checkers: 1;
+White Checkers On Board: 8;
+Black Checkers On Board: 6;
+
+7
+Elapsed time: 84
+Expanded states: 23227
+Selected action is: e3, value: 67
+7 O--------B--------O
+6 |--B-----O-----O--|
+5 |--|--B--B--O--|--|
+4 W--W--B     O--W--O
+3 |--|--O--W--W--|--|
+2 |--W-----W-----W--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 0;
+Black Checkers: 1;
+White Checkers On Board: 9;
+Black Checkers On Board: 6;
+
+Elapsed time: 46
+Expanded states: 13370
+Selected action is: d6f4, value: 27
+7 O--------B--------O
+6 |--B-----B-----O--|
+5 |--|--B--B--O--|--|
+4 W--W--B     O--O--O
+3 |--|--O--W--W--|--|
+2 |--W-----W-----W--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 7;
+
+8
+Elapsed time: 32
+Expanded states: 9946
+Selected action is: d3c3, value: 91
+7 O--------B--------O
+6 |--B-----B-----O--|
+5 |--|--B--B--O--|--|
+4 W--W--B     O--O--O
+3 |--|--W--O--W--|--|
+2 |--W-----W-----W--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 7;
+
+Elapsed time: 16
+Expanded states: 5310
+Selected action is: d5e5, value: -22
+7 O--------B--------O
+6 |--B-----B-----O--|
+5 |--|--B--O--B--|--|
+4 W--W--B     O--O--O
+3 |--|--W--O--W--|--|
+2 |--W-----W-----W--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 7;
+
+9
+Elapsed time: 34
+Expanded states: 10759
+Selected action is: d2d3e5, value: 118
+7 O--------B--------O
+6 |--B-----B-----O--|
+5 |--|--B--O--O--|--|
+4 W--W--B     O--O--O
+3 |--|--W--W--W--|--|
+2 |--W-----O-----W--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 6;
+
+Elapsed time: 11
+Expanded states: 3966
+Selected action is: c5d5f2, value: 35
+7 O--------B--------O
+6 |--B-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     O--O--O
+3 |--|--W--W--W--|--|
+2 |--W-----O-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 6;
+
+10
+Elapsed time: 29
+Expanded states: 8832
+Selected action is: b2d2c4, value: 112
+7 O--------B--------O
+6 |--B-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--O     O--O--O
+3 |--|--W--W--W--|--|
+2 |--O-----W-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+Elapsed time: 17
+Expanded states: 4809
+Selected action is: d6f6, value: -22
+7 O--------B--------O
+6 |--B-----O-----B--|
+5 |--|--O--B--O--|--|
+4 W--W--O     O--O--O
+3 |--|--W--W--W--|--|
+2 |--O-----W-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+11
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Elapsed time: 65
+Expanded states: 10271
+Selected action is: c3c4f6, value: 118
+7 O--------B--------O
+6 |--B-----O-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--W     O--O--O
+3 |--|--O--W--W--|--|
+2 |--O-----W-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 4;
+
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Elapsed time: 19
+Expanded states: 6434
+Selected action is: b6d6e3, value: -22
+7 O--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--W     O--O--O
+3 |--|--O--W--O--|--|
+2 |--O-----W-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 4;
+
+12
+Elapsed time: 26
+Expanded states: 8102
+Selected action is: b4b2, value: 75
+7 O--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--O--W     O--O--O
+3 |--|--O--W--O--|--|
+2 |--W-----W-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 4;
+
+Elapsed time: 21
+Expanded states: 7532
+Selected action is: d5e5, value: -22
+7 O--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--W     O--O--O
+3 |--|--O--W--O--|--|
+2 |--W-----W-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 4;
+
+13
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Elapsed time: 45
+Expanded states: 8646
+Selected action is: b2b4e5, value: 2147483646
+7 O--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--O--|--|
+4 W--W--W     O--O--O
+3 |--|--O--W--O--|--|
+2 |--O-----W-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 3;
+
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Elapsed time: 43
+Expanded states: 10186
+Selected action is: a1g7d1, value: -2147483647
+7 O--------B--------B
+6 |--O-----B-----O--|
+5 |--|--O--O--O--|--|
+4 W--W--W     O--O--O
+3 |--|--O--W--O--|--|
+2 |--O-----W-----O--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 3;
+
+14
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Elapsed time: 24
+Expanded states: 6019
+Selected action is: a4a7, value: 2147483646
+7 W--------B--------B
+6 |--O-----B-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--W     O--O--O
+3 |--|--O--W--O--|--|
+2 |--O-----W-----O--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 3;
+
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Elapsed time: 0
+Expanded states: 90
+Selected action is: d6g4, value: -2147483647
+7 W--------B--------B
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--W     O--O--B
+3 |--|--O--W--O--|--|
+2 |--O-----W-----O--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 3;
+
+15
+Player W WIN!!!
+Player W WIN!!!
+Player W WIN!!!
+Elapsed time: 0
+Expanded states: 14
+Selected action is: a7a4g7, value: 2147483646
+Player W WIN!!!
+7 O--------B--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 W--W--W     O--O--B
+3 |--|--O--W--O--|--|
+2 |--O-----W-----O--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 2;
+
+Vittoria W in 17 mosse
