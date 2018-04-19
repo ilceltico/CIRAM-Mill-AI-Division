@@ -116,7 +116,6 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		ValuedAction result = new ValuedAction(null, Integer.MIN_VALUE);
 		ValuedAction temp;
 		State newState;
-		State nextState = null;
 
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
@@ -151,7 +150,6 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 			}
 			if (temp.getValue() > result.getValue()) {
 				result = new ValuedAction(a, temp.getValue());
-				nextState = newState;
 			}
 		}
 
@@ -164,7 +162,6 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		ValuedAction result = new ValuedAction(null, Integer.MAX_VALUE);
 		ValuedAction temp;
 		State newState;
-		State nextState = null;
 
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
@@ -198,7 +195,6 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 			}
 			if (temp.getValue() < result.getValue()) {
 				result = new ValuedAction(a, temp.getValue());
-				nextState = newState;
 			}
 		}
 
