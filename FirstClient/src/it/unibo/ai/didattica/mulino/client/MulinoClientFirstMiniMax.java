@@ -124,7 +124,9 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				result = new ValuedAction(a, Integer.MAX_VALUE-1);
 				return result;
 			}
-			if (maxDepth > 1) {
+			if (statesAlreadySeen.contains(newState)) {
+				temp = new ValuedAction(a, 0);
+			} else if (maxDepth > 1) {
 				statesAlreadySeen.add(newState);
 				temp = min(newState, maxDepth - 1);
 				statesAlreadySeen.remove(newState);
@@ -170,7 +172,9 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				result = new ValuedAction(a, Integer.MIN_VALUE+1);
 				return result;
 			}
-			if (maxDepth > 1) {
+			if (statesAlreadySeen.contains(newState)) {
+				temp = new ValuedAction(a, 0);
+			} else if (maxDepth > 1) {
 				statesAlreadySeen.add(newState);
 				temp = max(newState, maxDepth - 1);
 				statesAlreadySeen.remove(newState);
@@ -466,9 +470,10 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 	}
 
 	public static int heuristic(State state, String position, Checker p) throws Exception {
-		// controllo se vado in pareggio
-		if (statesAlreadySeen.contains(state))
-			return 0;
+//		// controllo se vado in pareggio
+//		if (statesAlreadySeen.contains(state))
+//			return 0;
+		//NON NECESSARIO, GIA' PRESENTE IN MIN E MAX
 
 		switch (state.getCurrentPhase()) {
 		case FIRST:
