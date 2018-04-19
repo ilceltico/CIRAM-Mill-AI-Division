@@ -20,9 +20,9 @@ public class MulinoClientFirstMiniMaxTest {
 	
 	public static void main(String[] args) {
 //		doTest1();
-//		doTest2();
+		doTest2();
 //		playAgaintsWhiteCPU();
-		playAgainstBlackCPU();
+//		playAgainstBlackCPU();
 	}
 	
 	public static void doTest1() {
@@ -31,6 +31,60 @@ public class MulinoClientFirstMiniMaxTest {
 		
 		try {
 			MulinoClientFirstMiniMax.minimaxDecision(initialState, 5);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void doTest2() {
+		State state = new State();
+		Action a;
+
+		try {
+			for (int i=0; i<1000; i++) {
+				MulinoClientFirstMiniMax.player = Checker.WHITE;
+				a = MulinoClientFirstMiniMax.minimaxDecision(state, 4);
+				
+				switch(state.getCurrentPhase()) {
+				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
+				case SECOND: state = Phase2.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
+				case FINAL: state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
+				default: throw new Exception("Illegal Phase");
+				}
+				System.out.println(state);
+				if (MulinoClientFirstMiniMax.statesAlreadySeen.contains(state)) {
+					System.out.println("Pareggio scatenato dal W in " + (i+1) + " mosse");
+					System.exit(0);
+				}
+				if (MulinoClientFirstMiniMax.isWinningState(state, Checker.WHITE)) {
+					System.out.println("Vittoria W in " + (i+1) + " mosse");
+					System.exit(0);
+				}
+				MulinoClientFirstMiniMax.statesAlreadySeen.add(state);
+				
+
+				MulinoClientFirstMiniMax.player = Checker.BLACK;
+				a = MulinoClientFirstMiniMax.minimaxDecision(state, 4);
+				switch(state.getCurrentPhase()) {
+				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
+				case SECOND: state = Phase2.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
+				case FINAL: state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
+				default: throw new Exception("Illegal Phase");
+				}
+				System.out.println(state);
+				if (MulinoClientFirstMiniMax.statesAlreadySeen.contains(state)) {
+					System.out.println("Pareggio scatenato dal B in " + (i+1) + " mosse");
+					System.exit(0);
+				}
+				if (MulinoClientFirstMiniMax.isWinningState(state, Checker.BLACK)) {
+					System.out.println("Vittoria B in " + (i+1) + " mosse");
+					System.exit(0);
+				}
+				MulinoClientFirstMiniMax.statesAlreadySeen.add(state);
+				
+
+				System.out.println(i);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
