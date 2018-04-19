@@ -993,7 +993,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 			return true;
 		
 		if (state.getCurrentPhase() == State.Phase.SECOND) {
-			Checker otherPlayer = player == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
+			Checker otherPlayer = p == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
 			for (String position : state.positions) {
 				if (state.getBoard().get(position) == otherPlayer) {
 					boolean isBlocked = true;

@@ -1,0 +1,448 @@
+WHITE LV6 versus HUMAN BLACK
+
+Elapsed time: 1036337
+Expanded states: 103876320
+Selected action is: a1, value: -1
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 8;
+Black Checkers: 9;
+White Checkers On Board: 1;
+Black Checkers On Board: 0;
+
+Player BLACK, do your move: 
+f4
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 8;
+Black Checkers: 8;
+White Checkers On Board: 1;
+Black Checkers On Board: 1;
+
+0
+Elapsed time: 665330
+Expanded states: 61332608
+Selected action is: a7, value: 7
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 8;
+White Checkers On Board: 2;
+Black Checkers On Board: 1;
+
+Player BLACK, do your move: 
+a4
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 7;
+White Checkers On Board: 2;
+Black Checkers On Board: 2;
+
+1
+Elapsed time: 397171
+Expanded states: 34551448
+Selected action is: g1, value: 7
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 W--------O--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 7;
+White Checkers On Board: 3;
+Black Checkers On Board: 2;
+
+Player BLACK, do your move: 
+d1
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 6;
+White Checkers On Board: 3;
+Black Checkers On Board: 3;
+
+2
+Elapsed time: 218767
+Expanded states: 18736492
+Selected action is: g7, value: 18
+7 W--------O--------W
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 5;
+Black Checkers: 6;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Player BLACK, do your move: 
+g4
+7 W--------O--------W
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     O--B--B
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 5;
+Black Checkers: 5;
+White Checkers On Board: 4;
+Black Checkers On Board: 4;
+
+3
+Elapsed time: 116937
+Expanded states: 10794972
+Selected action is: d7g4, value: 26
+7 W--------W--------W
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 4;
+Black Checkers: 5;
+White Checkers On Board: 5;
+Black Checkers On Board: 3;
+
+Player BLACK, do your move: 
+g4
+7 W--------W--------W
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     O--B--B
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 4;
+Black Checkers: 4;
+White Checkers On Board: 5;
+Black Checkers On Board: 4;
+
+4
+Elapsed time: 75170
+Expanded states: 6163357
+Selected action is: c4, value: 26
+7 W--------W--------W
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--W     O--B--B
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 3;
+Black Checkers: 4;
+White Checkers On Board: 6;
+Black Checkers On Board: 4;
+
+Player BLACK, do your move: 
+e4c4
+7 W--------W--------W
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     B--B--B
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 3;
+Black Checkers: 3;
+White Checkers On Board: 5;
+Black Checkers On Board: 5;
+
+5
+Elapsed time: 27955
+Expanded states: 3356452
+Selected action is: b2, value: -17
+7 W--------W--------W
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     B--B--B
+3 |--|--O--O--O--|--|
+2 |--W-----O-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 2;
+Black Checkers: 3;
+White Checkers On Board: 6;
+Black Checkers On Board: 5;
+
+Player BLACK, do your move: 
+d3
+7 W--------W--------W
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     B--B--B
+3 |--|--O--B--O--|--|
+2 |--W-----O-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 2;
+Black Checkers: 2;
+White Checkers On Board: 6;
+Black Checkers On Board: 6;
+
+6
+Elapsed time: 4292
+Expanded states: 472430
+Selected action is: b4, value: -7
+7 W--------W--------W
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--W--O     B--B--B
+3 |--|--O--B--O--|--|
+2 |--W-----O-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 1;
+Black Checkers: 2;
+White Checkers On Board: 7;
+Black Checkers On Board: 6;
+
+Player BLACK, do your move: 
+d2b4
+7 W--------W--------W
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     B--B--B
+3 |--|--O--B--O--|--|
+2 |--W-----B-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 1;
+Black Checkers: 1;
+White Checkers On Board: 6;
+Black Checkers On Board: 7;
+
+7
+Elapsed time: 563
+Expanded states: 75534
+Selected action is: b4, value: -23
+7 W--------W--------W
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--W--O     B--B--B
+3 |--|--O--B--O--|--|
+2 |--W-----B-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 0;
+Black Checkers: 1;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+Player BLACK, do your move: 
+d6
+7 W--------W--------W
+6 |--O-----B-----O--|
+5 |--|--O--O--O--|--|
+4 B--W--O     B--B--B
+3 |--|--O--B--O--|--|
+2 |--W-----B-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+8
+Elapsed time: 28
+Expanded states: 3963
+Selected action is: b4c4, value: -23
+7 W--------W--------W
+6 |--O-----B-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--W     B--B--B
+3 |--|--O--B--O--|--|
+2 |--W-----B-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+Player BLACK, do your move: 
+f4f6
+7 W--------W--------W
+6 |--O-----B-----B--|
+5 |--|--O--O--O--|--|
+4 B--O--W     B--O--B
+3 |--|--O--B--O--|--|
+2 |--W-----B-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+9
+Elapsed time: 121
+Expanded states: 13124
+Selected action is: b2b4, value: -29
+7 W--------W--------W
+6 |--O-----B-----B--|
+5 |--|--O--O--O--|--|
+4 B--W--W     B--O--B
+3 |--|--O--B--O--|--|
+2 |--O-----B-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+Player BLACK, do your move: 
+f6f4b4
+7 W--------W--------W
+6 |--O-----B-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--W     B--B--B
+3 |--|--O--B--O--|--|
+2 |--O-----B-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+10
+Elapsed time: 32
+Expanded states: 2397
+Selected action is: c4c3, value: -29
+7 W--------W--------W
+6 |--O-----B-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     B--B--B
+3 |--|--W--B--O--|--|
+2 |--O-----B-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+Player BLACK, do your move: 
+f4f6
+7 W--------W--------W
+6 |--O-----B-----B--|
+5 |--|--O--O--O--|--|
+4 B--O--O     B--O--B
+3 |--|--W--B--O--|--|
+2 |--O-----B-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+11
+Elapsed time: 32
+Expanded states: 4448
+Selected action is: c3c4, value: -35
+7 W--------W--------W
+6 |--O-----B-----B--|
+5 |--|--O--O--O--|--|
+4 B--O--W     B--O--B
+3 |--|--O--B--O--|--|
+2 |--O-----B-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+Player BLACK, do your move: 
+f6f4c4
+7 W--------W--------W
+6 |--O-----B-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     B--B--B
+3 |--|--O--B--O--|--|
+2 |--O-----B-----O--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+12
+Elapsed time: 0
+Expanded states: 0
+Selected action is: , value: -2147483648
+Engine expecting a Phase2Action, found something different...
