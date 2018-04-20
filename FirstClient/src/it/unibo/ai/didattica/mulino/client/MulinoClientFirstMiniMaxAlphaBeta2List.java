@@ -3,6 +3,7 @@ package it.unibo.ai.didattica.mulino.client;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,10 +33,11 @@ import it.unibo.ai.didattica.mulino.domain.State;
 import it.unibo.ai.didattica.mulino.domain.State.Checker;
 import it.unibo.ai.didattica.mulino.domain.State.Phase;
 import it.unibo.ai.didattica.mulino.domain.ValuedAction;
+import it.unibo.ai.didattica.mulino.domain.ValuedAction2;
 
-public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
+public class MulinoClientFirstMiniMaxAlphaBeta2List extends MulinoClient {
 
-	public MulinoClientFirstMiniMaxAlphaBeta(Checker player) throws UnknownHostException, IOException {
+	public MulinoClientFirstMiniMaxAlphaBeta2List(Checker player) throws UnknownHostException, IOException {
 		super(player);
 		otherPlayer = player == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
 	}
@@ -102,7 +104,7 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 
 	public static Action minimaxDecision(State state, int maxDepth) throws Exception {
 		elapsedTime = System.currentTimeMillis();
-		ValuedAction a = max(state, maxDepth, Integer.MIN_VALUE, Integer.MAX_VALUE);
+		ValuedAction2 a = max(state, maxDepth, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
@@ -111,107 +113,110 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 		return a.getAction();
 	}
 
-	public static ValuedAction max(State state, int maxDepth, int alpha, int beta) throws Exception {
-		LinkedHashMap<Action, State> successors = successors(state, player);
-		ValuedAction result = new ValuedAction(null, Integer.MIN_VALUE);
-		ValuedAction temp;
+	public static ValuedAction2 max(State state, int maxDepth, int alpha, int beta) throws Exception {
+		List<ValuedAction2> successors = successors(state, player);
+		ValuedAction2 result = new ValuedAction2(null, Integer.MIN_VALUE, null);
+		ValuedAction2 temp;
 		State newState;
 
-		for (Action a : successors.keySet()) {
-			newState = successors.get(a);
+		for (ValuedAction2 a : successors) {
+			newState = a.getNewState();
+			
 			if (isWinningState(newState, player)) {
-				result = new ValuedAction(a, Integer.MAX_VALUE-1);
+				result = new ValuedAction2(a.getAction(), Integer.MAX_VALUE - 1, newState);
 				return result;
 			}
 			if (statesAlreadySeen.contains(newState)) {
-				temp = new ValuedAction(a, 0);
+				temp = new ValuedAction2(a.getAction(), 0, newState);
 			} else if (maxDepth > 1) {
 				statesAlreadySeen.add(newState);
 				temp = min(newState, maxDepth - 1, alpha, beta);
 				statesAlreadySeen.remove(newState);
-			}
-			else {
-				switch (state.getCurrentPhase()) {
-				case FIRST:
-					Phase1Action action1 = (Phase1Action) a;
-					temp = new ValuedAction(a, heuristic(newState, action1.getPutPosition(), player));
-					break;
-				case SECOND:
-					Phase2Action action2 = (Phase2Action) a;
-					temp = new ValuedAction(a, heuristic(newState, action2.getTo(), player));
-					break;
-				case FINAL:
-					PhaseFinalAction actionFinal = (PhaseFinalAction) a;
-					temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
-					break;
-				default:
-					throw new Exception("Illegal Phase");
-				}
+			} else {
+//				switch (state.getCurrentPhase()) {
+//				case FIRST:
+//					Phase1Action action1 = (Phase1Action) a;
+////					temp = new ValuedAction(a, heuristic(newState, action1.getPutPosition(), player));
+//					temp = new ValuedAction2(a.getAction(), a.getValue(), newState);
+//					break;
+//				case SECOND:
+//					Phase2Action action2 = (Phase2Action) a;
+//					temp = new ValuedAction(a, heuristic(newState, action2.getTo(), player));
+//					break;
+//				case FINAL:
+//					PhaseFinalAction actionFinal = (PhaseFinalAction) a;
+//					temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
+//					break;
+//				default:
+//					throw new Exception("Illegal Phase");
+//				}
+				temp = new ValuedAction2(a.getAction(), a.getValue(), newState);
 			}
 			if (temp.getValue() > result.getValue()) {
-				result = new ValuedAction(a, temp.getValue());
+				result = new ValuedAction2(a.getAction(), temp.getValue(), a.getNewState());
 			}
 			if (result.getValue() >= beta) {
 				return result;
 			}
-			if(result.getValue() >= alpha) {
+			if (result.getValue() >= alpha) {
 				alpha = result.getValue();
 			}
 		}
 		return result;
 	}
 
-	public static ValuedAction min(State state, int maxDepth, int alpha, int beta) throws Exception {
+	public static ValuedAction2 min(State state, int maxDepth, int alpha, int beta) throws Exception {
 		Checker minPlayer = player == Checker.BLACK ? Checker.WHITE : Checker.BLACK;
-		LinkedHashMap<Action, State> successors = successors(state, minPlayer);
-		ValuedAction result = new ValuedAction(null, Integer.MAX_VALUE);
-		ValuedAction temp;
+		List<ValuedAction2> successors = successors(state, minPlayer);
+		ValuedAction2 result = new ValuedAction2(null, Integer.MAX_VALUE, null);
+		ValuedAction2 temp;
 		State newState;
-		
-		for (Action a : successors.keySet()) {
-			newState = successors.get(a);
+		for (ValuedAction2 a : successors) {
+			newState = a.getNewState();
+			
 			if (isWinningState(newState, minPlayer)) {
-				result = new ValuedAction(a, Integer.MIN_VALUE+1);
+				result = new ValuedAction2(a.getAction(), Integer.MIN_VALUE + 1, newState);
 				return result;
 			}
 			if (statesAlreadySeen.contains(newState)) {
-				temp = new ValuedAction(a, 0);
+				temp = new ValuedAction2(a.getAction(), 0, newState);
 			} else if (maxDepth > 1) {
 				statesAlreadySeen.add(newState);
 				temp = max(newState, maxDepth - 1, alpha, beta);
 				statesAlreadySeen.remove(newState);
 			} else {
-					switch (state.getCurrentPhase()) {
-				case FIRST:
-				Phase1Action action1 = (Phase1Action) a;
-					temp = new ValuedAction(a, heuristic(newState, action1.getPutPosition(), minPlayer));
-					break;
-				case SECOND:
-					Phase2Action action2 = (Phase2Action) a;
-					temp = new ValuedAction(a, heuristic(newState, action2.getTo(), minPlayer));
-					break;
-				case FINAL:
-					PhaseFinalAction actionFinal = (PhaseFinalAction) a;
-					temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), minPlayer));
-					break;
-				default:
-					throw new Exception("Illegal Phase");
-				}
+//				switch (state.getCurrentPhase()) {
+//				case FIRST:
+//					Phase1Action action1 = (Phase1Action) a;
+//					temp = new ValuedAction(a, heuristic(newState, action1.getPutPosition(), minPlayer));
+//					break;
+//				case SECOND:
+//					Phase2Action action2 = (Phase2Action) a;
+//					temp = new ValuedAction(a, heuristic(newState, action2.getTo(), minPlayer));
+//					break;
+//				case FINAL:
+//					PhaseFinalAction actionFinal = (PhaseFinalAction) a;
+//					temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), minPlayer));
+//					break;
+//				default:
+//					throw new Exception("Illegal Phase");
+//				}
+				temp = new ValuedAction2(a.getAction(), a.getValue(), newState);
 			}
 			if (temp.getValue() < result.getValue()) {
-				result = new ValuedAction(a, temp.getValue());
+				result = new ValuedAction2(a.getAction(), temp.getValue(), newState);
 			}
 			if (result.getValue() <= alpha) {
 				return result;
 			}
-			if(result.getValue() <= beta) {
+			if (result.getValue() <= beta) {
 				beta = result.getValue();
 			}
 		}
 		return result;
 	}
 
-	public static LinkedHashMap<Action, State> successors(State state, Checker p) throws Exception {
+	public static List<ValuedAction2> successors(State state, Checker p) throws Exception {
 		switch (state.getCurrentPhase()) {
 		case FIRST:
 			return successorsFirst(state, p);
@@ -224,8 +229,10 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 		}
 	}
 
-	public static LinkedHashMap<Action, State> successorsFirst(State state, Checker p) {
-		LinkedHashMap<Action, State> result = new LinkedHashMap<Action, State>();
+	public static List<ValuedAction2> successorsFirst(State state, Checker p) {
+		// LinkedHashMap<Action, State> result = new LinkedHashMap<Action, State>();
+		List<ValuedAction2> result = new ArrayList<>();
+		ValuedAction2 valuedActionTemp;
 		Phase1Action temp;
 		State newState;
 		LinkedHashMap<String, Checker> board = new LinkedHashMap<String, Checker>(state.getBoard());
@@ -245,7 +252,11 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 									&& !Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
 								temp.setRemoveOpponentChecker(otherPosition);
 								newState = Phase1.applyMove(state, temp, p);
-								result.put(temp, newState);
+
+								valuedActionTemp = new ValuedAction2(temp,
+										heuristic(newState, temp.getPutPosition(), p), newState);
+								result.add(valuedActionTemp);
+
 								expandedStates++;
 								foundRemovableChecker = true;
 							}
@@ -256,14 +267,22 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 										&& Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
 									temp.setRemoveOpponentChecker(otherPosition);
 									newState = Phase1.applyMove(state, temp, p);
-									result.put(temp, newState);
+
+									valuedActionTemp = new ValuedAction2(temp,
+											heuristic(newState, temp.getPutPosition(), p), newState);
+									result.add(valuedActionTemp);
+
 									expandedStates++;
 								}
 							}
 						}
 					} else {
 						newState = Phase1.applyMove(state, temp, p);
-						result.put(temp, newState);
+
+						valuedActionTemp = new ValuedAction2(temp, heuristic(newState, temp.getPutPosition(), p),
+								newState);
+						result.add(valuedActionTemp);
+
 						expandedStates++;
 					}
 				} catch (WrongPhaseException | PositionNotEmptyException | NullCheckerException
@@ -272,15 +291,21 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 						| TryingToRemoveCheckerInTripleException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
 			}
 		}
 
+		Collections.sort(result, (a, b) -> (a.getValue() == b.getValue() ? 0 : a.getValue() > b.getValue() ? 1 : -1));
+
 		return result;
 	}
 
-	public static LinkedHashMap<Action, State> successorsSecond(State state, Checker p) {
-		LinkedHashMap<Action, State> result = new LinkedHashMap<Action, State>();
+	public static List<ValuedAction2> successorsSecond(State state, Checker p) {
+		// LinkedHashMap<Action, State> result = new LinkedHashMap<Action, State>();
+		List<ValuedAction2> result = new ArrayList<>();
+		ValuedAction2 valuedActionTemp;
 		Phase2Action temp;
 		State newState;
 		LinkedHashMap<String, Checker> board = new LinkedHashMap<String, Checker>(state.getBoard());
@@ -315,7 +340,11 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 												finalAction.setRemoveOpponentChecker(temp.getRemoveOpponentChecker());
 												newState = PhaseFinal.applyMove(state, finalAction, p);
 											}
-											result.put(temp, newState);
+
+											valuedActionTemp = new ValuedAction2(temp,
+													heuristic(newState, temp.getTo(), p), newState);
+											result.add(valuedActionTemp);
+
 											expandedStates++;
 											foundRemovableChecker = true;
 										}
@@ -335,7 +364,11 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 															.setRemoveOpponentChecker(temp.getRemoveOpponentChecker());
 													newState = PhaseFinal.applyMove(state, finalAction, p);
 												}
-												result.put(temp, newState);
+
+												valuedActionTemp = new ValuedAction2(temp,
+														heuristic(newState, temp.getTo(), p), newState);
+												result.add(valuedActionTemp);
+
 												expandedStates++;
 											}
 										}
@@ -350,7 +383,11 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 										finalAction.setRemoveOpponentChecker(temp.getRemoveOpponentChecker());
 										newState = PhaseFinal.applyMove(state, finalAction, p);
 									}
-									result.put(temp, newState);
+
+									valuedActionTemp = new ValuedAction2(temp, heuristic(newState, temp.getTo(), p),
+											newState);
+									result.add(valuedActionTemp);
+
 									expandedStates++;
 								}
 							} catch (WrongPhaseException | PositionNotEmptyException | NullCheckerException
@@ -360,6 +397,8 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 									| TryingToMoveOpponentCheckerException | FromAndToAreEqualsException
 									| FromAndToAreNotConnectedException e) {
 								// TODO Auto-generated catch block
+								e.printStackTrace();
+							} catch (Exception e) {
 								e.printStackTrace();
 							}
 
@@ -372,22 +411,26 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 			}
 		}
 
+		Collections.sort(result, (a, b) -> (a.getValue() == b.getValue() ? 0 : a.getValue() > b.getValue() ? 1 : -1));
+
 		return result;
 	}
 
-	public static LinkedHashMap<Action, State> successorsFinalOrSecond(State state, Checker p) {
+	public static List<ValuedAction2> successorsFinalOrSecond(State state, Checker p) {
 		if (p == Checker.WHITE) {
 			if (state.getWhiteCheckersOnBoard() > 3) {
-				LinkedHashMap<Action, State> resultMap = new LinkedHashMap<>();
-				successorsSecond(state, p).forEach((k, v) -> {
-					Phase2Action action = (Phase2Action) k;
-					PhaseFinalAction result = new PhaseFinalAction();
-					result.setFrom(action.getFrom());
-					result.setTo(action.getTo());
-					result.setRemoveOpponentChecker(action.getRemoveOpponentChecker());
-					resultMap.put(result, v);
-				});
-				return resultMap;
+				// LinkedHashMap<Action, State> resultMap = new LinkedHashMap<>();
+				// successorsSecond(state, p).forEach((k, v) -> {
+				// Phase2Action action = (Phase2Action) k;
+				// PhaseFinalAction result = new PhaseFinalAction();
+				// result.setFrom(action.getFrom());
+				// result.setTo(action.getTo());
+				// result.setRemoveOpponentChecker(action.getRemoveOpponentChecker());
+				// resultMap.put(result, v);
+				// });
+				// return resultMap;
+
+				return successorsSecond(state, p);
 			} else {
 				return successorsFinal(state, p);
 			}
@@ -395,24 +438,28 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 		// Player is BLACK
 		else {
 			if (state.getBlackCheckersOnBoard() > 3) {
-				LinkedHashMap<Action, State> resultMap = new LinkedHashMap<>();
-				successorsSecond(state, p).forEach((k, v) -> {
-					Phase2Action action = (Phase2Action) k;
-					PhaseFinalAction result = new PhaseFinalAction();
-					result.setFrom(action.getFrom());
-					result.setTo(action.getTo());
-					result.setRemoveOpponentChecker(action.getRemoveOpponentChecker());
-					resultMap.put(result, v);
-				});
-				return resultMap;
+				// LinkedHashMap<Action, State> resultMap = new LinkedHashMap<>();
+				// successorsSecond(state, p).forEach((k, v) -> {
+				// Phase2Action action = (Phase2Action) k;
+				// PhaseFinalAction result = new PhaseFinalAction();
+				// result.setFrom(action.getFrom());
+				// result.setTo(action.getTo());
+				// result.setRemoveOpponentChecker(action.getRemoveOpponentChecker());
+				// resultMap.put(result, v);
+				// });
+				// return resultMap;
+
+				return successorsSecond(state, p);
 			} else {
 				return successorsFinal(state, p);
 			}
 		}
 	}
 
-	public static LinkedHashMap<Action, State> successorsFinal(State state, Checker p) {
-		LinkedHashMap<Action, State> result = new LinkedHashMap<Action, State>();
+	public static List<ValuedAction2> successorsFinal(State state, Checker p) {
+		// LinkedHashMap<Action, State> result = new LinkedHashMap<Action, State>();
+		List<ValuedAction2> result = new ArrayList<>();
+		ValuedAction2 valuedActionTemp;
 		PhaseFinalAction temp;
 		State newState;
 		LinkedHashMap<String, Checker> board = new LinkedHashMap<String, Checker>(state.getBoard());
@@ -438,7 +485,11 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 											&& !Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
 										temp.setRemoveOpponentChecker(otherPosition);
 										newState = PhaseFinal.applyMove(state, temp, p);
-										result.put(temp, newState);
+
+										valuedActionTemp = new ValuedAction2(temp, heuristic(newState, temp.getTo(), p),
+												newState);
+										result.add(valuedActionTemp);
+
 										expandedStates++;
 										foundRemovableChecker = true;
 									}
@@ -449,14 +500,22 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 												&& Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
 											temp.setRemoveOpponentChecker(otherPosition);
 											newState = PhaseFinal.applyMove(state, temp, p);
-											result.put(temp, newState);
+
+											valuedActionTemp = new ValuedAction2(temp,
+													heuristic(newState, temp.getTo(), p), newState);
+											result.add(valuedActionTemp);
+
 											expandedStates++;
 										}
 									}
 								}
 							} else {
 								newState = PhaseFinal.applyMove(state, temp, p);
-								result.put(temp, newState);
+
+								valuedActionTemp = new ValuedAction2(temp, heuristic(newState, temp.getTo(), p),
+										newState);
+								result.add(valuedActionTemp);
+
 								expandedStates++;
 							}
 						} catch (WrongPhaseException | PositionNotEmptyException | NullCheckerException
@@ -467,6 +526,8 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 								| FromAndToAreNotConnectedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
+						} catch (Exception e) {
+							e.printStackTrace();
 						}
 
 					}
@@ -474,14 +535,16 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 			}
 		}
 
+		Collections.sort(result, (a, b) -> (a.getValue() == b.getValue() ? 0 : a.getValue() > b.getValue() ? 1 : -1));
+
 		return result;
 	}
 
 	public static int heuristic(State state, String position, Checker p) throws Exception {
-//		// controllo se vado in pareggio
-//		if (statesAlreadySeen.contains(state))
-//			return 0;
-		//NON NECESSARIO, GIA' PRESENTE IN MIN E MAX
+		// // controllo se vado in pareggio
+		// if (statesAlreadySeen.contains(state))
+		// return 0;
+		// NON NECESSARIO, GIA' PRESENTE IN MIN E MAX
 
 		switch (state.getCurrentPhase()) {
 		case FIRST:
@@ -798,7 +861,7 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 		// number of 2 pieces configuration
 		int twoPiecesConfigurationPlayer = 0;
 		int twoPiecesConfigurationOtherPlayer = 0;
-		
+
 		// number of 3 pieces configuration
 		int threePiecesConfigurationPlayer = 0;
 		int threePiecesConfigurationOtherPlayer = 0;
@@ -913,7 +976,7 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 				if (emptyPosV == 1 && occupiedPosV == 2)
 					twoPiecesConfigurationOtherPlayer++;
 			}
-			
+
 			// number of 3 pieces configuration
 			if (state.getBoard().get(pos) == player) {
 				int emptyPosH = 0;
@@ -1001,7 +1064,7 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 			return true;
 		else if (p == Checker.BLACK && state.getWhiteCheckersOnBoard() < 3)
 			return true;
-		
+
 		if (state.getCurrentPhase() == State.Phase.SECOND) {
 			Checker otherPlayer = p == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
 			for (String position : state.positions) {
