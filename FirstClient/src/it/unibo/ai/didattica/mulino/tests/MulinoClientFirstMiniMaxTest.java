@@ -99,7 +99,7 @@ public class MulinoClientFirstMiniMaxTest {
 		try {
 			for (int i=0; i<1000; i++) {
 				MulinoClientFirstMiniMaxAlphaBeta.player = Checker.WHITE;
-				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 5);
+				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 6);
 				
 				switch(state.getCurrentPhase()) {
 				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
@@ -120,7 +120,7 @@ public class MulinoClientFirstMiniMaxTest {
 				
 
 				MulinoClientFirstMiniMaxAlphaBeta.player = Checker.BLACK;
-				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 5);
+				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 6);
 				switch(state.getCurrentPhase()) {
 				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
 				case SECOND: state = Phase2.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
