@@ -33,9 +33,9 @@ import it.unibo.ai.didattica.mulino.domain.State.Checker;
 import it.unibo.ai.didattica.mulino.domain.State.Phase;
 import it.unibo.ai.didattica.mulino.domain.ValuedAction;
 
-public class MulinoClientFirstMiniMax extends MulinoClient {
+public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 
-	public MulinoClientFirstMiniMax(Checker player) throws UnknownHostException, IOException {
+	public MulinoClientFirstMiniMaxAlphaBeta(Checker player) throws UnknownHostException, IOException {
 		super(player);
 		otherPlayer = player == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
 	}
@@ -102,7 +102,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 
 	public static Action minimaxDecision(State state, int maxDepth) throws Exception {
 		elapsedTime = System.currentTimeMillis();
-		ValuedAction a = max(state, maxDepth);
+		ValuedAction a = max(state, maxDepth, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
@@ -111,7 +111,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		return a.getAction();
 	}
 
-	public static ValuedAction max(State state, int maxDepth) throws Exception {
+	public static ValuedAction max(State state, int maxDepth, int alpha, int beta) throws Exception {
 		LinkedHashMap<Action, State> successors = successors(state, player);
 		ValuedAction result = new ValuedAction(null, Integer.MIN_VALUE);
 		ValuedAction temp;
@@ -127,7 +127,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				temp = new ValuedAction(a, 0);
 			} else if (maxDepth > 1) {
 				statesAlreadySeen.add(newState);
-				temp = min(newState, maxDepth - 1);
+				temp = min(newState, maxDepth - 1, alpha, beta);
 				statesAlreadySeen.remove(newState);
 			}
 			else {
@@ -151,19 +151,23 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 			if (temp.getValue() > result.getValue()) {
 				result = new ValuedAction(a, temp.getValue());
 			}
+			if (result.getValue() >= beta) {
+				return result;
+			}
+			if(result.getValue() >= alpha) {
+				alpha = result.getValue();
+			}
 		}
-
 		return result;
 	}
 
-	public static ValuedAction min(State state, int maxDepth) throws Exception {
+	public static ValuedAction min(State state, int maxDepth, int alpha, int beta) throws Exception {
 		Checker minPlayer = player == Checker.BLACK ? Checker.WHITE : Checker.BLACK;
 		LinkedHashMap<Action, State> successors = successors(state, minPlayer);
 		ValuedAction result = new ValuedAction(null, Integer.MAX_VALUE);
 		ValuedAction temp;
 		State newState;
-
-		for (Action a : successors.keySet()) {
+			for (Action a : successors.keySet()) {
 			newState = successors.get(a);
 			if (isWinningState(newState, minPlayer)) {
 				result = new ValuedAction(a, Integer.MIN_VALUE+1);
@@ -173,12 +177,12 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				temp = new ValuedAction(a, 0);
 			} else if (maxDepth > 1) {
 				statesAlreadySeen.add(newState);
-				temp = max(newState, maxDepth - 1);
+				temp = max(newState, maxDepth - 1, alpha, beta);
 				statesAlreadySeen.remove(newState);
 			} else {
-				switch (state.getCurrentPhase()) {
+					switch (state.getCurrentPhase()) {
 				case FIRST:
-					Phase1Action action1 = (Phase1Action) a;
+				Phase1Action action1 = (Phase1Action) a;
 					temp = new ValuedAction(a, heuristic(newState, action1.getPutPosition(), minPlayer));
 					break;
 				case SECOND:
@@ -196,8 +200,13 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 			if (temp.getValue() < result.getValue()) {
 				result = new ValuedAction(a, temp.getValue());
 			}
+			if (result.getValue() <= alpha) {
+				return result;
+			}
+			if(result.getValue() <= beta) {
+				beta = result.getValue();
+			}
 		}
-
 		return result;
 	}
 
@@ -765,7 +774,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 
 	private static int heuristicPhase1(State state, String position, Checker p) {
 		int result = 0;
-		
+
 		// closed morris
 		if (p == player) {
 			if (Util.hasCompletedTriple(state, position, p)) {
