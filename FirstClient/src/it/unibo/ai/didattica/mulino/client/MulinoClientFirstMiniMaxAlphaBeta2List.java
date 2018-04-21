@@ -257,6 +257,9 @@ public class MulinoClientFirstMiniMaxAlphaBeta2List extends MulinoClient {
 										heuristic(newState, temp.getPutPosition(), p), newState);
 								result.add(valuedActionTemp);
 
+								temp = new Phase1Action();
+								temp.setPutPosition(position);
+								
 								expandedStates++;
 								foundRemovableChecker = true;
 							}
@@ -271,6 +274,9 @@ public class MulinoClientFirstMiniMaxAlphaBeta2List extends MulinoClient {
 									valuedActionTemp = new ValuedAction2(temp,
 											heuristic(newState, temp.getPutPosition(), p), newState);
 									result.add(valuedActionTemp);
+									
+									temp = new Phase1Action();
+									temp.setPutPosition(position);
 
 									expandedStates++;
 								}
@@ -282,6 +288,9 @@ public class MulinoClientFirstMiniMaxAlphaBeta2List extends MulinoClient {
 						valuedActionTemp = new ValuedAction2(temp, heuristic(newState, temp.getPutPosition(), p),
 								newState);
 						result.add(valuedActionTemp);
+						
+						temp = new Phase1Action();
+						temp.setPutPosition(position);
 
 						expandedStates++;
 					}
@@ -344,6 +353,10 @@ public class MulinoClientFirstMiniMaxAlphaBeta2List extends MulinoClient {
 											valuedActionTemp = new ValuedAction2(temp,
 													heuristic(newState, temp.getTo(), p), newState);
 											result.add(valuedActionTemp);
+											
+											temp = new Phase2Action();
+											temp.setFrom(position);
+											temp.setTo(adjPos);
 
 											expandedStates++;
 											foundRemovableChecker = true;
@@ -368,6 +381,10 @@ public class MulinoClientFirstMiniMaxAlphaBeta2List extends MulinoClient {
 												valuedActionTemp = new ValuedAction2(temp,
 														heuristic(newState, temp.getTo(), p), newState);
 												result.add(valuedActionTemp);
+												
+												temp = new Phase2Action();
+												temp.setFrom(position);
+												temp.setTo(adjPos);
 
 												expandedStates++;
 											}
@@ -387,6 +404,9 @@ public class MulinoClientFirstMiniMaxAlphaBeta2List extends MulinoClient {
 									valuedActionTemp = new ValuedAction2(temp, heuristic(newState, temp.getTo(), p),
 											newState);
 									result.add(valuedActionTemp);
+									
+									temp = new Phase2Action();
+									temp.setFrom(position);
 
 									expandedStates++;
 								}
@@ -489,6 +509,10 @@ public class MulinoClientFirstMiniMaxAlphaBeta2List extends MulinoClient {
 										valuedActionTemp = new ValuedAction2(temp, heuristic(newState, temp.getTo(), p),
 												newState);
 										result.add(valuedActionTemp);
+										
+										temp = new PhaseFinalAction();
+										temp.setFrom(position);
+										temp.setTo(toPos);
 
 										expandedStates++;
 										foundRemovableChecker = true;
@@ -504,6 +528,10 @@ public class MulinoClientFirstMiniMaxAlphaBeta2List extends MulinoClient {
 											valuedActionTemp = new ValuedAction2(temp,
 													heuristic(newState, temp.getTo(), p), newState);
 											result.add(valuedActionTemp);
+											
+											temp = new PhaseFinalAction();
+											temp.setFrom(position);
+											temp.setTo(toPos);
 
 											expandedStates++;
 										}
@@ -515,6 +543,9 @@ public class MulinoClientFirstMiniMaxAlphaBeta2List extends MulinoClient {
 								valuedActionTemp = new ValuedAction2(temp, heuristic(newState, temp.getTo(), p),
 										newState);
 								result.add(valuedActionTemp);
+								
+								temp = new PhaseFinalAction();
+								temp.setFrom(position);
 
 								expandedStates++;
 							}
