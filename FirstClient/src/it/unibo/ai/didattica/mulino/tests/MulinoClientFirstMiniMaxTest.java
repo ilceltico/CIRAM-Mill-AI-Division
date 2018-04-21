@@ -24,10 +24,10 @@ public class MulinoClientFirstMiniMaxTest {
 	public static void main(String[] args) {
 //		doTest1();
 //		doTest2();
-//		doTest2WithAlphaBeta();
+		doTest2WithAlphaBeta();
 //		doTest2WithAlphaBetaAndOptimizationsTreeSet();
 //		doTest2WithAlphaBetaAndOptimizationsList();
-		playAgaintsWhiteCPU();
+//		playAgaintsWhiteCPU();
 //		playAgainstBlackCPU();
 //		doTestStates();
 	}
@@ -50,6 +50,7 @@ public class MulinoClientFirstMiniMaxTest {
 		try {
 			for (int i=0; i<1000; i++) {
 				MulinoClientFirstMiniMax.player = Checker.WHITE;
+				MulinoClientFirstMiniMaxAlphaBeta.otherPlayer = Checker.BLACK;
 				a = MulinoClientFirstMiniMax.minimaxDecision(state, 5);
 				
 				switch(state.getCurrentPhase()) {
@@ -71,6 +72,7 @@ public class MulinoClientFirstMiniMaxTest {
 				
 
 				MulinoClientFirstMiniMax.player = Checker.BLACK;
+				MulinoClientFirstMiniMaxAlphaBeta.otherPlayer = Checker.WHITE;
 				a = MulinoClientFirstMiniMax.minimaxDecision(state, 1);
 				switch(state.getCurrentPhase()) {
 				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
@@ -104,7 +106,8 @@ public class MulinoClientFirstMiniMaxTest {
 		try {
 			for (int i=0; i<1000; i++) {
 				MulinoClientFirstMiniMaxAlphaBeta.player = Checker.WHITE;
-				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 6);
+				MulinoClientFirstMiniMaxAlphaBeta.otherPlayer = Checker.BLACK;
+				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 2);
 				
 				switch(state.getCurrentPhase()) {
 				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
@@ -125,7 +128,8 @@ public class MulinoClientFirstMiniMaxTest {
 				
 
 				MulinoClientFirstMiniMaxAlphaBeta.player = Checker.BLACK;
-				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 1);
+				MulinoClientFirstMiniMaxAlphaBeta.otherPlayer = Checker.WHITE;
+				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 2);
 				switch(state.getCurrentPhase()) {
 				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
 				case SECOND: state = Phase2.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
@@ -158,6 +162,7 @@ public class MulinoClientFirstMiniMaxTest {
 		try {
 			for (int i=0; i<1000; i++) {
 				MulinoClientFirstMiniMaxAlphaBeta2TreeMap.player = Checker.WHITE;
+				MulinoClientFirstMiniMaxAlphaBeta2TreeMap.otherPlayer = Checker.BLACK;
 				a = MulinoClientFirstMiniMaxAlphaBeta2TreeMap.minimaxDecision(state, 6);
 				
 				switch(state.getCurrentPhase()) {
@@ -179,6 +184,7 @@ public class MulinoClientFirstMiniMaxTest {
 				
 
 				MulinoClientFirstMiniMaxAlphaBeta2TreeMap.player = Checker.BLACK;
+				MulinoClientFirstMiniMaxAlphaBeta2TreeMap.otherPlayer = Checker.WHITE;
 				a = MulinoClientFirstMiniMaxAlphaBeta2TreeMap.minimaxDecision(state, 6);
 				switch(state.getCurrentPhase()) {
 				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta2TreeMap.player); break;
@@ -212,6 +218,7 @@ public class MulinoClientFirstMiniMaxTest {
 		try {
 			for (int i=0; i<1000; i++) {
 				MulinoClientFirstMiniMaxAlphaBeta2List.player = Checker.WHITE;
+				MulinoClientFirstMiniMaxAlphaBeta2List.otherPlayer = Checker.BLACK;
 				a = MulinoClientFirstMiniMaxAlphaBeta2List.minimaxDecision(state, 4);
 				
 				switch(state.getCurrentPhase()) {
@@ -233,6 +240,7 @@ public class MulinoClientFirstMiniMaxTest {
 				
 
 				MulinoClientFirstMiniMaxAlphaBeta2List.player = Checker.BLACK;
+				MulinoClientFirstMiniMaxAlphaBeta2List.otherPlayer = Checker.WHITE;
 				a = MulinoClientFirstMiniMaxAlphaBeta2List.minimaxDecision(state, 4);
 				switch(state.getCurrentPhase()) {
 				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta2List.player); break;
@@ -267,6 +275,7 @@ public class MulinoClientFirstMiniMaxTest {
 		try {
 			for (int i=0; i<1000; i++) {
 				MulinoClientFirstMiniMax.player = Checker.WHITE;
+				MulinoClientFirstMiniMax.otherPlayer = Checker.BLACK;
 				a = MulinoClientFirstMiniMax.minimaxDecision(state, 4);
 				
 				switch(state.getCurrentPhase()) {
@@ -342,7 +351,8 @@ public class MulinoClientFirstMiniMaxTest {
 				MulinoClientFirstMiniMax.statesAlreadySeen.add(state);
 				
 				MulinoClientFirstMiniMax.player = Checker.BLACK;
-				a = MulinoClientFirstMiniMax.minimaxDecision(state, 1);
+				MulinoClientFirstMiniMax.otherPlayer = Checker.WHITE;
+				a = MulinoClientFirstMiniMax.minimaxDecision(state, 5);
 				
 				switch(state.getCurrentPhase()) {
 				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
@@ -437,6 +447,7 @@ public class MulinoClientFirstMiniMaxTest {
 //			state.getBoard().put("d1", Checker.WHITE);
 //			state.getBoard().put("g1", Checker.WHITE);
 //			MulinoClientFirstMiniMaxAlphaBeta.player = Checker.WHITE;
+//			MulinoClientFirstMiniMaxAlphaBeta.otherPlayer = Checker.BLACK;
 //			a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 9);
 //				
 //			switch(state.getCurrentPhase()) {
@@ -476,6 +487,7 @@ public class MulinoClientFirstMiniMaxTest {
 //			state.getBoard().put("d1", Checker.WHITE);
 //			state.getBoard().put("g1", Checker.WHITE);
 //			MulinoClientFirstMiniMaxAlphaBeta.player = Checker.WHITE;
+//			MulinoClientFirstMiniMaxAlphaBeta.otherPlayer = Checker.BLACK;
 //			a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 11);
 //				
 //			switch(state.getCurrentPhase()) {
@@ -518,6 +530,7 @@ public class MulinoClientFirstMiniMaxTest {
 //			state.getBoard().put("g1", Checker.WHITE);
 //			state.getBoard().put("c5", Checker.WHITE);
 //			MulinoClientFirstMiniMaxAlphaBeta.player = Checker.WHITE;
+//			MulinoClientFirstMiniMaxAlphaBeta.otherPlayer = Checker.BLACK;
 //			a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 16);
 //				
 //			switch(state.getCurrentPhase()) {
@@ -550,6 +563,7 @@ public class MulinoClientFirstMiniMaxTest {
 //			System.out.println(state);
 //			
 //			MulinoClientFirstMiniMaxAlphaBeta.player = Checker.WHITE;
+//			MulinoClientFirstMiniMaxAlphaBeta.otherPlayer = Checker.BLACK;
 //			a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 1);
 //				
 //			switch(state.getCurrentPhase()) {
