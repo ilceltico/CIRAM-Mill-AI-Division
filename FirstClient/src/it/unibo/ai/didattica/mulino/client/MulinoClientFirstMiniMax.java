@@ -236,6 +236,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 								temp.setRemoveOpponentChecker(otherPosition);
 								newState = Phase1.applyMove(state, temp, p);
 								result.put(temp, newState);
+								temp = new Phase1Action();
+								temp.setPutPosition(position);
 								expandedStates++;
 								foundRemovableChecker = true;
 							}
@@ -247,6 +249,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 									temp.setRemoveOpponentChecker(otherPosition);
 									newState = Phase1.applyMove(state, temp, p);
 									result.put(temp, newState);
+									temp = new Phase1Action();
+									temp.setPutPosition(position);
 									expandedStates++;
 								}
 							}
@@ -254,6 +258,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 					} else {
 						newState = Phase1.applyMove(state, temp, p);
 						result.put(temp, newState);
+						temp = new Phase1Action();
+						temp.setPutPosition(position);
 						expandedStates++;
 					}
 				} catch (WrongPhaseException | PositionNotEmptyException | NullCheckerException
@@ -285,7 +291,6 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 						if (board.get(adjPos) == Checker.EMPTY) {
 
 							temp.setTo(adjPos);
-							temp.setRemoveOpponentChecker(null);
 							newState = state.clone();
 							newState.getBoard().put(adjPos, p);
 							newState.getBoard().put(position, Checker.EMPTY);
@@ -306,6 +311,9 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 												newState = PhaseFinal.applyMove(state, finalAction, p);
 											}
 											result.put(temp, newState);
+											temp = new Phase2Action();
+											temp.setFrom(position);
+											temp.setTo(adjPos);
 											expandedStates++;
 											foundRemovableChecker = true;
 										}
@@ -326,6 +334,9 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 													newState = PhaseFinal.applyMove(state, finalAction, p);
 												}
 												result.put(temp, newState);
+												temp = new Phase2Action();
+												temp.setFrom(position);
+												temp.setTo(adjPos);
 												expandedStates++;
 											}
 										}
@@ -341,6 +352,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 										newState = PhaseFinal.applyMove(state, finalAction, p);
 									}
 									result.put(temp, newState);
+									temp = new Phase2Action();
+									temp.setFrom(position);
 									expandedStates++;
 								}
 							} catch (WrongPhaseException | PositionNotEmptyException | NullCheckerException
@@ -416,7 +429,6 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 					if (board.get(toPos) == Checker.EMPTY) {
 
 						temp.setTo(toPos);
-						temp.setRemoveOpponentChecker(null);
 						newState = state.clone();
 						newState.getBoard().put(toPos, p);
 						newState.getBoard().put(position, Checker.EMPTY);
@@ -429,6 +441,9 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 										temp.setRemoveOpponentChecker(otherPosition);
 										newState = PhaseFinal.applyMove(state, temp, p);
 										result.put(temp, newState);
+										temp = new PhaseFinalAction();
+										temp.setFrom(position);
+										temp.setTo(toPos);
 										expandedStates++;
 										foundRemovableChecker = true;
 									}
@@ -440,6 +455,9 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 											temp.setRemoveOpponentChecker(otherPosition);
 											newState = PhaseFinal.applyMove(state, temp, p);
 											result.put(temp, newState);
+											temp = new PhaseFinalAction();
+											temp.setFrom(position);
+											temp.setTo(toPos);
 											expandedStates++;
 										}
 									}
@@ -447,6 +465,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 							} else {
 								newState = PhaseFinal.applyMove(state, temp, p);
 								result.put(temp, newState);
+								temp = new PhaseFinalAction();
+								temp.setFrom(position);
 								expandedStates++;
 							}
 						} catch (WrongPhaseException | PositionNotEmptyException | NullCheckerException

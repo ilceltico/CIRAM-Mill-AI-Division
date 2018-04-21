@@ -24,13 +24,14 @@ public class MulinoClientFirstMiniMaxTest {
 	public static void main(String[] args) {
 //		doTest1();
 //		doTest2();
-		doTest2WithAlphaBeta();
+//		doTest2WithAlphaBeta();
 //		doTest2WithAlphaBetaAndOptimizationsTreeSet();
 //		doTest2WithAlphaBetaAndOptimizationsList();
-//		playAgaintsWhiteCPU();
+		playAgaintsWhiteCPU();
 //		playAgainstBlackCPU();
+//		doTestStates();
 	}
-	
+
 	public static void doTest1() {
 		MulinoClientFirstMiniMax.player = Checker.WHITE;
 		State initialState = new State();
@@ -70,7 +71,7 @@ public class MulinoClientFirstMiniMaxTest {
 				
 
 				MulinoClientFirstMiniMax.player = Checker.BLACK;
-				a = MulinoClientFirstMiniMax.minimaxDecision(state, 5);
+				a = MulinoClientFirstMiniMax.minimaxDecision(state, 1);
 				switch(state.getCurrentPhase()) {
 				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
 				case SECOND: state = Phase2.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
@@ -103,7 +104,7 @@ public class MulinoClientFirstMiniMaxTest {
 		try {
 			for (int i=0; i<1000; i++) {
 				MulinoClientFirstMiniMaxAlphaBeta.player = Checker.WHITE;
-				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 5);
+				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 6);
 				
 				switch(state.getCurrentPhase()) {
 				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
@@ -124,7 +125,7 @@ public class MulinoClientFirstMiniMaxTest {
 				
 
 				MulinoClientFirstMiniMaxAlphaBeta.player = Checker.BLACK;
-				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 5);
+				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 1);
 				switch(state.getCurrentPhase()) {
 				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
 				case SECOND: state = Phase2.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
@@ -266,7 +267,7 @@ public class MulinoClientFirstMiniMaxTest {
 		try {
 			for (int i=0; i<1000; i++) {
 				MulinoClientFirstMiniMax.player = Checker.WHITE;
-				a = MulinoClientFirstMiniMax.minimaxDecision(state, 1);
+				a = MulinoClientFirstMiniMax.minimaxDecision(state, 4);
 				
 				switch(state.getCurrentPhase()) {
 				case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
@@ -409,4 +410,160 @@ public class MulinoClientFirstMiniMaxTest {
 			return action;
 		}
 	}
+	
+	public static void doTestStates() {
+		State state;
+		Action a;
+
+		//STATO 12 DELLA PARTITA 7v7 ALPHA-BETA PRIMA DELLA CORREZIONE DEI SUCCESSORI
+//		try {
+//			state = new State();
+//			state.setBlackCheckers(0);
+//			state.setWhiteCheckers(0);
+//			state.setCurrentPhase(State.Phase.SECOND);
+//			state.setBlackCheckersOnBoard(5);
+//			state.setWhiteCheckersOnBoard(7);
+//			state.getBoard().put("b6", Checker.BLACK);
+//			state.getBoard().put("d6", Checker.BLACK);
+//			state.getBoard().put("f6", Checker.BLACK);
+//			state.getBoard().put("g4", Checker.BLACK);
+//			state.getBoard().put("f2", Checker.BLACK);
+//
+//			state.getBoard().put("c3", Checker.WHITE);
+//			state.getBoard().put("d3", Checker.WHITE);
+//			state.getBoard().put("e3", Checker.WHITE);
+//			state.getBoard().put("d2", Checker.WHITE);
+//			state.getBoard().put("a1", Checker.WHITE);
+//			state.getBoard().put("d1", Checker.WHITE);
+//			state.getBoard().put("g1", Checker.WHITE);
+//			MulinoClientFirstMiniMaxAlphaBeta.player = Checker.WHITE;
+//			a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 9);
+//				
+//			switch(state.getCurrentPhase()) {
+//			case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
+//			case SECOND: state = Phase2.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
+//			case FINAL: state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
+//			default: throw new Exception("Illegal Phase");
+//			}
+//			System.out.println(state);
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+		//PRIMO STATO DI SECONDA FASE DELLA PARTITA 7v7 CON ALPHA-BETA, PRIMA DELLA CORREZIONE DEI SUCCESSORI
+//		try {
+//			state = new State();
+//			state.setBlackCheckers(0);
+//			state.setWhiteCheckers(0);
+//			state.setCurrentPhase(State.Phase.SECOND);
+//			state.setBlackCheckersOnBoard(7);
+//			state.setWhiteCheckersOnBoard(8);
+//			state.getBoard().put("a7", Checker.BLACK);
+//			state.getBoard().put("g7", Checker.BLACK);
+//			state.getBoard().put("b6", Checker.BLACK);
+//			state.getBoard().put("d6", Checker.BLACK);
+//			state.getBoard().put("f6", Checker.BLACK);
+//			state.getBoard().put("e4", Checker.BLACK);
+//			state.getBoard().put("d2", Checker.BLACK);
+//
+//			state.getBoard().put("d7", Checker.WHITE);
+//			state.getBoard().put("b4", Checker.WHITE);
+//			state.getBoard().put("c3", Checker.WHITE);
+//			state.getBoard().put("d3", Checker.WHITE);
+//			state.getBoard().put("e3", Checker.WHITE);
+//			state.getBoard().put("a1", Checker.WHITE);
+//			state.getBoard().put("d1", Checker.WHITE);
+//			state.getBoard().put("g1", Checker.WHITE);
+//			MulinoClientFirstMiniMaxAlphaBeta.player = Checker.WHITE;
+//			a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 11);
+//				
+//			switch(state.getCurrentPhase()) {
+//			case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
+//			case SECOND: state = Phase2.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
+//			case FINAL: state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
+//			default: throw new Exception("Illegal Phase");
+//			}
+//			System.out.println(state);
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+		//STATO A CASO INTESO COME MASSIMA DIFFICOLTA' DI ESPANSIONE IN FASE 2, INFATTI HA 9 BIANCHI E 9 NERI
+//		try {
+//			state = new State();
+//			state.setBlackCheckers(0);
+//			state.setWhiteCheckers(0);
+//			state.setCurrentPhase(State.Phase.SECOND);
+//			state.setBlackCheckersOnBoard(9);
+//			state.setWhiteCheckersOnBoard(9);
+//			state.getBoard().put("a7", Checker.BLACK);
+//			state.getBoard().put("g7", Checker.BLACK);
+//			state.getBoard().put("b6", Checker.BLACK);
+//			state.getBoard().put("d6", Checker.BLACK);
+//			state.getBoard().put("f6", Checker.BLACK);
+//			state.getBoard().put("e4", Checker.BLACK);
+//			state.getBoard().put("d2", Checker.BLACK);
+//			state.getBoard().put("b2", Checker.BLACK);
+//			state.getBoard().put("f4", Checker.BLACK);
+//
+//			state.getBoard().put("d7", Checker.WHITE);
+//			state.getBoard().put("b4", Checker.WHITE);
+//			state.getBoard().put("c3", Checker.WHITE);
+//			state.getBoard().put("d3", Checker.WHITE);
+//			state.getBoard().put("e3", Checker.WHITE);
+//			state.getBoard().put("a1", Checker.WHITE);
+//			state.getBoard().put("d1", Checker.WHITE);
+//			state.getBoard().put("g1", Checker.WHITE);
+//			state.getBoard().put("c5", Checker.WHITE);
+//			MulinoClientFirstMiniMaxAlphaBeta.player = Checker.WHITE;
+//			a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 16);
+//				
+//			switch(state.getCurrentPhase()) {
+//			case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
+//			case SECOND: state = Phase2.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
+//			case FINAL: state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
+//			default: throw new Exception("Illegal Phase");
+//			}
+//			System.out.println(state);
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+		//STATO IN CUI IL BIANCO DEVE VINCERE IN UNA MOSSA MA NON LO RICONOSCEVA
+//		try {
+//			state = new State();
+//			state.setBlackCheckers(0);
+//			state.setWhiteCheckers(0);
+//			state.setCurrentPhase(State.Phase.FINAL);
+//			state.setBlackCheckersOnBoard(3);
+//			state.setWhiteCheckersOnBoard(3);
+//			state.getBoard().put("d7", Checker.BLACK);
+//			state.getBoard().put("g7", Checker.BLACK);
+//			state.getBoard().put("g1", Checker.BLACK);
+//
+//			state.getBoard().put("d2", Checker.WHITE);
+//			state.getBoard().put("d3", Checker.WHITE);
+//			state.getBoard().put("g4", Checker.WHITE);
+//			System.out.println(state);
+//			
+//			MulinoClientFirstMiniMaxAlphaBeta.player = Checker.WHITE;
+//			a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 1);
+//				
+//			switch(state.getCurrentPhase()) {
+//			case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
+//			case SECOND: state = Phase2.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
+//			case FINAL: state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
+//			default: throw new Exception("Illegal Phase");
+//			}
+//			System.out.println(state);
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+	}
+
 }
