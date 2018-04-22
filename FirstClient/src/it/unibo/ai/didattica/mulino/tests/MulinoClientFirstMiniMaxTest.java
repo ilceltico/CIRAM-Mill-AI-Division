@@ -582,7 +582,9 @@ public class MulinoClientFirstMiniMaxTest {
 //		}
 		
 		//STATO IN CUI IL BIANCO PERDE IN UNA MOSSA MA NON LO RICONOSCE
-		//Ultimo stato di Test 1 - Server
+		//QUA NEL TEST INVECE TROVA LA MOSSA GIUSTA DA FARE, PERCHE' ALLORA
+		//IN PARTITA SCEGLIEVA MOSSE CON VALORE 0 MA CHE PORTAVANO ALLA SCONFITTA DIRETTA?
+		//Ultimo stato di Test 1 - Server (White)
 //			Current state is:
 //			7 W--------B--------O
 //			6 |--B-----O-----B--|
@@ -597,35 +599,91 @@ public class MulinoClientFirstMiniMaxTest {
 //			Black Checkers: 0;
 //			White Checkers On Board: 3;
 //			Black Checkers On Board: 7;
+//		try {
+//			state = new State();
+//			state.setBlackCheckers(0);
+//			state.setWhiteCheckers(0);
+//			state.setCurrentPhase(State.Phase.FINAL);
+//			state.setBlackCheckersOnBoard(7);
+//			state.setWhiteCheckersOnBoard(3);
+//			state.getBoard().put("d7", Checker.BLACK);
+//			state.getBoard().put("b6", Checker.BLACK);
+//			state.getBoard().put("f6", Checker.BLACK);
+//			state.getBoard().put("b4", Checker.BLACK);
+//			state.getBoard().put("g4", Checker.BLACK);
+//			state.getBoard().put("b2", Checker.BLACK);
+//			state.getBoard().put("a1", Checker.BLACK);
+//
+//			state.getBoard().put("a7", Checker.WHITE);
+//			state.getBoard().put("c5", Checker.WHITE);
+//			state.getBoard().put("g1", Checker.WHITE);
+//			System.out.println(state);
+//			
+//			MulinoClientFirstMiniMax.player = Checker.WHITE;
+//			MulinoClientFirstMiniMax.otherPlayer = Checker.BLACK;
+//			MulinoClientFirstMiniMax client = new MulinoClientFirstMiniMax(Checker.WHITE);
+//			a = client.iterativeDeepeningMinimaxDecision(state, 60000);
+//				
+//			switch(state.getCurrentPhase()) {
+//			case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
+//			case SECOND: state = Phase2.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
+//			case FINAL: state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
+//			default: throw new Exception("Illegal Phase");
+//			}
+//			System.out.println(state);
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+		//RIGA 1186 TEST 1 BLACK
+		//Il riconoscimento dello stato di vittoria deve avvenire sempre a un livello in meno
+		//man mano che le mosse avanzano. Invece pare non succedere bene.
+//			Current state is:
+//			7 W--------B--------O
+//			6 |--B-----B-----O--|
+//			5 |--|--O--W--O--|--|
+//			4 B--O--W     O--O--B
+//			3 |--|--O--O--O--|--|
+//			2 |--B-----O-----O--|
+//			1 W--------B--------W
+//			  a  b  c  d  e  f  g
+//			Phase: Second;
+//			White Checkers: 0;
+//			Black Checkers: 0;
+//			White Checkers On Board: 5;
+//			Black Checkers On Board: 7;
+
 		try {
 			state = new State();
 			state.setBlackCheckers(0);
 			state.setWhiteCheckers(0);
-			state.setCurrentPhase(State.Phase.FINAL);
+			state.setCurrentPhase(State.Phase.SECOND);
 			state.setBlackCheckersOnBoard(7);
-			state.setWhiteCheckersOnBoard(3);
+			state.setWhiteCheckersOnBoard(5);
 			state.getBoard().put("d7", Checker.BLACK);
 			state.getBoard().put("b6", Checker.BLACK);
-			state.getBoard().put("f6", Checker.BLACK);
-			state.getBoard().put("b4", Checker.BLACK);
+			state.getBoard().put("d6", Checker.BLACK);
+			state.getBoard().put("a4", Checker.BLACK);
 			state.getBoard().put("g4", Checker.BLACK);
 			state.getBoard().put("b2", Checker.BLACK);
-			state.getBoard().put("a1", Checker.BLACK);
+			state.getBoard().put("d1", Checker.BLACK);
 
 			state.getBoard().put("a7", Checker.WHITE);
-			state.getBoard().put("c5", Checker.WHITE);
+			state.getBoard().put("d5", Checker.WHITE);
+			state.getBoard().put("c4", Checker.WHITE);
+			state.getBoard().put("a1", Checker.WHITE);
 			state.getBoard().put("g1", Checker.WHITE);
 			System.out.println(state);
 			
-			MulinoClientFirstMiniMax.player = Checker.WHITE;
-			MulinoClientFirstMiniMax.otherPlayer = Checker.BLACK;
-			MulinoClientFirstMiniMax client = new MulinoClientFirstMiniMax(Checker.WHITE);
-			a = client.iterativeDeepeningMinimaxDecision(state, 60000);
+			MulinoClientFirstMiniMaxAlphaBeta.player = Checker.BLACK;
+			MulinoClientFirstMiniMaxAlphaBeta.otherPlayer = Checker.WHITE;
+			a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 2);
 				
 			switch(state.getCurrentPhase()) {
-			case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
-			case SECOND: state = Phase2.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
-			case FINAL: state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMax.player); break;
+			case FIRST: state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
+			case SECOND: state = Phase2.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
+			case FINAL: state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player); break;
 			default: throw new Exception("Illegal Phase");
 			}
 			System.out.println(state);

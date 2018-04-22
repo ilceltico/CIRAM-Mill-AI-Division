@@ -28,7 +28,6 @@ import it.unibo.ai.didattica.mulino.actions.TryingToRemoveOwnCheckerException;
 import it.unibo.ai.didattica.mulino.actions.Util;
 import it.unibo.ai.didattica.mulino.actions.WrongPhaseException;
 import it.unibo.ai.didattica.mulino.actions.WrongPositionException;
-import it.unibo.ai.didattica.mulino.client.MulinoClientFirstMiniMax.IterativeDeepeningRunnable;
 import it.unibo.ai.didattica.mulino.domain.State;
 import it.unibo.ai.didattica.mulino.domain.State.Checker;
 import it.unibo.ai.didattica.mulino.domain.State.Phase;
