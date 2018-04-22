@@ -5,6 +5,14 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
 
 import it.unibo.ai.didattica.mulino.actions.Action;
@@ -44,18 +52,23 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 	public static Checker otherPlayer;
 	private static int expandedStates;
 	private static long elapsedTime;
-	public static final int MAXDEPTH = 1;
 	// public static final int THREAD_NUMBER = 4;
+	public static final int SAFETY_MILLIS = 1000;
 	public static List<State> statesAlreadySeen = new ArrayList<>();
 
 	public static void main(String[] args) throws Exception {
-		MulinoClient mulinoClient = null;
-		if (args[0].toLowerCase().equals("white"))
+		MulinoClientFirstMiniMax mulinoClient = null;
+		if (args.length < 1) {
+			System.out.println("1 argument required, case insensitive: white | black");
+			System.exit(-1);
+		} else if (args[0].toLowerCase().equals("white"))
 			mulinoClient = new MulinoClientFirstMiniMax(Checker.WHITE);
 		else if (args[0].toLowerCase().equals("black"))
 			mulinoClient = new MulinoClientFirstMiniMax(Checker.BLACK);
-		else
+		else {
+			System.out.println("1 argument required, case insensitive: white | black");
 			System.exit(-2);
+		}
 		player = mulinoClient.getPlayer();
 		State currentState = null;
 
@@ -67,7 +80,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				System.out.println("Current state is:");
 				System.out.println(currentState.toString());
 
-				Action a = minimaxDecision(currentState, MAXDEPTH);
+				Action a = mulinoClient.iterativeDeepeningMinimaxDecision(currentState, 60000);
 
 				mulinoClient.write(a);
 
@@ -88,7 +101,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				System.out.println("Current state is:");
 				System.out.println(currentState.toString());
 
-				Action a = minimaxDecision(currentState, MAXDEPTH);
+				Action a = mulinoClient.iterativeDeepeningMinimaxDecision(currentState, 60000);
 
 				mulinoClient.write(a);
 			} else {
@@ -96,8 +109,53 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 				System.exit(-1);
 			}
 
-		} while (currentState.getBlackCheckers() > 3 && currentState.getWhiteCheckers() > 3);
+		} while (true);
 
+	}
+	
+	
+	public class IterativeDeepeningRunnable implements Runnable {
+		private State state;
+		private Action iterativeAction = null;
+		
+		public void setState(State state) {
+			this.state = state;
+		}
+		
+		public Action getIterativeAction() {
+			return iterativeAction;
+		}
+		
+		@Override
+		public void run() {
+			int iterativeLevel = 2;
+			try {
+				while(true) {
+					iterativeAction = minimaxDecision(state, iterativeLevel);
+					System.out.println("Level " + iterativeLevel++  + " decision completed");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+	@SuppressWarnings("deprecation")
+	public Action iterativeDeepeningMinimaxDecision(State state, long millisLimit) throws Exception {
+		
+		IterativeDeepeningRunnable runnable = new IterativeDeepeningRunnable();
+		runnable.setState(state);
+		
+		Thread thread = new Thread(runnable);
+		thread.start();
+		
+		Thread.sleep(millisLimit-SAFETY_MILLIS);
+		System.out.println("Reached time limit");
+		
+		thread.stop();
+		
+		return runnable.getIterativeAction();
 	}
 
 	public static Action minimaxDecision(State state, int maxDepth) throws Exception {

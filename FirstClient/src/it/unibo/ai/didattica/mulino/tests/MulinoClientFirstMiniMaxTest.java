@@ -1,6 +1,7 @@
 package it.unibo.ai.didattica.mulino.tests;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 import it.unibo.ai.didattica.mulino.actions.Action;
@@ -24,12 +25,14 @@ public class MulinoClientFirstMiniMaxTest {
 	public static void main(String[] args) {
 //		doTest1();
 //		doTest2();
-		doTest2WithAlphaBeta();
+//		doTest2WithAlphaBeta();
 //		doTest2WithAlphaBetaAndOptimizationsTreeSet();
 //		doTest2WithAlphaBetaAndOptimizationsList();
 //		playAgaintsWhiteCPU();
 //		playAgainstBlackCPU();
 //		doTestStates();
+		
+		doTestIterativeDeepening();
 	}
 
 	public static void doTest1() {
@@ -578,6 +581,33 @@ public class MulinoClientFirstMiniMaxTest {
 //			e.printStackTrace();
 //		}
 		
+	}
+	
+
+	public static void doTestIterativeDeepening() {
+		MulinoClientFirstMiniMax.player = Checker.WHITE;
+		MulinoClientFirstMiniMax.otherPlayer = Checker.BLACK;
+		State initialState = new State();
+		State state;
+		MulinoClientFirstMiniMax client = null;
+		try {
+			client = new MulinoClientFirstMiniMax(Checker.WHITE);
+		} catch (IOException e1) {
+//			e1.printStackTrace();
+		}
+		
+		try {
+			Action a = client.iterativeDeepeningMinimaxDecision(initialState, 60000);
+			switch(initialState.getCurrentPhase()) {
+			case FIRST: state = Phase1.applyMove(initialState, a, MulinoClientFirstMiniMax.player); break;
+			case SECOND: state = Phase2.applyMove(initialState, a, MulinoClientFirstMiniMax.player); break;
+			case FINAL: state = PhaseFinal.applyMove(initialState, a, MulinoClientFirstMiniMax.player); break;
+			default: throw new Exception("Illegal Phase");
+			}
+			System.out.println(state);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

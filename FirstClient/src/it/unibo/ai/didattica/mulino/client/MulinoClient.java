@@ -23,7 +23,7 @@ public abstract class MulinoClient {
 	private ObjectInputStream in;
 	private ObjectOutputStream out;
 
-	public MulinoClient(State.Checker player) throws UnknownHostException, IOException {
+	public MulinoClient(State.Checker player) {
 		this.player = player;
 		int port = 0;
 		switch (player) {
@@ -36,9 +36,15 @@ public abstract class MulinoClient {
 		default:
 			System.exit(5);
 		}
-		playerSocket = new Socket("localhost", port);
-		out = new ObjectOutputStream(playerSocket.getOutputStream());
-		in = new ObjectInputStream(new BufferedInputStream(playerSocket.getInputStream()));
+		try {
+			playerSocket = new Socket("localhost", port);
+			out = new ObjectOutputStream(playerSocket.getOutputStream());
+			in = new ObjectInputStream(new BufferedInputStream(playerSocket.getInputStream()));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+		}
+		
 	}
 
 	/**

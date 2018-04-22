@@ -1,0 +1,1291 @@
+TEST 2
+BIANCO MINIMAX ALPHA-BETA ITERATIVE
+
+Current state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 9;
+Black Checkers: 9;
+White Checkers On Board: 0;
+Black Checkers On Board: 0;
+
+Elapsed time: 14
+Expanded states: 576
+Selected action is: a1, value: 0
+Level 2 decision completed
+Elapsed time: 18
+Expanded states: 1588
+Selected action is: a1, value: 18
+Level 3 decision completed
+Elapsed time: 80
+Expanded states: 17767
+Selected action is: b4, value: 0
+Level 4 decision completed
+Elapsed time: 792
+Expanded states: 154123
+Selected action is: a4, value: 18
+Level 5 decision completed
+Elapsed time: 2547
+Expanded states: 921803
+Selected action is: a1, value: -1
+Level 6 decision completed
+Elapsed time: 47069
+Expanded states: 10801386
+Selected action is: a1, value: 18
+Level 7 decision completed
+Reached time limit
+New state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 8;
+Black Checkers: 9;
+White Checkers On Board: 1;
+Black Checkers On Board: 0;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 8;
+Black Checkers: 8;
+White Checkers On Board: 1;
+Black Checkers On Board: 1;
+
+Elapsed time: 2
+Expanded states: 484
+Selected action is: b4, value: -1
+Level 2 decision completed
+Elapsed time: 17
+Expanded states: 3529
+Selected action is: b4, value: 17
+Level 3 decision completed
+Elapsed time: 99
+Expanded states: 33890
+Selected action is: b6, value: -1
+Level 4 decision completed
+Elapsed time: 1318
+Expanded states: 279940
+Selected action is: g7, value: 18
+Level 5 decision completed
+Elapsed time: 7724
+Expanded states: 2305362
+Selected action is: b2, value: -2
+Level 6 decision completed
+Reached time limit
+New state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--W-----O-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 8;
+White Checkers On Board: 2;
+Black Checkers On Board: 1;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--B--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--W-----O-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 7;
+White Checkers On Board: 2;
+Black Checkers On Board: 2;
+
+Elapsed time: 2
+Expanded states: 438
+Selected action is: c4, value: -1
+Level 2 decision completed
+Elapsed time: 11
+Expanded states: 2171
+Selected action is: c4, value: 17
+Level 3 decision completed
+Elapsed time: 86
+Expanded states: 19535
+Selected action is: c4, value: -2
+Level 4 decision completed
+Elapsed time: 657
+Expanded states: 135468
+Selected action is: c4, value: 17
+Level 5 decision completed
+Elapsed time: 2911
+Expanded states: 788032
+Selected action is: c4, value: -2
+Level 6 decision completed
+Elapsed time: 36664
+Expanded states: 6992276
+Selected action is: c4, value: 17
+Level 7 decision completed
+Reached time limit
+New state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--B--W     O--O--O
+3 |--|--O--O--O--|--|
+2 |--W-----O-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 7;
+White Checkers On Board: 3;
+Black Checkers On Board: 2;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--B--W     O--O--O
+3 |--|--O--B--O--|--|
+2 |--W-----O-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 6;
+White Checkers On Board: 3;
+Black Checkers On Board: 3;
+
+Elapsed time: 2
+Expanded states: 324
+Selected action is: d1, value: -1
+Level 2 decision completed
+Elapsed time: 39
+Expanded states: 2678
+Selected action is: e5, value: 18
+Level 3 decision completed
+Elapsed time: 102
+Expanded states: 22336
+Selected action is: d1, value: -2
+Level 4 decision completed
+Elapsed time: 971
+Expanded states: 169604
+Selected action is: c5, value: 17
+Level 5 decision completed
+Elapsed time: 5436
+Expanded states: 1254480
+Selected action is: c5, value: -2
+Level 6 decision completed
+Elapsed time: 44713
+Expanded states: 7663247
+Selected action is: d5, value: 23
+Level 7 decision completed
+Reached time limit
+New state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--W--O--|--|
+4 B--B--W     O--O--O
+3 |--|--O--B--O--|--|
+2 |--W-----O-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 5;
+Black Checkers: 6;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--W--O--|--|
+4 B--B--W     O--O--O
+3 |--|--O--B--O--|--|
+2 |--W-----O-----O--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 5;
+Black Checkers: 5;
+White Checkers On Board: 4;
+Black Checkers On Board: 4;
+
+Elapsed time: 2
+Expanded states: 316
+Selected action is: d2, value: -3
+Level 2 decision completed
+Elapsed time: 14
+Expanded states: 2106
+Selected action is: d2, value: 33
+Level 3 decision completed
+Elapsed time: 105
+Expanded states: 19333
+Selected action is: d2, value: -3
+Level 4 decision completed
+Elapsed time: 452
+Expanded states: 87267
+Selected action is: d2, value: 37
+Level 5 decision completed
+Elapsed time: 2342
+Expanded states: 546773
+Selected action is: d2, value: 16
+Level 6 decision completed
+Elapsed time: 14079
+Expanded states: 2661394
+Selected action is: d2, value: 47
+Level 7 decision completed
+Reached time limit
+New state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--W--O--|--|
+4 B--B--W     O--O--O
+3 |--|--O--B--O--|--|
+2 |--W-----W-----O--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 4;
+Black Checkers: 5;
+White Checkers On Board: 5;
+Black Checkers On Board: 4;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--W--O--|--|
+4 B--B--W     O--O--O
+3 |--|--O--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 4;
+Black Checkers: 4;
+White Checkers On Board: 5;
+Black Checkers On Board: 5;
+
+Elapsed time: 2
+Expanded states: 196
+Selected action is: d6, value: -3
+Level 2 decision completed
+Elapsed time: 16
+Expanded states: 1067
+Selected action is: c5, value: 63
+Level 3 decision completed
+Elapsed time: 71
+Expanded states: 7790
+Selected action is: c5, value: 16
+Level 4 decision completed
+Elapsed time: 359
+Expanded states: 59980
+Selected action is: c5, value: 47
+Level 5 decision completed
+Elapsed time: 1847
+Expanded states: 347568
+Selected action is: c5, value: 20
+Level 6 decision completed
+Elapsed time: 13014
+Expanded states: 2273753
+Selected action is: c5, value: 44
+Level 7 decision completed
+Elapsed time: 39531
+Expanded states: 12017871
+Selected action is: c5, value: -1
+Level 8 decision completed
+Reached time limit
+New state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--W--W--O--|--|
+4 B--B--W     O--O--O
+3 |--|--O--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 3;
+Black Checkers: 4;
+White Checkers On Board: 6;
+Black Checkers On Board: 5;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--W--W--O--|--|
+4 B--B--W     O--O--O
+3 |--|--B--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 3;
+Black Checkers: 3;
+White Checkers On Board: 6;
+Black Checkers On Board: 6;
+
+Elapsed time: 3
+Expanded states: 282
+Selected action is: e5c3, value: 16
+Level 2 decision completed
+Elapsed time: 18
+Expanded states: 2351
+Selected action is: e5c3, value: 47
+Level 3 decision completed
+Elapsed time: 91
+Expanded states: 15512
+Selected action is: e5c3, value: 20
+Level 4 decision completed
+Elapsed time: 665
+Expanded states: 100395
+Selected action is: e5c3, value: 45
+Level 5 decision completed
+Elapsed time: 1568
+Expanded states: 464466
+Selected action is: e5c3, value: 9
+Level 6 decision completed
+Elapsed time: 5601
+Expanded states: 1600891
+Selected action is: e5c3, value: -5
+Level 7 decision completed
+Elapsed time: 19462
+Expanded states: 4882216
+Selected action is: e5c3, value: -5
+Level 8 decision completed
+Reached time limit
+New state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--W--W--W--|--|
+4 B--B--W     O--O--O
+3 |--|--O--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 2;
+Black Checkers: 3;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--W--W--W--|--|
+4 B--B--W     O--B--O
+3 |--|--O--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 2;
+Black Checkers: 2;
+White Checkers On Board: 7;
+Black Checkers On Board: 6;
+
+Elapsed time: 3
+Expanded states: 226
+Selected action is: c3f2, value: 21
+Level 2 decision completed
+Elapsed time: 18
+Expanded states: 2024
+Selected action is: f6, value: 52
+Level 3 decision completed
+Elapsed time: 45
+Expanded states: 10849
+Selected action is: c3f2, value: 27
+Level 4 decision completed
+Elapsed time: 131
+Expanded states: 35249
+Selected action is: c3d1, value: -5
+Level 5 decision completed
+Elapsed time: 516
+Expanded states: 112436
+Selected action is: c3d1, value: -5
+Level 6 decision completed
+Elapsed time: 1727
+Expanded states: 481559
+Selected action is: c3f2, value: 67
+Level 7 decision completed
+Elapsed time: 8761
+Expanded states: 2155070
+Selected action is: c3f2, value: 43
+Level 8 decision completed
+Elapsed time: 35587
+Expanded states: 10784232
+Selected action is: c3f2, value: 57
+Level 9 decision completed
+Reached time limit
+New state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--W--W--W--|--|
+4 B--B--W     O--B--O
+3 |--|--W--B--O--|--|
+2 |--W-----W-----O--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 1;
+Black Checkers: 2;
+White Checkers On Board: 8;
+Black Checkers On Board: 5;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--W--W--W--|--|
+4 B--B--W     O--B--O
+3 |--|--W--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 1;
+Black Checkers: 1;
+White Checkers On Board: 8;
+Black Checkers On Board: 6;
+
+Elapsed time: 3
+Expanded states: 127
+Selected action is: f6, value: 27
+Level 2 decision completed
+Elapsed time: 8
+Expanded states: 423
+Selected action is: f6, value: -5
+Level 3 decision completed
+Elapsed time: 14
+Expanded states: 1070
+Selected action is: f6, value: -5
+Level 4 decision completed
+Elapsed time: 31
+Expanded states: 6480
+Selected action is: f6, value: 67
+Level 5 decision completed
+Elapsed time: 109
+Expanded states: 24819
+Selected action is: f6, value: 43
+Level 6 decision completed
+Elapsed time: 517
+Expanded states: 152741
+Selected action is: f6, value: 57
+Level 7 decision completed
+Elapsed time: 2046
+Expanded states: 518364
+Selected action is: f6, value: 43
+Level 8 decision completed
+Elapsed time: 8755
+Expanded states: 2484423
+Selected action is: f6, value: 73
+Level 9 decision completed
+Elapsed time: 45660
+Expanded states: 12131642
+Selected action is: f6, value: 59
+Level 10 decision completed
+Reached time limit
+New state is:
+7 O--------O--------O
+6 |--O-----O-----W--|
+5 |--|--W--W--W--|--|
+4 B--B--W     O--B--O
+3 |--|--W--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 0;
+Black Checkers: 1;
+White Checkers On Board: 9;
+Black Checkers On Board: 6;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------O--------O
+6 |--O-----O-----W--|
+5 |--|--W--W--W--|--|
+4 B--B--W     B--B--O
+3 |--|--W--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+Elapsed time: 1
+Expanded states: 15
+Selected action is: f6d6, value: 17
+Level 2 decision completed
+Elapsed time: 0
+Expanded states: 93
+Selected action is: d5d6, value: 67
+Level 3 decision completed
+Elapsed time: 4
+Expanded states: 591
+Selected action is: d5d6, value: 43
+Level 4 decision completed
+Elapsed time: 11
+Expanded states: 2692
+Selected action is: d5d6, value: 63
+Level 5 decision completed
+Elapsed time: 63
+Expanded states: 13673
+Selected action is: d5d6, value: 53
+Level 6 decision completed
+Elapsed time: 326
+Expanded states: 81726
+Selected action is: d5d6, value: 73
+Level 7 decision completed
+Elapsed time: 1655
+Expanded states: 427465
+Selected action is: d5d6, value: 59
+Level 8 decision completed
+Elapsed time: 8861
+Expanded states: 2305013
+Selected action is: d5d6, value: 83
+Level 9 decision completed
+Elapsed time: 42171
+Expanded states: 11690223
+Selected action is: d5d6, value: 69
+Level 10 decision completed
+Reached time limit
+New state is:
+7 O--------O--------O
+6 |--O-----W-----W--|
+5 |--|--W--O--W--|--|
+4 B--B--W     B--B--O
+3 |--|--W--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------O--------O
+6 |--O-----W-----W--|
+5 |--|--W--O--W--|--|
+4 B--B--W     B--B--O
+3 |--|--W--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+Elapsed time: 1
+Expanded states: 149
+Selected action is: d6d5e4, value: 53
+Level 2 decision completed
+Elapsed time: 5
+Expanded states: 986
+Selected action is: d6d5g1, value: 63
+Level 3 decision completed
+Elapsed time: 44
+Expanded states: 4563
+Selected action is: d6d5g1, value: 53
+Level 4 decision completed
+Elapsed time: 127
+Expanded states: 28298
+Selected action is: d6d5e4, value: 73
+Level 5 decision completed
+Elapsed time: 525
+Expanded states: 134064
+Selected action is: d6d5e4, value: 59
+Level 6 decision completed
+Elapsed time: 3617
+Expanded states: 916299
+Selected action is: d6d5e4, value: 83
+Level 7 decision completed
+Elapsed time: 11774
+Expanded states: 3279973
+Selected action is: d6d5g1, value: 69
+Level 8 decision completed
+Reached time limit
+New state is:
+7 O--------O--------O
+6 |--O-----O-----W--|
+5 |--|--W--W--W--|--|
+4 B--B--W     B--B--O
+3 |--|--W--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 6;
+
+
+Waiting for opponent move...
+Current state is:
+7 B--------O--------O
+6 |--O-----O-----W--|
+5 |--|--W--W--W--|--|
+4 O--B--W     B--B--O
+3 |--|--W--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 6;
+
+Elapsed time: 1
+Expanded states: 41
+Selected action is: a1a4, value: 53
+Level 2 decision completed
+Elapsed time: 2
+Expanded states: 226
+Selected action is: d5d6, value: 93
+Level 3 decision completed
+Elapsed time: 11
+Expanded states: 1091
+Selected action is: d5d6, value: 69
+Level 4 decision completed
+Elapsed time: 38
+Expanded states: 6713
+Selected action is: d5d6, value: 83
+Level 5 decision completed
+Elapsed time: 101
+Expanded states: 27368
+Selected action is: d5d6, value: 69
+Level 6 decision completed
+Elapsed time: 489
+Expanded states: 120489
+Selected action is: d5d6, value: 99
+Level 7 decision completed
+Elapsed time: 1503
+Expanded states: 431015
+Selected action is: d5d6, value: 75
+Level 8 decision completed
+Elapsed time: 8859
+Expanded states: 2108941
+Selected action is: d5d6, value: 109
+Level 9 decision completed
+Elapsed time: 31035
+Expanded states: 9206486
+Selected action is: d5d6, value: 85
+Level 10 decision completed
+Reached time limit
+New state is:
+7 B--------O--------O
+6 |--O-----W-----W--|
+5 |--|--W--O--W--|--|
+4 O--B--W     B--B--O
+3 |--|--W--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 6;
+
+
+Waiting for opponent move...
+Current state is:
+7 B--------O--------O
+6 |--O-----W-----W--|
+5 |--|--W--O--W--|--|
+4 O--B--W     B--O--B
+3 |--|--W--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 6;
+
+Elapsed time: 2
+Expanded states: 200
+Selected action is: d6d5e4, value: 69
+Level 2 decision completed
+Elapsed time: 6
+Expanded states: 1499
+Selected action is: f6f4, value: 103
+Level 3 decision completed
+Elapsed time: 40
+Expanded states: 9235
+Selected action is: f6f4, value: 79
+Level 4 decision completed
+Elapsed time: 262
+Expanded states: 60254
+Selected action is: f6f4, value: 132
+Level 5 decision completed
+Elapsed time: 1366
+Expanded states: 348767
+Selected action is: f6f4, value: 108
+Level 6 decision completed
+Elapsed time: 7801
+Expanded states: 1818667
+Selected action is: f6f4, value: 122
+Level 7 decision completed
+Elapsed time: 31469
+Expanded states: 9094610
+Selected action is: f6f4, value: 108
+Level 8 decision completed
+Reached time limit
+New state is:
+7 B--------O--------O
+6 |--O-----W-----O--|
+5 |--|--W--O--W--|--|
+4 O--B--W     B--W--B
+3 |--|--W--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 6;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------O--------O
+6 |--O-----W-----O--|
+5 |--|--W--O--W--|--|
+4 B--B--W     B--W--B
+3 |--|--W--B--O--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 6;
+
+Elapsed time: 1
+Expanded states: 105
+Selected action is: d6d5d3, value: 79
+Level 2 decision completed
+Elapsed time: 2
+Expanded states: 391
+Selected action is: d6d5f2, value: 142
+Level 3 decision completed
+Elapsed time: 14
+Expanded states: 2324
+Selected action is: d6d5f2, value: 108
+Level 4 decision completed
+Elapsed time: 67
+Expanded states: 6766
+Selected action is: a1d1, value: 122
+Level 5 decision completed
+Elapsed time: 94
+Expanded states: 29083
+Selected action is: a1d1, value: 108
+Level 6 decision completed
+Elapsed time: 647
+Expanded states: 123974
+Selected action is: c5d5, value: 148
+Level 7 decision completed
+Elapsed time: 1110
+Expanded states: 376591
+Selected action is: a1d1, value: 108
+Level 8 decision completed
+Elapsed time: 7195
+Expanded states: 1508820
+Selected action is: d6d5d3, value: 2147483646
+Level 9 decision completed
+Elapsed time: 19980
+Expanded states: 7507192
+Selected action is: d6d5d3, value: 2147483646
+Level 10 decision completed
+Reached time limit
+New state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--W--W--W--|--|
+4 B--B--W     B--W--B
+3 |--|--W--O--O--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 5;
+
+
+Waiting for opponent move...
+Current state is:
+7 B--------O--------O
+6 |--O-----O-----O--|
+5 |--|--W--W--W--|--|
+4 O--B--W     B--W--B
+3 |--|--W--O--O--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 5;
+
+Elapsed time: 0
+Expanded states: 62
+Selected action is: a1d1, value: 79
+Level 2 decision completed
+Elapsed time: 2
+Expanded states: 300
+Selected action is: c3d3, value: 119
+Level 3 decision completed
+Elapsed time: 8
+Expanded states: 999
+Selected action is: c3d3, value: 95
+Level 4 decision completed
+Elapsed time: 38
+Expanded states: 5172
+Selected action is: c3d3, value: 148
+Level 5 decision completed
+Elapsed time: 55
+Expanded states: 18956
+Selected action is: a1d1, value: 96
+Level 6 decision completed
+Elapsed time: 243
+Expanded states: 65993
+Selected action is: a1d1, value: 2147483646
+Level 7 decision completed
+Elapsed time: 842
+Expanded states: 357327
+Selected action is: a1d1, value: 2147483646
+Level 8 decision completed
+Elapsed time: 2782
+Expanded states: 680593
+Selected action is: a1d1, value: 2147483646
+Level 9 decision completed
+Elapsed time: 13012
+Expanded states: 5735830
+Selected action is: a1d1, value: 2147483646
+Level 10 decision completed
+Reached time limit
+New state is:
+7 B--------O--------O
+6 |--O-----O-----O--|
+5 |--|--W--W--W--|--|
+4 O--B--W     B--W--B
+3 |--|--W--O--O--|--|
+2 |--W-----W-----B--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 5;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------B--------O
+6 |--O-----O-----O--|
+5 |--|--W--W--W--|--|
+4 O--B--W     B--W--B
+3 |--|--W--O--O--|--|
+2 |--W-----W-----B--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 5;
+
+Elapsed time: 1
+Expanded states: 87
+Selected action is: c3d3b4, value: 86
+Level 2 decision completed
+Elapsed time: 3
+Expanded states: 538
+Selected action is: c3d3f2, value: 138
+Level 3 decision completed
+Elapsed time: 8
+Expanded states: 2929
+Selected action is: c3d3b4, value: 96
+Level 4 decision completed
+Elapsed time: 45
+Expanded states: 12446
+Selected action is: c3d3d7, value: 2147483646
+Level 5 decision completed
+Elapsed time: 124
+Expanded states: 54450
+Selected action is: c3d3d7, value: 2147483646
+Level 6 decision completed
+Elapsed time: 376
+Expanded states: 96925
+Selected action is: c3d3b4, value: 2147483646
+Level 7 decision completed
+Elapsed time: 1823
+Expanded states: 829929
+Selected action is: c3d3b4, value: 2147483646
+Level 8 decision completed
+Elapsed time: 7924
+Expanded states: 2356213
+Selected action is: c3d3b4, value: 2147483646
+Level 9 decision completed
+Elapsed time: 40620
+Expanded states: 19120321
+Selected action is: c3d3b4, value: 2147483646
+Level 10 decision completed
+Reached time limit
+New state is:
+7 O--------B--------O
+6 |--O-----O-----O--|
+5 |--|--W--W--W--|--|
+4 O--O--W     B--W--B
+3 |--|--O--W--O--|--|
+2 |--W-----W-----B--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 4;
+
+
+Waiting for opponent move...
+Current state is:
+7 B--------O--------O
+6 |--O-----O-----O--|
+5 |--|--W--W--W--|--|
+4 O--O--W     B--W--B
+3 |--|--O--W--O--|--|
+2 |--W-----W-----B--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 4;
+
+Elapsed time: 1
+Expanded states: 199
+Selected action is: b2b4, value: 106
+Level 2 decision completed
+Elapsed time: 4
+Expanded states: 1055
+Selected action is: d3c3f2, value: 2147483646
+Level 3 decision completed
+Elapsed time: 57
+Expanded states: 5616
+Selected action is: d3c3f2, value: 2147483646
+Level 4 decision completed
+Elapsed time: 45
+Expanded states: 8844
+Selected action is: d1a1, value: 2147483646
+Level 5 decision completed
+Elapsed time: 186
+Expanded states: 85468
+Selected action is: d1a1, value: 2147483646
+Level 6 decision completed
+Elapsed time: 473
+Expanded states: 133568
+Selected action is: b2b4, value: 2147483646
+Level 7 decision completed
+Elapsed time: 2334
+Expanded states: 1071013
+Selected action is: b2b4, value: 2147483646
+Level 8 decision completed
+Elapsed time: 5470
+Expanded states: 1646673
+Selected action is: b2b4, value: 2147483646
+Level 9 decision completed
+Elapsed time: 23928
+Expanded states: 11122948
+Selected action is: b2b4, value: 2147483646
+Level 10 decision completed
+Reached time limit
+New state is:
+7 B--------O--------O
+6 |--O-----O-----O--|
+5 |--|--W--W--W--|--|
+4 O--W--W     B--W--B
+3 |--|--O--W--O--|--|
+2 |--O-----W-----B--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 4;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------B--------O
+6 |--O-----O-----O--|
+5 |--|--W--W--W--|--|
+4 O--W--W     B--W--B
+3 |--|--O--W--O--|--|
+2 |--O-----W-----B--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 4;
+
+Elapsed time: 1
+Expanded states: 215
+Selected action is: c4c3, value: 106
+Level 2 decision completed
+Elapsed time: 4
+Expanded states: 811
+Selected action is: c4c3, value: 158
+Level 3 decision completed
+Elapsed time: 16
+Expanded states: 6814
+Selected action is: b4a4, value: 106
+Level 4 decision completed
+Elapsed time: 92
+Expanded states: 25387
+Selected action is: d5d6, value: 2147483646
+Level 5 decision completed
+Elapsed time: 472
+Expanded states: 217163
+Selected action is: d5d6, value: 2147483646
+Level 6 decision completed
+Elapsed time: 1935
+Expanded states: 612322
+Selected action is: d1a1, value: 2147483646
+Level 7 decision completed
+Elapsed time: 9346
+Expanded states: 4401623
+Selected action is: d1a1, value: 2147483646
+Level 8 decision completed
+Elapsed time: 7430
+Expanded states: 2351536
+Selected action is: b4a4, value: 2147483646
+Level 9 decision completed
+Elapsed time: 32994
+Expanded states: 15172253
+Selected action is: b4a4, value: 2147483646
+Level 10 decision completed
+Reached time limit
+New state is:
+7 O--------B--------O
+6 |--O-----O-----O--|
+5 |--|--W--W--W--|--|
+4 W--O--W     B--W--B
+3 |--|--O--W--O--|--|
+2 |--O-----W-----B--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 4;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------O--------O
+6 |--O-----B-----O--|
+5 |--|--W--W--W--|--|
+4 W--O--W     B--W--B
+3 |--|--O--W--O--|--|
+2 |--O-----W-----B--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 4;
+
+Elapsed time: 2
+Expanded states: 215
+Selected action is: c4b4, value: 106
+Level 2 decision completed
+Elapsed time: 8
+Expanded states: 874
+Selected action is: c4b4, value: 146
+Level 3 decision completed
+Elapsed time: 16
+Expanded states: 6338
+Selected action is: a4a1, value: 106
+Level 4 decision completed
+Elapsed time: 139
+Expanded states: 36370
+Selected action is: c4c3, value: 158
+Level 5 decision completed
+Elapsed time: 398
+Expanded states: 181473
+Selected action is: a4a1, value: 106
+Level 6 decision completed
+Elapsed time: 2052
+Expanded states: 691956
+Selected action is: c4b4, value: 2147483646
+Level 7 decision completed
+Elapsed time: 8503
+Expanded states: 3941189
+Selected action is: c4b4, value: 2147483646
+Level 8 decision completed
+Elapsed time: 10186
+Expanded states: 3284513
+Selected action is: a4a1, value: 2147483646
+Level 9 decision completed
+Reached time limit
+New state is:
+7 O--------O--------O
+6 |--O-----B-----O--|
+5 |--|--W--W--W--|--|
+4 O--O--W     B--W--B
+3 |--|--O--W--O--|--|
+2 |--O-----W-----B--|
+1 W--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 4;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------O--------O
+6 |--O-----B-----O--|
+5 |--|--W--W--W--|--|
+4 O--O--W     B--W--O
+3 |--|--O--W--O--|--|
+2 |--O-----W-----B--|
+1 W--------W--------B
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 4;
+
+Elapsed time: 1
+Expanded states: 192
+Selected action is: c4b4, value: 106
+Level 2 decision completed
+Elapsed time: 3
+Expanded states: 691
+Selected action is: d3e3, value: 126
+Level 3 decision completed
+Elapsed time: 8
+Expanded states: 3490
+Selected action is: a1a4, value: 106
+Level 4 decision completed
+Elapsed time: 51
+Expanded states: 14870
+Selected action is: a1a4, value: 146
+Level 5 decision completed
+Elapsed time: 226
+Expanded states: 103246
+Selected action is: a1a4, value: 106
+Level 6 decision completed
+Elapsed time: 2922
+Expanded states: 940911
+Selected action is: d3c3e4, value: 2147483646
+Level 7 decision completed
+Elapsed time: 14695
+Expanded states: 6999749
+Selected action is: d3c3e4, value: 2147483646
+Level 8 decision completed
+Elapsed time: 7461
+Expanded states: 2527656
+Selected action is: a1a4, value: 2147483646
+Level 9 decision completed
+Elapsed time: 30812
+Expanded states: 14264781
+Selected action is: a1a4, value: 2147483646
+Level 10 decision completed
+Reached time limit
+New state is:
+7 O--------O--------O
+6 |--O-----B-----O--|
+5 |--|--W--W--W--|--|
+4 W--O--W     B--W--O
+3 |--|--O--W--O--|--|
+2 |--O-----W-----B--|
+1 O--------W--------B
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 4;
+
+
+Waiting for opponent move...
+Exception in thread "main" java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.io.BufferedInputStream.fill(Unknown Source)
+	at java.io.BufferedInputStream.read(Unknown Source)
+	at java.io.ObjectInputStream$PeekInputStream.peek(Unknown Source)
+	at java.io.ObjectInputStream$BlockDataInputStream.peek(Unknown Source)
+	at java.io.ObjectInputStream$BlockDataInputStream.peekByte(Unknown Source)
+	at java.io.ObjectInputStream.readObject0(Unknown Source)
+	at java.io.ObjectInputStream.readObject(Unknown Source)
+	at it.unibo.ai.didattica.mulino.client.MulinoClient.read(MulinoClient.java:61)
+	at it.unibo.ai.didattica.mulino.client.MulinoClientFirstMiniMaxAlphaBeta.main(MulinoClientFirstMiniMaxAlphaBeta.java:73)
