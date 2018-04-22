@@ -449,8 +449,20 @@ public class MulinoClientFirstMiniMaxAlphaBeta2List extends MulinoClient {
 				// resultMap.put(result, v);
 				// });
 				// return resultMap;
+				
+				List<ValuedAction2> resultList = new ArrayList<>();
+				
+				successorsSecond(state, p).forEach(v ->{
+					Phase2Action action = (Phase2Action) v.getAction();
+					PhaseFinalAction result = new PhaseFinalAction();
+					result.setFrom(action.getFrom());
+					result.setTo(action.getTo());
+					result.setRemoveOpponentChecker(action.getRemoveOpponentChecker());
+					resultList.add(new ValuedAction2(result, v.getValue(), v.getNewState()));
+				});			
 
-				return successorsSecond(state, p);
+//				return successorsSecond(state, p);
+				return resultList;
 			} else {
 				return successorsFinal(state, p);
 			}
@@ -468,8 +480,20 @@ public class MulinoClientFirstMiniMaxAlphaBeta2List extends MulinoClient {
 				// resultMap.put(result, v);
 				// });
 				// return resultMap;
+				
+				List<ValuedAction2> resultList = new ArrayList<>();
+				
+				successorsSecond(state, p).forEach(v ->{
+					Phase2Action action = (Phase2Action) v.getAction();
+					PhaseFinalAction result = new PhaseFinalAction();
+					result.setFrom(action.getFrom());
+					result.setTo(action.getTo());
+					result.setRemoveOpponentChecker(action.getRemoveOpponentChecker());
+					resultList.add(new ValuedAction2(result, v.getValue(), v.getNewState()));
+				});	
 
-				return successorsSecond(state, p);
+//				return successorsSecond(state, p);
+				return resultList;
 			} else {
 				return successorsFinal(state, p);
 			}
