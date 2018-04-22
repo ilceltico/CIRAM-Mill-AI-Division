@@ -127,7 +127,7 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 		public void run() {
 			int iterativeLevel = 2;
 			try {
-				while(true) {
+				while(iterativeLevel<20) {
 					iterativeAction = minimaxDecision(state, iterativeLevel);
 					System.out.println("Level " + iterativeLevel++  + " decision completed");
 				}
