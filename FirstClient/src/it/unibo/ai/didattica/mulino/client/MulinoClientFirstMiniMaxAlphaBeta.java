@@ -71,6 +71,7 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 
 			if (player == Checker.WHITE) {
 				currentState = mulinoClient.read();
+				statesAlreadySeen.add(currentState);
 				System.out.println("Current state is:");
 				System.out.println(currentState.toString());
 
@@ -79,6 +80,7 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 				mulinoClient.write(a);
 
 				currentState = mulinoClient.read();
+				statesAlreadySeen.add(currentState);
 				System.out.println("New state is:");
 				System.out.println(currentState.toString());
 
@@ -86,12 +88,14 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 
 			} else if (player == Checker.BLACK) {
 				currentState = mulinoClient.read();
+				statesAlreadySeen.add(currentState);
 				System.out.println("New state is:");
 				System.out.println(currentState.toString());
 
 				System.out.println("\nWaiting for opponent move...");
 
 				currentState = mulinoClient.read();
+				statesAlreadySeen.add(currentState);
 				System.out.println("Current state is:");
 				System.out.println(currentState.toString());
 

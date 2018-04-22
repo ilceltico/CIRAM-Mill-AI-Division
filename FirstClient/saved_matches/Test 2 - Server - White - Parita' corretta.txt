@@ -1,0 +1,2727 @@
+TEST 2
+BIANCO MINIMAX ALPHA-BETA ITERATIVE, PARITA' CORRETTA
+
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983404 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983405 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983406 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983407 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983408 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983409 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983410 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983411 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983412 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983413 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983414 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983415 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983416 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983417 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983418 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983419 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983420 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983421 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983422 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983423 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983424 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983425 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983426 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983427 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983428 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983429 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983430 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983431 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983432 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983433 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983434 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983435 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983436 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983437 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983438 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983439 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983440 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983441 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983442 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983443 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983444 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983445 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983446 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983447 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983448 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983449 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983450 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983451 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983452 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983453 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983454 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983455 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983456 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983457 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983458 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983459 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983460 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983461 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983462 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983463 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983464 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983465 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983466 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983467 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983468 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983469 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983470 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983471 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983472 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983473 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983474 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983475 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983476 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983477 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983478 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983479 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983480 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983481 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983482 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983483 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983484 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983485 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983486 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983487 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983488 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983489 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983490 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983491 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983492 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983493 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983494 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983495 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983496 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983497 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983498 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983499 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983500 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983501 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983502 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983503 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983504 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983505 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983506 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983507 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983508 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983509 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983510 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983511 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983512 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983513 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983514 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983515 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983516 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983517 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983518 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983519 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983520 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983521 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983522 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983523 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983524 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983525 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983526 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983527 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983528 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983529 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983530 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983531 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983532 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983533 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983534 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983535 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983536 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983537 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983538 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983539 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983540 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983541 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983542 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983543 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983544 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983545 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983546 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983547 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983548 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983549 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983550 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983551 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983552 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983553 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983554 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983555 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983556 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983557 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983558 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983559 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983560 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983561 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983562 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983563 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983564 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983565 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983566 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983567 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983568 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983569 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983570 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983571 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983572 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983573 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983574 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983575 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983576 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983577 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983578 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983579 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983580 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983581 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983582 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983583 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983584 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983585 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983586 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983587 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983588 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983589 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983590 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983591 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983592 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983593 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983594 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983595 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983596 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983597 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983598 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983599 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983600 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983601 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983602 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983603 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983604 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983605 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983606 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983607 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983608 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983609 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983610 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983611 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983612 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983613 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983614 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983615 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983616 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983617 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983618 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983619 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983620 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983621 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983622 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983623 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983624 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983625 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983626 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983627 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983628 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983629 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983630 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983631 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983632 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983633 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983634 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983635 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983636 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983637 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983638 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983639 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983640 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983641 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983642 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983643 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983644 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983645 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983646 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983647 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983648 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983649 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983650 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983651 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983652 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983653 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983654 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983655 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983656 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983657 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983658 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983659 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983660 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983661 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983662 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983663 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983664 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983665 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983666 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983667 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983668 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983669 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983670 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983671 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983672 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983673 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983674 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983675 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983676 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983677 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983678 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983679 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983680 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983681 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983682 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983683 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983684 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983685 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983686 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983687 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983688 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983689 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983690 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983691 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983692 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983693 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983694 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983695 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983696 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983697 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983698 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983699 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983700 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983701 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983702 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983703 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983704 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983705 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983706 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983707 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983708 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983709 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983710 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983711 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983712 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983713 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983714 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983715 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983716 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983717 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983718 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983719 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983720 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983721 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983722 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983723 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983724 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983725 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983726 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983727 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983728 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983729 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983730 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983731 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983732 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983733 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983734 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983735 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983736 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983737 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983738 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983739 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983740 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983741 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983742 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983743 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983744 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983745 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983746 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983747 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983748 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983749 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983750 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983751 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983752 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983753 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983754 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983755 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983756 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983757 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983758 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983759 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983760 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983761 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983762 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983763 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983764 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983765 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983766 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983767 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983768 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983769 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983770 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983771 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983772 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983773 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983774 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983775 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983776 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983777 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983778 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983779 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983780 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983781 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983782 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983783 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983784 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983785 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983786 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983787 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983788 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983789 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983790 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983791 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983792 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983793 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983794 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983795 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983796 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983797 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983798 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983799 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983800 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983801 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983802 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983803 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983804 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983805 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983806 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983807 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983808 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983809 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983810 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983811 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983812 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983813 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983814 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983815 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983816 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983817 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983818 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983819 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983820 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983821 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983822 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983823 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983824 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983825 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983826 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983827 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983828 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983829 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983830 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983831 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983832 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983833 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983834 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983835 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983836 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983837 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983838 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983839 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983840 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983841 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983842 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983843 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983844 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983845 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983846 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983847 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983848 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983849 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983850 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983851 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983852 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983853 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983854 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983855 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983856 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983857 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983858 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983859 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983860 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983861 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983862 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983863 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983864 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983865 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983866 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983867 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983868 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983869 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983870 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983871 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983872 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983873 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983874 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983875 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983876 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983877 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983878 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983879 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983880 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983881 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983882 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983883 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983884 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983885 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983886 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983887 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983888 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983889 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983890 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983891 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983892 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983893 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983894 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983895 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983896 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983897 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983898 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983899 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983900 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983901 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983902 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983903 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983904 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983905 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983906 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983907 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983908 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983909 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983910 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983911 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983912 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983913 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983914 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983915 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983916 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983917 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983918 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983919 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983920 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983921 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983922 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983923 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983924 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983925 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983926 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983927 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983928 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983929 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983930 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983931 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983932 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983933 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983934 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983935 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983936 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983937 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983938 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983939 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983940 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983941 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983942 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983943 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983944 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983945 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983946 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983947 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983948 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983949 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983950 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983951 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983952 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983953 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983954 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983955 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983956 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983957 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983958 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983959 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983960 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983961 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983962 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983963 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983964 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983965 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983966 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983967 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983968 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983969 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983970 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983971 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983972 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983973 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983974 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983975 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983976 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983977 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983978 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983979 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983980 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983981 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983982 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983983 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983984 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983985 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983986 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983987 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983988 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983989 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983990 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983991 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983992 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983993 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983994 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983995 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983996 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983997 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983998 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 983999 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984000 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984001 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984002 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984003 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984004 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984005 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984006 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984007 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984008 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984009 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984010 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984011 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984012 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984013 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984014 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984015 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984016 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984017 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984018 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984019 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984020 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984021 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984022 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984023 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984024 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984025 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984026 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984027 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984028 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984029 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984030 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984031 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984032 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984033 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984034 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984035 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984036 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984037 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984038 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984039 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984040 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984041 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984042 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984043 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984044 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984045 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984046 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984047 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984048 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984049 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984050 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984051 decision completed
+Elapsed time: 1
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984052 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984053 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984054 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984055 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984056 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984057 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984058 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984059 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984060 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984061 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984062 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984063 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984064 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984065 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984066 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984067 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984068 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984069 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984070 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984071 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984072 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984073 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984074 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984075 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984076 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984077 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984078 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984079 decision completed
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984080 decision completed
+Reached time limit
+Elapsed time: 0
+Expanded states: 21
+Selected action is: a1d1a7, value: 2147483646
+Level 984081 decision completed
+Exception in thread "main" java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.io.BufferedInputStream.fill(Unknown Source)
+	at java.io.BufferedInputStream.read(Unknown Source)
+	at java.io.ObjectInputStream$PeekInputStream.peek(Unknown Source)
+	at java.io.ObjectInputStream$BlockDataInputStream.peek(Unknown Source)
+	at java.io.ObjectInputStream$BlockDataInputStream.peekByte(Unknown Source)
+	at java.io.ObjectInputStream.readObject0(Unknown Source)
+	at java.io.ObjectInputStream.readObject(Unknown Source)
+	at it.unibo.ai.didattica.mulino.client.MulinoClient.read(MulinoClient.java:61)
+	at it.unibo.ai.didattica.mulino.client.MulinoClientFirstMiniMaxAlphaBeta.main(MulinoClientFirstMiniMaxAlphaBeta.java:82)
