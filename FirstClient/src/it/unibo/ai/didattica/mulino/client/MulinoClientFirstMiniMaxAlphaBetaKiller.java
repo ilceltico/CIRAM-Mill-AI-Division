@@ -49,7 +49,8 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 	public static final int SAFETY_MILLIS = 1000;
 	public static List<State> statesAlreadySeen = new ArrayList<>();
 
-	public static List<Action> killerMoves = new ArrayList<>();
+	// convertire in valuedAction
+	public static List<ValuedAction> killerMoves = new ArrayList<>();
 
 	public static void main(String[] args) throws Exception {
 		MulinoClientFirstMiniMaxAlphaBeta mulinoClient = null;
@@ -162,7 +163,7 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		elapsedTime = System.currentTimeMillis();
 
 		// devo anche aggiornare la killerList se trovo tagli migliori
-		
+		// listaKiller di valuedAction?
 		ValuedAction a = max(state, maxDepth, currentDepth, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
 		System.out.println("Elapsed time: " + elapsedTime);
@@ -178,72 +179,53 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		ValuedAction temp;
 		State newState;
 
-		Action killer = killerMoves.get(currentDepth);
+		// controllo se è la prima volta che esploro questo livello
+		if (killerMoves.size() > currentDepth) {
+			ValuedAction killer = killerMoves.get(currentDepth);
+			newState = isLegalMove(state, killer.getAction(), player);
 
-		// fa schifo, potrei controllare e prendere lo stato successivo in una sola volta, amen
-		if (isLegalMove(state, killer, player)) {
-			// trovo il nuovo stato
-			switch (state.getCurrentPhase()) {
-			case FIRST:
-				newState = Phase1.applyMove(state, killer, player);
-				break;
-			case SECOND:
-				newState = Phase2.applyMove(state, killer, player);
-				break;
-			case FINAL:
-				newState = PhaseFinal.applyMove(state, killer, player);
-				break;
-			default:
-				throw new Exception("Illegal Phase");
-			}
-			
-			// eseguo come sotto, cioè come se fosse una qualunque altra azione
-			if (isWinningState(newState, player)) {
-				result = new ValuedAction(killer, Integer.MIN_VALUE + 1);
-				return result;
-			}
-			if (statesAlreadySeen.contains(newState)) {
-				temp = new ValuedAction(killer, 0);
-			} else if (maxDepth > 1) {
-				statesAlreadySeen.add(newState);
-				temp = max(newState, maxDepth - 1, alpha, currentDepth + 1, beta);
-				statesAlreadySeen.remove(newState);
-			} else {
-				switch (state.getCurrentPhase()) {
-				case FIRST:
-					Phase1Action action1 = (Phase1Action) killer;
-					temp = new ValuedAction(killer, heuristic(newState, action1.getPutPosition(), player));
-					break;
-				case SECOND:
-					Phase2Action action2 = (Phase2Action) killer;
-					temp = new ValuedAction(killer, heuristic(newState, action2.getTo(), player));
-					break;
-				case FINAL:
-					PhaseFinalAction actionFinal = (PhaseFinalAction) killer;
-					temp = new ValuedAction(killer, heuristic(newState, actionFinal.getTo(), player));
-					break;
-				default:
-					throw new Exception("Illegal Phase");
+			if (newState != null) {
+				Action tempAction = killer.getAction();
+				// eseguo come sotto, cioè come se fosse una qualunque altra azione
+				if (isWinningState(newState, player)) {
+					result = new ValuedAction(tempAction, Integer.MIN_VALUE + 1);
+					return result;
 				}
+				if (statesAlreadySeen.contains(newState)) {
+					temp = new ValuedAction(tempAction, 0);
+				} else if (maxDepth > 1) {
+					statesAlreadySeen.add(newState);
+					temp = min(newState, maxDepth - 1, currentDepth + 1, alpha, beta);
+					statesAlreadySeen.remove(newState);
+				} else {
+					temp = new ValuedAction(killer.getAction(), killer.getValue());
+				}
+				if (temp.getValue() < result.getValue()) {
+					result = new ValuedAction(tempAction, temp.getValue());
+				}
+				if (result.getValue() <= alpha) {
+					return result;
+				}
+				if (result.getValue() <= beta) {
+					beta = result.getValue();
+				}
+
+				// rimuovo la mosso, così se la mossa killer non killa non rischio di
+				// riespandere il nodo
+				successors.remove(tempAction);
 			}
-			if (temp.getValue() < result.getValue()) {
-				result = new ValuedAction(killer, temp.getValue());
-			}
-			if (result.getValue() <= alpha) {
-				return result;
-			}
-			if (result.getValue() <= beta) {
-				beta = result.getValue();
-			}
-			
-			// rimuovo la mosso, così se la mossa killer non killa non rischio di riespandere il nodo
-			successors.remove(killer);
 		}
-		
+
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
 			if (isWinningState(newState, player)) {
 				result = new ValuedAction(a, Integer.MAX_VALUE - 1);
+
+				if (killerMoves.size() > currentDepth && killerMoves.get(currentDepth).getValue() < result.getValue())
+					killerMoves.set(currentDepth, result);
+				else
+					killerMoves.add(result);
+
 				return result;
 			}
 			if (statesAlreadySeen.contains(newState)) {
@@ -274,12 +256,23 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 				result = new ValuedAction(a, temp.getValue());
 			}
 			if (result.getValue() >= beta) {
+				if (killerMoves.size() > currentDepth && killerMoves.get(currentDepth).getValue() < result.getValue())
+					killerMoves.set(currentDepth, result);
+				else
+					killerMoves.add(result);
+
 				return result;
 			}
 			if (result.getValue() >= alpha) {
 				alpha = result.getValue();
 			}
 		}
+
+		if (killerMoves.size() > currentDepth && killerMoves.get(currentDepth).getValue() < result.getValue())
+			killerMoves.set(currentDepth, result);
+		else
+			killerMoves.add(result);
+
 		return result;
 	}
 
@@ -290,79 +283,60 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		ValuedAction temp;
 		State newState;
 
-		Action killer = killerMoves.get(currentDepth);
+		// controllo se è la prima volta che esploro questo livello
+		if (killerMoves.size() > currentDepth) {
+			ValuedAction killer = killerMoves.get(currentDepth);
+			newState = isLegalMove(state, killer.getAction(), minPlayer);
 
-		// fa schifo, potrei controllare e prendere lo stato successivo in una sola volta, amen
-		if (isLegalMove(state, killer, minPlayer)) {
-			// trovo il nuovo stato
-			switch (state.getCurrentPhase()) {
-			case FIRST:
-				newState = Phase1.applyMove(state, killer, minPlayer);
-				break;
-			case SECOND:
-				newState = Phase2.applyMove(state, killer, minPlayer);
-				break;
-			case FINAL:
-				newState = PhaseFinal.applyMove(state, killer, minPlayer);
-				break;
-			default:
-				throw new Exception("Illegal Phase");
-			}
-			
-			// eseguo come sotto, cioè come se fosse una qualunque altra azione
-			if (isWinningState(newState, minPlayer)) {
-				result = new ValuedAction(killer, Integer.MIN_VALUE + 1);
-				return result;
-			}
-			if (statesAlreadySeen.contains(newState)) {
-				temp = new ValuedAction(killer, 0);
-			} else if (maxDepth > 1) {
-				statesAlreadySeen.add(newState);
-				temp = max(newState, maxDepth - 1, alpha, currentDepth + 1, beta);
-				statesAlreadySeen.remove(newState);
-			} else {
-				switch (state.getCurrentPhase()) {
-				case FIRST:
-					Phase1Action action1 = (Phase1Action) killer;
-					temp = new ValuedAction(killer, heuristic(newState, action1.getPutPosition(), minPlayer));
-					break;
-				case SECOND:
-					Phase2Action action2 = (Phase2Action) killer;
-					temp = new ValuedAction(killer, heuristic(newState, action2.getTo(), minPlayer));
-					break;
-				case FINAL:
-					PhaseFinalAction actionFinal = (PhaseFinalAction) killer;
-					temp = new ValuedAction(killer, heuristic(newState, actionFinal.getTo(), minPlayer));
-					break;
-				default:
-					throw new Exception("Illegal Phase");
+			if (newState != null) {
+				Action tempAction = killer.getAction();
+				// eseguo come sotto, cioè come se fosse una qualunque altra azione
+				if (isWinningState(newState, minPlayer)) {
+					result = new ValuedAction(tempAction, Integer.MIN_VALUE + 1);
+					return result;
 				}
+				if (statesAlreadySeen.contains(newState)) {
+					temp = new ValuedAction(tempAction, 0);
+				} else if (maxDepth > 1) {
+					statesAlreadySeen.add(newState);
+					temp = max(newState, maxDepth - 1, currentDepth + 1, alpha, beta);
+					statesAlreadySeen.remove(newState);
+				} else {
+					temp = new ValuedAction(killer.getAction(), killer.getValue());
+				}
+				if (temp.getValue() < result.getValue()) {
+					result = new ValuedAction(tempAction, temp.getValue());
+				}
+				if (result.getValue() <= alpha) {
+					return result;
+				}
+				if (result.getValue() <= beta) {
+					beta = result.getValue();
+				}
+
+				// rimuovo la mosso, così se la mossa killer non killa non rischio di
+				// riespandere il nodo
+				successors.remove(tempAction);
 			}
-			if (temp.getValue() < result.getValue()) {
-				result = new ValuedAction(killer, temp.getValue());
-			}
-			if (result.getValue() <= alpha) {
-				return result;
-			}
-			if (result.getValue() <= beta) {
-				beta = result.getValue();
-			}
-			
-			// rimuovo la mosso, così se la mossa killer non killa non rischio di riespandere il nodo
-			successors.remove(killer);
 		}
 
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
 			if (isWinningState(newState, minPlayer)) {
 				result = new ValuedAction(a, Integer.MIN_VALUE + 1);
+
+				if (killerMoves.size() > currentDepth && killerMoves.get(currentDepth).getValue() < result.getValue())
+					killerMoves.set(currentDepth, result);
+				else
+					killerMoves.add(result);
+
 				return result;
 			}
 			if (statesAlreadySeen.contains(newState)) {
 				temp = new ValuedAction(a, 0);
 			} else if (maxDepth > 1) {
 				statesAlreadySeen.add(newState);
-				temp = max(newState, maxDepth - 1, alpha, currentDepth + 1, beta);
+				temp = max(newState, maxDepth - 1, currentDepth + 1, alpha, beta);
 				statesAlreadySeen.remove(newState);
 			} else {
 				switch (state.getCurrentPhase()) {
@@ -386,12 +360,23 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 				result = new ValuedAction(a, temp.getValue());
 			}
 			if (result.getValue() <= alpha) {
+				if (killerMoves.size() > currentDepth && killerMoves.get(currentDepth).getValue() < result.getValue())
+					killerMoves.set(currentDepth, result);
+				else
+					killerMoves.add(result);
+
 				return result;
 			}
 			if (result.getValue() <= beta) {
 				beta = result.getValue();
 			}
 		}
+
+		if (killerMoves.size() > currentDepth && killerMoves.get(currentDepth).getValue() < result.getValue())
+			killerMoves.set(currentDepth, result);
+		else
+			killerMoves.add(result);
+
 		return result;
 	}
 
@@ -1231,25 +1216,22 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		return false;
 	}
 
-	public static boolean isLegalMove(State state, Action a, Checker p) {
-		// applico la mossa e se da eccezione ritorno false
+	public static State isLegalMove(State state, Action a, Checker p) {
+		// applico la mossa e se da eccezione ritorno null
 		try {
 			switch (state.getCurrentPhase()) {
 			case FIRST:
-				Phase1.applyMove(state, a, p);
-				return true;
+				return Phase1.applyMove(state, a, p);
 			case SECOND:
-				Phase2.applyMove(state, a, p);
-				return true;
+				return Phase2.applyMove(state, a, p);
 			case FINAL:
-				PhaseFinal.applyMove(state, a, p);
-				return true;
+				return PhaseFinal.applyMove(state, a, p);
 			default:
 				throw new Exception("Illegal Phase");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
+			return null;
 		}
 	}
 
