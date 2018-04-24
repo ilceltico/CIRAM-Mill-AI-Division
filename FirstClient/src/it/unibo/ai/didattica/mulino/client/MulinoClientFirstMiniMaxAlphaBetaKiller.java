@@ -162,8 +162,6 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 	public static Action minimaxDecision(State state, int maxDepth, int currentDepth) throws Exception {
 		elapsedTime = System.currentTimeMillis();
 
-		// devo anche aggiornare la killerList se trovo tagli migliori
-		// listaKiller di valuedAction?
 		ValuedAction a = max(state, maxDepth, currentDepth, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
 		System.out.println("Elapsed time: " + elapsedTime);
@@ -174,7 +172,6 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 	}
 
 	public static ValuedAction max(State state, int maxDepth, int currentDepth, int alpha, int beta) throws Exception {
-		LinkedHashMap<Action, State> successors = successors(state, player);
 		ValuedAction result = new ValuedAction(null, Integer.MIN_VALUE);
 		ValuedAction temp;
 		State newState;
@@ -212,10 +209,14 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 
 				// rimuovo la mosso, così se la mossa killer non killa non rischio di
 				// riespandere il nodo
-				successors.remove(tempAction);
+				
+				
+				//successors.remove(tempAction);
 			}
 		}
 
+		LinkedHashMap<Action, State> successors = successors(state, player);
+		
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
 			if (isWinningState(newState, player)) {
@@ -278,7 +279,6 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 
 	public static ValuedAction min(State state, int maxDepth, int currentDepth, int alpha, int beta) throws Exception {
 		Checker minPlayer = player == Checker.BLACK ? Checker.WHITE : Checker.BLACK;
-		LinkedHashMap<Action, State> successors = successors(state, minPlayer);
 		ValuedAction result = new ValuedAction(null, Integer.MAX_VALUE);
 		ValuedAction temp;
 		State newState;
@@ -316,10 +316,14 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 
 				// rimuovo la mosso, così se la mossa killer non killa non rischio di
 				// riespandere il nodo
-				successors.remove(tempAction);
+				
+				
+//				successors.remove(tempAction);
 			}
 		}
 
+		LinkedHashMap<Action, State> successors = successors(state, minPlayer);
+		
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
 			if (isWinningState(newState, minPlayer)) {
@@ -1230,7 +1234,9 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 				throw new Exception("Illegal Phase");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
+			return null;
+		} finally {
 			return null;
 		}
 	}

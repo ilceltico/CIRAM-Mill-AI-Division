@@ -26,7 +26,7 @@ public class MulinoClientFirstMiniMaxTest {
 	public static void main(String[] args) {
 		// doTest1();
 		// doTest2();
-		// doTest2WithAlphaBeta();
+//		 doTest2WithAlphaBeta();
 		// doTest2WithAlphaBetaAndOptimizationsTreeSet();
 //		doTest2WithAlphaBetaAndOptimizationsList();
 		doTest2WithAlphaBetaKiller();
@@ -323,14 +323,12 @@ public class MulinoClientFirstMiniMaxTest {
 	public static void doTest2WithAlphaBetaKiller() {
 		State state = new State();
 		Action a;
-
-		// inizio da livello 0 o 1???
-
+		
 		try {
 			for (int i = 0; i < 1000; i++) {
 				MulinoClientFirstMiniMaxAlphaBetaKiller.player = Checker.WHITE;
 				MulinoClientFirstMiniMaxAlphaBetaKiller.otherPlayer = Checker.BLACK;
-				a = MulinoClientFirstMiniMaxAlphaBetaKiller.minimaxDecision(state, i * 2, 4);
+				a = MulinoClientFirstMiniMaxAlphaBetaKiller.minimaxDecision(state, 4, i * 2);
 
 				switch (state.getCurrentPhase()) {
 				case FIRST:
@@ -358,7 +356,7 @@ public class MulinoClientFirstMiniMaxTest {
 
 				MulinoClientFirstMiniMaxAlphaBetaKiller.player = Checker.BLACK;
 				MulinoClientFirstMiniMaxAlphaBetaKiller.otherPlayer = Checker.WHITE;
-				a = MulinoClientFirstMiniMaxAlphaBetaKiller.minimaxDecision(state, i * 2 + 1, 4);
+				a = MulinoClientFirstMiniMaxAlphaBetaKiller.minimaxDecision(state, 4, i * 2 + 1);
 				switch (state.getCurrentPhase()) {
 				case FIRST:
 					state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBetaKiller.player);
