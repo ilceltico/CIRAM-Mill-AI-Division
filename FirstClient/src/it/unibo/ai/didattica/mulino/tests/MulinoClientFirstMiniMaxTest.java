@@ -26,7 +26,7 @@ public class MulinoClientFirstMiniMaxTest {
 	public static void main(String[] args) {
 		// doTest1();
 		// doTest2();
-		// doTest2WithAlphaBeta();
+//		 doTest2WithAlphaBeta();
 		// doTest2WithAlphaBetaAndOptimizationsTreeSet();
 		// doTest2WithAlphaBetaAndOptimizationsList();
 		doTest2WithAlphaBetaKiller();
@@ -124,7 +124,7 @@ public class MulinoClientFirstMiniMaxTest {
 			for (int i = 0; i < 1000; i++) {
 				MulinoClientFirstMiniMaxAlphaBeta.player = Checker.WHITE;
 				MulinoClientFirstMiniMaxAlphaBeta.otherPlayer = Checker.BLACK;
-				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 4);
+				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 5);
 
 				switch (state.getCurrentPhase()) {
 				case FIRST:
@@ -152,7 +152,7 @@ public class MulinoClientFirstMiniMaxTest {
 
 				MulinoClientFirstMiniMaxAlphaBeta.player = Checker.BLACK;
 				MulinoClientFirstMiniMaxAlphaBeta.otherPlayer = Checker.WHITE;
-				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 4);
+				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 5);
 				switch (state.getCurrentPhase()) {
 				case FIRST:
 					state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player);
@@ -328,7 +328,7 @@ public class MulinoClientFirstMiniMaxTest {
 			for (int i = 0; i < 1000; i++) {
 				MulinoClientFirstMiniMaxAlphaBetaKiller.player = Checker.WHITE;
 				MulinoClientFirstMiniMaxAlphaBetaKiller.otherPlayer = Checker.BLACK;
-				a = MulinoClientFirstMiniMaxAlphaBetaKiller.minimaxDecision(state, 4, i * 2);
+				a = MulinoClientFirstMiniMaxAlphaBetaKiller.minimaxDecision(state, 5, i * 2);
 
 				switch (state.getCurrentPhase()) {
 				case FIRST:
@@ -354,12 +354,14 @@ public class MulinoClientFirstMiniMaxTest {
 				}
 				MulinoClientFirstMiniMaxAlphaBetaKiller.statesAlreadySeen.add(state);
 
-				System.out.println(
-						"lunghezza lista killerMoves " + MulinoClientFirstMiniMaxAlphaBetaKiller.killerMoves.size());
+//				System.out.println(
+//						"lunghezza lista killerMoves " + MulinoClientFirstMiniMaxAlphaBetaKiller.killerMoves.size());
+//				System.out.println(
+//						"lunghezza array killerMoves " + MulinoClientFirstMiniMaxAlphaBetaKiller.killerArray.length);
 
 				MulinoClientFirstMiniMaxAlphaBetaKiller.player = Checker.BLACK;
 				MulinoClientFirstMiniMaxAlphaBetaKiller.otherPlayer = Checker.WHITE;
-				a = MulinoClientFirstMiniMaxAlphaBetaKiller.minimaxDecision(state, 4, i * 2 + 1);
+				a = MulinoClientFirstMiniMaxAlphaBetaKiller.minimaxDecision(state, 5, i * 2 + 1);
 				switch (state.getCurrentPhase()) {
 				case FIRST:
 					state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBetaKiller.player);
@@ -384,9 +386,10 @@ public class MulinoClientFirstMiniMaxTest {
 				}
 				MulinoClientFirstMiniMaxAlphaBetaKiller.statesAlreadySeen.add(state);
 
-				System.out.println(
-						"lunghezza lista killerMoves " + MulinoClientFirstMiniMaxAlphaBetaKiller.killerMoves.size());
-
+//				System.out.println(
+//				"lunghezza lista killerMoves " + MulinoClientFirstMiniMaxAlphaBetaKiller.killerMoves.size());
+//				System.out.println(
+//						"lunghezza array killerMoves " + MulinoClientFirstMiniMaxAlphaBetaKiller.killerArray.length);
 				System.out.println(i);
 			}
 		} catch (Exception e) {
