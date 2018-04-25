@@ -1353,19 +1353,56 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 
 	public static State isLegalMove(State state, Action a, Checker p) {
 		// applico la mossa e se da eccezione ritorno null
+		
+//		try {
+//			switch (state.getCurrentPhase()) {
+//			case FIRST:
+//				return Phase1.applyMove(state, a, p);
+//			case SECOND:
+//				Phase2Action temp1 = new Phase2Action();
+//				
+//				if(a instanceof PhaseFinalAction) {
+//					temp1.setFrom(((PhaseFinalAction) a).getFrom());
+//					temp1.setTo(((PhaseFinalAction) a).getTo());
+//					temp1.setRemoveOpponentChecker(((PhaseFinalAction) a).getRemoveOpponentChecker());
+//				}
+//				
+//				return Phase2.applyMove(state, temp1, p);
+//			case FINAL:
+//				PhaseFinalAction temp2 = new PhaseFinalAction();
+//				
+//				if(a instanceof Phase2Action) {
+//					temp2.setFrom(((Phase2Action) a).getFrom());
+//					temp2.setTo(((Phase2Action) a).getTo());
+//					temp2.setRemoveOpponentChecker(((Phase2Action) a).getRemoveOpponentChecker());
+//				}
+//				
+//				return PhaseFinal.applyMove(state, temp2, p);
+//			default:
+//				throw new Exception("Illegal Phase");
+//			}
+//		} catch (Exception e) {
+//			// e.printStackTrace();
+//			return null;
+//		} finally {
+//			return null;
+//		}
 		try {
 			switch (state.getCurrentPhase()) {
 			case FIRST:
 				if(!(a instanceof Phase1Action))
 					return null;
+				
 				return Phase1.applyMove(state, a, p);
-			case SECOND:
+			case SECOND:				
 				if(!(a instanceof Phase2Action))
 					return null;
+				
 				return Phase2.applyMove(state, a, p);
 			case FINAL:
 				if(!(a instanceof PhaseFinalAction))
 					return null;
+				
 				return PhaseFinal.applyMove(state, a, p);
 			default:
 				throw new Exception("Illegal Phase");
