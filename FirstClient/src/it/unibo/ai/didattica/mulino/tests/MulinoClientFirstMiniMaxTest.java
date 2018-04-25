@@ -26,9 +26,9 @@ public class MulinoClientFirstMiniMaxTest {
 	public static void main(String[] args) {
 		// doTest1();
 		// doTest2();
-//		 doTest2WithAlphaBeta();
+		// doTest2WithAlphaBeta();
 		// doTest2WithAlphaBetaAndOptimizationsTreeSet();
-//		doTest2WithAlphaBetaAndOptimizationsList();
+		// doTest2WithAlphaBetaAndOptimizationsList();
 		doTest2WithAlphaBetaKiller();
 		// playAgaintsWhiteCPU();
 		// playAgainstBlackCPU();
@@ -323,7 +323,7 @@ public class MulinoClientFirstMiniMaxTest {
 	public static void doTest2WithAlphaBetaKiller() {
 		State state = new State();
 		Action a;
-		
+
 		try {
 			for (int i = 0; i < 1000; i++) {
 				MulinoClientFirstMiniMaxAlphaBetaKiller.player = Checker.WHITE;
@@ -354,6 +354,9 @@ public class MulinoClientFirstMiniMaxTest {
 				}
 				MulinoClientFirstMiniMaxAlphaBetaKiller.statesAlreadySeen.add(state);
 
+				System.out.println(
+						"lunghezza lista killerMoves " + MulinoClientFirstMiniMaxAlphaBetaKiller.killerMoves.size());
+
 				MulinoClientFirstMiniMaxAlphaBetaKiller.player = Checker.BLACK;
 				MulinoClientFirstMiniMaxAlphaBetaKiller.otherPlayer = Checker.WHITE;
 				a = MulinoClientFirstMiniMaxAlphaBetaKiller.minimaxDecision(state, 4, i * 2 + 1);
@@ -380,6 +383,9 @@ public class MulinoClientFirstMiniMaxTest {
 					System.exit(0);
 				}
 				MulinoClientFirstMiniMaxAlphaBetaKiller.statesAlreadySeen.add(state);
+
+				System.out.println(
+						"lunghezza lista killerMoves " + MulinoClientFirstMiniMaxAlphaBetaKiller.killerMoves.size());
 
 				System.out.println(i);
 			}
