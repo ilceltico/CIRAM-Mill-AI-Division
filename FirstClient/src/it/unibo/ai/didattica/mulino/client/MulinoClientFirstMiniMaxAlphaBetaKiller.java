@@ -181,10 +181,10 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		// System.out.println("maxDepth: " + maxDepth);
 
 		// controllo se è la prima volta che esploro questo livello
-//		if (killerMoves.size() > currentDepth) {
-		if (killerArray.length > currentDepth && killerArray[currentDepth] != null) {
-//			ValuedAction killer = killerMoves.get(currentDepth);
-			ValuedAction killer = killerArray[currentDepth];
+		if (killerMoves.size() > currentDepth) {
+//		if (killerArray.length > currentDepth && killerArray[currentDepth] != null) {
+			ValuedAction killer = killerMoves.get(currentDepth);
+//			ValuedAction killer = killerArray[currentDepth];
 			newState = isLegalMove(state, killer.getAction(), player);
 
 			if (newState != null) {
@@ -227,30 +227,30 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 			if (isWinningState(newState, player)) {
 				result = new ValuedAction(a, Integer.MAX_VALUE - 1);
 
-//				if (killerMoves.size() > currentDepth) {
-//					// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					if (killerMoves.get(currentDepth).getValue() < result.getValue())
-//						killerMoves.set(currentDepth, result);
-//				} else {
-//					// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					
-//					if(maxDepth == 1)
-//						killerMoves.add(result);
-//					else
-//						killerMoves.add(0, result);
-//				}
-				
-				if(killerArray.length > currentDepth) {
-					if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() < result.getValue())
-						killerArray[currentDepth] = result;
-					if(killerArray[currentDepth] == null)
-						killerArray[currentDepth] = result;
+				if (killerMoves.size() > currentDepth) {
+					// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
+					// currentDepth: " + currentDepth);
+					if (killerMoves.get(currentDepth).getValue() < result.getValue())
+						killerMoves.set(currentDepth, result);
 				} else {
-					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
-					killerArray[currentDepth] = result;
+					// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
+					// currentDepth: " + currentDepth);
+					
+					if(maxDepth == 1)
+						killerMoves.add(result);
+					else
+						killerMoves.add(0, result);
 				}
+				
+//				if(killerArray.length > currentDepth) {
+//					if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() < result.getValue())
+//						killerArray[currentDepth] = result;
+//					if(killerArray[currentDepth] == null)
+//						killerArray[currentDepth] = result;
+//				} else {
+//					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
+//					killerArray[currentDepth] = result;
+//				}
 
 				return result;
 			}
@@ -282,30 +282,30 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 				result = new ValuedAction(a, temp.getValue());
 			}
 			if (result.getValue() >= beta) {
-//				if (killerMoves.size() > currentDepth) {
-//					// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					if (killerMoves.get(currentDepth).getValue() < result.getValue())
-//						killerMoves.set(currentDepth, result);
-//				} else {
-//					// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					
-//					if(maxDepth == 1)
-//						killerMoves.add(result);
-//					else
-//						killerMoves.add(0, result);
-//				}
-				
-				if(killerArray.length > currentDepth) {
-					if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() < result.getValue())
-						killerArray[currentDepth] = result;
-					if(killerArray[currentDepth] == null)
-						killerArray[currentDepth] = result;
+				if (killerMoves.size() > currentDepth) {
+					// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
+					// currentDepth: " + currentDepth);
+					if (killerMoves.get(currentDepth).getValue() < result.getValue())
+						killerMoves.set(currentDepth, result);
 				} else {
-					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
-					killerArray[currentDepth] = result;
+					// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
+					// currentDepth: " + currentDepth);
+					
+					if(maxDepth == 1)
+						killerMoves.add(result);
+					else
+						killerMoves.add(0, result);
 				}
+				
+//				if(killerArray.length > currentDepth) {
+//					if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() < result.getValue())
+//						killerArray[currentDepth] = result;
+//					if(killerArray[currentDepth] == null)
+//						killerArray[currentDepth] = result;
+//				} else {
+//					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
+//					killerArray[currentDepth] = result;
+//				}
 
 				return result;
 			}
@@ -314,30 +314,30 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 			}
 		}
 
-//		if (killerMoves.size() > currentDepth) {
-//			// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
-//			// currentDepth: " + currentDepth);
-//			if (killerMoves.get(currentDepth).getValue() < result.getValue())
-//				killerMoves.set(currentDepth, result);
-//		} else {
-//			// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
-//			// currentDepth: " + currentDepth);
-//			
-//			if(maxDepth == 1)
-//				killerMoves.add(result);
-//			else
-//				killerMoves.add(0, result);
-//		}
-		
-		if(killerArray.length > currentDepth) {
-			if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() < result.getValue())
-				killerArray[currentDepth] = result;
-			if(killerArray[currentDepth] == null)
-				killerArray[currentDepth] = result;
+		if (killerMoves.size() > currentDepth) {
+			// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
+			// currentDepth: " + currentDepth);
+			if (killerMoves.get(currentDepth).getValue() < result.getValue())
+				killerMoves.set(currentDepth, result);
 		} else {
-			killerArray = Arrays.copyOf(killerArray, currentDepth+1);
-			killerArray[currentDepth] = result;
+			// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
+			// currentDepth: " + currentDepth);
+			
+			if(maxDepth == 1)
+				killerMoves.add(result);
+			else
+				killerMoves.add(0, result);
 		}
+		
+//		if(killerArray.length > currentDepth) {
+//			if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() < result.getValue())
+//				killerArray[currentDepth] = result;
+//			if(killerArray[currentDepth] == null)
+//				killerArray[currentDepth] = result;
+//		} else {
+//			killerArray = Arrays.copyOf(killerArray, currentDepth+1);
+//			killerArray[currentDepth] = result;
+//		}
 
 		return result;
 	}
@@ -352,10 +352,10 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		// System.out.println("maxDepth: " + maxDepth);
 
 		// controllo se è la prima volta che esploro questo livello
-//		if (killerMoves.size() > currentDepth) {
-		if (killerArray.length > currentDepth && killerArray[currentDepth] != null) {
-//			ValuedAction killer = killerMoves.get(currentDepth);
-			ValuedAction killer = killerArray[currentDepth];
+		if (killerMoves.size() > currentDepth) {
+//		if (killerArray.length > currentDepth && killerArray[currentDepth] != null) {
+			ValuedAction killer = killerMoves.get(currentDepth);
+//			ValuedAction killer = killerArray[currentDepth];
 			newState = isLegalMove(state, killer.getAction(), minPlayer);
 
 			if (newState != null) {
@@ -398,30 +398,30 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 			if (isWinningState(newState, minPlayer)) {
 				result = new ValuedAction(a, Integer.MIN_VALUE + 1);
 
-//				if (killerMoves.size() > currentDepth) {
-//					// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					if (killerMoves.get(currentDepth).getValue() < result.getValue())
-//						killerMoves.set(currentDepth, result);
-//				} else {
-//					// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					
-//					if(maxDepth == 1)
-//						killerMoves.add(result);
-//					else
-//						killerMoves.add(0, result);
-//				}
-				
-				if(killerArray.length > currentDepth) {
-					if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() < result.getValue())
-						killerArray[currentDepth] = result;
-					if(killerArray[currentDepth] == null)
-						killerArray[currentDepth] = result;
+				if (killerMoves.size() > currentDepth) {
+					// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
+					// currentDepth: " + currentDepth);
+					if (killerMoves.get(currentDepth).getValue() > result.getValue())
+						killerMoves.set(currentDepth, result);
 				} else {
-					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
-					killerArray[currentDepth] = result;
+					// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
+					// currentDepth: " + currentDepth);
+					
+					if(maxDepth == 1)
+						killerMoves.add(result);
+					else
+						killerMoves.add(0, result);
 				}
+				
+//				if(killerArray.length > currentDepth) {
+//					if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() > result.getValue())
+//						killerArray[currentDepth] = result;
+//					if(killerArray[currentDepth] == null)
+//						killerArray[currentDepth] = result;
+//				} else {
+//					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
+//					killerArray[currentDepth] = result;
+//				}
 
 				return result;
 			}
@@ -453,30 +453,30 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 				result = new ValuedAction(a, temp.getValue());
 			}
 			if (result.getValue() <= alpha) {
-//				if (killerMoves.size() > currentDepth) {
-//					// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					if (killerMoves.get(currentDepth).getValue() < result.getValue())
-//						killerMoves.set(currentDepth, result);
-//				} else {
-//					// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					
-//					if(maxDepth == 1)
-//						killerMoves.add(result);
-//					else
-//						killerMoves.add(0, result);
-//				}
-				
-				if(killerArray.length > currentDepth) {
-					if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() < result.getValue())
-						killerArray[currentDepth] = result;
-					if(killerArray[currentDepth] == null)
-						killerArray[currentDepth] = result;
+				if (killerMoves.size() > currentDepth) {
+					// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
+					// currentDepth: " + currentDepth);
+					if (killerMoves.get(currentDepth).getValue() > result.getValue())
+						killerMoves.set(currentDepth, result);
 				} else {
-					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
-					killerArray[currentDepth] = result;
+					// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
+					// currentDepth: " + currentDepth);
+					
+					if(maxDepth == 1)
+						killerMoves.add(result);
+					else
+						killerMoves.add(0, result);
 				}
+				
+//				if(killerArray.length > currentDepth) {
+//					if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() > result.getValue())
+//						killerArray[currentDepth] = result;
+//					if(killerArray[currentDepth] == null)
+//						killerArray[currentDepth] = result;
+//				} else {
+//					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
+//					killerArray[currentDepth] = result;
+//				}
 
 				return result;
 			}
@@ -487,30 +487,30 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		
 		
 
-//		if (killerMoves.size() > currentDepth) {
-//			// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
-//			// currentDepth: " + currentDepth);
-//			if (killerMoves.get(currentDepth).getValue() < result.getValue())
-//				killerMoves.set(currentDepth, result);
-//		} else {
-//			// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
-//			// currentDepth: " + currentDepth);
-//			
-//			if(maxDepth == 1)
-//				killerMoves.add(result);
-//			else
-//				killerMoves.add(0, result);
-//		}
-		
-		if(killerArray.length > currentDepth) {
-			if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() < result.getValue())
-				killerArray[currentDepth] = result;
-			if(killerArray[currentDepth] == null)
-				killerArray[currentDepth] = result;
+		if (killerMoves.size() > currentDepth) {
+			// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
+			// currentDepth: " + currentDepth);
+			if (killerMoves.get(currentDepth).getValue() > result.getValue())
+				killerMoves.set(currentDepth, result);
 		} else {
-			killerArray = Arrays.copyOf(killerArray, currentDepth+1);
-			killerArray[currentDepth] = result;
+			// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
+			// currentDepth: " + currentDepth);
+			
+			if(maxDepth == 1)
+				killerMoves.add(result);
+			else
+				killerMoves.add(0, result);
 		}
+		
+//		if(killerArray.length > currentDepth) {
+//			if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() > result.getValue())
+//				killerArray[currentDepth] = result;
+//			if(killerArray[currentDepth] == null)
+//				killerArray[currentDepth] = result;
+//		} else {
+//			killerArray = Arrays.copyOf(killerArray, currentDepth+1);
+//			killerArray[currentDepth] = result;
+//		}
 
 		return result;
 	}

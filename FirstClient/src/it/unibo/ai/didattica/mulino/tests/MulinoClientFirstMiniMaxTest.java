@@ -20,6 +20,7 @@ import it.unibo.ai.didattica.mulino.client.MulinoClientFirstMiniMaxAlphaBeta2Lis
 import it.unibo.ai.didattica.mulino.domain.State;
 import it.unibo.ai.didattica.mulino.domain.State.Checker;
 import it.unibo.ai.didattica.mulino.domain.State.Phase;
+import it.unibo.ai.didattica.mulino.domain.ValuedAction;
 
 public class MulinoClientFirstMiniMaxTest {
 
@@ -329,21 +330,38 @@ public class MulinoClientFirstMiniMaxTest {
 				MulinoClientFirstMiniMaxAlphaBetaKiller.player = Checker.WHITE;
 				MulinoClientFirstMiniMaxAlphaBetaKiller.otherPlayer = Checker.BLACK;
 				a = MulinoClientFirstMiniMaxAlphaBetaKiller.minimaxDecision(state, 5, i * 2);
-
 				switch (state.getCurrentPhase()) {
 				case FIRST:
 					state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBetaKiller.player);
+//					for(ValuedAction action : MulinoClientFirstMiniMaxAlphaBetaKiller.killerArray) {
+//						System.out.println( ((Phase1Action) action.getAction()).getPutPosition() + " " + ((Phase1Action) action.getAction()).getRemoveOpponentChecker() + " " + action.getValue());
+//					}
+					for(ValuedAction action : MulinoClientFirstMiniMaxAlphaBetaKiller.killerMoves) {
+						System.out.println( ((Phase1Action) action.getAction()).getPutPosition() + " " + ((Phase1Action) action.getAction()).getRemoveOpponentChecker() + " " + action.getValue());
+					}
 					break;
 				case SECOND:
 					state = Phase2.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBetaKiller.player);
+//					for(ValuedAction action : MulinoClientFirstMiniMaxAlphaBetaKiller.killerArray) {
+//						System.out.println( ((Phase2Action) action.getAction()).getFrom() + " " + ((Phase2Action) action.getAction()).getTo() + " " + ((Phase2Action) action.getAction()).getRemoveOpponentChecker() + " " + action.getValue());
+//					}
+					for(ValuedAction action : MulinoClientFirstMiniMaxAlphaBetaKiller.killerMoves) {
+						System.out.println( ((Phase2Action) action.getAction()).getFrom() + " " + ((Phase2Action) action.getAction()).getTo() + " " + ((Phase2Action) action.getAction()).getRemoveOpponentChecker() + " " + action.getValue());
+					}
 					break;
 				case FINAL:
 					state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBetaKiller.player);
+//					for(ValuedAction action : MulinoClientFirstMiniMaxAlphaBetaKiller.killerArray) {
+//						System.out.println( ((PhaseFinalAction) action.getAction()).getFrom() + " " + ((PhaseFinalAction) action.getAction()).getTo() + " " + ((PhaseFinalAction) action.getAction()).getRemoveOpponentChecker() + " " + action.getValue());
+//					}
+					for(ValuedAction action : MulinoClientFirstMiniMaxAlphaBetaKiller.killerMoves) {
+						System.out.println( ((PhaseFinalAction) action.getAction()).getFrom() + " " + ((PhaseFinalAction) action.getAction()).getTo() + " " + ((PhaseFinalAction) action.getAction()).getRemoveOpponentChecker() + " " + action.getValue());
+					}
 					break;
 				default:
 					throw new Exception("Illegal Phase");
 				}
-				System.out.println(state);
+				System.out.println(state);				
 				if (MulinoClientFirstMiniMaxAlphaBetaKiller.statesAlreadySeen.contains(state)) {
 					System.out.println("Pareggio scatenato dal W in " + (i + 1) + " mosse");
 					System.exit(0);
@@ -365,12 +383,30 @@ public class MulinoClientFirstMiniMaxTest {
 				switch (state.getCurrentPhase()) {
 				case FIRST:
 					state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBetaKiller.player);
+//					for(ValuedAction action : MulinoClientFirstMiniMaxAlphaBetaKiller.killerArray) {
+//						System.out.println( ((Phase1Action) action.getAction()).getPutPosition() + " " + ((Phase1Action) action.getAction()).getRemoveOpponentChecker() + " " + action.getValue());
+//					}
+					for(ValuedAction action : MulinoClientFirstMiniMaxAlphaBetaKiller.killerMoves) {
+						System.out.println( ((Phase1Action) action.getAction()).getPutPosition() + " " + ((Phase1Action) action.getAction()).getRemoveOpponentChecker() + " " + action.getValue());
+					}
 					break;
 				case SECOND:
 					state = Phase2.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBetaKiller.player);
+//					for(ValuedAction action : MulinoClientFirstMiniMaxAlphaBetaKiller.killerArray) {
+//						System.out.println( ((Phase2Action) action.getAction()).getFrom() + " " + ((Phase2Action) action.getAction()).getTo() + " " + ((Phase2Action) action.getAction()).getRemoveOpponentChecker() + " " + action.getValue());
+//					}
+					for(ValuedAction action : MulinoClientFirstMiniMaxAlphaBetaKiller.killerMoves) {
+						System.out.println( ((Phase2Action) action.getAction()).getFrom() + " " + ((Phase2Action) action.getAction()).getTo() + " " + ((Phase2Action) action.getAction()).getRemoveOpponentChecker() + " " + action.getValue());
+					}
 					break;
 				case FINAL:
 					state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBetaKiller.player);
+//					for(ValuedAction action : MulinoClientFirstMiniMaxAlphaBetaKiller.killerArray) {
+//						System.out.println( ((PhaseFinalAction) action.getAction()).getFrom() + " " + ((PhaseFinalAction) action.getAction()).getTo() + " " + ((PhaseFinalAction) action.getAction()).getRemoveOpponentChecker() + " " + action.getValue());
+//					}
+					for(ValuedAction action : MulinoClientFirstMiniMaxAlphaBetaKiller.killerMoves) {
+						System.out.println( ((PhaseFinalAction) action.getAction()).getFrom() + " " + ((PhaseFinalAction) action.getAction()).getTo() + " " + ((PhaseFinalAction) action.getAction()).getRemoveOpponentChecker() + " " + action.getValue());
+					}
 					break;
 				default:
 					throw new Exception("Illegal Phase");
