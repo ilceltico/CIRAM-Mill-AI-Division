@@ -163,7 +163,10 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 	public static Action minimaxDecision(State state, int maxDepth, int currentDepth) throws Exception {
 		elapsedTime = System.currentTimeMillis();
 		
-		killerArray = new ValuedAction[maxDepth+currentDepth];
+		if(killerArray == null)		
+			killerArray = new ValuedAction[maxDepth+currentDepth];
+		else
+			killerArray = Arrays.copyOf(killerArray, maxDepth+currentDepth);
 
 		ValuedAction a = max(state, maxDepth, currentDepth, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
