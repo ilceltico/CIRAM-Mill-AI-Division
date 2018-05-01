@@ -30,9 +30,10 @@ public class MulinoClientFirstMiniMaxTest {
 //		 doTest2WithAlphaBeta();
 		// doTest2WithAlphaBetaAndOptimizationsTreeSet();
 		// doTest2WithAlphaBetaAndOptimizationsList();
-		doTest2WithAlphaBetaKiller();
+//		doTest2WithAlphaBetaKiller();
 		// playAgaintsWhiteCPU();
-		// playAgainstBlackCPU();
+//		 playAgainstBlackCPU();
+		 playAgainstBlackIterativeCPU();
 		// doTestStates();
 
 		// doTestIterativeDeepening();
@@ -564,6 +565,92 @@ public class MulinoClientFirstMiniMaxTest {
 				}
 				MulinoClientFirstMiniMax.statesAlreadySeen.add(state);
 
+				System.out.println(i);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void playAgainstBlackIterativeCPU() {
+		State state = new State();
+		Action a;
+		MulinoClientFirstMiniMaxAlphaBeta client = null;
+		try {
+			client = new MulinoClientFirstMiniMaxAlphaBeta(Checker.BLACK);
+		} catch (IOException e1) {
+			 e1.printStackTrace();
+		}
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			for (int i = 0; i < 1000; i++) {
+				System.out.println("Player WHITE, do your move: ");
+				String actionString = in.readLine();
+				a = stringToAction(actionString, state.getCurrentPhase());
+				switch (state.getCurrentPhase()) {
+				case FIRST:
+					state = Phase1.applyMove(state, a, Checker.WHITE);
+					break;
+				case SECOND:
+					state = Phase2.applyMove(state, a, Checker.WHITE);
+					break;
+				case FINAL:
+					state = PhaseFinal.applyMove(state, a, Checker.WHITE);
+					break;
+				default:
+					throw new Exception("Illegal Phase");
+				}
+				System.out.println(state);
+				if (MulinoClientFirstMiniMaxAlphaBeta.statesAlreadySeen.contains(state)) {
+					System.out.println("Pareggio scatenato dal W in " + (i + 1) + " mosse");
+					System.exit(0);
+				}
+				if (MulinoClientFirstMiniMaxAlphaBeta.isWinningState(state, Checker.WHITE)) {
+					System.out.println("Vittoria W in " + (i + 1) + " mosse");
+					System.exit(0);
+				}
+				MulinoClientFirstMiniMaxAlphaBeta.statesAlreadySeen.add(state);
+				
+				//Stampa tutti gli stati già visti
+//				for (State s : MulinoClientFirstMiniMaxAlphaBeta.statesAlreadySeen) {
+//					System.out.println(s);
+//				}
+
+				MulinoClientFirstMiniMaxAlphaBeta.player = Checker.BLACK;
+				MulinoClientFirstMiniMaxAlphaBeta.otherPlayer = Checker.WHITE;
+				
+				a = client.iterativeDeepeningMinimaxDecision(state, 20000);
+//				a = MulinoClientFirstMiniMaxAlphaBeta.minimaxDecision(state, 5);
+
+				switch (state.getCurrentPhase()) {
+				case FIRST:
+					state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player);
+					break;
+				case SECOND:
+					state = Phase2.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player);
+					break;
+				case FINAL:
+					state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBeta.player);
+					break;
+				default:
+					throw new Exception("Illegal Phase");
+				}
+				System.out.println(state);
+				if (MulinoClientFirstMiniMaxAlphaBeta.statesAlreadySeen.contains(state)) {
+					System.out.println("Pareggio scatenato dal B in " + (i + 1) + " mosse");
+					System.exit(0);
+				}
+				if (MulinoClientFirstMiniMaxAlphaBeta.isWinningState(state, Checker.BLACK)) {
+					System.out.println("Vittoria B in " + (i + 1) + " mosse");
+					System.exit(0);
+				}
+				MulinoClientFirstMiniMaxAlphaBeta.statesAlreadySeen.add(state);
+				//Stampa tutti gli stati già visti
+//				for (State s : MulinoClientFirstMiniMaxAlphaBeta.statesAlreadySeen) {
+//					System.out.println(s);
+//				}
+				
 				System.out.println(i);
 			}
 		} catch (Exception e) {

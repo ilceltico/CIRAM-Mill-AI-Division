@@ -142,6 +142,7 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 		
 		IterativeDeepeningRunnable runnable = new IterativeDeepeningRunnable();
 		runnable.setState(state);
+		List<State> statesAlreadySeenCopy = new ArrayList<State>(MulinoClientFirstMiniMaxAlphaBeta.statesAlreadySeen);
 		
 		Thread thread = new Thread(runnable);
 		thread.start();
@@ -150,6 +151,7 @@ public class MulinoClientFirstMiniMaxAlphaBeta extends MulinoClient {
 		System.out.println("Reached time limit");
 		
 		thread.stop();
+		MulinoClientFirstMiniMaxAlphaBeta.statesAlreadySeen = statesAlreadySeenCopy;
 		
 		return runnable.getIterativeAction();
 	}

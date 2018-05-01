@@ -29,6 +29,7 @@ import it.unibo.ai.didattica.mulino.actions.TryingToRemoveOwnCheckerException;
 import it.unibo.ai.didattica.mulino.actions.Util;
 import it.unibo.ai.didattica.mulino.actions.WrongPhaseException;
 import it.unibo.ai.didattica.mulino.actions.WrongPositionException;
+import it.unibo.ai.didattica.mulino.client.MulinoClientFirstMiniMaxAlphaBeta.IterativeDeepeningRunnable;
 import it.unibo.ai.didattica.mulino.domain.State;
 import it.unibo.ai.didattica.mulino.domain.State.Checker;
 import it.unibo.ai.didattica.mulino.domain.State.Phase;
@@ -145,18 +146,20 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 
 	@SuppressWarnings("deprecation")
 	public Action iterativeDeepeningMinimaxDecision(State state, long millisLimit) throws Exception {
-
+		
 		IterativeDeepeningRunnable runnable = new IterativeDeepeningRunnable();
 		runnable.setState(state);
-
+		List<State> statesAlreadySeenCopy = new ArrayList<State>(MulinoClientFirstMiniMaxAlphaBetaKiller.statesAlreadySeen);
+		
 		Thread thread = new Thread(runnable);
 		thread.start();
-
-		Thread.sleep(millisLimit - SAFETY_MILLIS);
+		
+		Thread.sleep(millisLimit-SAFETY_MILLIS);
 		System.out.println("Reached time limit");
-
+		
 		thread.stop();
-
+		MulinoClientFirstMiniMaxAlphaBetaKiller.statesAlreadySeen = statesAlreadySeenCopy;
+		
 		return runnable.getIterativeAction();
 	}
 
@@ -185,7 +188,7 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		// System.out.println("currentDepth: " + currentDepth);
 		// System.out.println("maxDepth: " + maxDepth);
 
-		// controllo se è la prima volta che esploro questo livello
+		// controllo se ï¿½ la prima volta che esploro questo livello
 //		if (killerMoves.size() > currentDepth) {
 		if (killerArray.length > currentDepth && killerArray[currentDepth] != null) {
 //			ValuedAction killer = killerMoves.get(currentDepth);
@@ -194,7 +197,7 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 
 			if (newState != null) {
 				Action tempAction = killer.getAction();
-				// eseguo come sotto, cioè come se fosse una qualunque altra azione
+				// eseguo come sotto, cioï¿½ come se fosse una qualunque altra azione
 				if (isWinningState(newState, player)) {
 					result = new ValuedAction(tempAction, Integer.MIN_VALUE + 1);
 					return result;
@@ -218,7 +221,7 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 					beta = result.getValue();
 				}
 
-				// rimuovo la mosso, così se la mossa killer non killa non rischio di
+				// rimuovo la mosso, cosï¿½ se la mossa killer non killa non rischio di
 				// riespandere il nodo
 
 				// successors.remove(tempAction);
@@ -356,7 +359,7 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		// System.out.println("currentDepth: " + currentDepth);
 		// System.out.println("maxDepth: " + maxDepth);
 
-		// controllo se è la prima volta che esploro questo livello
+		// controllo se ï¿½ la prima volta che esploro questo livello
 //		if (killerMoves.size() > currentDepth) {
 		if (killerArray.length > currentDepth && killerArray[currentDepth] != null) {
 //			ValuedAction killer = killerMoves.get(currentDepth);
@@ -365,7 +368,7 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 
 			if (newState != null) {
 				Action tempAction = killer.getAction();
-				// eseguo come sotto, cioè come se fosse una qualunque altra azione
+				// eseguo come sotto, cioï¿½ come se fosse una qualunque altra azione
 				if (isWinningState(newState, minPlayer)) {
 					result = new ValuedAction(tempAction, Integer.MIN_VALUE + 1);
 					return result;
@@ -389,7 +392,7 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 					beta = result.getValue();
 				}
 
-				// rimuovo la mosso, così se la mossa killer non killa non rischio di
+				// rimuovo la mosso, cosï¿½ se la mossa killer non killa non rischio di
 				// riespandere il nodo
 
 				// successors.remove(tempAction);
