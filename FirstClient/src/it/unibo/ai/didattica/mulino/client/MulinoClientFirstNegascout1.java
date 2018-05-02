@@ -180,7 +180,7 @@ public class MulinoClientFirstNegascout1 extends MulinoClient {
 		Set<Action> successorsKeySet = successors.keySet();
 		Action[] successorsKeyArray = successorsKeySet.toArray(new Action[successorsKeySet.size()]);
 		
-		for(int i=0; i<successorsKeySet.length; i++) {
+		for(int i=0; i<successorsKeyArray.length; i++) {
 			Action a = successorsKeyArray[i];
 			newState = successors.get(a);
 			
