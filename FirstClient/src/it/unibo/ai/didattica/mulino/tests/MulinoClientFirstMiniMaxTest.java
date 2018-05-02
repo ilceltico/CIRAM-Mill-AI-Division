@@ -1040,7 +1040,7 @@ public class MulinoClientFirstMiniMaxTest {
 			for (int i = 0; i < 1000; i++) {
 				MulinoClientFirstNegamax.player = Checker.WHITE;
 				MulinoClientFirstNegamax.otherPlayer = Checker.BLACK;
-				a = MulinoClientFirstNegamax.negamaxDecision(state, 3);
+				a = MulinoClientFirstNegamax.negamaxDecision(state, 4);
 
 				switch (state.getCurrentPhase()) {
 				case FIRST:
@@ -1068,7 +1068,7 @@ public class MulinoClientFirstMiniMaxTest {
 
 				MulinoClientFirstNegamax.player = Checker.BLACK;
 				MulinoClientFirstNegamax.otherPlayer = Checker.WHITE;
-				a = MulinoClientFirstNegamax.negamaxDecision(state, 3);
+				a = MulinoClientFirstNegamax.negamaxDecision(state, 4);
 				switch (state.getCurrentPhase()) {
 				case FIRST:
 					state = Phase1.applyMove(state, a, MulinoClientFirstNegamax.player);

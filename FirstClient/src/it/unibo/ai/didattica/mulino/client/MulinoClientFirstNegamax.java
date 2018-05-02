@@ -155,10 +155,72 @@ public class MulinoClientFirstNegamax extends MulinoClient {
 //		return runnable.getIterativeAction();
 //	}
 
+	/*
+	 * with 'color' parameter, i think we dont need it cuz we already have
+	 * an heuristic with positive/negative values
+	 */
+//	public static Action negamaxDecision(State state, int maxDepth) throws Exception {
+//		elapsedTime = System.currentTimeMillis();
+//		int color = player == Checker.WHITE ? 1 : -1;
+//		int a = negamax(state, maxDepth, color);
+//		elapsedTime = System.currentTimeMillis() - elapsedTime;
+//		System.out.println("Elapsed time: " + elapsedTime);
+//		System.out.println("Expanded states: " + expandedStates);
+//		System.out.println("Selected action is: " + selectedAction + ", value: " + a);
+//		expandedStates = 0;
+//		return selectedAction;
+//	}
+//	
+//	public static int negamax(State state, int maxDepth, int color) throws Exception {
+//		LinkedHashMap<Action, State> successors = successors(state, player);
+//		int result = Integer.MIN_VALUE;
+//		int tempValue;
+//		State newState;
+//		
+//		for(Action a : successors.keySet()) {
+//			newState = successors.get(a);
+//			
+//			if (isWinningState(newState, player)) {
+//				selectedAction = a;
+//				return Integer.MAX_VALUE-1;
+//			}
+//			if (statesAlreadySeen.contains(newState)) {
+//				tempValue = 0;
+//			} else if (maxDepth > 1) {
+//				statesAlreadySeen.add(newState);
+//				tempValue = -negamax(newState, maxDepth - 1, -color);
+//				statesAlreadySeen.remove(newState);
+//			}
+//			else {
+//				switch (state.getCurrentPhase()) {
+//				case FIRST:
+//					Phase1Action action1 = (Phase1Action) a;
+//					tempValue = color * heuristic(newState, action1.getPutPosition(), player);
+//					break;
+//				case SECOND:
+//					Phase2Action action2 = (Phase2Action) a;
+//					tempValue = color * heuristic(newState, action2.getTo(), player);
+//					break;
+//				case FINAL:
+//					PhaseFinalAction actionFinal = (PhaseFinalAction) a;
+//					tempValue = color * heuristic(newState, actionFinal.getTo(), player);
+//					break;
+//				default:
+//					throw new Exception("Illegal Phase");
+//				}
+//			}
+//			if (tempValue > result) {
+//				selectedAction = a;
+//				result = tempValue;
+//			}
+//		}
+//		
+//		return result;
+//	}
+
 	public static Action negamaxDecision(State state, int maxDepth) throws Exception {
 		elapsedTime = System.currentTimeMillis();
-		int color = player == Checker.WHITE ? 1 : -1;
-		int a = negamax(state, maxDepth, color);
+		int a = negamax(state, maxDepth);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
@@ -167,7 +229,7 @@ public class MulinoClientFirstNegamax extends MulinoClient {
 		return selectedAction;
 	}
 	
-	public static int negamax(State state, int maxDepth, int color) throws Exception {
+	public static int negamax(State state, int maxDepth) throws Exception {
 		LinkedHashMap<Action, State> successors = successors(state, player);
 		int result = Integer.MIN_VALUE;
 		int tempValue;
@@ -184,22 +246,22 @@ public class MulinoClientFirstNegamax extends MulinoClient {
 				tempValue = 0;
 			} else if (maxDepth > 1) {
 				statesAlreadySeen.add(newState);
-				tempValue = -negamax(newState, maxDepth - 1, -color);
+				tempValue = -negamax(newState, maxDepth - 1);
 				statesAlreadySeen.remove(newState);
 			}
 			else {
 				switch (state.getCurrentPhase()) {
 				case FIRST:
 					Phase1Action action1 = (Phase1Action) a;
-					tempValue = color * heuristic(newState, action1.getPutPosition(), player);
+					tempValue = heuristic(newState, action1.getPutPosition(), player);
 					break;
 				case SECOND:
 					Phase2Action action2 = (Phase2Action) a;
-					tempValue = color * heuristic(newState, action2.getTo(), player);
+					tempValue = heuristic(newState, action2.getTo(), player);
 					break;
 				case FINAL:
 					PhaseFinalAction actionFinal = (PhaseFinalAction) a;
-					tempValue = color * heuristic(newState, actionFinal.getTo(), player);
+					tempValue = heuristic(newState, actionFinal.getTo(), player);
 					break;
 				default:
 					throw new Exception("Illegal Phase");
@@ -213,6 +275,7 @@ public class MulinoClientFirstNegamax extends MulinoClient {
 		
 		return result;
 	}
+
 	
 	public static LinkedHashMap<Action, State> successors(State state, Checker p) throws Exception {
 		switch (state.getCurrentPhase()) {

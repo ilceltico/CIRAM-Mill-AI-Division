@@ -32,9 +32,9 @@ import it.unibo.ai.didattica.mulino.domain.ValuedAction;
 import it.unibo.ai.didattica.mulino.domain.State.Checker;
 import it.unibo.ai.didattica.mulino.domain.State.Phase;
 
-public class MulinoClientFirstNegascout1 extends MulinoClient {
+public class MulinoClientFirstNegascout2 extends MulinoClient {
 
-	public MulinoClientFirstNegascout1(Checker player) {
+	public MulinoClientFirstNegascout2(Checker player) {
 		super(player);
 		// TODO Auto-generated constructor stub
 	}
@@ -156,7 +156,7 @@ public class MulinoClientFirstNegascout1 extends MulinoClient {
 //		return runnable.getIterativeAction();
 //	}
 
-	public static Action negascoutDecision(State state, int maxDepth) throws Exception{
+	public static Action negascoutDecision(State state, int maxDepth) throws Exception {
 		elapsedTime = System.currentTimeMillis();
 		int a = negascout(state, maxDepth, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
@@ -168,7 +168,7 @@ public class MulinoClientFirstNegascout1 extends MulinoClient {
 	}
 	
 	/*
-	 * versione wikipedia inglese
+	 * versione wikipedia italiano e chessprogramming.wikispaces.com
 	 */
 	
 	public static int negascout(State state, int maxDepth, int alpha, int beta) throws Exception {
@@ -180,7 +180,7 @@ public class MulinoClientFirstNegascout1 extends MulinoClient {
 		Set<Action> successorsKeySet = successors.keySet();
 		Action[] successorsKeyArray = successorsKeySet.toArray(new Action[successorsKeySet.size()]);
 		
-		for(int i=0; i<successorsKeySet.length; i++) {
+		for(int i=0; i<successorsKeyArray.length; i++) {
 			Action a = successorsKeyArray[i];
 			newState = successors.get(a);
 			
