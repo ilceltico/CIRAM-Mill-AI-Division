@@ -51,18 +51,18 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 	public static final int SAFETY_MILLIS = 1000;
 	public static List<State> statesAlreadySeen = new ArrayList<>();
 	
-	public static List<ValuedAction> killerMoves = new ArrayList<>();
+//	public static List<ValuedAction> killerMoves = new ArrayList<>();
 	public static ValuedAction[] killerArray;
 
 	public static void main(String[] args) throws Exception {
-		MulinoClientFirstMiniMaxAlphaBeta mulinoClient = null;
+		MulinoClientFirstMiniMaxAlphaBetaKiller mulinoClient = null;
 		if (args.length < 1) {
 			System.out.println("1 argument required, case insensitive: white | black");
 			System.exit(-1);
 		} else if (args[0].toLowerCase().equals("white"))
-			mulinoClient = new MulinoClientFirstMiniMaxAlphaBeta(Checker.WHITE);
+			mulinoClient = new MulinoClientFirstMiniMaxAlphaBetaKiller(Checker.WHITE);
 		else if (args[0].toLowerCase().equals("black"))
-			mulinoClient = new MulinoClientFirstMiniMaxAlphaBeta(Checker.BLACK);
+			mulinoClient = new MulinoClientFirstMiniMaxAlphaBetaKiller(Checker.BLACK);
 		else {
 			System.out.println("1 argument required, case insensitive: white | black");
 			System.exit(-2);
@@ -117,14 +117,14 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 
 	public class IterativeDeepeningRunnable implements Runnable {
 		private State state;
-		private Action iterativeAction = null;
+		private ValuedAction iterativeValuedAction = null;
 
 		public void setState(State state) {
 			this.state = state;
 		}
 
 		public Action getIterativeAction() {
-			return iterativeAction;
+			return iterativeValuedAction.getAction();
 		}
 
 		@Override
@@ -134,26 +134,40 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 			try {
 				
 				// prima volta che viene invocato il metodo
-				if(killerArray == null) {
-					killerArray = new ValuedAction[iterativeLevel];
-				}
-				// shifto per togliere il vecchio livello che non mi serve più
-				else {
-					for(int i=0; i<killerArray.length - 1; i++) {
-						killerArray[i] = killerArray[i + 1];
-					}
-					killerArray[killerArray.length - 1] = null;
-				}
+//				if(killerArray == null) {
+//					killerArray = new ValuedAction[iterativeLevel];
+//					for (int i=0; i<iterativeLevel; i++) {
+//						killerArray[i] = null;
+//					}
+//				}
+//				// shifto per togliere il vecchio livello che non mi serve più
+//				else {
+//					for(int i=0; i<killerArray.length - 2; i++) {
+//						killerArray[i] = killerArray[i + 2];
+//					}
+//					killerArray[killerArray.length - 2] = null;
+//					killerArray[killerArray.length - 1] = null;					
+//				}
 				
-				while (iterativeLevel < 20) {
+				while (true) {
 					
 					// se l'array non è abbastanza lungo
-					while(killerArray.length < iterativeLevel) {
-						killerArray = Arrays.copyOf(killerArray, killerArray.length + 1);
+//					while(killerArray.length < iterativeLevel) {
+//						killerArray = Arrays.copyOf(killerArray, killerArray.length + 1);
+//					}
+					killerArray = new ValuedAction[iterativeLevel];
+					for (int i=0; i<iterativeLevel; i++) {
+						killerArray[i] = null;
 					}
-					
-					iterativeAction = minimaxDecision(state, iterativeLevel);
+					iterativeValuedAction = minimaxDecision(state, iterativeLevel);
 					System.out.println("Level " + iterativeLevel++ + " decision completed");
+//					for (int i=0; i<MulinoClientFirstMiniMaxAlphaBetaKiller.killerArray.length; i++) {
+//						System.out.print("Level " + i + " killer move: ");
+//						System.out.println(MulinoClientFirstMiniMaxAlphaBetaKiller.killerArray[i]);
+//					}
+					if (iterativeValuedAction.getValue() >= Integer.MAX_VALUE-1 ||
+							iterativeValuedAction.getValue() <= Integer.MIN_VALUE+1)
+						break;
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -172,7 +186,17 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		Thread thread = new Thread(runnable);
 		thread.start();
 		
-		Thread.sleep(millisLimit-SAFETY_MILLIS);
+		int intervalsNumber = 60;
+		long interval = (millisLimit-SAFETY_MILLIS)/intervalsNumber;
+		millisLimit -= SAFETY_MILLIS;
+		while (intervalsNumber > 0) {
+			Thread.sleep(interval);
+			if (!thread.isAlive())
+				break;
+			millisLimit -= interval;
+			intervalsNumber--;
+//			System.out.println("Interval terminated, remaining millis: " + millisLimit);
+		}
 		System.out.println("Reached time limit");
 		
 		thread.stop();
@@ -181,7 +205,7 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		return runnable.getIterativeAction();
 	}
 
-	public static Action minimaxDecision(State state, int maxDepth) throws Exception {
+	public static ValuedAction minimaxDecision(State state, int maxDepth) throws Exception {
 		elapsedTime = System.currentTimeMillis();
 		
 //		if(killerArray == null)		
@@ -195,7 +219,7 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		System.out.println("Expanded states: " + expandedStates);
 		System.out.println("Selected action is: " + a);
 		expandedStates = 0;
-		return a.getAction();
+		return a;
 	}
 
 	public static ValuedAction max(State state, int maxDepth, int currentDepth, int alpha, int beta) throws Exception {
@@ -206,18 +230,18 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		// System.out.println("currentDepth: " + currentDepth);
 		// System.out.println("maxDepth: " + maxDepth);
 
-		// controllo se ï¿½ la prima volta che esploro questo livello
+		// controllo se NON e' la prima volta che esploro questo livello
 //		if (killerMoves.size() > currentDepth) {
-		if (killerArray.length > currentDepth && killerArray[currentDepth] != null) {
+		if (killerArray[currentDepth] != null) {
 //			ValuedAction killer = killerMoves.get(currentDepth);
 			ValuedAction killer = killerArray[currentDepth];
-			newState = isLegalMove(state, killer.getAction(), player);
+			newState = tryMove(state, killer.getAction(), player);
 
 			if (newState != null) {
 				Action tempAction = killer.getAction();
-				// eseguo come sotto, cioï¿½ come se fosse una qualunque altra azione
+				// eseguo come sotto, cioe' come se fosse una qualunque altra azione
 				if (isWinningState(newState, player)) {
-					result = new ValuedAction(tempAction, Integer.MIN_VALUE + 1);
+					result = new ValuedAction(tempAction, Integer.MAX_VALUE - 1);
 					return result;
 				}
 				if (statesAlreadySeen.contains(newState)) {
@@ -229,14 +253,14 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 				} else {
 					temp = new ValuedAction(killer.getAction(), killer.getValue());
 				}
-				if (temp.getValue() < result.getValue()) {
-					result = new ValuedAction(tempAction, temp.getValue());
+				if (temp.getValue() > result.getValue()) {
+					result = new ValuedAction(temp.getAction(), temp.getValue());
 				}
-				if (result.getValue() <= alpha) {
+				if (result.getValue() >= beta) {
 					return result;
 				}
-				if (result.getValue() <= beta) {
-					beta = result.getValue();
+				if(result.getValue() >= alpha) {
+					alpha = result.getValue();
 				}
 
 				// rimuovo la mosso, cosï¿½ se la mossa killer non killa non rischio di
@@ -247,7 +271,10 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		}
 
 		LinkedHashMap<Action, State> successors = successors(state, player);
-
+		if (killerArray[currentDepth] != null) {
+			successors.remove(killerArray[currentDepth].getAction());
+		}
+		
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
 			if (isWinningState(newState, player)) {
@@ -269,10 +296,10 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 //				}
 				
 //				if(killerArray.length > currentDepth) {
-					if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() < result.getValue())
-						killerArray[currentDepth] = result;
-					if(killerArray[currentDepth] == null)
-						killerArray[currentDepth] = result;
+				if (killerArray[currentDepth] == null)
+					killerArray[currentDepth] = result;
+				else if (result.getValue() > killerArray[currentDepth].getValue())
+					killerArray[currentDepth] = result;
 //				} else {
 //					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
 //					killerArray[currentDepth] = result;
@@ -324,10 +351,10 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 //				}
 				
 //				if(killerArray.length > currentDepth) {
-					if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() < result.getValue())
-						killerArray[currentDepth] = result;
-					if(killerArray[currentDepth] == null)
-						killerArray[currentDepth] = result;
+				if (killerArray[currentDepth] == null)
+					killerArray[currentDepth] = result;
+				else if (result.getValue() > killerArray[currentDepth].getValue())
+					killerArray[currentDepth] = result;
 //				} else {
 //					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
 //					killerArray[currentDepth] = result;
@@ -356,10 +383,10 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 //		}
 		
 //		if(killerArray.length > currentDepth) {
-			if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() < result.getValue())
-				killerArray[currentDepth] = result;
-			if(killerArray[currentDepth] == null)
-				killerArray[currentDepth] = result;
+		if (killerArray[currentDepth] == null)
+			killerArray[currentDepth] = result;
+		else if (result.getValue() > killerArray[currentDepth].getValue())
+			killerArray[currentDepth] = result;
 //		} else {
 //			killerArray = Arrays.copyOf(killerArray, currentDepth+1);
 //			killerArray[currentDepth] = result;
@@ -377,16 +404,16 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		// System.out.println("currentDepth: " + currentDepth);
 		// System.out.println("maxDepth: " + maxDepth);
 
-		// controllo se ï¿½ la prima volta che esploro questo livello
+		// controllo se NON e' la prima volta che esploro questo livello
 //		if (killerMoves.size() > currentDepth) {
-		if (killerArray.length > currentDepth && killerArray[currentDepth] != null) {
+		if (killerArray[currentDepth] != null) {
 //			ValuedAction killer = killerMoves.get(currentDepth);
 			ValuedAction killer = killerArray[currentDepth];
-			newState = isLegalMove(state, killer.getAction(), minPlayer);
+			newState = tryMove(state, killer.getAction(), minPlayer);
 
 			if (newState != null) {
 				Action tempAction = killer.getAction();
-				// eseguo come sotto, cioï¿½ come se fosse una qualunque altra azione
+				// eseguo come sotto, cioe' come se fosse una qualunque altra azione
 				if (isWinningState(newState, minPlayer)) {
 					result = new ValuedAction(tempAction, Integer.MIN_VALUE + 1);
 					return result;
@@ -418,7 +445,10 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		}
 
 		LinkedHashMap<Action, State> successors = successors(state, minPlayer);
-
+		if (killerArray[currentDepth] != null) {
+			successors.remove(killerArray[currentDepth].getAction());
+		}
+		
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
 			if (isWinningState(newState, minPlayer)) {
@@ -440,10 +470,10 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 //				}
 				
 //				if(killerArray.length > currentDepth) {
-					if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() > result.getValue())
-						killerArray[currentDepth] = result;
-					if(killerArray[currentDepth] == null)
-						killerArray[currentDepth] = result;
+				if (killerArray[currentDepth] == null)
+					killerArray[currentDepth] = result;
+				else if (result.getValue() < killerArray[currentDepth].getValue())
+					killerArray[currentDepth] = result;
 //				} else {
 //					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
 //					killerArray[currentDepth] = result;
@@ -495,10 +525,10 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 //				}
 				
 //				if(killerArray.length > currentDepth) {
-					if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() > result.getValue())
-						killerArray[currentDepth] = result;
-					if(killerArray[currentDepth] == null)
-						killerArray[currentDepth] = result;
+				if (killerArray[currentDepth] == null)
+					killerArray[currentDepth] = result;
+				else if (result.getValue() < killerArray[currentDepth].getValue())
+					killerArray[currentDepth] = result;
 //				} else {
 //					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
 //					killerArray[currentDepth] = result;
@@ -529,10 +559,10 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 //		}
 		
 //		if(killerArray.length > currentDepth) {
-			if(killerArray[currentDepth] != null && killerArray[currentDepth].getValue() > result.getValue())
-				killerArray[currentDepth] = result;
-			if(killerArray[currentDepth] == null)
-				killerArray[currentDepth] = result;
+		if (killerArray[currentDepth] == null)
+			killerArray[currentDepth] = result;
+		else if (result.getValue() < killerArray[currentDepth].getValue())
+			killerArray[currentDepth] = result;
 //		} else {
 //			killerArray = Arrays.copyOf(killerArray, currentDepth+1);
 //			killerArray[currentDepth] = result;
@@ -1377,7 +1407,7 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		return false;
 	}
 
-	public static State isLegalMove(State state, Action a, Checker p) {
+	public static State tryMove(State state, Action a, Checker p) {
 		// applico la mossa e se da eccezione ritorno null
 		
 		try {
@@ -1391,9 +1421,9 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 					temp1.setFrom(((PhaseFinalAction) a).getFrom());
 					temp1.setTo(((PhaseFinalAction) a).getTo());
 					temp1.setRemoveOpponentChecker(((PhaseFinalAction) a).getRemoveOpponentChecker());
-				} else {
+				} else if (a instanceof Phase2Action){
 					temp1 = (Phase2Action) a;
-				}
+				} else throw new ClassCastException();
 				
 				return Phase2.applyMove(state, temp1, p);
 			case FINAL:
@@ -1403,9 +1433,9 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 					temp2.setFrom(((Phase2Action) a).getFrom());
 					temp2.setTo(((Phase2Action) a).getTo());
 					temp2.setRemoveOpponentChecker(((Phase2Action) a).getRemoveOpponentChecker());
-				} else {
+				} else if (a instanceof PhaseFinalAction){
 					temp2 = (PhaseFinalAction) a;
-				}
+				} else throw new ClassCastException();
 				
 				return PhaseFinal.applyMove(state, temp2, p);
 			default:
@@ -1414,36 +1444,7 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		} catch (Exception e) {
 			// e.printStackTrace();
 			return null;
-		} finally {
-			return null;
 		}
-		
-//		try {
-//			switch (state.getCurrentPhase()) {
-//			case FIRST:
-//				if(!(a instanceof Phase1Action))
-//					return null;
-//				
-//				return Phase1.applyMove(state, a, p);
-//			case SECOND:				
-//				if(!(a instanceof Phase2Action))
-//					return null;
-//				
-//				return Phase2.applyMove(state, a, p);
-//			case FINAL:
-//				if(!(a instanceof PhaseFinalAction))
-//					return null;
-//				
-//				return PhaseFinal.applyMove(state, a, p);
-//			default:
-//				throw new Exception("Illegal Phase");
-//			}
-//		} catch (Exception e) {
-//			// e.printStackTrace();
-//			return null;
-//		} finally {
-//			return null;
-//		}
 	}
 
 }
