@@ -129,12 +129,30 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 
 		@Override
 		public void run() {
+			
 			int iterativeLevel = 2;
-			int currentDepth = 0;
 			try {
+				
+				// prima volta che viene invocato il metodo
+				if(killerArray == null) {
+					killerArray = new ValuedAction[iterativeLevel];
+				}
+				// shifto per togliere il vecchio livello che non mi serve più
+				else {
+					for(int i=0; i<killerArray.length - 1; i++) {
+						killerArray[i] = killerArray[i + 1];
+					}
+					killerArray[killerArray.length - 1] = null;
+				}
+				
 				while (iterativeLevel < 20) {
-					iterativeAction = minimaxDecision(state, currentDepth, iterativeLevel);
-					currentDepth += 2;
+					
+					// se l'array non è abbastanza lungo
+					while(killerArray.length < iterativeLevel) {
+						killerArray = Arrays.copyOf(killerArray, killerArray.length + 1);
+					}
+					
+					iterativeAction = minimaxDecision(state, iterativeLevel);
 					System.out.println("Level " + iterativeLevel++ + " decision completed");
 				}
 			} catch (Exception e) {
@@ -163,15 +181,15 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		return runnable.getIterativeAction();
 	}
 
-	public static Action minimaxDecision(State state, int maxDepth, int currentDepth) throws Exception {
+	public static Action minimaxDecision(State state, int maxDepth) throws Exception {
 		elapsedTime = System.currentTimeMillis();
 		
-		if(killerArray == null)		
-			killerArray = new ValuedAction[maxDepth+currentDepth];
-		else
-			killerArray = Arrays.copyOf(killerArray, maxDepth+currentDepth);
+//		if(killerArray == null)		
+//			killerArray = new ValuedAction[maxDepth+currentDepth];
+//		else
+//			killerArray = Arrays.copyOf(killerArray, maxDepth+currentDepth);
 
-		ValuedAction a = max(state, maxDepth, currentDepth, Integer.MIN_VALUE, Integer.MAX_VALUE);
+		ValuedAction a = max(state, maxDepth, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);

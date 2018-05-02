@@ -31,15 +31,20 @@ public class MulinoClientFirstMiniMaxTest {
 //		 doTest2WithAlphaBeta();
 		// doTest2WithAlphaBetaAndOptimizationsTreeSet();
 		// doTest2WithAlphaBetaAndOptimizationsList();
-//		doTest2WithAlphaBetaKiller();
+		
+		// old, doesnt work
+		doTest2WithAlphaBetaKiller();
+		
 		// playAgaintsWhiteCPU();
 //		 playAgainstBlackCPU();
 //		 playAgainstBlackIterativeCPU();
 		// doTestStates();
 
 		// doTestIterativeDeepening();
+		
+		doTestIterativeDeepeningKiller();
 		 
-		 doTestNegamax();
+//		 doTestNegamax();
 	}
 
 	public static void doTest1() {
@@ -333,7 +338,7 @@ public class MulinoClientFirstMiniMaxTest {
 			for (int i = 0; i < 1000; i++) {
 				MulinoClientFirstMiniMaxAlphaBetaKiller.player = Checker.WHITE;
 				MulinoClientFirstMiniMaxAlphaBetaKiller.otherPlayer = Checker.BLACK;
-				a = MulinoClientFirstMiniMaxAlphaBetaKiller.minimaxDecision(state, 5, i * 2);
+				a = MulinoClientFirstMiniMaxAlphaBetaKiller.minimaxDecision(state, 5);
 				switch (state.getCurrentPhase()) {
 				case FIRST:
 					state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBetaKiller.player);
@@ -383,7 +388,7 @@ public class MulinoClientFirstMiniMaxTest {
 
 				MulinoClientFirstMiniMaxAlphaBetaKiller.player = Checker.BLACK;
 				MulinoClientFirstMiniMaxAlphaBetaKiller.otherPlayer = Checker.WHITE;
-				a = MulinoClientFirstMiniMaxAlphaBetaKiller.minimaxDecision(state, 5, i * 2 + 1);
+				a = MulinoClientFirstMiniMaxAlphaBetaKiller.minimaxDecision(state, 5);
 				switch (state.getCurrentPhase()) {
 				case FIRST:
 					state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBetaKiller.player);
@@ -1032,6 +1037,10 @@ public class MulinoClientFirstMiniMaxTest {
 		}
 	}
 
+	public static void doTestIterativeDeepeningKiller() {
+		
+	}
+	
 	public static void doTestNegamax() {
 		State state = new State();
 		Action a;
