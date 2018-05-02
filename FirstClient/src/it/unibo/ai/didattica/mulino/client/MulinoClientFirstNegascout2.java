@@ -1,12 +1,9 @@
 package it.unibo.ai.didattica.mulino.client;
 
-import java.io.IOException;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Set;
 
 import it.unibo.ai.didattica.mulino.actions.Action;
 import it.unibo.ai.didattica.mulino.actions.FromAndToAreEqualsException;
@@ -29,17 +26,17 @@ import it.unibo.ai.didattica.mulino.actions.TryingToRemoveOwnCheckerException;
 import it.unibo.ai.didattica.mulino.actions.Util;
 import it.unibo.ai.didattica.mulino.actions.WrongPhaseException;
 import it.unibo.ai.didattica.mulino.actions.WrongPositionException;
-import it.unibo.ai.didattica.mulino.client.MulinoClientFirstMiniMaxAlphaBeta.IterativeDeepeningRunnable;
+import it.unibo.ai.didattica.mulino.client.MulinoClientFirstMiniMax.IterativeDeepeningRunnable;
 import it.unibo.ai.didattica.mulino.domain.State;
+import it.unibo.ai.didattica.mulino.domain.ValuedAction;
 import it.unibo.ai.didattica.mulino.domain.State.Checker;
 import it.unibo.ai.didattica.mulino.domain.State.Phase;
-import it.unibo.ai.didattica.mulino.domain.ValuedAction;
 
-public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
+public class MulinoClientFirstNegascout2 extends MulinoClient {
 
-	public MulinoClientFirstMiniMaxAlphaBetaKiller(Checker player) throws UnknownHostException, IOException {
+	public MulinoClientFirstNegascout2(Checker player) {
 		super(player);
-		otherPlayer = player == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
+		// TODO Auto-generated constructor stub
 	}
 
 	public static Checker player;
@@ -50,19 +47,17 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 	// public static final int THREAD_NUMBER = 4;
 	public static final int SAFETY_MILLIS = 1000;
 	public static List<State> statesAlreadySeen = new ArrayList<>();
-	
-//	public static List<ValuedAction> killerMoves = new ArrayList<>();
-	public static ValuedAction[] killerArray;
+	public static Action selectedAction;
 
 	public static void main(String[] args) throws Exception {
-		MulinoClientFirstMiniMaxAlphaBetaKiller mulinoClient = null;
+		MulinoClientFirstMiniMaxAlphaBeta mulinoClient = null;
 		if (args.length < 1) {
 			System.out.println("1 argument required, case insensitive: white | black");
 			System.exit(-1);
 		} else if (args[0].toLowerCase().equals("white"))
-			mulinoClient = new MulinoClientFirstMiniMaxAlphaBetaKiller(Checker.WHITE);
+			mulinoClient = new MulinoClientFirstMiniMaxAlphaBeta(Checker.WHITE);
 		else if (args[0].toLowerCase().equals("black"))
-			mulinoClient = new MulinoClientFirstMiniMaxAlphaBetaKiller(Checker.BLACK);
+			mulinoClient = new MulinoClientFirstMiniMaxAlphaBeta(Checker.BLACK);
 		else {
 			System.out.println("1 argument required, case insensitive: white | black");
 			System.exit(-2);
@@ -114,463 +109,91 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		} while (true);
 
 	}
-
-	public class IterativeDeepeningRunnable implements Runnable {
-		private State state;
-		private ValuedAction iterativeValuedAction = null;
-
-		public void setState(State state) {
-			this.state = state;
-		}
-
-		public Action getIterativeAction() {
-			return iterativeValuedAction.getAction();
-		}
-
-		@Override
-		public void run() {
-			
-			int iterativeLevel = 2;
-			try {
-				
-				// prima volta che viene invocato il metodo
-//				if(killerArray == null) {
-//					killerArray = new ValuedAction[iterativeLevel];
-//					for (int i=0; i<iterativeLevel; i++) {
-//						killerArray[i] = null;
-//					}
+	
+//	public class IterativeDeepeningRunnable implements Runnable {
+//		private State state;
+//		private Action iterativeAction = null;
+//		
+//		public void setState(State state) {
+//			this.state = state;
+//		}
+//		
+//		public Action getIterativeAction() {
+//			return iterativeAction;
+//		}
+//		
+//		@Override
+//		public void run() {
+//			int iterativeLevel = 2;
+//			try {
+//				while(iterativeLevel<20) {
+//					iterativeAction = minimaxDecision(state, iterativeLevel);
+//					System.out.println("Level " + iterativeLevel++  + " decision completed");
 //				}
-//				// shifto per togliere il vecchio livello che non mi serve più
-//				else {
-//					for(int i=0; i<killerArray.length - 2; i++) {
-//						killerArray[i] = killerArray[i + 2];
-//					}
-//					killerArray[killerArray.length - 2] = null;
-//					killerArray[killerArray.length - 1] = null;					
-//				}
-				
-				while (true) {
-					
-					// se l'array non è abbastanza lungo
-//					while(killerArray.length < iterativeLevel) {
-//						killerArray = Arrays.copyOf(killerArray, killerArray.length + 1);
-//					}
-					killerArray = new ValuedAction[iterativeLevel];
-					for (int i=0; i<iterativeLevel; i++) {
-						killerArray[i] = null;
-					}
-					iterativeValuedAction = minimaxDecision(state, iterativeLevel);
-					System.out.println("Level " + iterativeLevel++ + " decision completed");
-//					for (int i=0; i<MulinoClientFirstMiniMaxAlphaBetaKiller.killerArray.length; i++) {
-//						System.out.print("Level " + i + " killer move: ");
-//						System.out.println(MulinoClientFirstMiniMaxAlphaBetaKiller.killerArray[i]);
-//					}
-					if (iterativeValuedAction.getValue() >= Integer.MAX_VALUE-1 ||
-							iterativeValuedAction.getValue() <= Integer.MIN_VALUE+1)
-						break;
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		
+//	}
+//	
+//	@SuppressWarnings("deprecation")
+//	public Action iterativeDeepeningMinimaxDecision(State state, long millisLimit) throws Exception {
+//		
+//		IterativeDeepeningRunnable runnable = new IterativeDeepeningRunnable();
+//		runnable.setState(state);
+//		List<State> statesAlreadySeenCopy = new ArrayList<State>(MulinoClientFirstMiniMaxAlphaBeta.statesAlreadySeen);
+//		
+//		Thread thread = new Thread(runnable);
+//		thread.start();
+//		
+//		Thread.sleep(millisLimit-SAFETY_MILLIS);
+//		System.out.println("Reached time limit");
+//		
+//		thread.stop();
+//		MulinoClientFirstMiniMaxAlphaBeta.statesAlreadySeen = statesAlreadySeenCopy;
+//		
+//		return runnable.getIterativeAction();
+//	}
 
-	}
-
-	@SuppressWarnings("deprecation")
-	public Action iterativeDeepeningMinimaxDecision(State state, long millisLimit) throws Exception {
-		
-		IterativeDeepeningRunnable runnable = new IterativeDeepeningRunnable();
-		runnable.setState(state);
-		List<State> statesAlreadySeenCopy = new ArrayList<State>(MulinoClientFirstMiniMaxAlphaBetaKiller.statesAlreadySeen);
-		
-		Thread thread = new Thread(runnable);
-		thread.start();
-		
-		int intervalsNumber = 60;
-		long interval = (millisLimit-SAFETY_MILLIS)/intervalsNumber;
-		millisLimit -= SAFETY_MILLIS;
-		while (intervalsNumber > 0) {
-			Thread.sleep(interval);
-			if (!thread.isAlive())
-				break;
-			millisLimit -= interval;
-			intervalsNumber--;
-//			System.out.println("Interval terminated, remaining millis: " + millisLimit);
-		}
-		System.out.println("Reached time limit");
-		
-		thread.stop();
-		MulinoClientFirstMiniMaxAlphaBetaKiller.statesAlreadySeen = statesAlreadySeenCopy;
-		
-		return runnable.getIterativeAction();
-	}
-
-	public static ValuedAction minimaxDecision(State state, int maxDepth) throws Exception {
+	public static Action negascoutDecision(State state, int maxDepth) throws Exception {
 		elapsedTime = System.currentTimeMillis();
-		
-//		if(killerArray == null)		
-//			killerArray = new ValuedAction[maxDepth+currentDepth];
-//		else
-//			killerArray = Arrays.copyOf(killerArray, maxDepth+currentDepth);
-
-		ValuedAction a = max(state, maxDepth, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
+		int a = negascout(state, maxDepth, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
-		System.out.println("Selected action is: " + a);
+		System.out.println("Selected action is: " + selectedAction + ", value: " + a);
 		expandedStates = 0;
-		return a;
+		return selectedAction;
 	}
-
-	public static ValuedAction max(State state, int maxDepth, int currentDepth, int alpha, int beta) throws Exception {
-		ValuedAction result = new ValuedAction(null, Integer.MIN_VALUE);
-		ValuedAction temp;
-		State newState;
-
-		// System.out.println("currentDepth: " + currentDepth);
-		// System.out.println("maxDepth: " + maxDepth);
-
-		// controllo se NON e' la prima volta che esploro questo livello
-//		if (killerMoves.size() > currentDepth) {
-		if (killerArray[currentDepth] != null) {
-//			ValuedAction killer = killerMoves.get(currentDepth);
-			ValuedAction killer = killerArray[currentDepth];
-			newState = tryMove(state, killer.getAction(), player);
-
-			if (newState != null) {
-				Action tempAction = killer.getAction();
-				// eseguo come sotto, cioe' come se fosse una qualunque altra azione
-				if (isWinningState(newState, player)) {
-					result = new ValuedAction(tempAction, Integer.MAX_VALUE - 1);
-					return result;
-				}
-				if (statesAlreadySeen.contains(newState)) {
-					temp = new ValuedAction(tempAction, 0);
-				} else if (maxDepth > 1) {
-					statesAlreadySeen.add(newState);
-					temp = min(newState, maxDepth - 1, currentDepth + 1, alpha, beta);
-					statesAlreadySeen.remove(newState);
-				} else {
-					temp = new ValuedAction(killer.getAction(), killer.getValue());
-				}
-				if (temp.getValue() > result.getValue()) {
-					result = new ValuedAction(temp.getAction(), temp.getValue());
-				}
-				if (result.getValue() >= beta) {
-					return result;
-				}
-				if(result.getValue() >= alpha) {
-					alpha = result.getValue();
-				}
-
-				// rimuovo la mosso, cosï¿½ se la mossa killer non killa non rischio di
-				// riespandere il nodo
-
-				// successors.remove(tempAction);
-			}
-		}
-
+	
+	/*
+	 * versione wikipedia italiano e chessprogramming.wikispaces.com
+	 */
+	
+	public static int negascout(State state, int maxDepth, int alpha, int beta) throws Exception {
 		LinkedHashMap<Action, State> successors = successors(state, player);
-		if (killerArray[currentDepth] != null) {
-			successors.remove(killerArray[currentDepth].getAction());
-		}
-		
-		for (Action a : successors.keySet()) {
-			newState = successors.get(a);
-			if (isWinningState(newState, player)) {
-				result = new ValuedAction(a, Integer.MAX_VALUE - 1);
-
-//				if (killerMoves.size() > currentDepth) {
-//					// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					if (killerMoves.get(currentDepth).getValue() < result.getValue())
-//						killerMoves.set(currentDepth, result);
-//				} else {
-//					// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					
-//					if(maxDepth == 1)
-//						killerMoves.add(result);
-//					else
-//						killerMoves.add(0, result);
-//				}
-				
-//				if(killerArray.length > currentDepth) {
-				if (killerArray[currentDepth] == null)
-					killerArray[currentDepth] = result;
-				else if (result.getValue() > killerArray[currentDepth].getValue())
-					killerArray[currentDepth] = result;
-//				} else {
-//					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
-//					killerArray[currentDepth] = result;
-//				}
-
-				return result;
-			}
-			if (statesAlreadySeen.contains(newState)) {
-				temp = new ValuedAction(a, 0);
-			} else if (maxDepth > 1) {
-				statesAlreadySeen.add(newState);
-				temp = min(newState, maxDepth - 1, currentDepth + 1, alpha, beta);
-				statesAlreadySeen.remove(newState);
-			} else {
-				switch (state.getCurrentPhase()) {
-				case FIRST:
-					Phase1Action action1 = (Phase1Action) a;
-					temp = new ValuedAction(a, heuristic(newState, action1.getPutPosition(), player));
-					break;
-				case SECOND:
-					Phase2Action action2 = (Phase2Action) a;
-					temp = new ValuedAction(a, heuristic(newState, action2.getTo(), player));
-					break;
-				case FINAL:
-					PhaseFinalAction actionFinal = (PhaseFinalAction) a;
-					temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), player));
-					break;
-				default:
-					throw new Exception("Illegal Phase");
-				}
-			}
-			if (temp.getValue() > result.getValue()) {
-				result = new ValuedAction(a, temp.getValue());
-			}
-			if (result.getValue() >= beta) {
-//				if (killerMoves.size() > currentDepth) {
-//					// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					if (killerMoves.get(currentDepth).getValue() < result.getValue())
-//						killerMoves.set(currentDepth, result);
-//				} else {
-//					// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					
-//					if(maxDepth == 1)
-//						killerMoves.add(result);
-//					else
-//						killerMoves.add(0, result);
-//				}
-				
-//				if(killerArray.length > currentDepth) {
-				if (killerArray[currentDepth] == null)
-					killerArray[currentDepth] = result;
-				else if (result.getValue() > killerArray[currentDepth].getValue())
-					killerArray[currentDepth] = result;
-//				} else {
-//					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
-//					killerArray[currentDepth] = result;
-//				}
-
-				return result;
-			}
-			if (result.getValue() >= alpha) {
-				alpha = result.getValue();
-			}
-		}
-
-//		if (killerMoves.size() > currentDepth) {
-//			// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
-//			// currentDepth: " + currentDepth);
-//			if (killerMoves.get(currentDepth).getValue() < result.getValue())
-//				killerMoves.set(currentDepth, result);
-//		} else {
-//			// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
-//			// currentDepth: " + currentDepth);
-//			
-//			if(maxDepth == 1)
-//				killerMoves.add(result);
-//			else
-//				killerMoves.add(0, result);
-//		}
-		
-//		if(killerArray.length > currentDepth) {
-		if (killerArray[currentDepth] == null)
-			killerArray[currentDepth] = result;
-		else if (result.getValue() > killerArray[currentDepth].getValue())
-			killerArray[currentDepth] = result;
-//		} else {
-//			killerArray = Arrays.copyOf(killerArray, currentDepth+1);
-//			killerArray[currentDepth] = result;
-//		}
-
-		return result;
-	}
-
-	public static ValuedAction min(State state, int maxDepth, int currentDepth, int alpha, int beta) throws Exception {
-		Checker minPlayer = player == Checker.BLACK ? Checker.WHITE : Checker.BLACK;
-		ValuedAction result = new ValuedAction(null, Integer.MAX_VALUE);
-		ValuedAction temp;
+		int result = Integer.MIN_VALUE;
+		int tempValue;
 		State newState;
-
-		// System.out.println("currentDepth: " + currentDepth);
-		// System.out.println("maxDepth: " + maxDepth);
-
-		// controllo se NON e' la prima volta che esploro questo livello
-//		if (killerMoves.size() > currentDepth) {
-		if (killerArray[currentDepth] != null) {
-//			ValuedAction killer = killerMoves.get(currentDepth);
-			ValuedAction killer = killerArray[currentDepth];
-			newState = tryMove(state, killer.getAction(), minPlayer);
-
-			if (newState != null) {
-				Action tempAction = killer.getAction();
-				// eseguo come sotto, cioe' come se fosse una qualunque altra azione
-				if (isWinningState(newState, minPlayer)) {
-					result = new ValuedAction(tempAction, Integer.MIN_VALUE + 1);
-					return result;
-				}
-				if (statesAlreadySeen.contains(newState)) {
-					temp = new ValuedAction(tempAction, 0);
-				} else if (maxDepth > 1) {
-					statesAlreadySeen.add(newState);
-					temp = max(newState, maxDepth - 1, currentDepth + 1, alpha, beta);
-					statesAlreadySeen.remove(newState);
-				} else {
-					temp = new ValuedAction(killer.getAction(), killer.getValue());
-				}
-				if (temp.getValue() < result.getValue()) {
-					result = new ValuedAction(tempAction, temp.getValue());
-				}
-				if (result.getValue() <= alpha) {
-					return result;
-				}
-				if (result.getValue() <= beta) {
-					beta = result.getValue();
-				}
-
-				// rimuovo la mosso, cosï¿½ se la mossa killer non killa non rischio di
-				// riespandere il nodo
-
-				// successors.remove(tempAction);
-			}
-		}
-
-		LinkedHashMap<Action, State> successors = successors(state, minPlayer);
-		if (killerArray[currentDepth] != null) {
-			successors.remove(killerArray[currentDepth].getAction());
-		}
 		
-		for (Action a : successors.keySet()) {
+		Set<Action> successorsKeySet = successors.keySet();
+		Action[] successorsKeyArray = successorsKeySet.toArray(new Action[successorsKeySet.size()]);
+		
+		for(int i=0; i<successorsKeyArray.length; i++) {
+			Action a = successorsKeyArray[i];
 			newState = successors.get(a);
-			if (isWinningState(newState, minPlayer)) {
-				result = new ValuedAction(a, Integer.MIN_VALUE + 1);
-
-//				if (killerMoves.size() > currentDepth) {
-//					// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					if (killerMoves.get(currentDepth).getValue() > result.getValue())
-//						killerMoves.set(currentDepth, result);
-//				} else {
-//					// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					
-//					if(maxDepth == 1)
-//						killerMoves.add(result);
-//					else
-//						killerMoves.add(0, result);
-//				}
-				
-//				if(killerArray.length > currentDepth) {
-				if (killerArray[currentDepth] == null)
-					killerArray[currentDepth] = result;
-				else if (result.getValue() < killerArray[currentDepth].getValue())
-					killerArray[currentDepth] = result;
-//				} else {
-//					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
-//					killerArray[currentDepth] = result;
-//				}
-
-				return result;
+			
+			if (isWinningState(newState, player)) {
+				selectedAction = a;
+				return Integer.MAX_VALUE-1;
 			}
 			if (statesAlreadySeen.contains(newState)) {
-				temp = new ValuedAction(a, 0);
-			} else if (maxDepth > 1) {
-				statesAlreadySeen.add(newState);
-				temp = max(newState, maxDepth - 1, currentDepth + 1, alpha, beta);
-				statesAlreadySeen.remove(newState);
-			} else {
-				switch (state.getCurrentPhase()) {
-				case FIRST:
-					Phase1Action action1 = (Phase1Action) a;
-					temp = new ValuedAction(a, heuristic(newState, action1.getPutPosition(), minPlayer));
-					break;
-				case SECOND:
-					Phase2Action action2 = (Phase2Action) a;
-					temp = new ValuedAction(a, heuristic(newState, action2.getTo(), minPlayer));
-					break;
-				case FINAL:
-					PhaseFinalAction actionFinal = (PhaseFinalAction) a;
-					temp = new ValuedAction(a, heuristic(newState, actionFinal.getTo(), minPlayer));
-					break;
-				default:
-					throw new Exception("Illegal Phase");
-				}
-			}
-			if (temp.getValue() < result.getValue()) {
-				result = new ValuedAction(a, temp.getValue());
-			}
-			if (result.getValue() <= alpha) {
-//				if (killerMoves.size() > currentDepth) {
-//					// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					if (killerMoves.get(currentDepth).getValue() > result.getValue())
-//						killerMoves.set(currentDepth, result);
-//				} else {
-//					// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
-//					// currentDepth: " + currentDepth);
-//					
-//					if(maxDepth == 1)
-//						killerMoves.add(result);
-//					else
-//						killerMoves.add(0, result);
-//				}
-				
-//				if(killerArray.length > currentDepth) {
-				if (killerArray[currentDepth] == null)
-					killerArray[currentDepth] = result;
-				else if (result.getValue() < killerArray[currentDepth].getValue())
-					killerArray[currentDepth] = result;
-//				} else {
-//					killerArray = Arrays.copyOf(killerArray, currentDepth+1);
-//					killerArray[currentDepth] = result;
-//				}
-
-				return result;
-			}
-			if (result.getValue() <= beta) {
-				beta = result.getValue();
+				tempValue = 0;
 			}
 		}
-		
-		
-
-//		if (killerMoves.size() > currentDepth) {
-//			// System.out.println("IF=> killerMoves.size: " + killerMoves.size() + "
-//			// currentDepth: " + currentDepth);
-//			if (killerMoves.get(currentDepth).getValue() > result.getValue())
-//				killerMoves.set(currentDepth, result);
-//		} else {
-//			// System.out.println("ELSE=> killerMoves.size: " + killerMoves.size() + "
-//			// currentDepth: " + currentDepth);
-//			
-//			if(maxDepth == 1)
-//				killerMoves.add(result);
-//			else
-//				killerMoves.add(0, result);
-//		}
-		
-//		if(killerArray.length > currentDepth) {
-		if (killerArray[currentDepth] == null)
-			killerArray[currentDepth] = result;
-		else if (result.getValue() < killerArray[currentDepth].getValue())
-			killerArray[currentDepth] = result;
-//		} else {
-//			killerArray = Arrays.copyOf(killerArray, currentDepth+1);
-//			killerArray[currentDepth] = result;
-//		}
-
-		return result;
 	}
-
+	
 	public static LinkedHashMap<Action, State> successors(State state, Checker p) throws Exception {
 		switch (state.getCurrentPhase()) {
 		case FIRST:
@@ -858,10 +481,10 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 	}
 
 	public static int heuristic(State state, String position, Checker p) throws Exception {
-		// // controllo se vado in pareggio
-		// if (statesAlreadySeen.contains(state))
-		// return 0;
-		// NON NECESSARIO, GIA' PRESENTE IN MIN E MAX
+//		// controllo se vado in pareggio
+//		if (statesAlreadySeen.contains(state))
+//			return 0;
+		//NON NECESSARIO, GIA' PRESENTE IN MIN E MAX
 
 		switch (state.getCurrentPhase()) {
 		case FIRST:
@@ -1178,7 +801,7 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 		// number of 2 pieces configuration
 		int twoPiecesConfigurationPlayer = 0;
 		int twoPiecesConfigurationOtherPlayer = 0;
-
+		
 		// number of 3 pieces configuration
 		int threePiecesConfigurationPlayer = 0;
 		int threePiecesConfigurationOtherPlayer = 0;
@@ -1293,7 +916,7 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 				if (emptyPosV == 1 && occupiedPosV == 2)
 					twoPiecesConfigurationOtherPlayer++;
 			}
-
+			
 			// number of 3 pieces configuration
 			if (state.getBoard().get(pos) == player) {
 				int emptyPosH = 0;
@@ -1381,7 +1004,7 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 			return true;
 		else if (p == Checker.BLACK && state.getWhiteCheckersOnBoard() < 3)
 			return true;
-
+		
 		if (state.getCurrentPhase() == State.Phase.SECOND) {
 			Checker otherPlayer = p == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
 			for (String position : state.positions) {
@@ -1405,46 +1028,6 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 			return true;
 		}
 		return false;
-	}
-
-	public static State tryMove(State state, Action a, Checker p) {
-		// applico la mossa e se da eccezione ritorno null
-		
-		try {
-			switch (state.getCurrentPhase()) {
-			case FIRST:
-				return Phase1.applyMove(state, a, p);
-			case SECOND:
-				Phase2Action temp1 = new Phase2Action();
-				
-				if(a instanceof PhaseFinalAction) {
-					temp1.setFrom(((PhaseFinalAction) a).getFrom());
-					temp1.setTo(((PhaseFinalAction) a).getTo());
-					temp1.setRemoveOpponentChecker(((PhaseFinalAction) a).getRemoveOpponentChecker());
-				} else if (a instanceof Phase2Action){
-					temp1 = (Phase2Action) a;
-				} else throw new ClassCastException();
-				
-				return Phase2.applyMove(state, temp1, p);
-			case FINAL:
-				PhaseFinalAction temp2 = new PhaseFinalAction();
-				
-				if(a instanceof Phase2Action) {
-					temp2.setFrom(((Phase2Action) a).getFrom());
-					temp2.setTo(((Phase2Action) a).getTo());
-					temp2.setRemoveOpponentChecker(((Phase2Action) a).getRemoveOpponentChecker());
-				} else if (a instanceof PhaseFinalAction){
-					temp2 = (PhaseFinalAction) a;
-				} else throw new ClassCastException();
-				
-				return PhaseFinal.applyMove(state, temp2, p);
-			default:
-				throw new Exception("Illegal Phase");
-			}
-		} catch (Exception e) {
-			// e.printStackTrace();
-			return null;
-		}
 	}
 
 }
