@@ -1,0 +1,99 @@
+TEST STATES (1ST IS ALPHA-BETA, 2ND IS ALPHA-BETA KILLER)
+
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--W--W     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----B-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 7;
+White Checkers On Board: 2;
+Black Checkers On Board: 2;
+
+Elapsed time: 78
+Expanded states: 400
+Selected action is: c3, value: -1
+Level 2 decision completed
+Elapsed time: 189
+Expanded states: 2896
+Selected action is: d3, value: 18
+Level 3 decision completed
+Elapsed time: 423
+Expanded states: 14508
+Selected action is: b2, value: -3
+Level 4 decision completed
+Elapsed time: 1414
+Expanded states: 85935
+Selected action is: d3, value: 18
+Level 5 decision completed
+Elapsed time: 4624
+Expanded states: 484422
+Selected action is: c5, value: -3
+Level 6 decision completed
+Reached time limit
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--W--O--O--|--|
+4 B--W--W     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----B-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 7;
+White Checkers On Board: 3;
+Black Checkers On Board: 2;
+--------------------------------
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--W--W     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----B-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 7;
+White Checkers On Board: 2;
+Black Checkers On Board: 2;
+
+Elapsed time: 19
+Expanded states: 58
+Selected action is: d1, value: -12
+Level 2 decision completed
+Elapsed time: 84
+Expanded states: 499
+Selected action is: c3, value: 56
+Level 3 decision completed
+Elapsed time: 231
+Expanded states: 5139
+Selected action is: d3, value: -11
+Level 4 decision completed
+Elapsed time: 973
+Expanded states: 41540
+Selected action is: c3, value: 38
+Level 5 decision completed
+Elapsed time: 3639
+Expanded states: 255018
+Selected action is: d3, value: -11
+Level 6 decision completed
+Reached time limit
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--W--W     O--O--O
+3 |--|--O--W--O--|--|
+2 |--O-----B-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 7;
+White Checkers On Board: 3;
+Black Checkers On Board: 2;

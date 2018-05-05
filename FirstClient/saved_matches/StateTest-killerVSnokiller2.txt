@@ -1,0 +1,111 @@
+TEST STATES (1ST IS ALPHA-BETA, 2ND IS ALPHA-BETA KILLER)
+
+7 O--------O--------W
+6 |--W-----W-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     B--B--O
+3 |--|--O--O--O--|--|
+2 |--B-----W-----O--|
+1 B--------B--------B
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 4;
+
+Elapsed time: 15
+Expanded states: 99
+Selected action is: g7g4, value: -5
+Level 2 decision completed
+Elapsed time: 56
+Expanded states: 637
+Selected action is: g7g4, value: 5
+Level 3 decision completed
+Elapsed time: 192
+Expanded states: 3478
+Selected action is: g7g4, value: -5
+Level 4 decision completed
+Elapsed time: 376
+Expanded states: 17063
+Selected action is: g7g4, value: -5
+Level 5 decision completed
+Elapsed time: 880
+Expanded states: 44761
+Selected action is: b6b4, value: -51
+Level 6 decision completed
+Elapsed time: 2066
+Expanded states: 245029
+Selected action is: b6b4, value: -33
+Level 7 decision completed
+Reached time limit
+7 O--------O--------W
+6 |--O-----W-----O--|
+5 |--|--O--O--O--|--|
+4 B--W--O     B--B--O
+3 |--|--O--O--O--|--|
+2 |--B-----W-----O--|
+1 B--------B--------B
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 4;
+---------------------------------
+7 O--------O--------W
+6 |--W-----W-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     B--B--O
+3 |--|--O--O--O--|--|
+2 |--B-----W-----O--|
+1 B--------B--------B
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 4;
+
+Elapsed time: 17
+Expanded states: 64
+Selected action is: g7g4, value: -5
+Level 2 decision completed
+Elapsed time: 49
+Expanded states: 318
+Selected action is: g7g4, value: 5
+Level 3 decision completed
+Elapsed time: 117
+Expanded states: 1852
+Selected action is: g7g4, value: -5
+Level 4 decision completed
+Elapsed time: 257
+Expanded states: 8848
+Selected action is: g7g4, value: -5
+Level 5 decision completed
+Elapsed time: 531
+Expanded states: 19946
+Selected action is: b6b4, value: -51
+Level 6 decision completed
+Elapsed time: 2107
+Expanded states: 157924
+Selected action is: b6b4, value: -33
+Level 7 decision completed
+Elapsed time: 15441
+Expanded states: 1094025
+Selected action is: g7g4, value: -57
+Level 8 decision completed
+Reached time limit
+7 O--------O--------O
+6 |--W-----W-----O--|
+5 |--|--O--O--O--|--|
+4 B--O--O     B--B--W
+3 |--|--O--O--O--|--|
+2 |--B-----W-----O--|
+1 B--------B--------B
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 4;
