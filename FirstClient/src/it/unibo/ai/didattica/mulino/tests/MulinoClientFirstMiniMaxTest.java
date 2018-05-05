@@ -958,7 +958,7 @@ public class MulinoClientFirstMiniMaxTest {
 //			
 //			MulinoClientFirstMiniMaxAlphaBetaKiller.player = Checker.WHITE;
 //			MulinoClientFirstMiniMaxAlphaBetaKiller.otherPlayer = Checker.BLACK;
-//			a = client.iterativeDeepeningMinimaxDecision(state, 20000);
+//			a = client.iterativeDeepeningMinimaxDecision(state, 60000);
 //
 //			switch (state.getCurrentPhase()) {
 //			case FIRST:
@@ -1004,7 +1004,7 @@ public class MulinoClientFirstMiniMaxTest {
 //			
 //			MulinoClientFirstMiniMaxAlphaBetaKiller.player = Checker.WHITE;
 //			MulinoClientFirstMiniMaxAlphaBetaKiller.otherPlayer = Checker.BLACK;
-//			a = client.iterativeDeepeningMinimaxDecision(state, 20000);
+//			a = client.iterativeDeepeningMinimaxDecision(state, 60000);
 //
 //			switch (state.getCurrentPhase()) {
 //			case FIRST:
@@ -1043,7 +1043,7 @@ public class MulinoClientFirstMiniMaxTest {
 			
 			MulinoClientFirstMiniMaxAlphaBetaKiller.player = Checker.WHITE;
 			MulinoClientFirstMiniMaxAlphaBetaKiller.otherPlayer = Checker.BLACK;
-			a = client.iterativeDeepeningMinimaxDecision(state, 20000);
+			a = client.iterativeDeepeningMinimaxDecision(state, 60000);
 
 			switch (state.getCurrentPhase()) {
 			case FIRST:

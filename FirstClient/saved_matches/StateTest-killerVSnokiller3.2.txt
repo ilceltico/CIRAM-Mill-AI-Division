@@ -1,4 +1,4 @@
-TEST STATES (1ST IS ALPHA-BETA, 2ND IS ALPHA-BETA KILLER)
+TEST STATES (1ST IS ALPHA-BETA, 2ND IS ALPHA-BETA KILLER) with 1 min
 
 7 O--------O--------O
 6 |--O-----O-----O--|
@@ -14,26 +14,30 @@ Black Checkers: 7;
 White Checkers On Board: 2;
 Black Checkers On Board: 2;
 
-Elapsed time: 78
+Elapsed time: 61
 Expanded states: 400
 Selected action is: c3, value: -1
 Level 2 decision completed
-Elapsed time: 189
+Elapsed time: 136
 Expanded states: 2896
 Selected action is: d3, value: 18
 Level 3 decision completed
-Elapsed time: 423
+Elapsed time: 381
 Expanded states: 14508
 Selected action is: b2, value: -3
 Level 4 decision completed
-Elapsed time: 1414
+Elapsed time: 1644
 Expanded states: 85935
 Selected action is: d3, value: 18
 Level 5 decision completed
-Elapsed time: 4624
+Elapsed time: 5647
 Expanded states: 484422
 Selected action is: c5, value: -3
 Level 6 decision completed
+Elapsed time: 26702
+Expanded states: 2846493
+Selected action is: c5, value: 33
+Level 7 decision completed
 Reached time limit
 7 O--------O--------O
 6 |--O-----O-----O--|
@@ -63,32 +67,36 @@ Black Checkers: 7;
 White Checkers On Board: 2;
 Black Checkers On Board: 2;
 
-Elapsed time: 19
+Elapsed time: 20
 Expanded states: 58
 Selected action is: d1, value: -12
 Level 2 decision completed
-Elapsed time: 84
+Elapsed time: 86
 Expanded states: 499
 Selected action is: c3, value: 56
 Level 3 decision completed
-Elapsed time: 231
+Elapsed time: 242
 Expanded states: 5139
 Selected action is: d3, value: -11
 Level 4 decision completed
-Elapsed time: 973
+Elapsed time: 1207
 Expanded states: 41540
 Selected action is: c3, value: 38
 Level 5 decision completed
-Elapsed time: 3639
+Elapsed time: 3317
 Expanded states: 255018
 Selected action is: d3, value: -11
 Level 6 decision completed
+Elapsed time: 37759
+Expanded states: 3217127
+Selected action is: d6, value: 49
+Level 7 decision completed
 Reached time limit
 7 O--------O--------O
-6 |--O-----O-----O--|
+6 |--O-----W-----O--|
 5 |--|--O--O--O--|--|
 4 B--W--W     O--O--O
-3 |--|--O--W--O--|--|
+3 |--|--O--O--O--|--|
 2 |--O-----B-----O--|
 1 O--------O--------O
   a  b  c  d  e  f  g
