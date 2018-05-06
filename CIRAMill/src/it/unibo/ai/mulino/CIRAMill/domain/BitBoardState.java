@@ -198,7 +198,7 @@ public class BitBoardState {
 		
 		for(int i=0; i<24; i++) {
 			// player checker
-			if((board[playerToMove] & (i << i)) != 0) {
+			if((board[playerToMove] & (1 << i)) != 0) {
 				from = i;
 				
 				for(Integer adjacentPosition : BitBoardUtils.getAdjacentPositions(i)) {
@@ -256,7 +256,7 @@ public class BitBoardState {
 		
 		for(int i=0; i<24; i++) {
 			// player checker
-			if((board[playerToMove] & (i << i)) != 0) {
+			if((board[playerToMove] & (1 << i)) != 0) {
 				from = i;
 				
 				for(int j=0; j<24; j++) {
