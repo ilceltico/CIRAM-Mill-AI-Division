@@ -36,10 +36,10 @@ public class MulinoClientFirstMiniMaxTest {
 //		 playAgainstBlackCPU();
 //		 playAgainstBlackIterativeCPU();
 //		 playAgainstBlackIterativeKillerCPU();
-		 doTestStates();
+//		 doTestStates();
 
 //		doTestIterativeDeepening();
-//		doTestIterativeDeepeningAlphaBeta();
+		doTestIterativeDeepeningAlphaBeta();
 //		doTestIterativeDeepeningKiller();
 		 
 //		 doTestNegamax();

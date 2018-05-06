@@ -29,7 +29,6 @@ import it.unibo.ai.didattica.mulino.actions.TryingToRemoveOwnCheckerException;
 import it.unibo.ai.didattica.mulino.actions.Util;
 import it.unibo.ai.didattica.mulino.actions.WrongPhaseException;
 import it.unibo.ai.didattica.mulino.actions.WrongPositionException;
-import it.unibo.ai.didattica.mulino.client.MulinoClientFirstMiniMaxAlphaBeta.IterativeDeepeningRunnable;
 import it.unibo.ai.didattica.mulino.domain.State;
 import it.unibo.ai.didattica.mulino.domain.State.Checker;
 import it.unibo.ai.didattica.mulino.domain.State.Phase;
@@ -251,10 +250,20 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 					temp = min(newState, maxDepth - 1, currentDepth + 1, alpha, beta);
 					statesAlreadySeen.remove(newState);
 				} else {
-					temp = new ValuedAction(killer.getAction(), killer.getValue());
+					if (killer.getAction() instanceof Phase1Action)
+						temp = new ValuedAction(killer.getAction(), heuristic(newState, ((Phase1Action) killer.getAction()).getPutPosition(), player));
+					else if (killer.getAction() instanceof Phase2Action)
+						temp = new ValuedAction(killer.getAction(), heuristic(newState, ((Phase2Action) killer.getAction()).getTo(), player));
+					else if (killer.getAction() instanceof PhaseFinalAction)
+						temp = new ValuedAction(killer.getAction(), heuristic(newState, ((PhaseFinalAction) killer.getAction()).getTo(), player));
+					else 
+						temp = null;
 				}
 				if (temp.getValue() > result.getValue()) {
-					result = new ValuedAction(temp.getAction(), temp.getValue());
+					result = new ValuedAction(killer.getAction(), temp.getValue());
+				}
+				if (temp.getValue() > result.getValue()) {
+					killerArray[currentDepth] = new ValuedAction(killer.getAction(), temp.getValue());
 				}
 				if (result.getValue() >= beta) {
 					return result;
@@ -425,10 +434,20 @@ public class MulinoClientFirstMiniMaxAlphaBetaKiller extends MulinoClient {
 					temp = max(newState, maxDepth - 1, currentDepth + 1, alpha, beta);
 					statesAlreadySeen.remove(newState);
 				} else {
-					temp = new ValuedAction(killer.getAction(), killer.getValue());
+					if (killer.getAction() instanceof Phase1Action)
+						temp = new ValuedAction(killer.getAction(), heuristic(newState, ((Phase1Action) killer.getAction()).getPutPosition(), minPlayer));
+					else if (killer.getAction() instanceof Phase2Action)
+						temp = new ValuedAction(killer.getAction(), heuristic(newState, ((Phase2Action) killer.getAction()).getTo(), minPlayer));
+					else if (killer.getAction() instanceof PhaseFinalAction)
+						temp = new ValuedAction(killer.getAction(), heuristic(newState, ((PhaseFinalAction) killer.getAction()).getTo(), minPlayer));
+					else 
+						temp = null;
 				}
 				if (temp.getValue() < result.getValue()) {
-					result = new ValuedAction(tempAction, temp.getValue());
+					result = new ValuedAction(killer.getAction(), temp.getValue());
+				}
+				if (temp.getValue() < killer.getValue()) {
+					killerArray[currentDepth] = new ValuedAction(killer.getAction(), temp.getValue());
 				}
 				if (result.getValue() <= alpha) {
 					return result;
