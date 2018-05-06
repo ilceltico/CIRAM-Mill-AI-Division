@@ -1,5 +1,6 @@
 package it.unibo.ai.mulino.CIRAMill.domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import it.unibo.ai.didattica.mulino.domain.State;
@@ -89,6 +90,213 @@ public class BitBoardState {
 		case SECOND: result.gamePhase = BitBoardState.MIDGAME; break;
 		case FINAL: result.gamePhase = BitBoardState.MIDGAME; break;
 		default: throw new Exception("Wrong Phase");
+		}
+		
+		return result;
+	}
+	
+	/*
+	 * SECONDO ME: (dovrebbe essere giusto anyway)
+	 * 
+	 * calcolando le mosse possibili si hanno in automatico anche i successori in quanto,
+	 * data un azione, lo stato successivo è dato da:
+	 * 
+	 * newState ^= action.getFrom
+	 * newState |= action.getTo
+	 * newState ^= action.getRemove
+	 * 
+	 * questa codifica potrebbe aiutare a definire valori 'null'
+	 * per le azioni (vedi la classe BitBoardAtion)
+	 */
+	
+	public ArrayList<BitBoardAction> getFollowingMoves() throws Exception {
+		ArrayList<BitBoardAction> result = new ArrayList<>();
+		
+		switch (gamePhase) {
+		case INITIALPHASE:
+			result = getFollowingMovesInitialPhase();
+			break;
+		case MIDGAME:
+			if(playerToMove == WHITE) {
+				if(checkersOnBoard[WHITE] > 3) {
+					result = getFollowingMovesMidGame();
+				} else {
+					result = getFollowingMovesEndGame();
+				}
+			} else if(playerToMove == BLACK) {
+				if(checkersOnBoard[BLACK] > 3) {
+					result = getFollowingMovesMidGame();
+				} else {
+					result = getFollowingMovesEndGame();
+				}
+			}
+			break;
+		default:
+			throw new Exception("Wrong Phase");
+		}
+		
+		return result;
+	}
+	
+	private ArrayList<BitBoardAction> getFollowingMovesInitialPhase() {
+		ArrayList<BitBoardAction> result = new ArrayList<>();
+		BitBoardAction temp = new BitBoardAction();
+		int from;
+		int to;
+		int remove;
+		byte opponentPlayer = playerToMove == BitBoardState.WHITE ? BitBoardState.BLACK : BitBoardState.WHITE;
+		
+		for(int i=0; i<24; i++) {
+			// empty position
+			if(((board[WHITE] | board[BLACK]) & (1 << i)) == 0) {
+				to = i;
+				
+				if(BitBoardUtils.hasCompletedMorris(board, i, playerToMove)) {
+					boolean foundRemovableChecker = false;
+				
+					for(int j=0; j<24; j++) {
+						// opponent checker
+						if((board[opponentPlayer] & (1 << j)) != 0 && !BitBoardUtils.hasCompletedMorris(board, j, opponentPlayer)) {
+							remove = j;
+							temp = new BitBoardAction(-1, to, remove, playerToMove);
+							result.add(temp);
+							foundRemovableChecker = true;
+						}							
+					}
+					if(!foundRemovableChecker) {
+						for(int j=0; j<24; j++) {
+							// opponent checker
+							if((board[opponentPlayer] & (1 << j)) != 0 && BitBoardUtils.hasCompletedMorris(board, j, opponentPlayer)) {
+								remove = j;
+								temp = new BitBoardAction(-1, to, remove, playerToMove);
+								result.add(temp);
+							}
+						}
+					}
+				} else {
+					temp = new BitBoardAction(-1, to, -1, playerToMove);
+					result.add(temp);
+				}
+			}
+			
+			/*
+			 * resetto from, to e remove?
+			 */
+			
+		}
+		
+		return result;
+	}
+	
+	private ArrayList<BitBoardAction> getFollowingMovesMidGame() {
+		ArrayList<BitBoardAction> result = new ArrayList<>();
+		BitBoardAction temp = new BitBoardAction();
+		int from;
+		int to;
+		int remove;
+		byte opponentPlayer = playerToMove == BitBoardState.WHITE ? BitBoardState.BLACK : BitBoardState.WHITE;
+		
+		for(int i=0; i<24; i++) {
+			// player checker
+			if((board[playerToMove] & (i << i)) != 0) {
+				from = i;
+				
+				for(Integer adjacentPosition : BitBoardUtils.getAdjacentPositions(i)) {
+					// empty pos
+					if(((board[WHITE] | board[BLACK]) & (1 << adjacentPosition)) == 0) {
+						to = adjacentPosition;
+						
+						if(BitBoardUtils.hasCompletedMorris(board, adjacentPosition, playerToMove)) {
+							boolean foundRemovableChecker = false;
+							
+							for(int j=0; j<24; j++) {
+								// opponent checker
+								if((board[opponentPlayer] & (1 << j)) != 0 && !BitBoardUtils.hasCompletedMorris(board, j, opponentPlayer)) {
+									remove = j;
+									temp = new BitBoardAction(from, to, remove, playerToMove);
+									result.add(temp);
+									foundRemovableChecker = true;
+								}
+							}
+							
+							if(!foundRemovableChecker) {
+								for(int j=0; j<24; j++) {
+									// opponent checker
+									if((board[opponentPlayer] & (1 << j)) != 0 && BitBoardUtils.hasCompletedMorris(board, j, opponentPlayer)) {
+										remove = j;
+										temp = new BitBoardAction(-1, to, remove, playerToMove);
+										result.add(temp);
+									}
+								}
+							}							
+						} else {
+							temp= new BitBoardAction(from, to, -1, playerToMove);
+							result.add(temp);
+						}
+					}
+				}
+			}
+
+			/*
+			 * resetto from, to e remove?
+			 */
+			
+		}
+		
+		return result;
+	}
+	
+	private ArrayList<BitBoardAction> getFollowingMovesEndGame() {
+		ArrayList<BitBoardAction> result = new ArrayList<>();
+		BitBoardAction temp = new BitBoardAction();
+		int from;
+		int to;
+		int remove;
+		byte opponentPlayer = playerToMove == BitBoardState.WHITE ? BitBoardState.BLACK : BitBoardState.WHITE;
+		
+		for(int i=0; i<24; i++) {
+			// player checker
+			if((board[playerToMove] & (i << i)) != 0) {
+				from = i;
+				
+				for(int j=0; j<24; j++) {
+					// empty position
+					if(((board[WHITE] | board[BLACK]) & (1 << j)) == 0) {
+						to = j;
+						
+						if(BitBoardUtils.hasCompletedMorris(board, j, playerToMove)) {
+							boolean foundRemovableChecker = false;
+							
+							for(int k=0; k<24; k++) {
+								// opponent checker
+								if((board[opponentPlayer] & (1 << k)) != 0 && !BitBoardUtils.hasCompletedMorris(board, k, opponentPlayer)) {
+									remove = k;
+									temp = new BitBoardAction(from, to, remove, playerToMove);
+									result.add(temp);
+									foundRemovableChecker = true;
+								}
+							}
+							
+							if(!foundRemovableChecker) {
+								for(int k=0; k<24; k++) {
+									// opponent checker
+									if((board[opponentPlayer] & (1 << k)) != 0 && !BitBoardUtils.hasCompletedMorris(board, k, opponentPlayer)) {
+										remove = k;
+										temp = new BitBoardAction(from, to, remove, playerToMove);
+										result.add(temp);
+									}
+								}
+							}							
+						} else {
+							temp = new BitBoardAction(from, to, -1, playerToMove);
+							result.add(temp);
+						}
+					}
+				}
+			}
+			/*
+			 * resetto from, to e remove?
+			 */
 		}
 		
 		return result;

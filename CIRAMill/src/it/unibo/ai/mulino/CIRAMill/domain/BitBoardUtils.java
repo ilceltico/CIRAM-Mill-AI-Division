@@ -1,6 +1,8 @@
 package it.unibo.ai.mulino.CIRAMill.domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class BitBoardUtils {
 	
@@ -45,5 +47,19 @@ public class BitBoardUtils {
 	public static int boardFromPosition(String position) {
 		return 1 << positionsDictionary.get(position);
 	}
-
+	
+	/*
+	 * attualmente questi qui sotto prendono interi in base 10
+	 * pure il secondo ritorna un intero in base 10
+	 */	
+	
+	//TODO
+	public static boolean hasCompletedMorris(int[] board, int position, byte player) {
+		return true;
+	}
+	
+	//TODO
+	public static int[] getAdjacentPositions(int position) {
+		return null;
+	}
 }
