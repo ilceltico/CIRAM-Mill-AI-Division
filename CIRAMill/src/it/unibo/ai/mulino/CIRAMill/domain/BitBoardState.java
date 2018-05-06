@@ -224,7 +224,7 @@ public class BitBoardState {
 									// opponent checker
 									if((board[opponentPlayer] & (1 << j)) != 0 && BitBoardUtils.hasCompletedMorris(board, j, opponentPlayer)) {
 										remove = j;
-										temp = new BitBoardAction(-1, to, remove, playerToMove);
+										temp = new BitBoardAction(from, to, remove, playerToMove);
 										result.add(temp);
 									}
 								}
