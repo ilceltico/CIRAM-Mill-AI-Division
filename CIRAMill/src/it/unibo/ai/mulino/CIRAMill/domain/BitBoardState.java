@@ -104,9 +104,6 @@ public class BitBoardState {
 	 * newState ^= action.getFrom
 	 * newState |= action.getTo
 	 * newState ^= action.getRemove
-	 * 
-	 * questa codifica potrebbe aiutare a definire valori 'null'
-	 * per le azioni (vedi la classe BitBoardAtion)
 	 */
 	
 	public ArrayList<BitBoardAction> getFollowingMoves() throws Exception {
@@ -158,7 +155,7 @@ public class BitBoardState {
 						// opponent checker
 						if((board[opponentPlayer] & (1 << j)) != 0 && !BitBoardUtils.hasCompletedMorris(board, j, opponentPlayer)) {
 							remove = j;
-							temp = new BitBoardAction(-1, to, remove, playerToMove);
+							temp = new BitBoardAction(0, 1 << to, 1 << remove, playerToMove);
 							result.add(temp);
 							foundRemovableChecker = true;
 						}							
@@ -168,13 +165,13 @@ public class BitBoardState {
 							// opponent checker
 							if((board[opponentPlayer] & (1 << j)) != 0 && BitBoardUtils.hasCompletedMorris(board, j, opponentPlayer)) {
 								remove = j;
-								temp = new BitBoardAction(-1, to, remove, playerToMove);
+								temp = new BitBoardAction(0, 1 << to, 1 << remove, playerToMove);
 								result.add(temp);
 							}
 						}
 					}
 				} else {
-					temp = new BitBoardAction(-1, to, -1, playerToMove);
+					temp = new BitBoardAction(0, to, 0, playerToMove);
 					result.add(temp);
 				}
 			}
@@ -213,7 +210,7 @@ public class BitBoardState {
 								// opponent checker
 								if((board[opponentPlayer] & (1 << j)) != 0 && !BitBoardUtils.hasCompletedMorris(board, j, opponentPlayer)) {
 									remove = j;
-									temp = new BitBoardAction(from, to, remove, playerToMove);
+									temp = new BitBoardAction(1 << from, 1 << to, 1 << remove, playerToMove);
 									result.add(temp);
 									foundRemovableChecker = true;
 								}
@@ -224,13 +221,13 @@ public class BitBoardState {
 									// opponent checker
 									if((board[opponentPlayer] & (1 << j)) != 0 && BitBoardUtils.hasCompletedMorris(board, j, opponentPlayer)) {
 										remove = j;
-										temp = new BitBoardAction(from, to, remove, playerToMove);
+										temp = new BitBoardAction(1 << from, 1 << to, 1 << remove, playerToMove);
 										result.add(temp);
 									}
 								}
 							}							
 						} else {
-							temp= new BitBoardAction(from, to, -1, playerToMove);
+							temp= new BitBoardAction(1 << from, 1 << to, 0, playerToMove);
 							result.add(temp);
 						}
 					}
@@ -271,7 +268,7 @@ public class BitBoardState {
 								// opponent checker
 								if((board[opponentPlayer] & (1 << k)) != 0 && !BitBoardUtils.hasCompletedMorris(board, k, opponentPlayer)) {
 									remove = k;
-									temp = new BitBoardAction(from, to, remove, playerToMove);
+									temp = new BitBoardAction(1 << from, 1 << to, 1 << remove, playerToMove);
 									result.add(temp);
 									foundRemovableChecker = true;
 								}
@@ -282,13 +279,13 @@ public class BitBoardState {
 									// opponent checker
 									if((board[opponentPlayer] & (1 << k)) != 0 && !BitBoardUtils.hasCompletedMorris(board, k, opponentPlayer)) {
 										remove = k;
-										temp = new BitBoardAction(from, to, remove, playerToMove);
+										temp = new BitBoardAction(1 << from, 1 << to, 1 << remove, playerToMove);
 										result.add(temp);
 									}
 								}
 							}							
 						} else {
-							temp = new BitBoardAction(from, to, -1, playerToMove);
+							temp = new BitBoardAction(1 << from, 1 << to, 0, playerToMove);
 							result.add(temp);
 						}
 					}

@@ -48,10 +48,7 @@ public class BitBoardUtils {
 		return 1 << positionsDictionary.get(position);
 	}
 	
-	/*
-	 * attualmente questi qui sotto prendono interi in base 10
-	 * pure il secondo ritorna un intero in base 10
-	 */	
+	// decidere se passare ai seguenti metodi positioni in base 10 o in base 2
 	
 	//TODO
 	public static boolean hasCompletedMorris(int[] board, int position, byte player) {

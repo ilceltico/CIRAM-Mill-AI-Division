@@ -1,32 +1,24 @@
 package it.unibo.ai.mulino.CIRAMill.domain;
 
-public class BitBoardAction {
-	
-	// i valori sono dati in base 10 (non sono le bitboard)
-	
-	// bisogna trovare un valore 'null' per le posizioni
-	private byte from;
-	private byte to;
-	private byte remove;
-	private byte player;
+public class BitBoardAction {	
+	private int from;
+	private int to;
+	private int remove;
+	private int player;
 	
 	// serve la fase?
 //	private byte phase;
 	
-	public BitBoardAction(String from, String to, String remove, byte player) {
-		
-	}
-	
-	public BitBoardAction(byte from, byte to, byte remove, byte player) {
-		
-	}
-	
 	public BitBoardAction(int from, int to, int remove, byte player) {
-	
+		this.from = from;
+		this.to = to;
+		this.remove = remove;
+		this.player = player;
 	}
 	
+	// che valore di default metto per 'player'?
 	public BitBoardAction() {
-		
+		this(0,0,0,(byte) 0);
 	}
 	
 }
