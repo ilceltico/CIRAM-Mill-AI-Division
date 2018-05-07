@@ -6,7 +6,7 @@ import java.util.List;
 
 public class BitBoardUtils {
 	
-	public static final HashMap<String, Byte> positionsDictionary = new HashMap<String, Byte>() {
+	private static final HashMap<String, Byte> positionsStringDictionary = new HashMap<String, Byte>() {
 		/**
 		 * 
 		 */
@@ -44,19 +44,56 @@ public class BitBoardUtils {
 		put("c4", (byte) 23);
 	}};
 	
+	private static final HashMap<Integer, String> positionsByteDictionary = new HashMap<Integer, String>() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
+		//Outer square		
+		put(1 << 0, "a7");		
+		put(1 << 1, "d7");
+		put(1 << 2, "g7");
+		put(1 << 3, "g4");
+		put(1 << 4, "g1");
+		put(1 << 5, "d1");
+		put(1 << 6, "a1");
+		put(1 << 7, "a4");
+		
+		//Middle square
+		put(1 << 8, "b6");
+		put(1 << 9, "d6");
+		put(1 << 10, "f6");
+		put(1 << 11, "f4");
+		put(1 << 12, "f2");
+		put(1 << 13, "d2");
+		put(1 << 14, "b2");
+		put(1 << 15, "b4");
+		
+		//Inner square
+		put(1 << 16, "c5");
+		put(1 << 17, "d5");
+		put(1 << 18, "e5");
+		put(1 << 19, "e4");
+		put(1 << 20, "e3");
+		put(1 << 21, "d3");
+		put(1 << 22, "c3");
+		put(1 << 23, "c4");
+	}};
+	
 	public static int boardFromPosition(String position) {
-		return 1 << positionsDictionary.get(position);
+		return 1 << positionsStringDictionary.get(position);
 	}
 	
-	// decidere se passare ai seguenti metodi positioni in base 10 o in base 2
-	
-	//TODO
-	public static boolean hasCompletedMorris(int[] board, int position, byte player) {
-		return true;
+	public static String positionFromBoard(int position) {
+		String result = positionsByteDictionary.get(position);
+		
+		if(result == null)
+			return "";
+		
+		return result;
 	}
 	
-	//TODO
-	public static int[] getAdjacentPositions(int position) {
-		return null;
-	}
+	
 }

@@ -6,9 +6,6 @@ public class BitBoardAction {
 	private int remove;
 	private int player;
 	
-	// serve la fase?
-//	private byte phase;
-	
 	public BitBoardAction(int from, int to, int remove, byte player) {
 		this.from = from;
 		this.to = to;
@@ -19,6 +16,10 @@ public class BitBoardAction {
 	// che valore di default metto per 'player'?
 	public BitBoardAction() {
 		this(0,0,0,(byte) 0);
+	}
+	
+	public String toString() {
+		return BitBoardUtils.positionFromBoard(from) + BitBoardUtils.positionFromBoard(to) + BitBoardUtils.positionFromBoard(remove);
 	}
 	
 }
