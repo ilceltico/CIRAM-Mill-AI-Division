@@ -1,9 +1,9 @@
 package it.unibo.ai.mulino.CIRAMill.tests;
 
-import java.util.ArrayList;
+import java.util.List;
 
-import it.unibo.ai.mulino.CIRAMill.domain.BitBoardAction;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardState;
+import it.unibo.ai.mulino.CIRAMill.minimax.IAction;
 
 public class Tests {
 
@@ -21,9 +21,9 @@ public class Tests {
 		System.out.println(state);
 		
 		try {
-			ArrayList<BitBoardAction> actions = state.getFollowingMoves();
+			List<IAction> actions = state.getFollowingMoves();
 			
-			for(BitBoardAction action : actions) {
+			for(IAction action : actions) {
 				System.out.println(action);
 			}
 			

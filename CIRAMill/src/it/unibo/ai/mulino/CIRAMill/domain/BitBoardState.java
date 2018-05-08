@@ -2,10 +2,13 @@ package it.unibo.ai.mulino.CIRAMill.domain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import it.unibo.ai.didattica.mulino.domain.State;
+import it.unibo.ai.mulino.CIRAMill.minimax.IAction;
+import it.unibo.ai.mulino.CIRAMill.minimax.IState;
 
-public class BitBoardState {
+public class BitBoardState implements IState {
 
 	public static final byte DEFAULT_INITIAL_CHECKERS = 9;
 
@@ -305,18 +308,18 @@ public class BitBoardState {
 		return result;
 	}
 
-	/*
-	 * SECONDO ME: (dovrebbe essere giusto anyway)
+	/* 
+	 * Calcolando le mosse possibili si hanno in automatico anche i successori in
+	 * quanto, data un azione, lo stato successivo e' dato da:
 	 * 
-	 * calcolando le mosse possibili si hanno in automatico anche i successori in
-	 * quanto, data un azione, lo stato successivo è dato da:
-	 * 
-	 * newState ^= action.getFrom newState |= action.getTo newState ^=
-	 * action.getRemove
+	 * board[player] 	^= action.getFrom 
+	 * board[player]	|= action.getTo 
+	 * board[opponent]	^= action.getRemove
 	 */
 
-	public ArrayList<BitBoardAction> getFollowingMoves() throws Exception {
-		ArrayList<BitBoardAction> result = new ArrayList<>();
+	@Override
+	public List<IAction> getFollowingMoves() {
+		List<IAction> result = new ArrayList<>();
 
 		if(gamePhase == MIDGAME) {
 			if (checkersOnBoard[playerToMove] > 3) {
@@ -331,8 +334,8 @@ public class BitBoardState {
 		return result;
 	}
 
-	private ArrayList<BitBoardAction> getFollowingMovesInitialPhase() {
-		ArrayList<BitBoardAction> result = new ArrayList<>();
+	private List<IAction> getFollowingMovesInitialPhase() {
+		List<IAction> result = new ArrayList<>();
 		BitBoardAction temp;
 		int to;
 		int remove;
@@ -352,7 +355,7 @@ public class BitBoardState {
 						
 						// opponent checker
 						if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(0, j, opponentPlayer)) {
-							temp = new BitBoardAction(0, to, remove, playerToMove);
+							temp = new BitBoardAction(0, to, remove);
 							result.add(temp);
 							foundRemovableChecker = true;
 						}
@@ -363,13 +366,13 @@ public class BitBoardState {
 							
 							// opponent checker
 							if ((board[opponentPlayer] & remove) != 0 && hasCompletedMorris(0, j, opponentPlayer)) {								
-								temp = new BitBoardAction(0, to, remove, playerToMove);
+								temp = new BitBoardAction(0, to, remove);
 								result.add(temp);
 							}
 						}
 					}
 				} else {
-					temp = new BitBoardAction(0, to, 0, playerToMove);
+					temp = new BitBoardAction(0, to, 0);
 					result.add(temp);
 				}
 			}
@@ -378,8 +381,8 @@ public class BitBoardState {
 		return result;
 	}
 
-	private ArrayList<BitBoardAction> getFollowingMovesMidGame() {
-		ArrayList<BitBoardAction> result = new ArrayList<>();
+	private List<IAction> getFollowingMovesMidGame() {
+		List<IAction> result = new ArrayList<>();
 		BitBoardAction temp;
 		int from;
 		int to;
@@ -406,7 +409,7 @@ public class BitBoardState {
 								
 								// opponent checker
 								if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(0, j, opponentPlayer)) {
-									temp = new BitBoardAction(from, to, remove, playerToMove);
+									temp = new BitBoardAction(from, to, remove);
 									result.add(temp);
 									foundRemovableChecker = true;
 								}
@@ -418,13 +421,13 @@ public class BitBoardState {
 									
 									// opponent checker
 									if ((board[opponentPlayer] & remove) != 0 && hasCompletedMorris(0, j, opponentPlayer)) {
-										temp = new BitBoardAction(from, to, remove, playerToMove);
+										temp = new BitBoardAction(from, to, remove);
 										result.add(temp);
 									}
 								}
 							}
 						} else {
-							temp = new BitBoardAction(from, to, 0, playerToMove);
+							temp = new BitBoardAction(from, to, 0);
 							result.add(temp);
 						}
 					}
@@ -435,8 +438,8 @@ public class BitBoardState {
 		return result;
 	}
 
-	private ArrayList<BitBoardAction> getFollowingMovesEndGame() {
-		ArrayList<BitBoardAction> result = new ArrayList<>();
+	private List<IAction> getFollowingMovesEndGame() {
+		List<IAction> result = new ArrayList<>();
 		BitBoardAction temp = new BitBoardAction();
 		int from;
 		int to;
@@ -463,7 +466,7 @@ public class BitBoardState {
 								
 								// opponent checker
 								if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(0, k, opponentPlayer)) {									
-									temp = new BitBoardAction(from, to, remove, playerToMove);
+									temp = new BitBoardAction(from, to, remove);
 									result.add(temp);
 									foundRemovableChecker = true;
 								}
@@ -475,13 +478,13 @@ public class BitBoardState {
 									
 									// opponent checker
 									if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(0, k, opponentPlayer)) {
-										temp = new BitBoardAction(from, to, remove, playerToMove);
+										temp = new BitBoardAction(from, to, remove);
 										result.add(temp);
 									}
 								}
 							}
 						} else {
-							temp = new BitBoardAction(from, to, 0, playerToMove);
+							temp = new BitBoardAction(from, to, 0);
 							result.add(temp);
 						}
 					}
@@ -492,8 +495,6 @@ public class BitBoardState {
 		return result;
 	}
 
-	// le posizioni sono in base 10
-
 	public boolean hasCompletedMorris(int bitFrom, int intTo, byte player) {
 		int tempBoard = (board[player] | (1 << intTo)) ^ bitFrom;
 		
@@ -503,6 +504,36 @@ public class BitBoardState {
 		}
 		
 		return false;
+	}
+
+	@Override
+	public void move(IAction action) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void unmove(IAction action) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public IState applyMove(IAction action) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IState clone() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getHeuristicEvaluation() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
