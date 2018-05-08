@@ -10,5 +10,6 @@ public interface IState {
 	public IState applyMove(IAction action);
 	public IState clone();
 	public int getHeuristicEvaluation();
+	public boolean isWinningState();
 	
 }

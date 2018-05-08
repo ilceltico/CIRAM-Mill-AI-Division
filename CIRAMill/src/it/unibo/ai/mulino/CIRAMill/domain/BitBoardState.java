@@ -536,4 +536,10 @@ public class BitBoardState implements IState {
 		return 0;
 	}
 
+	@Override
+	public boolean isWinningState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
