@@ -64,11 +64,11 @@ public class BitBoardState implements IState {
 	private static final int MILL_5_13_21 = (1 << D1) | (1 << D2) | (1 << D3);
 	private static final int MILL_7_15_23 = (1 << A4) | (1 << B4) | (1 << C4);
 
-	private static int[] MILLS = { MILL_0_1_2, MILL_2_3_4, MILL_4_5_6, MILL_6_7_0, MILL_8_9_10, MILL_10_11_12,
+	private static final int[] MILLS = { MILL_0_1_2, MILL_2_3_4, MILL_4_5_6, MILL_6_7_0, MILL_8_9_10, MILL_10_11_12,
 			MILL_12_13_14, MILL_14_15_8, MILL_16_17_18, MILL_18_19_20, MILL_20_21_22, MILL_22_23_16, MILL_1_9_17,
 			MILL_3_11_19, MILL_5_13_21, MILL_7_15_23 };
 
-	private static int[][] POSITION_MILLS = {
+	private static final int[][] POSITION_MILLS = {
 			{MILL_0_1_2, MILL_6_7_0},
 			{MILL_0_1_2, MILL_1_9_17},
 			{MILL_0_1_2, MILL_2_3_4},
@@ -97,7 +97,7 @@ public class BitBoardState implements IState {
 			{MILL_22_23_16, MILL_7_15_23}
 	};
 
-	private static int[][] ADJACENT_POSITIONS = {
+	private static final int[][] ADJACENT_POSITIONS = {
 			{D7, A4},
 			{A7, G7, D6},
 			{D7, G4},
@@ -126,6 +126,25 @@ public class BitBoardState implements IState {
 			{B4, C3, C5}			
 	};
 
+//	private static final int INITIALPHASE_HAS_COMPLETED_MORRIS = 18;
+	private static final int INITIALPHASE_CLOSED_MORRIS = 26;
+	private static final int INITIALPHASE_BLOCKED_PIECES = 1;
+	private static final int INITIALPHASE_TWO_PIECES_CONFIGURATION = 12;
+	private static final int INITIALPHASE_THREE_PIECES_CONFIGURATION = 7;
+	private static final int INITIALPHASE_PIECES_NUMBER = 6;
+	
+//	private static final int MIDGAME_HAS_COMPLETED_MORRIS = 14;
+	private static final int MIDGAME_CLOSED_MORRIS = 43;
+	private static final int MIDGAME_BLOCKED_PIECES = 10;
+	private static final int MIDGAME_DOUBLE_MORRIS = 42;
+	private static final int MIDGAME_PIECES_NUMBER = 6;
+	private static final int MIDGAME_OPENED_MORRIS = 7;
+	
+	private static final int ENDGAME_TWO_PIECES_CONFIGURATION = 10;
+	private static final int ENDGAME_THREE_PIECES_CONFIGURATION = 1;
+//	private static final int ENDGAME_HAS_COMPLETED_MORRIS = 16;
+	private static final int ENDGAME_CLOSED_MORRIS = 16;
+	
 	private int[] board = new int[2];
 	private byte[] checkersToPut = new byte[2];
 	private byte[] checkersOnBoard = new byte[2];
@@ -532,8 +551,366 @@ public class BitBoardState implements IState {
 
 	@Override
 	public int getHeuristicEvaluation() {
-		// TODO Auto-generated method stub
-		return 0;
+		int result;
+		
+		if(gamePhase == MIDGAME) {
+			if (checkersOnBoard[playerToMove] > 3) {
+				result = getHeuristicEvaluationMidGame();
+			} else {
+				result = getHeuristicEvaluationEndGame();
+			}
+		} else {
+			result = getHeuristicEvaluationInitialPhase();
+		}
+		
+		return result;
 	}
+	
+	private int getHeuristicEvaluationInitialPhase() {
+		int result = 0;
+		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+		
+		//HAS_COMPLETED_MORRIS
+		
+		//CLOSED_MORRIS
+		int closedMorrisPlayer = 0;
+		int closedMorrisOpponent = 0;
+		
+		//TWO_PIECES_CONFIGURATION
+		int twoPiecesConfigurationPlayer = 0;
+		int twoPiecesConfigurationOpponent = 0;
+		
+		for(int mill : MILLS) {
+			//CLOSED_MORRIS
+			if((board[playerToMove] & mill) == mill) {
+				closedMorrisPlayer++;
+			} else if((board[opponentPlayer] & mill) == mill) {
+				closedMorrisOpponent++;
+			}
+			
+			//TWO_PIECES_CONFIGURATION
+			if((board[opponentPlayer] & mill) == 0 && Integer.bitCount(board[playerToMove] & mill) == 2) {
+				twoPiecesConfigurationPlayer++;
+			} else if((board[playerToMove] & mill) == 0 && Integer.bitCount(board[opponentPlayer] & mill) == 2) {
+				twoPiecesConfigurationOpponent++;
+			}
+		}
+		
+		//BLOCKED_PIECES
+		int blockedPiecesPlayer = 0;
+		int blockedPiecesOpponent = 0;
+		
+		//THREE_PIECES_CONFIGURATION
+		int threePiecesConfigurationPlayer = 0;
+		int threePiecesConfigurationOpponent = 0;
+		
+		int temp;
+		
+		for(int i=0; i<24; i++) {
+			temp = 1 << i;
+			
+			//BLOCKED_PIECES
+			if((board[opponentPlayer] & temp) != 0) {
+				boolean isBlocked = true;
+				
+				for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+					if(((board[playerToMove] | board[opponentPlayer]) & (1 << adjacentPosition)) == 0) {
+						isBlocked = false;
+						break;
+					}
+				}
+				if(isBlocked)
+					blockedPiecesPlayer++;
+			}
+			
+			if((board[playerToMove] & temp) != 0) {
+				boolean isBlocked = true;
+				
+				for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+					if(((board[playerToMove] | board[opponentPlayer]) & (1 << adjacentPosition)) == 0) {
+						isBlocked = false;
+						break;
+					}
+				}
+				if(isBlocked)
+					blockedPiecesOpponent++;
+			}
+			
+			//THREE_PIECES_CONFIGURATION
+			if((board[playerToMove] & temp) != 0) {
+				boolean check = true;
+				for(int mill : POSITION_MILLS[i]) {
+					if(!((board[opponentPlayer] & mill) == 0 && Integer.bitCount(board[playerToMove] & mill) == 2)) {
+						check = false;
+						break;
+					}
+				}
+				if(check) {
+					threePiecesConfigurationPlayer++;
+				}
+			}
+			
+			if((board[opponentPlayer] & temp) != 0) {
+				boolean check = true;
+				for(int mill : POSITION_MILLS[i]) {
+					if(!((board[playerToMove] & mill) == 0 && Integer.bitCount(board[opponentPlayer] & mill) == 2)) {
+						check = false;
+						break;
+					}
+				}
+				if(check) {
+					threePiecesConfigurationOpponent++;
+				}
+			}
+			
+		}
+		
+		result += INITIALPHASE_CLOSED_MORRIS * closedMorrisPlayer;
+		result -= INITIALPHASE_CLOSED_MORRIS * closedMorrisOpponent;
+		
+		result += INITIALPHASE_BLOCKED_PIECES * blockedPiecesPlayer;
+		result -= INITIALPHASE_BLOCKED_PIECES * blockedPiecesOpponent;
+		
+		result += INITIALPHASE_TWO_PIECES_CONFIGURATION * twoPiecesConfigurationPlayer;
+		result -= INITIALPHASE_TWO_PIECES_CONFIGURATION * twoPiecesConfigurationOpponent;
+		
+		result += INITIALPHASE_THREE_PIECES_CONFIGURATION * threePiecesConfigurationPlayer;
+		result -= INITIALPHASE_THREE_PIECES_CONFIGURATION * threePiecesConfigurationOpponent;
+		
+		result += INITIALPHASE_PIECES_NUMBER * (checkersOnBoard[playerToMove] - checkersOnBoard[opponentPlayer]);
+		
+		return result;
+	}
+	
+	private int getHeuristicEvaluationMidGame() {
+		int result = 0;
+		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+		
+		//CLOSED_MORRIS
+		int closedMorrisPlayer = 0;
+		int closedMorrisOpponent = 0;
+		
+		//OPENED_MORRIS
+		int openedMorrisPlayer = 0;
+		int openedMorrisOpponent = 0;
+		
+		for(int mill : MILLS) {
+			//CLOSED_MORRIS
+			if((board[playerToMove] & mill) == mill) {
+				closedMorrisPlayer++;
+			} else if((board[opponentPlayer] & mill) == mill) {
+				closedMorrisOpponent++;
+			}
+			
+			//OPENED_MORRIS
+			// si potrebbe controllare che l'avversario non sia adiacente alla posizione libera
+			if((board[opponentPlayer] & mill) == 0 && Integer.bitCount(board[playerToMove] & mill) == 2) {
+				for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros((board[playerToMove] & mill) ^ mill)]) {
+					if((board[playerToMove] & adjacentPosition) != 0) {
+						openedMorrisPlayer++;
+						break;
+					}
+				}
+			} else if((board[playerToMove] & mill) == 0 && Integer.bitCount(board[opponentPlayer] & mill) == 2) {
+				for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros((board[opponentPlayer] & mill) ^ mill)]) {
+					if((board[opponentPlayer] & adjacentPosition) != 0) {
+						openedMorrisOpponent++;
+						break;
+					}
+				}
+			}
+		}
+		
+		//DOUBLE_MORRIS
+		int doubleMorrisPlayer = 0;
+		int doubleMorrisOpponent = 0;
+		
+		//BLOCKED_PIECES
+		int blockedPiecesPlayer = 0;
+		int blockedPiecesOpponent = 0;
+		
+		int temp;
+		
+		for(int i=0; i<24; i++) {
+			temp = 1 << i;
+			
+			//DOUBLE_MORRIS
+			boolean check = true;
+			for(int mill : POSITION_MILLS[i]) {
+				if((board[playerToMove] & mill) != mill) {
+					check = false;
+					break;
+				}
+			}
+			if(check) {
+				doubleMorrisPlayer++;
+			}
+			
+			check = true;
+			for(int mill : POSITION_MILLS[i]) {
+				if((board[opponentPlayer] & mill) != mill) {
+					check = false;
+					break;
+				}
+			}
+			if(check) {
+				doubleMorrisOpponent++;
+			}
+			
+			//BLOCKED_PIECES
+			if((board[opponentPlayer] & temp) != 0) {
+				boolean isBlocked = true;
+				
+				for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+					if(((board[playerToMove] | board[opponentPlayer]) & (1 << adjacentPosition)) == 0) {
+						isBlocked = false;
+						break;
+					}
+				}
+				if(isBlocked)
+					blockedPiecesPlayer++;
+			}
+			
+			if((board[playerToMove] & temp) != 0) {
+				boolean isBlocked = true;
+				
+				for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+					if(((board[playerToMove] | board[opponentPlayer]) & (1 << adjacentPosition)) == 0) {
+						isBlocked = false;
+						break;
+					}
+				}
+				if(isBlocked)
+					blockedPiecesOpponent++;
+			}
+		}
+		
+		result += MIDGAME_CLOSED_MORRIS * closedMorrisPlayer;
+		result -= MIDGAME_CLOSED_MORRIS * closedMorrisOpponent;
+		
+		result += MIDGAME_OPENED_MORRIS * openedMorrisPlayer;
+		result -= MIDGAME_OPENED_MORRIS * openedMorrisOpponent;
+		
+		result += MIDGAME_DOUBLE_MORRIS * doubleMorrisPlayer;
+		result -= MIDGAME_DOUBLE_MORRIS * doubleMorrisOpponent;
+		
+		result += MIDGAME_BLOCKED_PIECES * blockedPiecesPlayer;
+		result -= MIDGAME_BLOCKED_PIECES * blockedPiecesOpponent;
+		
+		result += MIDGAME_PIECES_NUMBER * (checkersOnBoard[playerToMove] - checkersOnBoard[opponentPlayer]);
+		
+		return result;
+	}
+	
+	private int getHeuristicEvaluationEndGame() {
+		int result = 0;
+		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+		
+		//CLOSED_MORRIS
+		int closedMorrisPlayer = 0;
+		int closedMorrisOpponent = 0;
+		
+		//TWO_PIECES_CONFIGURATION
+		int twoPiecesConfigurationPlayer = 0;
+		int twoPiecesConfigurationOpponent = 0;
+		
+		for(int mill : MILLS) {
+			//CLOSED_MORRIS
+			if((board[playerToMove] & mill) == mill) {
+				closedMorrisPlayer++;
+			} else if((board[opponentPlayer] & mill) == mill) {
+				closedMorrisOpponent++;
+			}
+			
+			//TWO_PIECES_CONFIGURATION
+			if((board[opponentPlayer] & mill) == 0 && Integer.bitCount(board[playerToMove] & mill) == 2) {
+				twoPiecesConfigurationPlayer++;
+			} else if((board[playerToMove] & mill) == 0 && Integer.bitCount(board[opponentPlayer] & mill) == 2) {
+				twoPiecesConfigurationOpponent++;
+			}
+		}
 
+		//THREE_PIECES_CONFIGURATION
+		int threePiecesConfigurationPlayer = 0;
+		int threePiecesConfigurationOpponent = 0;
+		
+		int temp;
+		
+		for(int i=0; i<24; i++) {
+			temp = 1 << i;
+			
+			//THREE_PIECES_CONFIGURATION
+			if((board[playerToMove] & temp) != 0) {
+				boolean check = true;
+				for(int mill : POSITION_MILLS[i]) {
+					if(!((board[opponentPlayer] & mill) == 0 && Integer.bitCount(board[playerToMove] & mill) == 2)) {
+						check = false;
+						break;
+					}
+				}
+				if(check) {
+					threePiecesConfigurationPlayer++;
+				}
+			}
+
+			if((board[opponentPlayer] & temp) != 0) {
+				boolean check = true;
+				for(int mill : POSITION_MILLS[i]) {
+					if(!((board[playerToMove] & mill) == 0 && Integer.bitCount(board[opponentPlayer] & mill) == 2)) {
+						check = false;
+						break;
+					}
+				}
+				if(check) {
+					threePiecesConfigurationOpponent++;
+				}
+			}
+
+		}
+		
+		result += ENDGAME_CLOSED_MORRIS * closedMorrisPlayer;
+		result -= ENDGAME_CLOSED_MORRIS * closedMorrisOpponent;
+		
+		result += ENDGAME_TWO_PIECES_CONFIGURATION * twoPiecesConfigurationPlayer;
+		result -= ENDGAME_TWO_PIECES_CONFIGURATION * twoPiecesConfigurationOpponent;
+		
+		result += ENDGAME_THREE_PIECES_CONFIGURATION * threePiecesConfigurationPlayer;
+		result -= ENDGAME_THREE_PIECES_CONFIGURATION * threePiecesConfigurationOpponent;
+		
+		return result;
+	}
+	
+	public boolean isWinningState() {
+		if(gamePhase != MIDGAME)
+			return false;
+		if(playerToMove == WHITE && checkersOnBoard[BLACK] < 3)
+			return true;
+		else if(playerToMove == BLACK && checkersOnBoard[WHITE] < 3)
+			return true;
+
+		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+		
+		if(checkersOnBoard[opponentPlayer] > 3) {
+			
+			for(int i=0; i<24; i++) {				
+				if((board[opponentPlayer] & (1 << i)) != 0) {
+//					boolean isBlocked = true;
+					
+					for(int position : ADJACENT_POSITIONS[i]) {
+						if(((board[WHITE] | board[BLACK]) & (1 << position)) == 0) {
+//							isBlocked = false;
+//							break;
+							return false;
+						}
+					}
+					
+//					if(!isBlocked)
+//						return false;
+				}
+			}
+			return true;
+		}
+		
+		return false;
+	}
 }
