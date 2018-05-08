@@ -853,14 +853,7 @@ public class BitBoardState implements IState {
 				}
 			}
 
-<<<<<<< HEAD
-	@Override
-	public boolean isWinningState() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-=======
 			if((board[opponentPlayer] & temp) != 0) {
 				boolean check = true;
 				for(int mill : POSITION_MILLS[i]) {
@@ -888,6 +881,7 @@ public class BitBoardState implements IState {
 		return result;
 	}
 	
+	@Override
 	public boolean isWinningState() {
 		if(gamePhase != MIDGAME)
 			return false;
@@ -921,5 +915,5 @@ public class BitBoardState implements IState {
 		
 		return false;
 	}
->>>>>>> f661413a9bc0b14f27b2dd524fb17a4ba7fb7a3c
+	
 }
