@@ -12,8 +12,7 @@ public class BitBoardState {
 	public static final byte WHITE = 0;
 	public static final byte BLACK = 1;
 
-	public static final byte INITIALPHASE = 10;
-	public static final byte MIDGAME = 11;
+	public static final byte MIDGAME = 0;
 
 	private static final byte A7 = 0;
 	private static final byte D7 = 1;
@@ -144,18 +143,31 @@ public class BitBoardState {
 
 		playerToMove = WHITE;
 
-		gamePhase = INITIALPHASE;
+		gamePhase = ~MIDGAME;
 	}
 
 	public BitBoardState(int initialWhiteCheckers, int initialBlackCheckers) {
 		this((byte) checkIntToByte(initialWhiteCheckers), (byte) checkIntToByte(initialBlackCheckers));
 	}
 
-	public BitBoardState(int initialWhiteCheckers, int initialBlackCheckers, int whiteBitBoard, int blackBitBoard) {
-		this((byte) checkIntToByte(initialWhiteCheckers), (byte) checkIntToByte(initialBlackCheckers));
+	public BitBoardState(int whiteCheckersToPut, int blackCheckersToPut, int whiteBitBoard, int blackBitBoard, byte playerToMove) {
+		this();
+		
+		checkersToPut[WHITE] = (byte) whiteCheckersToPut;
+		checkersToPut[BLACK] = (byte) blackCheckersToPut;
 
 		board[WHITE] = whiteBitBoard;
 		board[BLACK] = blackBitBoard;
+		
+		checkersOnBoard[WHITE] = (byte) Integer.bitCount(board[WHITE]);
+		checkersOnBoard[BLACK] = (byte) Integer.bitCount(board[BLACK]);
+		
+		gamePhase = (byte) (checkersToPut[WHITE] | checkersToPut[BLACK]);
+		
+		if(playerToMove != WHITE && playerToMove != BLACK)
+			throw new IllegalArgumentException("Player must be white or black");
+		
+		this.playerToMove = playerToMove;
 	}
 
 	public BitBoardState() {
@@ -170,7 +182,7 @@ public class BitBoardState {
 
 	@Override
 	public String toString() {
-		StringBuffer result = new StringBuffer();
+		StringBuilder result = new StringBuilder();
 		result.append("7 ");
 		result.append((board[WHITE] & BitBoardUtils.boardFromPosition("a7")) != 0 ? "W"	: (board[BLACK] & BitBoardUtils.boardFromPosition("a7")) != 0 ? "B" : "O");
 		result.append("--------");
@@ -234,7 +246,8 @@ public class BitBoardState {
 		result.append("\n");
 
 		result.append("  a  b  c  d  e  f  g\n");
-		result.append("Phase: " + (gamePhase == 10 ? "INITIALPHASE" : "MIDGAME") + ";\n");
+		result.append("Player: " + (playerToMove == WHITE ? "WHITE" : "BLACK") + ";\n");
+		result.append("Phase: " + (gamePhase == MIDGAME ? "MIDGAME" : "INITIALPHASE") + ";\n");
 		result.append("White Checkers: " + checkersToPut[WHITE] + ";\n");
 		result.append("Black Checkers: " + checkersToPut[BLACK] + ";\n");
 		result.append("White Checkers On Board: " + checkersOnBoard[WHITE] + ";\n");
@@ -243,6 +256,7 @@ public class BitBoardState {
 		return result.toString();
 	}
 
+	
 	public static BitBoardState fromStateToBitBoard(State state, byte playerToMove) throws Exception {
 		BitBoardState result = new BitBoardState();
 
@@ -276,7 +290,7 @@ public class BitBoardState {
 
 		switch (state.getCurrentPhase()) {
 		case FIRST:
-			result.gamePhase = INITIALPHASE;
+			result.gamePhase = ~MIDGAME;
 			break;
 		case SECOND:
 			result.gamePhase = BitBoardState.MIDGAME;
@@ -304,24 +318,16 @@ public class BitBoardState {
 	public ArrayList<BitBoardAction> getFollowingMoves() throws Exception {
 		ArrayList<BitBoardAction> result = new ArrayList<>();
 
-		switch (gamePhase) {
-		case INITIALPHASE:
-			result = getFollowingMovesInitialPhase();
-			break;
-		case MIDGAME:
-
-			// TODO
-			
+		if(gamePhase == MIDGAME) {
 			if (checkersOnBoard[playerToMove] > 3) {
 				result = getFollowingMovesMidGame();
 			} else {
 				result = getFollowingMovesEndGame();
 			}
-			break;
-		default:
-			throw new Exception("Wrong Phase");
+		} else {
+			result = getFollowingMovesInitialPhase();
 		}
-
+		
 		return result;
 	}
 
@@ -338,14 +344,14 @@ public class BitBoardState {
 			// empty position
 			if (((board[WHITE] | board[BLACK]) & to) == 0) {				
 
-				if (hasCompletedMorris(i, playerToMove)) {
+				if (hasCompletedMorris(0, i, playerToMove)) {
 					boolean foundRemovableChecker = false;
 
 					for (int j = 0; j < 24; j++) {
 						remove = 1 << j;
 						
 						// opponent checker
-						if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(j, opponentPlayer)) {
+						if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(0, j, opponentPlayer)) {
 							temp = new BitBoardAction(0, to, remove, playerToMove);
 							result.add(temp);
 							foundRemovableChecker = true;
@@ -356,7 +362,7 @@ public class BitBoardState {
 							remove = 1 << j;
 							
 							// opponent checker
-							if ((board[opponentPlayer] & remove) != 0 && hasCompletedMorris(j, opponentPlayer)) {								
+							if ((board[opponentPlayer] & remove) != 0 && hasCompletedMorris(0, j, opponentPlayer)) {								
 								temp = new BitBoardAction(0, to, remove, playerToMove);
 								result.add(temp);
 							}
@@ -367,11 +373,6 @@ public class BitBoardState {
 					result.add(temp);
 				}
 			}
-
-			/*
-			 * resetto from, to e remove?
-			 */
-
 		}
 
 		return result;
@@ -391,20 +392,20 @@ public class BitBoardState {
 			// player checker
 			if ((board[playerToMove] & from) != 0) {				
 
-				for (Integer adjacentPosition : getAdjacentPositions(i)) {
+				for (Integer adjacentPosition : ADJACENT_POSITIONS[i]) {
 					to = 1 << adjacentPosition;
 					
 					// empty pos
 					if (((board[WHITE] | board[BLACK]) & to) == 0) {
 
-						if (hasCompletedMorris(adjacentPosition, playerToMove)) {
+						if (hasCompletedMorris(from, adjacentPosition, playerToMove)) {
 							boolean foundRemovableChecker = false;
 
 							for (int j = 0; j < 24; j++) {
 								remove = 1 << j;
 								
 								// opponent checker
-								if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(j, opponentPlayer)) {
+								if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(0, j, opponentPlayer)) {
 									temp = new BitBoardAction(from, to, remove, playerToMove);
 									result.add(temp);
 									foundRemovableChecker = true;
@@ -416,7 +417,7 @@ public class BitBoardState {
 									remove = 1 << j;
 									
 									// opponent checker
-									if ((board[opponentPlayer] & remove) != 0 && hasCompletedMorris(j, opponentPlayer)) {
+									if ((board[opponentPlayer] & remove) != 0 && hasCompletedMorris(0, j, opponentPlayer)) {
 										temp = new BitBoardAction(from, to, remove, playerToMove);
 										result.add(temp);
 									}
@@ -429,11 +430,6 @@ public class BitBoardState {
 					}
 				}
 			}
-
-			/*
-			 * resetto from, to e remove?
-			 */
-
 		}
 
 		return result;
@@ -459,14 +455,14 @@ public class BitBoardState {
 					// empty position
 					if (((board[WHITE] | board[BLACK]) & to) == 0) {
 
-						if (hasCompletedMorris(j, playerToMove)) {
+						if (hasCompletedMorris(from, j, playerToMove)) {
 							boolean foundRemovableChecker = false;
 
 							for (int k = 0; k < 24; k++) {
 								remove = 1 << k;
 								
 								// opponent checker
-								if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(k, opponentPlayer)) {									
+								if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(0, k, opponentPlayer)) {									
 									temp = new BitBoardAction(from, to, remove, playerToMove);
 									result.add(temp);
 									foundRemovableChecker = true;
@@ -478,7 +474,7 @@ public class BitBoardState {
 									remove = 1 << k;
 									
 									// opponent checker
-									if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(k, opponentPlayer)) {
+									if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(0, k, opponentPlayer)) {
 										temp = new BitBoardAction(from, to, remove, playerToMove);
 										result.add(temp);
 									}
@@ -491,9 +487,6 @@ public class BitBoardState {
 					}
 				}
 			}
-			/*
-			 * resetto from, to e remove?
-			 */
 		}
 
 		return result;
@@ -501,21 +494,15 @@ public class BitBoardState {
 
 	// le posizioni sono in base 10
 
-	// TODO
-	public boolean hasCompletedMorris(int position, byte player) {
-		int tempBoard = board[player] | (1 << position);
+	public boolean hasCompletedMorris(int bitFrom, int intTo, byte player) {
+		int tempBoard = (board[player] | (1 << intTo)) ^ bitFrom;
 		
-		for(Integer mill : POSITION_MILLS[position]) {
+		for(Integer mill : POSITION_MILLS[intTo]) {
 			if((tempBoard & mill) == mill)
 				return true;
 		}
 		
 		return false;
-	}
-
-	// TODO
-	public static int[] getAdjacentPositions(int position) {
-		return ADJACENT_POSITIONS[position];
 	}
 
 }
