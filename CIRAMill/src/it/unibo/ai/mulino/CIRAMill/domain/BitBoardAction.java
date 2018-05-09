@@ -17,6 +17,18 @@ public class BitBoardAction implements IAction {
 		this(0,0,0);
 	}
 	
+	public int getFrom() {
+		return from;
+	}
+
+	public int getTo() {
+		return to;
+	}
+
+	public int getRemove() {
+		return remove;
+	}
+
 	public String toString() {
 		return BitBoardUtils.positionFromBoard(from) + BitBoardUtils.positionFromBoard(to) + BitBoardUtils.positionFromBoard(remove);
 	}

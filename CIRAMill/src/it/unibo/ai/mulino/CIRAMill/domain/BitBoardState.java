@@ -7,6 +7,7 @@ import java.util.List;
 import it.unibo.ai.didattica.mulino.domain.State;
 import it.unibo.ai.mulino.CIRAMill.minimax.IAction;
 import it.unibo.ai.mulino.CIRAMill.minimax.IState;
+import it.unibo.ai.mulino.CIRAMill.minimax.ITieChecker;
 
 public class BitBoardState implements IState {
 
@@ -528,26 +529,90 @@ public class BitBoardState implements IState {
 
 	@Override
 	public void move(IAction action) {
-		// TODO Auto-generated method stub
+		// aggiungere stato alla lista (clone)
 		
+		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+		
+		board[playerToMove] ^= ((BitBoardAction) action).getFrom();
+		board[playerToMove] |= ((BitBoardAction) action).getTo();
+		board[opponentPlayer] ^= ((BitBoardAction) action).getRemove();
+		
+		if(gamePhase != MIDGAME) {
+			checkersToPut[playerToMove]--;
+			checkersOnBoard[playerToMove]++;
+		}
+		
+		if(((BitBoardAction) action).getRemove() != 0)
+			checkersOnBoard[opponentPlayer]--;
+		
+		if((checkersToPut[WHITE] & checkersToPut[BLACK]) == 0)
+			gamePhase = MIDGAME;
+		
+		playerToMove = opponentPlayer;
 	}
 
 	@Override
 	public void unmove(IAction action) {
-		// TODO Auto-generated method stub
+		byte opponentPlayer = playerToMove;
+		playerToMove = opponentPlayer == WHITE ? BLACK : WHITE;
 		
+		board[playerToMove] |= ((BitBoardAction) action).getFrom();
+		board[playerToMove] ^= ((BitBoardAction) action).getTo();
+		board[opponentPlayer] |= ((BitBoardAction) action).getRemove();
+		
+		if(checkersToPut[WHITE] == 0 || checkersToPut[BLACK] == 1)
+			gamePhase = ~MIDGAME;
+		
+		if(gamePhase != MIDGAME) {
+			checkersToPut[playerToMove]++;
+			checkersOnBoard[playerToMove]--;
+		}
+		
+		if(((BitBoardAction) action).getRemove() != 0)
+			checkersOnBoard[opponentPlayer]++;
+		
+		// rimuovere stato dalla lista (forse non serve la clone)
 	}
 
 	@Override
 	public IState applyMove(IAction action) {
-		// TODO Auto-generated method stub
-		return null;
+		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+		int put = checkersToPut[playerToMove];
+		
+		if(gamePhase != MIDGAME)
+			put--;
+		
+		if(playerToMove == WHITE) {
+			return new BitBoardState(put, checkersToPut[opponentPlayer], (board[WHITE] ^ ((BitBoardAction) action).getFrom()) | ((BitBoardAction) action).getTo(), board[BLACK] ^ ((BitBoardAction) action).getRemove(), opponentPlayer);
+		} else {
+			return new BitBoardState(checkersToPut[opponentPlayer], put, board[WHITE] ^ ((BitBoardAction) action).getRemove(), (board[BLACK] ^ ((BitBoardAction) action).getFrom()) | ((BitBoardAction) action).getTo(), opponentPlayer);
+		}
 	}
 
 	@Override
-	public IState clone() {
+	public IState clone() {		
+		return new BitBoardState(checkersToPut[WHITE], checkersToPut[BLACK], board[WHITE], board[BLACK], playerToMove);
+	}
+	
+	@Override
+	public boolean equals(Object state) {		
+		if(this.board[WHITE] == ((BitBoardState) state).board[WHITE] &&
+				this.board[BLACK] == ((BitBoardState) state).board[BLACK] &&
+				this.checkersToPut[WHITE] == ((BitBoardState) state).checkersToPut[WHITE] &&
+				this.checkersToPut[BLACK] == ((BitBoardState) state).checkersToPut[BLACK] &&
+				this.checkersOnBoard[WHITE] == ((BitBoardState) state).checkersOnBoard[WHITE] &&
+				this.checkersOnBoard[BLACK] == ((BitBoardState) state).checkersOnBoard[BLACK] &&
+				this.playerToMove == ((BitBoardState) state).playerToMove &&
+				((this.gamePhase == MIDGAME && ((BitBoardState) state).gamePhase == MIDGAME) || (this.gamePhase != MIDGAME && ((BitBoardState) state).gamePhase != MIDGAME)))
+			return true;
+		
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
 		// TODO Auto-generated method stub
-		return null;
+		return super.hashCode();
 	}
 
 	@Override
@@ -739,7 +804,7 @@ public class BitBoardState implements IState {
 					openedMorrisPlayer++;
 				}
 				
-				if(foundOpponent) {
+				if(foundPlayer && foundOpponent) {
 					openedMorrisNearOpponentPlayer++;
 				}
 				
@@ -756,7 +821,7 @@ public class BitBoardState implements IState {
 					openedMorrisOpponent++;
 				}
 				
-				if(foundPlayer) {
+				if(foundOpponent && foundPlayer) {
 					openedMorrisNearOpponentOpponent++;
 				}
 			}
