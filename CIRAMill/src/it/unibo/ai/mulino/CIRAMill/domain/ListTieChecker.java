@@ -6,7 +6,7 @@ import it.unibo.ai.mulino.CIRAMill.minimax.IState;
 import it.unibo.ai.mulino.CIRAMill.minimax.ITieChecker;
 
 public class ListTieChecker implements ITieChecker {
-	private ArrayList<BitBoardState> statesAlreadySeen = new ArrayList<>();
+	private ArrayList<BitBoardState> statesAlreadySeen = new ArrayList<>(10);
 	
 	@Override
 	public boolean isTie(IState state) {
@@ -19,8 +19,11 @@ public class ListTieChecker implements ITieChecker {
 		// aggiungere un doppione equivale al pareggio
 		//
 		// come controllare la fase dello stato (e' privato) (getter suppongo)
-		if(!statesAlreadySeen.contains(state))
+		if(((BitBoardState) state).getGamePhase() == BitBoardState.MIDGAME && !statesAlreadySeen.contains(state))
 			statesAlreadySeen.add((BitBoardState) state);
+		
+//		if(!statesAlreadySeen.contains(state))
+//			statesAlreadySeen.add((BitBoardState) state);
 	}
 	
 	public void removeState(IState state) {

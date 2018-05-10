@@ -594,10 +594,10 @@ public class BitBoardState implements IState {
 	public boolean equals(Object state) {		
 		if(this.board[WHITE] == ((BitBoardState) state).board[WHITE] &&
 				this.board[BLACK] == ((BitBoardState) state).board[BLACK] &&
-//				this.checkersToPut[WHITE] == ((BitBoardState) state).checkersToPut[WHITE] &&
-//				this.checkersToPut[BLACK] == ((BitBoardState) state).checkersToPut[BLACK] &&
-				this.checkersOnBoard[WHITE] == ((BitBoardState) state).checkersOnBoard[WHITE] &&
-				this.checkersOnBoard[BLACK] == ((BitBoardState) state).checkersOnBoard[BLACK]
+				this.checkersToPut[WHITE] == ((BitBoardState) state).checkersToPut[WHITE] &&
+				this.checkersToPut[BLACK] == ((BitBoardState) state).checkersToPut[BLACK] 
+//				this.checkersOnBoard[WHITE] == ((BitBoardState) state).checkersOnBoard[WHITE] &&
+//				this.checkersOnBoard[BLACK] == ((BitBoardState) state).checkersOnBoard[BLACK]
 //						&&
 //				this.playerToMove == ((BitBoardState) state).playerToMove &&
 //				((this.gamePhase == MIDGAME && ((BitBoardState) state).gamePhase == MIDGAME) || (this.gamePhase != MIDGAME && ((BitBoardState) state).gamePhase != MIDGAME)))
@@ -1023,6 +1023,10 @@ public class BitBoardState implements IState {
 		}
 		
 		return false;
+	}
+	
+	public byte getGamePhase() {
+		return this.gamePhase;
 	}
 	
 }

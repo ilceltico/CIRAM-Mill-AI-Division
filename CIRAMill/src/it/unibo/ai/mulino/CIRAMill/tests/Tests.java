@@ -92,7 +92,7 @@ public class Tests {
 		BitBoardState state = new BitBoardState(tieChecker);
 		MiniMax minimax = new MiniMax(tieChecker);
 		
-		ValuedAction action = minimax.minimaxDecision(state, 5);
+		ValuedAction action = minimax.minimaxDecision(state, 6);
 		
 		state.move(action.getAction());
 		

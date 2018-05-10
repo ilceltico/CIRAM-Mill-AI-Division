@@ -26,7 +26,7 @@ import it.unibo.ai.didattica.mulino.domain.ValuedAction;
 public class MulinoClientFirstMiniMaxTest {
 
 	public static void main(String[] args) {
-		// doTest1();
+		 doTest1();
 		// doTest2();
 //		 doTest2WithAlphaBeta();
 		// doTest2WithAlphaBetaAndOptimizationsTreeSet();
@@ -39,7 +39,7 @@ public class MulinoClientFirstMiniMaxTest {
 //		 doTestStates();
 
 //		doTestIterativeDeepening();
-		doTestIterativeDeepeningAlphaBeta();
+//		doTestIterativeDeepeningAlphaBeta();
 //		doTestIterativeDeepeningKiller();
 		 
 //		 doTestNegamax();
@@ -50,7 +50,7 @@ public class MulinoClientFirstMiniMaxTest {
 		State initialState = new State();
 
 		try {
-			MulinoClientFirstMiniMax.minimaxDecision(initialState, 5);
+			MulinoClientFirstMiniMax.minimaxDecision(initialState, 6);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
