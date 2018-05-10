@@ -4,7 +4,10 @@ import java.util.List;
 
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardAction;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardState;
+import it.unibo.ai.mulino.CIRAMill.domain.ListTieChecker;
 import it.unibo.ai.mulino.CIRAMill.minimax.IAction;
+import it.unibo.ai.mulino.CIRAMill.minimax.ITieChecker;
+import it.unibo.ai.mulino.CIRAMill.minimax.MiniMax;
 
 public class Tests {
 
@@ -70,19 +73,27 @@ public class Tests {
 //		
 //		System.out.println(state);
 		
-		BitBoardState state = new BitBoardState(0, 1, (1 << 0) |  (1 << 2) |  (1 << 4) |  (1 << 6) | (1 << 9) |  (1 << 11) |  (1 << 13) |  (1 << 15) | (1 << 17), (1 << 1) |  (1 << 3) |  (1 << 5) |  (1 << 7) | (1 << 8) |  (1 << 10) |  (1 << 12) |  (1 << 14) ,BitBoardState.BLACK);
+//		BitBoardState state = new BitBoardState(0, 1, (1 << 0) |  (1 << 2) |  (1 << 4) |  (1 << 6) | (1 << 9) |  (1 << 11) |  (1 << 13) |  (1 << 15) | (1 << 17), (1 << 1) |  (1 << 3) |  (1 << 5) |  (1 << 7) | (1 << 8) |  (1 << 10) |  (1 << 12) |  (1 << 14) ,BitBoardState.BLACK);
+//		
+//		System.out.println(state);
+//		
+//		BitBoardAction action = new BitBoardAction(0, (1 << 23), 0);
+//		
+//		state.move(action);
+//		
+//		System.out.println(state);
+//		
+//		state.unmove(action);
+//		
+//		System.out.println(state);
 		
-		System.out.println(state);
+		ListTieChecker tieChecker = new ListTieChecker();
+		BitBoardState state = new BitBoardState(tieChecker);
+		MiniMax minimax = new MiniMax(tieChecker);
 		
-		BitBoardAction action = new BitBoardAction(0, (1 << 23), 0);
+		minimax.minimaxDecision(state, 3);
 		
-		state.move(action);
-		
-		System.out.println(state);
-		
-		state.unmove(action);
-		
-		System.out.println(state);
+		System.out.println("\n\n" + state);
 	}
 
 }

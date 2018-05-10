@@ -152,8 +152,9 @@ public class BitBoardState implements IState {
 	private byte[] checkersOnBoard = new byte[2];
 	private byte playerToMove;
 	private byte gamePhase;
+	private ITieChecker tieChecker;
 
-	public BitBoardState(byte initialWhiteCheckers, byte initialBlackCheckers) {
+	public BitBoardState(byte initialWhiteCheckers, byte initialBlackCheckers, ITieChecker tieChecker) {
 		if (initialWhiteCheckers < 1 || initialBlackCheckers < 1)
 			throw new IllegalArgumentException("Initial checkers must be positive");
 		board[WHITE] = 0;
@@ -168,14 +169,16 @@ public class BitBoardState implements IState {
 		playerToMove = WHITE;
 
 		gamePhase = ~MIDGAME;
+		
+		this.tieChecker = tieChecker;
 	}
 
-	public BitBoardState(int initialWhiteCheckers, int initialBlackCheckers) {
-		this((byte) checkIntToByte(initialWhiteCheckers), (byte) checkIntToByte(initialBlackCheckers));
+	public BitBoardState(int initialWhiteCheckers, int initialBlackCheckers, ITieChecker tieChecker) {
+		this((byte) checkIntToByte(initialWhiteCheckers), (byte) checkIntToByte(initialBlackCheckers), tieChecker);
 	}
 
-	public BitBoardState(int whiteCheckersToPut, int blackCheckersToPut, int whiteBitBoard, int blackBitBoard, byte playerToMove) {
-		this();
+	public BitBoardState(int whiteCheckersToPut, int blackCheckersToPut, int whiteBitBoard, int blackBitBoard, byte playerToMove, ITieChecker tieChecker) {
+		this(tieChecker);
 		
 		checkersToPut[WHITE] = (byte) whiteCheckersToPut;
 		checkersToPut[BLACK] = (byte) blackCheckersToPut;
@@ -194,8 +197,8 @@ public class BitBoardState implements IState {
 		this.playerToMove = playerToMove;
 	}
 
-	public BitBoardState() {
-		this(DEFAULT_INITIAL_CHECKERS, DEFAULT_INITIAL_CHECKERS);
+	public BitBoardState(ITieChecker tieChecker) {
+		this(DEFAULT_INITIAL_CHECKERS, DEFAULT_INITIAL_CHECKERS, tieChecker);
 	}
 
 	public static int checkIntToByte(int value) {
@@ -280,9 +283,8 @@ public class BitBoardState implements IState {
 		return result.toString();
 	}
 
-	
-	public static BitBoardState fromStateToBitBoard(State state, byte playerToMove) throws Exception {
-		BitBoardState result = new BitBoardState();
+	public static BitBoardState fromStateToBitBoard(State state, byte playerToMove, ITieChecker tieChecker) throws Exception {
+		BitBoardState result = new BitBoardState(tieChecker);
 
 		HashMap<String, State.Checker> boardMap = state.getBoard();
 		for (String position : boardMap.keySet()) {
@@ -328,15 +330,6 @@ public class BitBoardState implements IState {
 
 		return result;
 	}
-
-	/* 
-	 * Calcolando le mosse possibili si hanno in automatico anche i successori in
-	 * quanto, data un azione, lo stato successivo e' dato da:
-	 * 
-	 * board[player] 	^= action.getFrom 
-	 * board[player]	|= action.getTo 
-	 * board[opponent]	^= action.getRemove
-	 */
 
 	@Override
 	public List<IAction> getFollowingMoves() {
@@ -529,7 +522,7 @@ public class BitBoardState implements IState {
 
 	@Override
 	public void move(IAction action) {
-		// aggiungere stato alla lista (clone)
+		
 		
 		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
 		
@@ -545,14 +538,19 @@ public class BitBoardState implements IState {
 		if(((BitBoardAction) action).getRemove() != 0)
 			checkersOnBoard[opponentPlayer]--;
 		
-		if((checkersToPut[WHITE] & checkersToPut[BLACK]) == 0)
+		if(checkersToPut[WHITE] == 0 && checkersToPut[BLACK] == 0)
 			gamePhase = MIDGAME;
 		
 		playerToMove = opponentPlayer;
+		
+		((ListTieChecker) tieChecker).addState(clone());
 	}
 
 	@Override
 	public void unmove(IAction action) {
+		((ListTieChecker) tieChecker).removeState(this);
+		
+		
 		byte opponentPlayer = playerToMove;
 		playerToMove = opponentPlayer == WHITE ? BLACK : WHITE;
 		
@@ -560,7 +558,8 @@ public class BitBoardState implements IState {
 		board[playerToMove] ^= ((BitBoardAction) action).getTo();
 		board[opponentPlayer] |= ((BitBoardAction) action).getRemove();
 		
-		if(checkersToPut[WHITE] == 0 || checkersToPut[BLACK] == 1)
+		//cosi forse e' giusto
+		if(checkersToPut[WHITE] == 0 && checkersToPut[BLACK] == 0 && ((BitBoardAction) action).getFrom() == 0)
 			gamePhase = ~MIDGAME;
 		
 		if(gamePhase != MIDGAME) {
@@ -571,7 +570,7 @@ public class BitBoardState implements IState {
 		if(((BitBoardAction) action).getRemove() != 0)
 			checkersOnBoard[opponentPlayer]++;
 		
-		// rimuovere stato dalla lista (forse non serve la clone)
+		
 	}
 
 	@Override
@@ -583,15 +582,15 @@ public class BitBoardState implements IState {
 			put--;
 		
 		if(playerToMove == WHITE) {
-			return new BitBoardState(put, checkersToPut[opponentPlayer], (board[WHITE] ^ ((BitBoardAction) action).getFrom()) | ((BitBoardAction) action).getTo(), board[BLACK] ^ ((BitBoardAction) action).getRemove(), opponentPlayer);
+			return new BitBoardState(put, checkersToPut[opponentPlayer], (board[WHITE] ^ ((BitBoardAction) action).getFrom()) | ((BitBoardAction) action).getTo(), board[BLACK] ^ ((BitBoardAction) action).getRemove(), opponentPlayer, this.tieChecker);
 		} else {
-			return new BitBoardState(checkersToPut[opponentPlayer], put, board[WHITE] ^ ((BitBoardAction) action).getRemove(), (board[BLACK] ^ ((BitBoardAction) action).getFrom()) | ((BitBoardAction) action).getTo(), opponentPlayer);
+			return new BitBoardState(checkersToPut[opponentPlayer], put, board[WHITE] ^ ((BitBoardAction) action).getRemove(), (board[BLACK] ^ ((BitBoardAction) action).getFrom()) | ((BitBoardAction) action).getTo(), opponentPlayer, this.tieChecker);
 		}
 	}
 
 	@Override
 	public IState clone() {		
-		return new BitBoardState(checkersToPut[WHITE], checkersToPut[BLACK], board[WHITE], board[BLACK], playerToMove);
+		return new BitBoardState(checkersToPut[WHITE], checkersToPut[BLACK], board[WHITE], board[BLACK], playerToMove, this.tieChecker);
 	}
 	
 	@Override
@@ -1000,14 +999,18 @@ public class BitBoardState implements IState {
 	public boolean isWinningState() {
 		if(gamePhase != MIDGAME)
 			return false;
-		if(playerToMove == WHITE && checkersOnBoard[BLACK] < 3)
-			return true;
-		else if(playerToMove == BLACK && checkersOnBoard[WHITE] < 3)
-			return true;
-
+		
+		//in teoria non serve l'aggiunta di MIDGAME
+//		if(playerToMove == WHITE && checkersOnBoard[BLACK] < 3 && gamePhase == MIDGAME)
+//			return true;
+//		else if(playerToMove == BLACK && checkersOnBoard[WHITE] < 3 && gamePhase == MIDGAME)
+//			return true;
+		
 		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
 		
-		if(checkersOnBoard[opponentPlayer] > 3) {
+		if(checkersOnBoard[opponentPlayer] < 3)
+			return true;
+		else if(checkersOnBoard[opponentPlayer] > 3) {
 			
 			for(int i=0; i<24; i++) {				
 				if((board[opponentPlayer] & (1 << i)) != 0) {
