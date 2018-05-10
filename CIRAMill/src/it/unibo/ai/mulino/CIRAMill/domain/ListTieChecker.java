@@ -10,6 +10,7 @@ public class ListTieChecker implements ITieChecker {
 	
 	@Override
 	public boolean isTie(IState state) {
+//		System.out.println(statesAlreadySeen.size());
 		return statesAlreadySeen.contains(state);
 	}
 	

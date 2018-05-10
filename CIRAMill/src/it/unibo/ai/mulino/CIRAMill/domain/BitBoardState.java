@@ -537,8 +537,8 @@ public class BitBoardState implements IState {
 		
 		if(((BitBoardAction) action).getRemove() != 0)
 			checkersOnBoard[opponentPlayer]--;
-		
-		if(checkersToPut[WHITE] == 0 && checkersToPut[BLACK] == 0)
+
+		if((checkersToPut[WHITE] | checkersToPut[BLACK]) == 0)
 			gamePhase = MIDGAME;
 		
 		playerToMove = opponentPlayer;
@@ -558,11 +558,8 @@ public class BitBoardState implements IState {
 		board[playerToMove] ^= ((BitBoardAction) action).getTo();
 		board[opponentPlayer] |= ((BitBoardAction) action).getRemove();
 		
-		//cosi forse e' giusto
-		if(checkersToPut[WHITE] == 0 && checkersToPut[BLACK] == 0 && ((BitBoardAction) action).getFrom() == 0)
+		if(((BitBoardAction) action).getFrom() == 0) {
 			gamePhase = ~MIDGAME;
-		
-		if(gamePhase != MIDGAME) {
 			checkersToPut[playerToMove]++;
 			checkersOnBoard[playerToMove]--;
 		}
@@ -597,13 +594,22 @@ public class BitBoardState implements IState {
 	public boolean equals(Object state) {		
 		if(this.board[WHITE] == ((BitBoardState) state).board[WHITE] &&
 				this.board[BLACK] == ((BitBoardState) state).board[BLACK] &&
-				this.checkersToPut[WHITE] == ((BitBoardState) state).checkersToPut[WHITE] &&
-				this.checkersToPut[BLACK] == ((BitBoardState) state).checkersToPut[BLACK] &&
+//				this.checkersToPut[WHITE] == ((BitBoardState) state).checkersToPut[WHITE] &&
+//				this.checkersToPut[BLACK] == ((BitBoardState) state).checkersToPut[BLACK] &&
 				this.checkersOnBoard[WHITE] == ((BitBoardState) state).checkersOnBoard[WHITE] &&
-				this.checkersOnBoard[BLACK] == ((BitBoardState) state).checkersOnBoard[BLACK] &&
-				this.playerToMove == ((BitBoardState) state).playerToMove &&
-				((this.gamePhase == MIDGAME && ((BitBoardState) state).gamePhase == MIDGAME) || (this.gamePhase != MIDGAME && ((BitBoardState) state).gamePhase != MIDGAME)))
-			return true;
+				this.checkersOnBoard[BLACK] == ((BitBoardState) state).checkersOnBoard[BLACK]
+//						&&
+//				this.playerToMove == ((BitBoardState) state).playerToMove &&
+//				((this.gamePhase == MIDGAME && ((BitBoardState) state).gamePhase == MIDGAME) || (this.gamePhase != MIDGAME && ((BitBoardState) state).gamePhase != MIDGAME)))
+			)return true;
+		
+//		if(this.board[WHITE] == ((BitBoardState) state).board[WHITE] &&
+//				this.board[BLACK] == ((BitBoardState) state).board[BLACK] 
+////						&&
+////				this.gamePhase == MIDGAME &&
+////				((BitBoardState) state).gamePhase == MIDGAME
+//				)
+//			return true;
 		
 		return false;
 	}
@@ -999,13 +1005,6 @@ public class BitBoardState implements IState {
 	public boolean isWinningState() {
 		if(gamePhase != MIDGAME)
 			return false;
-		
-		//in teoria non serve l'aggiunta di MIDGAME
-//		if(playerToMove == WHITE && checkersOnBoard[BLACK] < 3 && gamePhase == MIDGAME)
-//			return true;
-//		else if(playerToMove == BLACK && checkersOnBoard[WHITE] < 3 && gamePhase == MIDGAME)
-//			return true;
-		
 		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
 		
 		if(checkersOnBoard[opponentPlayer] < 3)
@@ -1013,19 +1012,11 @@ public class BitBoardState implements IState {
 		else if(checkersOnBoard[opponentPlayer] > 3) {
 			
 			for(int i=0; i<24; i++) {				
-				if((board[opponentPlayer] & (1 << i)) != 0) {
-//					boolean isBlocked = true;
-					
+				if((board[opponentPlayer] & (1 << i)) != 0) {					
 					for(int position : ADJACENT_POSITIONS[i]) {
-						if(((board[WHITE] | board[BLACK]) & (1 << position)) == 0) {
-//							isBlocked = false;
-//							break;
+						if(((board[WHITE] | board[BLACK]) & (1 << position)) == 0)
 							return false;
-						}
 					}
-					
-//					if(!isBlocked)
-//						return false;
 				}
 			}
 			return true;
