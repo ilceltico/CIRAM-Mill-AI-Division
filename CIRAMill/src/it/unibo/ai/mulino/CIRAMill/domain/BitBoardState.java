@@ -807,11 +807,13 @@ public class BitBoardState implements IState {
 				
 				if(foundPlayer) {
 					openedMorrisPlayer++;
+					if(foundOpponent)
+						openedMorrisNearOpponentPlayer++;
 				}
 				
-				if(foundPlayer && foundOpponent) {
-					openedMorrisNearOpponentPlayer++;
-				}
+//				if(foundPlayer && foundOpponent) {
+//					openedMorrisNearOpponentPlayer++;
+//				}
 				
 			} else if(playerToMoveMill == 0 && Integer.bitCount(opponentPlayerMill) == 2) {
 				for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros(opponentPlayerMill ^ mill)]) {
@@ -824,11 +826,13 @@ public class BitBoardState implements IState {
 				
 				if(foundOpponent) {
 					openedMorrisOpponent++;
+					if(foundPlayer)
+						openedMorrisNearOpponentOpponent++;
 				}
 				
-				if(foundOpponent && foundPlayer) {
-					openedMorrisNearOpponentOpponent++;
-				}
+//				if(foundOpponent && foundPlayer) {
+//					openedMorrisNearOpponentOpponent++;
+//				}
 			}
 		}
 		
