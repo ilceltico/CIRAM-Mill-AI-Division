@@ -543,12 +543,12 @@ public class BitBoardState implements IState {
 		
 		playerToMove = opponentPlayer;
 		
-		((ListTieChecker) tieChecker).addState(clone());
+		((BitBoardTieChecker) tieChecker).addState(clone());
 	}
 
 	@Override
 	public void unmove(IAction action) {
-		((ListTieChecker) tieChecker).removeState(this);
+		((BitBoardTieChecker) tieChecker).removeState(this);
 		
 		
 		byte opponentPlayer = playerToMove;
@@ -570,20 +570,20 @@ public class BitBoardState implements IState {
 		
 	}
 
-	@Override
-	public IState applyMove(IAction action) {
-		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
-		int put = checkersToPut[playerToMove];
-		
-		if(gamePhase != MIDGAME)
-			put--;
-		
-		if(playerToMove == WHITE) {
-			return new BitBoardState(put, checkersToPut[opponentPlayer], (board[WHITE] ^ ((BitBoardAction) action).getFrom()) | ((BitBoardAction) action).getTo(), board[BLACK] ^ ((BitBoardAction) action).getRemove(), opponentPlayer, this.tieChecker);
-		} else {
-			return new BitBoardState(checkersToPut[opponentPlayer], put, board[WHITE] ^ ((BitBoardAction) action).getRemove(), (board[BLACK] ^ ((BitBoardAction) action).getFrom()) | ((BitBoardAction) action).getTo(), opponentPlayer, this.tieChecker);
-		}
-	}
+//	@Override
+//	public IState applyMove(IAction action) {
+//		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+//		int put = checkersToPut[playerToMove];
+//		
+//		if(gamePhase != MIDGAME)
+//			put--;
+//		
+//		if(playerToMove == WHITE) {
+//			return new BitBoardState(put, checkersToPut[opponentPlayer], (board[WHITE] ^ ((BitBoardAction) action).getFrom()) | ((BitBoardAction) action).getTo(), board[BLACK] ^ ((BitBoardAction) action).getRemove(), opponentPlayer, this.tieChecker);
+//		} else {
+//			return new BitBoardState(checkersToPut[opponentPlayer], put, board[WHITE] ^ ((BitBoardAction) action).getRemove(), (board[BLACK] ^ ((BitBoardAction) action).getFrom()) | ((BitBoardAction) action).getTo(), opponentPlayer, this.tieChecker);
+//		}
+//	}
 
 	@Override
 	public IState clone() {		
@@ -1028,5 +1028,15 @@ public class BitBoardState implements IState {
 	public byte getGamePhase() {
 		return this.gamePhase;
 	}
+	
+//	public long getHash() {
+//		long hash = board[WHITE];
+//		hash |= board[BLACK] << 24;
+//		hash |= checkersToPut[WHITE] << 48;
+//		hash |= checkersToPut[BLACK] << 52;
+//		hash |= playerToMove << 56;
+//		
+//		return hash;
+//	}
 	
 }

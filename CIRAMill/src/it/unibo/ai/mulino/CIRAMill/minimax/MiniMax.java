@@ -34,25 +34,28 @@ public class MiniMax implements IMinimax {
 		ValuedAction temp = new ValuedAction();
 		
 		for (IAction a : actions) {
-//			state.move(a);
-			BitBoardState newState = (BitBoardState) state.applyMove(a);
-			if (newState.isWinningState()) {
+			state.move(a);
+//			BitBoardState newState = (BitBoardState) state.applyMove(a);
+			if (state.isWinningState()) {
 				result.set(a, Integer.MAX_VALUE-1);
+				state.unmove(a);
 				break;
-			} else if (tieChecker.isTie(newState)) {
-				System.out.println("tie");
+			} else if (tieChecker.isTie(state)) {
+//				System.out.println("tie");
 				temp.set(a, 0);
 			} else if (maxDepth > 1) {
-				state.move(a);
+//				state.move(a);
 				temp = min(state, maxDepth - 1);
-				state.unmove(a);
+//				state.unmove(a);
 			} else {
-				temp.set(a, -newState.getHeuristicEvaluation());
+				temp.set(a, -state.getHeuristicEvaluation());
 			}
 			
 			if (temp.getValue() > result.getValue()) {
 				result.set(a, temp.getValue());
 			}
+			
+			state.unmove(a);
 		}
 		
 		return result;
@@ -65,25 +68,27 @@ public class MiniMax implements IMinimax {
 		ValuedAction temp = new ValuedAction();
 		
 		for (IAction a : actions) {
-//			state.move(a);
-			BitBoardState newState = (BitBoardState) state.applyMove(a);
-			if (newState.isWinningState()) {
+			state.move(a);
+//			BitBoardState newState = (BitBoardState) state.applyMove(a);
+			if (state.isWinningState()) {
 				result.set(a, Integer.MIN_VALUE-1);
+				state.unmove(a);
 				break;
-			} else if (tieChecker.isTie(newState)) {
-				System.out.println("tie");
+			} else if (tieChecker.isTie(state)) {
+//				System.out.println("tie");
 				temp.set(a, 0);
 			} else if (maxDepth > 1) {
-				state.move(a);
+//				state.move(a);
 				temp = max(state, maxDepth - 1);
-				state.unmove(a);
+//				state.unmove(a);
 			} else {
-				temp.set(a, -newState.getHeuristicEvaluation());
+				temp.set(a, -state.getHeuristicEvaluation());
 			}
 			
 			if (temp.getValue() < result.getValue()) {
 				result.set(a, temp.getValue());
 			}
+			state.unmove(a);
 		}
 		
 		return result;
