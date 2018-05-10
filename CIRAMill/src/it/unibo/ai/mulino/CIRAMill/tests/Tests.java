@@ -89,26 +89,38 @@ public class Tests {
 //		
 //		System.out.println(state);
 		
-		BitBoardTieChecker tieChecker = new BitBoardTieChecker();
-		BitBoardState state = new BitBoardState(tieChecker);
-//		BitBoardState state = new BitBoardState(0, 0, (1 << 9) | (1 << 11) | (1 << 13) | (1 << 15), 0b110010110000000101000010 , BitBoardState.WHITE, tieChecker);
-		MiniMax oldMinimax = new MiniMax(tieChecker);
-		AlphaBeta minimax = new AlphaBeta(tieChecker);
+		
 		
 //		System.out.println(state + "\n\n");
 		
-		ValuedAction vAction = oldMinimax.minimaxDecision(state, 5);
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+				BitBoardState state = new BitBoardState(tieChecker);
+	//			BitBoardState state = new BitBoardState(0, 0, (1 << 9) | (1 << 11) | (1 << 13) | (1 << 15), 0b110010110000000101000010 , BitBoardState.WHITE, tieChecker);
+				MiniMax minimax = new MiniMax(tieChecker);
+				
+				ValuedAction vAction = minimax.minimaxDecision(state, 5);
+				state.move(vAction.getAction());
+				System.out.println("\n\n" + state);
+			}
+		}).start();
 		
-		state.move(vAction.getAction());
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+				BitBoardState state = new BitBoardState(tieChecker);
+	//			BitBoardState state = new BitBoardState(0, 0, (1 << 9) | (1 << 11) | (1 << 13) | (1 << 15), 0b110010110000000101000010 , BitBoardState.WHITE, tieChecker);
+				AlphaBeta minimax = new AlphaBeta(tieChecker);
+				
+				ValuedAction vAction = minimax.minimaxDecision(state, 8);
+				state.move(vAction.getAction());
+				System.out.println("\n\n" + state);
+			}
+		}).start();
 		
-		System.out.println("\n\n" + state);
-		state.unmove(vAction.getAction());
-		
-		ValuedAction vAction2 = minimax.minimaxDecision(state, 9);
-		
-		state.move(vAction2.getAction());
-		
-		System.out.println("\n\n" + state);
 		
 //		System.out.println(state.getHeuristicEvaluation());
 	}
