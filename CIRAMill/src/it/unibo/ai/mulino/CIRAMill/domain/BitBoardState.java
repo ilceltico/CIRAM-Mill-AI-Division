@@ -354,7 +354,15 @@ public class BitBoardState implements IState {
 		int to;
 		int remove;
 		byte opponentPlayer = playerToMove == BitBoardState.WHITE ? BitBoardState.BLACK : BitBoardState.WHITE;
-
+		
+//		if (this.equals(new BitBoardState(tieChecker))) {
+//			result.add(new BitBoardAction(0, 1, 0));
+//			result.add(new BitBoardAction(0, 1 << 1, 0));
+//			result.add(new BitBoardAction(0, 1 << 8, 0));
+//			result.add(new BitBoardAction(0, 1 << 9, 0));
+//			return result;
+//		}
+		
 		for (int i = 0; i < 24; i++) {
 			to = 1 << i;
 			

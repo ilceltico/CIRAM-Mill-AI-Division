@@ -68,7 +68,7 @@ public class MiniMax implements IMinimax {
 			state.move(a);
 //			BitBoardState newState = (BitBoardState) state.applyMove(a);
 			if (state.isWinningState()) {
-				result.set(a, Integer.MIN_VALUE-1);
+				result.set(a, Integer.MIN_VALUE+1);
 				state.unmove(a);
 				break;
 			} else if (tieChecker.isTie(state)) {
