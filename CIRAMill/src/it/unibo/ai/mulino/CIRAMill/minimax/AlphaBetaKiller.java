@@ -135,7 +135,7 @@ public class AlphaBetaKiller implements IMinimax {
 				} else if (tieChecker.isTie(state)) {
 					temp.set(killer.getAction(), 0);
 				} else if (maxDepth > 1) {
-					temp = min(state, maxDepth - 1, currentDepth + 1, alpha, beta);
+					temp = max(state, maxDepth - 1, currentDepth + 1, alpha, beta);
 				} else {
 					temp.set(killer.getAction(), -state.getHeuristicEvaluation());
 				}
