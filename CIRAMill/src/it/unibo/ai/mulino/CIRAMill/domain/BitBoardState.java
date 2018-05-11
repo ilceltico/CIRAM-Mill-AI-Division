@@ -1062,24 +1062,64 @@ public class BitBoardState implements IState {
 	}
 	
 	public boolean isLegalMove(IAction action) {
+		
+//		if(getFollowingMoves().contains(action))
+//			return true;
+//		else return false;
+		
 		BitBoardAction bAction = (BitBoardAction) action;
 		byte opponentPlayer = playerToMove==WHITE?BLACK:WHITE;
+		
+		//controllo che puoi solo togliere pedine non in morris?
 		
 		//Initial Phase
 		if (this.gamePhase != MIDGAME) {
 			if (bAction.getFrom() != 0)
 				return false;
-			if ( (bAction.getTo() & board[WHITE]) != 0 || (bAction.getTo() & board[BLACK]) != 0)
+//			if ( (bAction.getTo() & board[WHITE]) != 0 || (bAction.getTo() & board[BLACK]) != 0)
+			if(((board[WHITE] | board[BLACK]) & bAction.getTo()) != 0)
 				return false;
 			if (bAction.getRemove() != 0) {
-				int to;
-				for (to=0; to<24; to++) {
-					if (bAction.getTo() >> to == 1)
-						break;
-				}
-				if ( !willCompleteMorris(bAction.getFrom(), to, this.playerToMove) )
+//				int to;
+//				for (to=0; to<24; to++) {
+//					if (bAction.getTo() >> to == 1)
+//						break;
+//				}
+//				if ( !willCompleteMorris(bAction.getFrom(), to, this.playerToMove) )
+				if ( !willCompleteMorris(bAction.getFrom(), Integer.numberOfTrailingZeros(bAction.getTo()), this.playerToMove) )
 					return false;
-				if ( (bAction.getRemove() & board[opponentPlayer]) == 0)
+				if ( (board[opponentPlayer] & bAction.getRemove()) == 0)
+					return false;
+				
+				boolean isRemoveInMill = false;				
+				for(int mill : POSITION_MILLS[Integer.numberOfTrailingZeros(bAction.getRemove())]) {
+					if((board[opponentPlayer] & mill) == mill) {
+						isRemoveInMill = true;
+						break;
+					}
+				}
+				
+				boolean checkerFree = false;
+				if(isRemoveInMill) {
+					for(int i=0; i<24; i++) {
+						if((board[opponentPlayer] & (1 << i)) != 0) {
+							boolean checkerInMill = false;
+							for(int mill : POSITION_MILLS[i]) {
+								if((board[opponentPlayer] & mill) == mill) {
+									checkerInMill = true;
+									break;
+								}
+							}
+							
+							if(!checkerInMill) {
+								checkerFree = true;
+								break;
+							}
+						}
+					}
+				}
+				
+				if(!checkerFree && isRemoveInMill)
 					return false;
 			}
 		}
@@ -1087,18 +1127,21 @@ public class BitBoardState implements IState {
 		else {
 			
 			//Second Phase
-			if (this.checkersOnBoard[playerToMove] >= 3) {
+//			if (this.checkersOnBoard[playerToMove] >= 3) {
+			if (this.checkersOnBoard[playerToMove] > 3) {
 				if (bAction.getFrom() == 0)
 					return false;
-				if ( (bAction.getTo() & board[WHITE]) != 0 || (bAction.getTo() & board[BLACK]) != 0)
+//				if ( (bAction.getTo() & board[WHITE]) != 0 || (bAction.getTo() & board[BLACK]) != 0)
+				if(((board[WHITE] | board[BLACK]) & bAction.getTo()) != 0)
 					return false;
-				int from;
-				for (from=0; from<24; from++) {
-					if (bAction.getFrom() >> from == 1)
-						break;
-				}
+//				int from;
+//				for (from=0; from<24; from++) {
+//					if (bAction.getFrom() >> from == 1)
+//						break;
+//				}
 				boolean found = false;
-				for (Integer adjacentPosition : ADJACENT_POSITIONS[from]) {
+//				for (Integer adjacentPosition : ADJACENT_POSITIONS[from]) {
+				for (Integer adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros(bAction.getFrom())]) {
 					if (bAction.getTo() == 1 << adjacentPosition) {
 						found = true;
 						break;
@@ -1107,14 +1150,46 @@ public class BitBoardState implements IState {
 				if (!found)
 					return false;
 				if (bAction.getRemove() != 0) {
-					int to;
-					for (to=0; to<24; to++) {
-						if (bAction.getTo() >> to == 1)
-							break;
-					}
-					if ( !willCompleteMorris(bAction.getFrom(), to, this.playerToMove) )
+//					int to;
+//					for (to=0; to<24; to++) {
+//						if (bAction.getTo() >> to == 1)
+//							break;
+//					}
+//					if ( !willCompleteMorris(bAction.getFrom(), to, this.playerToMove) )
+					if ( !willCompleteMorris(bAction.getFrom(), Integer.numberOfTrailingZeros(bAction.getTo()), this.playerToMove) )
 						return false;
-					if ( (bAction.getRemove() & board[opponentPlayer]) == 0)
+					if ( (board[opponentPlayer] & bAction.getRemove()) == 0)
+						return false;
+					
+					boolean isRemoveInMill = false;				
+					for(int mill : POSITION_MILLS[Integer.numberOfTrailingZeros(bAction.getRemove())]) {
+						if((board[opponentPlayer] & mill) == mill) {
+							isRemoveInMill = true;
+							break;
+						}
+					}
+					
+					boolean checkerFree = false;
+					if(isRemoveInMill) {
+						for(int i=0; i<24; i++) {
+							if((board[opponentPlayer] & (1 << i)) != 0) {
+								boolean checkerInMill = false;
+								for(int mill : POSITION_MILLS[i]) {
+									if((board[opponentPlayer] & mill) == mill) {
+										checkerInMill = true;
+										break;
+									}
+								}
+								
+								if(!checkerInMill) {
+									checkerFree = true;
+									break;
+								}
+							}
+						}
+					}
+					
+					if(!checkerFree && isRemoveInMill)
 						return false;
 				}
 			}
@@ -1123,25 +1198,57 @@ public class BitBoardState implements IState {
 			else {
 				if (bAction.getFrom() == 0)
 					return false;
-				if ( (bAction.getTo() & board[WHITE]) != 0 || (bAction.getTo() & board[BLACK]) != 0)
+//				if ( (bAction.getTo() & board[WHITE]) != 0 || (bAction.getTo() & board[BLACK]) != 0)
+				if(((board[WHITE] | board[BLACK]) & bAction.getTo()) != 0)
 					return false;
 				if (bAction.getRemove() != 0) {
-					int to;
-					for (to=0; to<24; to++) {
-						if (bAction.getTo() >> to == 1)
-							break;
-					}
-					if ( !willCompleteMorris(bAction.getFrom(), to, this.playerToMove) )
+//					int to;
+//					for (to=0; to<24; to++) {
+//						if (bAction.getTo() >> to == 1)
+//							break;
+//					}
+//					if ( !willCompleteMorris(bAction.getFrom(), to, this.playerToMove) )
+					if ( !willCompleteMorris(bAction.getFrom(), Integer.numberOfTrailingZeros(bAction.getTo()), this.playerToMove) )
 						return false;
-					if ( (bAction.getRemove() & board[opponentPlayer]) == 0)
+					if ( (board[opponentPlayer] & bAction.getRemove()) == 0)
+						return false;
+					
+					boolean isRemoveInMill = false;				
+					for(int mill : POSITION_MILLS[Integer.numberOfTrailingZeros(bAction.getRemove())]) {
+						if((board[opponentPlayer] & mill) == mill) {
+							isRemoveInMill = true;
+							break;
+						}
+					}
+					
+					boolean checkerFree = false;
+					if(isRemoveInMill) {
+						for(int i=0; i<24; i++) {
+							if((board[opponentPlayer] & (1 << i)) != 0) {
+								boolean checkerInMill = false;
+								for(int mill : POSITION_MILLS[i]) {
+									if((board[opponentPlayer] & mill) == mill) {
+										checkerInMill = true;
+										break;
+									}
+								}
+								
+								if(!checkerInMill) {
+									checkerFree = true;
+									break;
+								}
+							}
+						}
+					}
+					
+					if(!checkerFree && isRemoveInMill)
 						return false;
 				}
 			}
 			
 		}
 
-		return true;
-		
+		return true;		
 	}
 	
 //	public long getHash() {

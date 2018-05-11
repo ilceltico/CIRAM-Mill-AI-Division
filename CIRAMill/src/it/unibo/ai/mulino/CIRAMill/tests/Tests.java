@@ -1,5 +1,6 @@
 package it.unibo.ai.mulino.CIRAMill.tests;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardAction;
@@ -108,6 +109,7 @@ public class Tests {
 //			}
 //		}).start();
 //		
+
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
