@@ -39,7 +39,6 @@ public class AlphaBeta implements IMinimax {
 				state.unmove(a);
 				break;
 			} else if (tieChecker.isTie(state)) {
-//				System.out.println("tie");
 				temp.set(a, 0);
 			} else if (maxDepth > 1) {
 //				state.move(a);
@@ -76,11 +75,10 @@ public class AlphaBeta implements IMinimax {
 			state.move(a);
 //			BitBoardState newState = (BitBoardState) state.applyMove(a);
 			if (state.isWinningState()) {
-				result.set(a, Integer.MIN_VALUE-1);
+				result.set(a, Integer.MIN_VALUE+1);
 				state.unmove(a);
 				break;
 			} else if (tieChecker.isTie(state)) {
-//				System.out.println("tie");
 				temp.set(a, 0);
 			} else if (maxDepth > 1) {
 //				state.move(a);

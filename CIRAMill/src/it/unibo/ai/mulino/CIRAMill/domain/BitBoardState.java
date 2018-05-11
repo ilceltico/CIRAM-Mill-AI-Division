@@ -873,6 +873,26 @@ public class BitBoardState implements IState {
 				doubleMorrisOpponent++;
 			}
 			
+			boolean checkPlayer = true;
+			boolean checkOpponent = true;
+			for(int mill : POSITION_MILLS[i]) {
+				if((board[playerToMove] & mill) != mill) {
+					checkPlayer = false;
+				}
+				
+				if((board[opponentPlayer] & mill) != mill) {
+					checkOpponent = false;
+				}
+			}
+			
+			if(checkPlayer) {
+				doubleMorrisPlayer++;
+			}
+			
+			if(checkOpponent) {
+				doubleMorrisOpponent++;
+			}
+			
 			//BLOCKED_PIECES
 			if((board[opponentPlayer] & temp) != 0) {
 				boolean isBlocked = true;
@@ -1031,6 +1051,11 @@ public class BitBoardState implements IState {
 	
 	public byte getGamePhase() {
 		return this.gamePhase;
+	}
+	
+	public boolean isLegalMove(IAction action) {
+		
+		return true;
 	}
 	
 //	public long getHash() {

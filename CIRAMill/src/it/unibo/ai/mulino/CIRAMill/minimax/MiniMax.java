@@ -5,8 +5,7 @@ import java.util.List;
 public class MiniMax implements IMinimax {
 	
 	private int expandedStates = 0;
-	private long elapsedTime;
-	
+	private long elapsedTime;	
 	private ITieChecker tieChecker;
 	
 	public MiniMax(ITieChecker tieChecker) {

@@ -11,5 +11,5 @@ public interface IState {
 	public IState clone();
 	public int getHeuristicEvaluation();
 	public boolean isWinningState();
-	
+	public boolean isLegalMove(IAction action);
 }
