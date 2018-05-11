@@ -1065,12 +1065,11 @@ public class BitBoardState implements IState {
 		
 //		if(getFollowingMoves().contains(action))
 //			return true;
-//		else return false;
+//		else
+//			return false;
 		
 		BitBoardAction bAction = (BitBoardAction) action;
 		byte opponentPlayer = playerToMove==WHITE?BLACK:WHITE;
-		
-		//controllo che puoi solo togliere pedine non in morris?
 		
 		//Initial Phase
 		if (this.gamePhase != MIDGAME) {
@@ -1091,7 +1090,7 @@ public class BitBoardState implements IState {
 				if ( (board[opponentPlayer] & bAction.getRemove()) == 0)
 					return false;
 				
-				if(Integer.bitCount(board[opponentPlayer]) > 3) {
+				if(checkersOnBoard[opponentPlayer] > 3) {
 				
 					boolean isRemoveInMill = false;				
 					for(int mill : POSITION_MILLS[Integer.numberOfTrailingZeros(bAction.getRemove())]) {
@@ -1121,7 +1120,7 @@ public class BitBoardState implements IState {
 						}
 					}
 					
-					if(!checkerFree && isRemoveInMill)
+					if(checkerFree && isRemoveInMill)
 						return false;
 				}
 			}
@@ -1145,7 +1144,7 @@ public class BitBoardState implements IState {
 				boolean found = false;
 //				for (Integer adjacentPosition : ADJACENT_POSITIONS[from]) {
 				for (Integer adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros(bAction.getFrom())]) {
-					if (bAction.getTo() == 1 << adjacentPosition) {
+					if (bAction.getTo() == (1 << adjacentPosition)) {
 						found = true;
 						break;
 					}
@@ -1164,7 +1163,7 @@ public class BitBoardState implements IState {
 					if ( (board[opponentPlayer] & bAction.getRemove()) == 0)
 						return false;
 					
-					if(Integer.bitCount(board[opponentPlayer]) > 3) {
+					if(checkersOnBoard[opponentPlayer] > 3) {
 					
 						boolean isRemoveInMill = false;				
 						for(int mill : POSITION_MILLS[Integer.numberOfTrailingZeros(bAction.getRemove())]) {
@@ -1194,7 +1193,7 @@ public class BitBoardState implements IState {
 							}
 						}
 						
-						if(!checkerFree && isRemoveInMill)
+						if(checkerFree && isRemoveInMill)
 							return false;
 					}
 				}
@@ -1219,7 +1218,7 @@ public class BitBoardState implements IState {
 					if ( (board[opponentPlayer] & bAction.getRemove()) == 0)
 						return false;
 					
-					if(Integer.bitCount(board[opponentPlayer]) > 3) {
+					if(checkersOnBoard[opponentPlayer] > 3) {
 					
 						boolean isRemoveInMill = false;				
 						for(int mill : POSITION_MILLS[Integer.numberOfTrailingZeros(bAction.getRemove())]) {
@@ -1249,7 +1248,7 @@ public class BitBoardState implements IState {
 							}
 						}
 						
-						if(!checkerFree && isRemoveInMill)
+						if(checkerFree && isRemoveInMill)
 							return false;
 					}
 				}
