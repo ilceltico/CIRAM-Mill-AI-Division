@@ -6,6 +6,7 @@ import it.unibo.ai.mulino.CIRAMill.domain.BitBoardAction;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardState;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardTieChecker;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBeta;
+import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBetaKiller;
 import it.unibo.ai.mulino.CIRAMill.minimax.IAction;
 import it.unibo.ai.mulino.CIRAMill.minimax.ITieChecker;
 import it.unibo.ai.mulino.CIRAMill.minimax.MiniMax;
@@ -93,15 +94,29 @@ public class Tests {
 		
 //		System.out.println(state + "\n\n");
 		
+//		new Thread(new Runnable() {
+//			@Override
+//			public void run() {
+//				BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+////				BitBoardState state = new BitBoardState(tieChecker);
+//				BitBoardState state = new BitBoardState(0, 0, (1 << 9) | (1 << 11) | (1 << 13) | (1 << 15), 0b110010110000000101000010 , BitBoardState.WHITE, tieChecker);
+//				MiniMax minimax = new MiniMax(tieChecker);
+//				
+//				ValuedAction vAction = minimax.minimaxDecision(state, 6);
+//				state.move(vAction.getAction());
+//				System.out.println("\n\n" + state);
+//			}
+//		}).start();
+//		
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
 				BitBoardTieChecker tieChecker = new BitBoardTieChecker();
-				BitBoardState state = new BitBoardState(tieChecker);
-	//			BitBoardState state = new BitBoardState(0, 0, (1 << 9) | (1 << 11) | (1 << 13) | (1 << 15), 0b110010110000000101000010 , BitBoardState.WHITE, tieChecker);
-				MiniMax minimax = new MiniMax(tieChecker);
+//				BitBoardState state = new BitBoardState(tieChecker);
+				BitBoardState state = new BitBoardState(0, 0, (1 << 9) | (1 << 11) | (1 << 13) | (1 << 15), 0b110010110000000101000010 , BitBoardState.WHITE, tieChecker);
+				AlphaBeta minimax = new AlphaBeta(tieChecker);
 				
-				ValuedAction vAction = minimax.minimaxDecision(state, 5);
+				ValuedAction vAction = minimax.minimaxDecision(state, 7);
 				state.move(vAction.getAction());
 				System.out.println("\n\n" + state);
 			}
@@ -111,11 +126,11 @@ public class Tests {
 			@Override
 			public void run() {
 				BitBoardTieChecker tieChecker = new BitBoardTieChecker();
-				BitBoardState state = new BitBoardState(tieChecker);
-	//			BitBoardState state = new BitBoardState(0, 0, (1 << 9) | (1 << 11) | (1 << 13) | (1 << 15), 0b110010110000000101000010 , BitBoardState.WHITE, tieChecker);
-				AlphaBeta minimax = new AlphaBeta(tieChecker);
+//				BitBoardState state = new BitBoardState(tieChecker);
+				BitBoardState state = new BitBoardState(0, 0, (1 << 9) | (1 << 11) | (1 << 13) | (1 << 15), 0b110010110000000101000010 , BitBoardState.WHITE, tieChecker);
+				AlphaBetaKiller minimax = new AlphaBetaKiller(tieChecker, 1);
 				
-				ValuedAction vAction = minimax.minimaxDecision(state, 8);
+				ValuedAction vAction = minimax.minimaxDecision(state, 7);
 				state.move(vAction.getAction());
 				System.out.println("\n\n" + state);
 			}

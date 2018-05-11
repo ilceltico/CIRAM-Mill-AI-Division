@@ -369,14 +369,14 @@ public class BitBoardState implements IState {
 			// empty position
 			if (((board[WHITE] | board[BLACK]) & to) == 0) {				
 
-				if (hasCompletedMorris(0, i, playerToMove)) {
+				if (willCompleteMorris(0, i, playerToMove)) {
 					boolean foundRemovableChecker = false;
 
 					for (int j = 0; j < 24; j++) {
 						remove = 1 << j;
 						
 						// opponent checker
-						if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(0, j, opponentPlayer)) {
+						if ((board[opponentPlayer] & remove) != 0 && !willCompleteMorris(0, j, opponentPlayer)) {
 							temp = new BitBoardAction(0, to, remove);
 							result.add(temp);
 							foundRemovableChecker = true;
@@ -387,7 +387,7 @@ public class BitBoardState implements IState {
 							remove = 1 << j;
 							
 							// opponent checker
-							if ((board[opponentPlayer] & remove) != 0 && hasCompletedMorris(0, j, opponentPlayer)) {								
+							if ((board[opponentPlayer] & remove) != 0 && willCompleteMorris(0, j, opponentPlayer)) {								
 								temp = new BitBoardAction(0, to, remove);
 								result.add(temp);
 							}
@@ -423,14 +423,14 @@ public class BitBoardState implements IState {
 					// empty pos
 					if (((board[WHITE] | board[BLACK]) & to) == 0) {
 
-						if (hasCompletedMorris(from, adjacentPosition, playerToMove)) {
+						if (willCompleteMorris(from, adjacentPosition, playerToMove)) {
 							boolean foundRemovableChecker = false;
 
 							for (int j = 0; j < 24; j++) {
 								remove = 1 << j;
 								
 								// opponent checker
-								if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(0, j, opponentPlayer)) {
+								if ((board[opponentPlayer] & remove) != 0 && !willCompleteMorris(0, j, opponentPlayer)) {
 									temp = new BitBoardAction(from, to, remove);
 									result.add(temp);
 									foundRemovableChecker = true;
@@ -442,7 +442,7 @@ public class BitBoardState implements IState {
 									remove = 1 << j;
 									
 									// opponent checker
-									if ((board[opponentPlayer] & remove) != 0 && hasCompletedMorris(0, j, opponentPlayer)) {
+									if ((board[opponentPlayer] & remove) != 0 && willCompleteMorris(0, j, opponentPlayer)) {
 										temp = new BitBoardAction(from, to, remove);
 										result.add(temp);
 									}
@@ -480,14 +480,14 @@ public class BitBoardState implements IState {
 					// empty position
 					if (((board[WHITE] | board[BLACK]) & to) == 0) {
 
-						if (hasCompletedMorris(from, j, playerToMove)) {
+						if (willCompleteMorris(from, j, playerToMove)) {
 							boolean foundRemovableChecker = false;
 
 							for (int k = 0; k < 24; k++) {
 								remove = 1 << k;
 								
 								// opponent checker
-								if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(0, k, opponentPlayer)) {									
+								if ((board[opponentPlayer] & remove) != 0 && !willCompleteMorris(0, k, opponentPlayer)) {									
 									temp = new BitBoardAction(from, to, remove);
 									result.add(temp);
 									foundRemovableChecker = true;
@@ -499,7 +499,7 @@ public class BitBoardState implements IState {
 									remove = 1 << k;
 									
 									// opponent checker
-									if ((board[opponentPlayer] & remove) != 0 && !hasCompletedMorris(0, k, opponentPlayer)) {
+									if ((board[opponentPlayer] & remove) != 0 && !willCompleteMorris(0, k, opponentPlayer)) {
 										temp = new BitBoardAction(from, to, remove);
 										result.add(temp);
 									}
@@ -517,7 +517,7 @@ public class BitBoardState implements IState {
 		return result;
 	}
 
-	public boolean hasCompletedMorris(int bitFrom, int intTo, byte player) {
+	public boolean willCompleteMorris(int bitFrom, int intTo, byte player) {
 		int tempBoard = (board[player] | (1 << intTo)) ^ bitFrom;
 		
 		for(Integer mill : POSITION_MILLS[intTo]) {
@@ -881,25 +881,25 @@ public class BitBoardState implements IState {
 				doubleMorrisOpponent++;
 			}
 			
-			boolean checkPlayer = true;
-			boolean checkOpponent = true;
-			for(int mill : POSITION_MILLS[i]) {
-				if((board[playerToMove] & mill) != mill) {
-					checkPlayer = false;
-				}
-				
-				if((board[opponentPlayer] & mill) != mill) {
-					checkOpponent = false;
-				}
-			}
-			
-			if(checkPlayer) {
-				doubleMorrisPlayer++;
-			}
-			
-			if(checkOpponent) {
-				doubleMorrisOpponent++;
-			}
+//			boolean checkPlayer = true;
+//			boolean checkOpponent = true;
+//			for(int mill : POSITION_MILLS[i]) {
+//				if((board[playerToMove] & mill) != mill) {
+//					checkPlayer = false;
+//				}
+//				
+//				if((board[opponentPlayer] & mill) != mill) {
+//					checkOpponent = false;
+//				}
+//			}
+//			
+//			if(checkPlayer) {
+//				doubleMorrisPlayer++;
+//			}
+//			
+//			if(checkOpponent) {
+//				doubleMorrisOpponent++;
+//			}
 			
 			//BLOCKED_PIECES
 			if((board[opponentPlayer] & temp) != 0) {
@@ -1062,8 +1062,86 @@ public class BitBoardState implements IState {
 	}
 	
 	public boolean isLegalMove(IAction action) {
+		BitBoardAction bAction = (BitBoardAction) action;
+		byte opponentPlayer = playerToMove==WHITE?BLACK:WHITE;
 		
+		//Initial Phase
+		if (this.gamePhase != MIDGAME) {
+			if (bAction.getFrom() != 0)
+				return false;
+			if ( (bAction.getTo() & board[WHITE]) != 0 || (bAction.getTo() & board[BLACK]) != 0)
+				return false;
+			if (bAction.getRemove() != 0) {
+				int to;
+				for (to=0; to<24; to++) {
+					if (bAction.getTo() >> to == 1)
+						break;
+				}
+				if ( !willCompleteMorris(bAction.getFrom(), to, this.playerToMove) )
+					return false;
+				if ( (bAction.getRemove() & board[opponentPlayer]) == 0)
+					return false;
+			}
+		}
+		
+		else {
+			
+			//Second Phase
+			if (this.checkersOnBoard[playerToMove] >= 3) {
+				if (bAction.getFrom() == 0)
+					return false;
+				if ( (bAction.getTo() & board[WHITE]) != 0 || (bAction.getTo() & board[BLACK]) != 0)
+					return false;
+				int from;
+				for (from=0; from<24; from++) {
+					if (bAction.getFrom() >> from == 1)
+						break;
+				}
+				boolean found = false;
+				for (Integer adjacentPosition : ADJACENT_POSITIONS[from]) {
+					if (bAction.getTo() == 1 << adjacentPosition) {
+						found = true;
+						break;
+					}
+				}
+				if (!found)
+					return false;
+				if (bAction.getRemove() != 0) {
+					int to;
+					for (to=0; to<24; to++) {
+						if (bAction.getTo() >> to == 1)
+							break;
+					}
+					if ( !willCompleteMorris(bAction.getFrom(), to, this.playerToMove) )
+						return false;
+					if ( (bAction.getRemove() & board[opponentPlayer]) == 0)
+						return false;
+				}
+			}
+			
+			//Third Phase
+			else {
+				if (bAction.getFrom() == 0)
+					return false;
+				if ( (bAction.getTo() & board[WHITE]) != 0 || (bAction.getTo() & board[BLACK]) != 0)
+					return false;
+				if (bAction.getRemove() != 0) {
+					int to;
+					for (to=0; to<24; to++) {
+						if (bAction.getTo() >> to == 1)
+							break;
+					}
+					if ( !willCompleteMorris(bAction.getFrom(), to, this.playerToMove) )
+						return false;
+					if ( (bAction.getRemove() & board[opponentPlayer]) == 0)
+						return false;
+				}
+			}
+			
+		}
+
 		return true;
+		
 	}
 	
 //	public long getHash() {
