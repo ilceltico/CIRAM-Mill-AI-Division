@@ -18,6 +18,7 @@ public class AlphaBeta implements IMinimax {
 		elapsedTime = System.currentTimeMillis();
 		ValuedAction valuedAction = max(state, maxDepth, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
+		System.out.println("AlphaBeta:");
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
 		System.out.println("Selected action is: " + valuedAction);
@@ -27,11 +28,11 @@ public class AlphaBeta implements IMinimax {
 	
 	private ValuedAction max(IState state, int maxDepth, int alpha, int beta) {
 		List<IAction> actions = state.getFollowingMoves();
-		expandedStates += actions.size();
 		ValuedAction result = new ValuedAction(null, Integer.MIN_VALUE);
 		ValuedAction temp = new ValuedAction();
 		
 		for (IAction a : actions) {
+			expandedStates++;
 			state.move(a);
 //			BitBoardState newState = (BitBoardState) state.applyMove(a);
 			if (state.isWinningState()) {
@@ -67,11 +68,11 @@ public class AlphaBeta implements IMinimax {
 	
 	private ValuedAction min(IState state, int maxDepth, int alpha, int beta) {
 		List<IAction> actions = state.getFollowingMoves();
-		expandedStates += actions.size();
 		ValuedAction result = new ValuedAction(null, Integer.MAX_VALUE);
 		ValuedAction temp = new ValuedAction();
 		
 		for (IAction a : actions) {
+			expandedStates++;
 			state.move(a);
 //			BitBoardState newState = (BitBoardState) state.applyMove(a);
 			if (state.isWinningState()) {

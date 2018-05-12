@@ -4,6 +4,7 @@ import java.util.List;
 
 public class AlphaBetaKiller implements IMinimax {
 	private int expandedStates = 0;
+	private int killerArrayHits = 0;
 	private long elapsedTime;
 	private ITieChecker tieChecker;
 	private int killerMovesPerLevel;
@@ -25,23 +26,31 @@ public class AlphaBetaKiller implements IMinimax {
 		elapsedTime = System.currentTimeMillis();
 		ValuedAction valuedAction = max(state, maxDepth, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
+		System.out.println("AlphaBetaKiller:");
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
+		System.out.println("Killer hits: " + killerArrayHits);
 		System.out.println("Selected action is: " + valuedAction);
+		printKillerMoves();
 		expandedStates = 0;
+		killerArrayHits = 0;
 		return valuedAction;
 	}
 	
 	private ValuedAction max(IState state, int maxDepth, int currentDepth, int alpha, int beta) {
 		ValuedAction result = new ValuedAction(null, Integer.MIN_VALUE);
 		ValuedAction temp = new ValuedAction();
+		List<IAction> actions = state.getFollowingMoves();
 		
 		ValuedAction killer;
 		
 		for(int i=0; i<killerMovesPerLevel; i++) {
 			killer = killerMoves[currentDepth][i];
 			
-			if(killer.getAction() != null && state.isLegalMove(killer.getAction())) {
+			if(killer.getAction() != null && actions.contains(killer.getAction())) {
+				expandedStates++;
+				killerArrayHits++;
+				actions.remove(killer.getAction());
 				state.move(killer.getAction());				
 				if (state.isWinningState()) {
 					result.set(killer.getAction(), Integer.MAX_VALUE-1);
@@ -74,14 +83,9 @@ public class AlphaBetaKiller implements IMinimax {
 			}
 		}
 		
-		List<IAction> actions = state.getFollowingMoves();
-		
-		for(int i=0; i<killerMovesPerLevel; i++) {
-			if(killerMoves[currentDepth][i].getAction() != null)
-				actions.remove(killerMoves[currentDepth][i].getAction());
-		}
 		
 		for (IAction a : actions) {
+			expandedStates++;
 			state.move(a);
 			if (state.isWinningState()) {
 				result.set(a, Integer.MAX_VALUE-1);
@@ -119,13 +123,17 @@ public class AlphaBetaKiller implements IMinimax {
 	private ValuedAction min(IState state, int maxDepth, int currentDepth, int alpha, int beta) {
 		ValuedAction result = new ValuedAction(null, Integer.MAX_VALUE);
 		ValuedAction temp = new ValuedAction();
+		List<IAction> actions = state.getFollowingMoves();
 		
 		ValuedAction killer;
-		
+
 		for(int i=0; i<killerMovesPerLevel; i++) {
 			killer = killerMoves[currentDepth][i];
 			
-			if(killer.getAction() != null && state.isLegalMove(killer.getAction())) {
+			if(killer.getAction() != null && actions.contains(killer.getAction())) {
+				expandedStates++;
+				killerArrayHits++;
+				actions.remove(killer.getAction());
 				state.move(killer.getAction());				
 				if (state.isWinningState()) {
 					result.set(killer.getAction(), Integer.MIN_VALUE+1);
@@ -158,14 +166,9 @@ public class AlphaBetaKiller implements IMinimax {
 			}
 		}
 		
-		List<IAction> actions = state.getFollowingMoves();
-		
-		for(int i=0; i<killerMovesPerLevel; i++) {
-			if(killerMoves[currentDepth][i].getAction() != null)
-				actions.remove(killerMoves[currentDepth][i].getAction());
-		}
 		
 		for (IAction a : actions) {
+			expandedStates++;
 			state.move(a);
 			if (state.isWinningState()) {
 				result.set(a, Integer.MIN_VALUE+1);
@@ -241,5 +244,15 @@ public class AlphaBetaKiller implements IMinimax {
 			}
 		}
 		
+	}
+	
+	private void printKillerMoves() {
+		for (int i=0; i<killerMoves.length; i++) {
+			System.out.println("Level " + i + ":");
+			for (int j=0; j<killerMoves[i].length; j++) {
+				System.out.println(killerMoves[i][j]);
+			}
+			System.out.println();
+		}
 	}
 }

@@ -17,6 +17,7 @@ public class MiniMax implements IMinimax {
 		elapsedTime = System.currentTimeMillis();
 		ValuedAction valuedAction = max(state, maxDepth);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
+		System.out.println("MiniMax:");
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
 		System.out.println("Selected action is: " + valuedAction);
