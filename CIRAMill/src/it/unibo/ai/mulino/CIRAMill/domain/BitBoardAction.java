@@ -33,4 +33,10 @@ public class BitBoardAction implements IAction {
 		return BitBoardUtils.positionFromBoard(from) + BitBoardUtils.positionFromBoard(to) + BitBoardUtils.positionFromBoard(remove);
 	}
 	
+	public boolean equals(BitBoardAction action) {
+		return this.from == action.getFrom() &&
+				this.to == action.getTo() &&
+				this.remove == action.getRemove();
+	}
+	
 }

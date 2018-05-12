@@ -1,6 +1,9 @@
 package it.unibo.ai.mulino.CIRAMill.minimax;
 
+import java.util.Arrays;
 import java.util.List;
+
+import it.unibo.ai.mulino.CIRAMill.domain.BitBoardAction;
 
 public class AlphaBetaKiller implements IMinimax {
 	private int expandedStates = 0;
@@ -23,6 +26,10 @@ public class AlphaBetaKiller implements IMinimax {
 			for(int j=0; j<killerMovesPerLevel; j++)
 				killerMoves[i][j] = new ValuedAction(null, i%2==0?Integer.MIN_VALUE:Integer.MAX_VALUE);
 		
+//		for(int i=0; i<maxDepth; i++)
+//			for(int j=0; j<killerMovesPerLevel; j++)
+//				killerMoves[i][j] = new ValuedAction();
+//		
 		elapsedTime = System.currentTimeMillis();
 		ValuedAction valuedAction = max(state, maxDepth, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
@@ -46,8 +53,20 @@ public class AlphaBetaKiller implements IMinimax {
 		
 		for(int i=0; i<killerMovesPerLevel; i++) {
 			killer = killerMoves[currentDepth][i];
+			boolean found = false;
+			for(IAction action : actions) {
+				if(killer.getAction() != null &&
+						((BitBoardAction) action).getFrom() == ((BitBoardAction)killer.getAction()).getFrom() &&
+						((BitBoardAction) action).getTo() == ((BitBoardAction)killer.getAction()).getTo() &&
+						((BitBoardAction) action).getRemove() == ((BitBoardAction)killer.getAction()).getRemove()) {
+					found = true;
+					break;
+				}
+			}
 			
-			if(killer.getAction() != null && actions.contains(killer.getAction())) {
+			if(found) {
+			
+//			if(killer.getAction() != null && actions.contains(killer.getAction())) {
 				expandedStates++;
 				killerArrayHits++;
 				actions.remove(killer.getAction());
@@ -130,7 +149,19 @@ public class AlphaBetaKiller implements IMinimax {
 		for(int i=0; i<killerMovesPerLevel; i++) {
 			killer = killerMoves[currentDepth][i];
 			
-			if(killer.getAction() != null && actions.contains(killer.getAction())) {
+			boolean found = false;
+			for(IAction action : actions) {
+				if(killer.getAction() != null &&
+						((BitBoardAction) action).getFrom() == ((BitBoardAction)killer.getAction()).getFrom() &&
+						((BitBoardAction) action).getTo() == ((BitBoardAction)killer.getAction()).getTo() &&
+						((BitBoardAction) action).getRemove() == ((BitBoardAction)killer.getAction()).getRemove()) {
+					found = true;
+					break;
+				}
+			}
+			
+			if(found) {
+//			if(killer.getAction() != null && actions.contains(killer.getAction())) {
 				expandedStates++;
 				killerArrayHits++;
 				actions.remove(killer.getAction());
@@ -243,6 +274,24 @@ public class AlphaBetaKiller implements IMinimax {
 				killerMoves[currentDepth][index] = action;
 			}
 		}
+		
+//		boolean found = false;
+//		for(int i=0; i<killerMovesPerLevel; i++) {
+//			if(action.getAction().equals(killerMoves[currentDepth][i].getAction()) && minMaxFactor * action.getValue() > minMaxFactor * killerMoves[currentDepth][i].getValue()) {
+//				killerMoves[currentDepth][i] = action;
+//				found = true;
+//				break;
+//			}
+//		}
+//		
+//		if(found) {
+//			Arrays.sort(killerMoves[currentDepth], (x, y) -> minMaxFactor * x.getValue() == minMaxFactor * y.getValue() ? 0 : minMaxFactor * x.getValue() > minMaxFactor * y.getValue() ? 1 : -1);
+//		} else {
+//			if(minMaxFactor * action.getValue() > minMaxFactor * killerMoves[currentDepth][killerMovesPerLevel - 1].getValue() || killerMoves[currentDepth][killerMovesPerLevel - 1].getAction() == null) {
+//				killerMoves[currentDepth][killerMovesPerLevel - 1] = action;
+//				Arrays.sort(killerMoves[currentDepth], (x, y) -> minMaxFactor * x.getValue() == minMaxFactor * y.getValue() ? 0 : minMaxFactor * x.getValue() > minMaxFactor * y.getValue() ? 1 : -1);
+//			}
+//		}
 		
 	}
 	
