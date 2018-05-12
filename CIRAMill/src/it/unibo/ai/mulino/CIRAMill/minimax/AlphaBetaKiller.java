@@ -53,20 +53,20 @@ public class AlphaBetaKiller implements IMinimax {
 		
 		for(int i=0; i<killerMovesPerLevel; i++) {
 			killer = killerMoves[currentDepth][i];
-			boolean found = false;
-			for(IAction action : actions) {
-				if(killer.getAction() != null &&
-						((BitBoardAction) action).getFrom() == ((BitBoardAction)killer.getAction()).getFrom() &&
-						((BitBoardAction) action).getTo() == ((BitBoardAction)killer.getAction()).getTo() &&
-						((BitBoardAction) action).getRemove() == ((BitBoardAction)killer.getAction()).getRemove()) {
-					found = true;
-					break;
-				}
-			}
+//			boolean found = false;
+//			for(IAction action : actions) {
+//				if(killer.getAction() != null &&
+//						((BitBoardAction) action).getFrom() == ((BitBoardAction)killer.getAction()).getFrom() &&
+//						((BitBoardAction) action).getTo() == ((BitBoardAction)killer.getAction()).getTo() &&
+//						((BitBoardAction) action).getRemove() == ((BitBoardAction)killer.getAction()).getRemove()) {
+//					found = true;
+//					break;
+//				}
+//			}
+//			
+//			if(found) {
 			
-			if(found) {
-			
-//			if(killer.getAction() != null && actions.contains(killer.getAction())) {
+			if(killer.getAction() != null && actions.contains(killer.getAction())) {
 				expandedStates++;
 				killerArrayHits++;
 				actions.remove(killer.getAction());
@@ -149,19 +149,19 @@ public class AlphaBetaKiller implements IMinimax {
 		for(int i=0; i<killerMovesPerLevel; i++) {
 			killer = killerMoves[currentDepth][i];
 			
-			boolean found = false;
-			for(IAction action : actions) {
-				if(killer.getAction() != null &&
-						((BitBoardAction) action).getFrom() == ((BitBoardAction)killer.getAction()).getFrom() &&
-						((BitBoardAction) action).getTo() == ((BitBoardAction)killer.getAction()).getTo() &&
-						((BitBoardAction) action).getRemove() == ((BitBoardAction)killer.getAction()).getRemove()) {
-					found = true;
-					break;
-				}
-			}
-			
-			if(found) {
-//			if(killer.getAction() != null && actions.contains(killer.getAction())) {
+//			boolean found = false;
+//			for(IAction action : actions) {
+//				if(killer.getAction() != null &&
+//						((BitBoardAction) action).getFrom() == ((BitBoardAction)killer.getAction()).getFrom() &&
+//						((BitBoardAction) action).getTo() == ((BitBoardAction)killer.getAction()).getTo() &&
+//						((BitBoardAction) action).getRemove() == ((BitBoardAction)killer.getAction()).getRemove()) {
+//					found = true;
+//					break;
+//				}
+//			}
+//			
+//			if(found) {
+			if(killer.getAction() != null && actions.contains(killer.getAction())) {
 				expandedStates++;
 				killerArrayHits++;
 				actions.remove(killer.getAction());
@@ -237,49 +237,65 @@ public class AlphaBetaKiller implements IMinimax {
 	private void addKillerMove(ValuedAction action, int currentDepth) {
 		int minMaxFactor = currentDepth%2==0?1:-1;
 		
-		int i;
-		for(i=0; i<killerMovesPerLevel; i++) {
-			if(action.getAction().equals(killerMoves[currentDepth][i].getAction()) && minMaxFactor * action.getValue() > minMaxFactor * killerMoves[currentDepth][i].getValue()) {
-				
-				int j;
-				for(j=i-1; j>=0; j--) {
-					if(minMaxFactor * action.getValue() > minMaxFactor * killerMoves[currentDepth][j].getValue()) {
-						killerMoves[currentDepth][j + 1] = killerMoves[currentDepth][j];
-					} else {
-						break;
+		boolean found = false;
+		for(int i=0; i<killerMovesPerLevel; i++) {
+			if(action.getAction().equals(killerMoves[currentDepth][i].getAction())) {
+				found = true;
+				if(minMaxFactor * action.getValue() > minMaxFactor * killerMoves[currentDepth][i].getValue()) {
+					int j;
+					for(j=i-1; j>=0; j--) {
+						if(minMaxFactor * action.getValue() > minMaxFactor * killerMoves[currentDepth][j].getValue()) {
+							killerMoves[currentDepth][j + 1] = killerMoves[currentDepth][j];
+						} else {
+							break;
+						}
 					}
+					killerMoves[currentDepth][j + 1] = action;
+					
 				}
-				killerMoves[currentDepth][j + 1] = action;
 				
 				break;
-			}				
+			}		
 		}
 		
-		//This means that the move we're trying to add was not found, so we have to add it completely
-		if (i == killerMovesPerLevel) {
+		/*
+		 * se arrivo qua potrebbe essere anche perche' la mossa l'ho trovata ma con un valore piu' grande di quella che devo aggiungere
+		 */
+		
+		if(!found) {
 			int index;
 			
 			for(index=0; index<killerMovesPerLevel; index++) {
-				if(killerMoves[currentDepth][index].getAction() == null || minMaxFactor * action.getValue() > minMaxFactor * killerMoves[currentDepth][index].getValue()) {
+				if(minMaxFactor * action.getValue() > minMaxFactor * killerMoves[currentDepth][index].getValue()) {
 					break;
 				}
 			}
 			
 			if(index < killerMovesPerLevel) {
 				for(int i1=killerMovesPerLevel-2; i1>=index; i1--) {
-					if(killerMoves[currentDepth][i1].getAction() != null)
+					if(killerMoves[currentDepth][i1].getAction() != null) {
 						killerMoves[currentDepth][i1 + 1] = killerMoves[currentDepth][i1];
+					}
 				}
 				
 				killerMoves[currentDepth][index] = action;
 			}
 		}
 		
+		/*
+		 * not working _
+		 *              |
+		 *              \/
+		 */
 //		boolean found = false;
 //		for(int i=0; i<killerMovesPerLevel; i++) {
-//			if(action.getAction().equals(killerMoves[currentDepth][i].getAction()) && minMaxFactor * action.getValue() > minMaxFactor * killerMoves[currentDepth][i].getValue()) {
-//				killerMoves[currentDepth][i] = action;
+//			if(action.getAction().equals(killerMoves[currentDepth][i].getAction())) {
 //				found = true;
+//				
+//				if(minMaxFactor * action.getValue() > minMaxFactor * killerMoves[currentDepth][i].getValue()) {
+//					killerMoves[currentDepth][i] = action;
+//				}
+//				
 //				break;
 //			}
 //		}
