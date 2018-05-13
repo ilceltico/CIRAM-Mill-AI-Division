@@ -35,8 +35,16 @@ public class BitBoardAction implements IAction {
 	
 	@Override
 	public boolean equals(Object obj) {
-		return obj != null &&
-				this.from == ((BitBoardAction) obj).getFrom() &&
+		if (this == obj)
+			return true;
+		
+		if(obj == null)
+			return false;
+		
+		if(getClass() != obj.getClass())
+			return false;
+				
+		return	this.from == ((BitBoardAction) obj).getFrom() &&
 				this.to == ((BitBoardAction) obj).getTo() &&
 				this.remove == ((BitBoardAction) obj).getRemove();
 	}

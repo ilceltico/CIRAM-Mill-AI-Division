@@ -25,11 +25,7 @@ public class AlphaBetaKiller implements IMinimax {
 		for(int i=0; i<maxDepth; i++)
 			for(int j=0; j<killerMovesPerLevel; j++)
 				killerMoves[i][j] = new ValuedAction(null, i%2==0?Integer.MIN_VALUE:Integer.MAX_VALUE);
-		
-//		for(int i=0; i<maxDepth; i++)
-//			for(int j=0; j<killerMovesPerLevel; j++)
-//				killerMoves[i][j] = new ValuedAction();
-//		
+				
 		elapsedTime = System.currentTimeMillis();
 		ValuedAction valuedAction = max(state, maxDepth, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
@@ -53,18 +49,6 @@ public class AlphaBetaKiller implements IMinimax {
 		
 		for(int i=0; i<killerMovesPerLevel; i++) {
 			killer = killerMoves[currentDepth][i];
-//			boolean found = false;
-//			for(IAction action : actions) {
-//				if(killer.getAction() != null &&
-//						((BitBoardAction) action).getFrom() == ((BitBoardAction)killer.getAction()).getFrom() &&
-//						((BitBoardAction) action).getTo() == ((BitBoardAction)killer.getAction()).getTo() &&
-//						((BitBoardAction) action).getRemove() == ((BitBoardAction)killer.getAction()).getRemove()) {
-//					found = true;
-//					break;
-//				}
-//			}
-//			
-//			if(found) {
 			
 			if(killer.getAction() != null && actions.contains(killer.getAction())) {
 				expandedStates++;
@@ -148,19 +132,7 @@ public class AlphaBetaKiller implements IMinimax {
 
 		for(int i=0; i<killerMovesPerLevel; i++) {
 			killer = killerMoves[currentDepth][i];
-			
-//			boolean found = false;
-//			for(IAction action : actions) {
-//				if(killer.getAction() != null &&
-//						((BitBoardAction) action).getFrom() == ((BitBoardAction)killer.getAction()).getFrom() &&
-//						((BitBoardAction) action).getTo() == ((BitBoardAction)killer.getAction()).getTo() &&
-//						((BitBoardAction) action).getRemove() == ((BitBoardAction)killer.getAction()).getRemove()) {
-//					found = true;
-//					break;
-//				}
-//			}
-//			
-//			if(found) {
+
 			if(killer.getAction() != null && actions.contains(killer.getAction())) {
 				expandedStates++;
 				killerArrayHits++;
@@ -237,10 +209,9 @@ public class AlphaBetaKiller implements IMinimax {
 	private void addKillerMove(ValuedAction action, int currentDepth) {
 		int minMaxFactor = currentDepth%2==0?1:-1;
 		
-		boolean found = false;
-		for(int i=0; i<killerMovesPerLevel; i++) {
+		int i;
+		for(i=0; i<killerMovesPerLevel; i++) {
 			if(action.getAction().equals(killerMoves[currentDepth][i].getAction())) {
-				found = true;
 				if(minMaxFactor * action.getValue() > minMaxFactor * killerMoves[currentDepth][i].getValue()) {
 					int j;
 					for(j=i-1; j>=0; j--) {
@@ -262,7 +233,7 @@ public class AlphaBetaKiller implements IMinimax {
 		 * se arrivo qua potrebbe essere anche perche' la mossa l'ho trovata ma con un valore piu' grande di quella che devo aggiungere
 		 */
 		
-		if(!found) {
+		if(i == killerMovesPerLevel) {
 			int index;
 			
 			for(index=0; index<killerMovesPerLevel; index++) {
