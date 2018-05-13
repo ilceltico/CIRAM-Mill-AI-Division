@@ -2,7 +2,13 @@ package it.unibo.ai.mulino.CIRAMill.minimax;
 
 import java.util.List;
 
-public class AlphaBetaKiller implements IMinimax {
+/*
+ * This class implements the Killer Heuristic in a very similar way to AlphaBetaKiller, but has (up to now) 
+ * proven to be quicker. 
+ * It doesn't add (or update) every evaluated move to the killer array. Instead, it adds (or updates) only the best move 
+ * for the evaluated state.
+ */
+public class AlphaBetaKillerVariant implements IMinimax {
 	private int expandedStates = 0;
 	private int killerArrayHits = 0;
 	private long elapsedTime;
@@ -10,7 +16,7 @@ public class AlphaBetaKiller implements IMinimax {
 	private int killerMovesPerLevel;
 	private ValuedAction[][] killerMoves;
 
-	public AlphaBetaKiller(ITieChecker tieChecker, int killerMovesForLevel) {
+	public AlphaBetaKillerVariant(ITieChecker tieChecker, int killerMovesForLevel) {
 		this.tieChecker = tieChecker;
 		this.killerMovesPerLevel = killerMovesForLevel;
 	}
@@ -26,7 +32,7 @@ public class AlphaBetaKiller implements IMinimax {
 		elapsedTime = System.currentTimeMillis();
 		ValuedAction valuedAction = max(state, maxDepth, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
-		System.out.println("AlphaBetaKiller:");
+		System.out.println("AlphaBetaKillerVariant:");
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
 		System.out.println("Killer hits: " + killerArrayHits);
@@ -103,11 +109,14 @@ public class AlphaBetaKiller implements IMinimax {
 			if (temp.getValue() > result.getValue()) {
 				result.set(a, temp.getValue());
 			}
-			if (temp.getValue() > killerMoves[currentDepth][killerMovesPerLevel-1].getValue()) {
-				addKillerMove(new ValuedAction(a, temp.getValue()), currentDepth);
-			}
+//			if (temp.getValue() > killerMoves[currentDepth][killerMovesPerLevel-1].getValue()) {
+//				addKillerMove(new ValuedAction(a, temp.getValue()), currentDepth);
+//			}
 			if (result.getValue() >= beta) {
 				state.unmove(a);
+				if (temp.getValue() > killerMoves[currentDepth][killerMovesPerLevel-1].getValue()) {
+					addKillerMove(new ValuedAction(a, temp.getValue()), currentDepth);
+				}
 				return result;
 			}
 			if(result.getValue() >= alpha) {
@@ -115,6 +124,10 @@ public class AlphaBetaKiller implements IMinimax {
 			}
 			
 			state.unmove(a);
+		}
+		
+		if (result.getValue() > killerMoves[currentDepth][killerMovesPerLevel-1].getValue()) {
+			addKillerMove(new ValuedAction(result.getAction(), result.getValue()), currentDepth);
 		}
 		
 		return result;
@@ -186,11 +199,14 @@ public class AlphaBetaKiller implements IMinimax {
 			if (temp.getValue() < result.getValue()) {
 				result.set(a, temp.getValue());
 			}
-			if (temp.getValue() < killerMoves[currentDepth][killerMovesPerLevel-1].getValue()) {
-				addKillerMove(new ValuedAction(a, temp.getValue()), currentDepth); 
-			}
+//			if (temp.getValue() < killerMoves[currentDepth][killerMovesPerLevel-1].getValue()) {
+//				addKillerMove(new ValuedAction(a, temp.getValue()), currentDepth); 
+//			}
 			if (result.getValue() <= alpha) {
 				state.unmove(a);
+				if (temp.getValue() < killerMoves[currentDepth][killerMovesPerLevel-1].getValue()) {
+					addKillerMove(new ValuedAction(a, temp.getValue()), currentDepth); 
+				}
 				return result;
 			}
 			if(result.getValue() <= beta) {
@@ -198,6 +214,10 @@ public class AlphaBetaKiller implements IMinimax {
 			}
 			
 			state.unmove(a);
+		}
+		
+		if (result.getValue() < killerMoves[currentDepth][killerMovesPerLevel-1].getValue()) {
+			addKillerMove(new ValuedAction(result.getAction(), result.getValue()), currentDepth); 
 		}
 		
 		return result;
