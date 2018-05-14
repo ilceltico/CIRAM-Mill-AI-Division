@@ -9,6 +9,7 @@ import it.unibo.ai.mulino.CIRAMill.domain.BitBoardTieChecker;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBeta;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBetaKiller;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBetaKillerVariant;
+import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBetaQuiescent;
 import it.unibo.ai.mulino.CIRAMill.minimax.IAction;
 import it.unibo.ai.mulino.CIRAMill.minimax.IMinimax;
 import it.unibo.ai.mulino.CIRAMill.minimax.ITieChecker;
@@ -17,14 +18,15 @@ import it.unibo.ai.mulino.CIRAMill.minimax.ValuedAction;
 
 public class Tests {
 	
-	public static final int DEPTH = 8;
+	public static final int DEPTH = 3;
 	public static final int KNUM = 5;
-	public static final int STATE = 1;
+	public static final int STATE = 0;
 	
 	public static final boolean minimax = false;
-	public static final boolean alphabeta = true;
-	public static final boolean alphabeta_killer = true;
-	public static final boolean alphabeta_killer_variant = true;
+	public static final boolean alphabeta = false;
+	public static final boolean alphabeta_killer = false;
+	public static final boolean alphabeta_killer_variant = false;
+	public static final boolean alphabeta_quiescent = true;
 
 	public static void main(String[] args) {
 //		BitBoardState state = new BitBoardState(7, 7, (1 << 0) | (1 << 1), (1 << 5) | (1 << 13), BitBoardState.WHITE);
@@ -123,6 +125,12 @@ public class Tests {
 		if (alphabeta_killer_variant) {
 			BitBoardTieChecker tieChecker = new BitBoardTieChecker();
 			new Thread(new MinimaxTestRunnable(new AlphaBetaKillerVariant(tieChecker, KNUM), tieChecker)).start();
+		}
+		
+		if(alphabeta_quiescent) {
+			BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+			new Thread(new MinimaxTestRunnable(new AlphaBetaQuiescent(tieChecker), tieChecker)).start();
+
 		}
 		
 		

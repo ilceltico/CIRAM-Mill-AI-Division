@@ -1057,6 +1057,72 @@ public class BitBoardState implements IState {
 		return false;
 	}
 	
+	public boolean isQuiescent() {
+		byte opponentPlayer = playerToMove;
+		playerToMove = opponentPlayer == WHITE ? BLACK : WHITE;
+
+		int playerToMoveMill;
+		int opponentPlayerMill;
+		
+		boolean foundPlayer;
+		boolean foundOpponent;
+		
+		for(int mill : MILLS) {
+			playerToMoveMill = board[playerToMove] & mill;
+			opponentPlayerMill = board[opponentPlayer] & mill;
+			
+			// l'avversario può bloccare un morris
+			
+			if(gamePhase != MIDGAME || checkersOnBoard[playerToMoveMill] == 3) {
+				if((opponentPlayerMill) == 0 && Integer.bitCount(playerToMoveMill) == 2) {
+					for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros(playerToMoveMill ^ mill)]) {
+						if((board[opponentPlayer] & adjacentPosition) != 0) {
+							return false;
+						}
+					}
+				}
+			} else {
+				foundPlayer = false;
+				foundOpponent = false;
+				
+				if((opponentPlayerMill) == 0 && Integer.bitCount(playerToMoveMill) == 2) {
+					for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros(playerToMoveMill ^ mill)]) {
+						if((board[playerToMove] & adjacentPosition) != 0) {
+							foundPlayer = true;
+						}
+						if((board[opponentPlayer] & adjacentPosition) != 0) {
+							foundOpponent = true;
+						}
+					}
+				}
+				
+				if(foundPlayer && foundOpponent)
+					return false;
+			}
+			
+			// l'avversario può chiudere un morris
+//			if(playerToMoveMill == 0 && Integer.bitCount(opponentPlayerMill) == 2) {
+//				for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros(opponentPlayerMill ^ mill)]) {
+//					if((board[opponentPlayer] & adjacentPosition) != 0) {
+//						return false;
+//					}
+//				}
+//			}
+		}
+		
+		return true;
+		
+//		if(gamePhase == MIDGAME) {
+//			if (checkersOnBoard[playerToMove] > 3) {
+//				return true;
+//			} else {
+//				return true;
+//			}
+//		} else {
+//			return true;
+//		}
+	}
+	
 	public byte getGamePhase() {
 		return this.gamePhase;
 	}

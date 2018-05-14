@@ -12,4 +12,5 @@ public interface IState {
 	public int getHeuristicEvaluation();
 	public boolean isWinningState();
 //	public boolean isLegalMove(IAction action);
+	public boolean isQuiescent();
 }
