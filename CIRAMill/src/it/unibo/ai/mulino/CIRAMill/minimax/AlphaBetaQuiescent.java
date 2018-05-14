@@ -18,7 +18,7 @@ public class AlphaBetaQuiescent implements IMinimax {
 		elapsedTime = System.currentTimeMillis();
 		ValuedAction valuedAction = max(state, maxDepth, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
-		System.out.println("AlphaBeta:");
+		System.out.println("AlphaBetaQuiescent:");
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
 		System.out.println("Selected action is: " + valuedAction);
