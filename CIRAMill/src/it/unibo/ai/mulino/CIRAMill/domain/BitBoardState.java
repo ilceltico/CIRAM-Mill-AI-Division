@@ -1331,14 +1331,37 @@ public class BitBoardState implements IState {
 //		return true;		
 //	}
 	
-//	public long getHash() {
-//		long hash = board[WHITE];
-//		hash |= board[BLACK] << 24;
-//		hash |= checkersToPut[WHITE] << 48;
-//		hash |= checkersToPut[BLACK] << 52;
-//		hash |= playerToMove << 56;
-//		
-//		return hash;
-//	}
+	public BitBoardHash getHash() {
+		byte symms = 0;
+		
+		long hash = board[WHITE];
+		hash |= board[BLACK] << 24;
+		hash |= checkersToPut[WHITE] << 48;
+		hash |= checkersToPut[BLACK] << 52;
+		hash |= playerToMove << 56;
+		
+		//TODO Symmetries
+		
+		
+		return new BitBoardHash(hash, symms);
+	}
+	
+	public class BitBoardHash {
+		private long hash;
+		private byte symms;
+		
+		public BitBoardHash(long hash, byte symms) {
+			this.hash = hash;
+			this.symms = symms;
+		}
+		
+		public long getHash() {
+			return hash;
+		}
+		
+		public byte getSymms() {
+			return symms;
+		}
+	}
 	
 }

@@ -3,6 +3,8 @@ package it.unibo.ai.mulino.CIRAMill.tests;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.collections4.map.LRUMap;
+
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardAction;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardState;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardTieChecker;
@@ -32,9 +34,9 @@ public class Tests {
 	public static final int seconds = 60;
 	public static final int startingDepth = 1;
 	public static final boolean it_minimax = false;
-	public static final boolean it_alphabeta = true;
+	public static final boolean it_alphabeta = false;
 	public static final boolean it_alphabeta_killer = false;
-	public static final boolean it_alphabeta_killer_variant = true;
+	public static final boolean it_alphabeta_killer_variant = false;
 	public static final boolean it_alphabeta_quiescent = false;
 	
 
@@ -164,6 +166,23 @@ public class Tests {
 			IMinimax minimax = new AlphaBetaQuiescent(tieChecker);
 			new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();;
 		}
+		
+		
+		
+		
+		
+		LRUMap<Long, ValuedAction> map = new LRUMap<>();
+		map.put(1L, new ValuedAction(new BitBoardAction(), 30));
+		
+		ValuedAction va = map.get(1L);
+		System.out.println(va);
+		va.set(va.getAction(), 50);
+		System.out.println(va);
+		
+
+		System.out.println(map.get(1L));
+		
+		
 //		System.out.println(state.getHeuristicEvaluation());
 	}
 	
