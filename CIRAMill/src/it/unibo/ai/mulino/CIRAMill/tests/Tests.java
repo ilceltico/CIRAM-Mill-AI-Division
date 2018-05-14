@@ -18,8 +18,8 @@ import it.unibo.ai.mulino.CIRAMill.minimax.ValuedAction;
 
 public class Tests {
 	
-	public static final int DEPTH = 3;
-	public static final int KNUM = 5;
+	public static final int DEPTH = 6;
+	public static final int KNUM = 10;
 	public static final int STATE = 0;
 	
 	public static final boolean minimax = false;

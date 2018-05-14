@@ -1060,6 +1060,8 @@ public class BitBoardState implements IState {
 	public boolean isQuiescent() {
 		byte opponentPlayer = playerToMove;
 		playerToMove = opponentPlayer == WHITE ? BLACK : WHITE;
+		
+//		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
 
 		int playerToMoveMill;
 		int opponentPlayerMill;
@@ -1073,10 +1075,11 @@ public class BitBoardState implements IState {
 			
 			// l'avversario può bloccare un morris
 			
-			if(gamePhase != MIDGAME || checkersOnBoard[playerToMoveMill] == 3) {
+			if(gamePhase != MIDGAME || checkersOnBoard[playerToMove] == 3) {
 				if((opponentPlayerMill) == 0 && Integer.bitCount(playerToMoveMill) == 2) {
 					for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros(playerToMoveMill ^ mill)]) {
 						if((board[opponentPlayer] & adjacentPosition) != 0) {
+							playerToMove = playerToMove == WHITE ? BLACK : WHITE;
 							return false;
 						}
 					}
@@ -1096,8 +1099,10 @@ public class BitBoardState implements IState {
 					}
 				}
 				
-				if(foundPlayer && foundOpponent)
+				if(foundPlayer && foundOpponent) {
+					playerToMove = playerToMove == WHITE ? BLACK : WHITE;
 					return false;
+				}
 			}
 			
 			// l'avversario può chiudere un morris
@@ -1110,6 +1115,7 @@ public class BitBoardState implements IState {
 //			}
 		}
 		
+		playerToMove = playerToMove == WHITE ? BLACK : WHITE;
 		return true;
 		
 //		if(gamePhase == MIDGAME) {

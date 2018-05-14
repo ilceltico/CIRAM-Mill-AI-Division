@@ -47,12 +47,12 @@ public class AlphaBetaQuiescent implements IMinimax {
 //				state.unmove(a);
 			} else {				
 				// if 'quiescent' OR 'maxHorizon'
-				if(state.isQuiescent() || maxHorizon == 0) {
+				if(state.isQuiescent()) {
 					temp.set(a, -state.getHeuristicEvaluation());
 				} else {
-					maxHorizon--;
-					temp = min(state, maxDepth, alpha, beta);
-					maxHorizon++;
+//					maxHorizon--;
+					temp = minQ(state, maxDepth, alpha, beta);
+//					maxHorizon++;
 				}
 			}
 			
@@ -94,12 +94,12 @@ public class AlphaBetaQuiescent implements IMinimax {
 //				state.unmove(a);
 			} else {
 				// if 'quiescent' OR 'maxHorizon'
-				if(state.isQuiescent() || maxHorizon == 0) {
+				if(state.isQuiescent()) {
 					temp.set(a, -state.getHeuristicEvaluation());
 				} else {
-					maxHorizon--;
-					temp = max(state, maxDepth, alpha, beta);
-					maxHorizon++;
+//					maxHorizon--;
+					temp = maxQ(state, maxDepth, alpha, beta);
+//					maxHorizon++;
 				}
 			}
 			if (temp.getValue() < result.getValue()) {
@@ -114,6 +114,101 @@ public class AlphaBetaQuiescent implements IMinimax {
 			}
 			
 			state.unmove(a);
+		}
+		
+		return result;
+	}
+	
+	private ValuedAction maxQ(IState state, int maxDepth, int alpha, int beta) {
+		List<IAction> actions = state.getFollowingMoves();
+		ValuedAction result = new ValuedAction(null, Integer.MIN_VALUE);
+		ValuedAction temp = new ValuedAction();
+		
+		for (IAction a : actions) {
+			state.move(a);
+			if(state.isQuiescent()) {
+				expandedStates++;
+				
+	//			BitBoardState newState = (BitBoardState) state.applyMove(a);
+				if (state.isWinningState()) {
+					result.set(a, Integer.MAX_VALUE-1);
+					state.unmove(a);
+					break;
+				} else if (tieChecker.isTie(state)) {
+					temp.set(a, 0);
+				} else {				
+					// if 'quiescent' OR 'maxHorizon'
+	//				if(state.isQuiescent()) {
+						temp.set(a, -state.getHeuristicEvaluation());
+	//				} else {
+	////					maxHorizon--;
+	//					temp = minQ(state, maxDepth, alpha, beta);
+	////					maxHorizon++;
+	//				}
+				}
+				
+				if (temp.getValue() > result.getValue()) {
+					result.set(a, temp.getValue());
+				}
+				if (result.getValue() >= beta) {
+					state.unmove(a);
+					return result;
+				}
+				if(result.getValue() >= alpha) {
+					alpha = result.getValue();
+				}
+				
+				state.unmove(a);
+			} else {
+				state.unmove(a);
+			}
+		}
+		
+		return result;
+	}
+	
+	private ValuedAction minQ(IState state, int maxDepth, int alpha, int beta) {
+		List<IAction> actions = state.getFollowingMoves();
+		ValuedAction result = new ValuedAction(null, Integer.MAX_VALUE);
+		ValuedAction temp = new ValuedAction();
+		
+		for (IAction a : actions) {
+			state.move(a);
+			if(state.isQuiescent()) {
+				expandedStates++;
+				
+	//			BitBoardState newState = (BitBoardState) state.applyMove(a);
+				if (state.isWinningState()) {
+					result.set(a, Integer.MIN_VALUE+1);
+					state.unmove(a);
+					break;
+				} else if (tieChecker.isTie(state)) {
+					temp.set(a, 0);
+				} else {
+					// if 'quiescent' OR 'maxHorizon'
+	//				if(state.isQuiescent()) {
+						temp.set(a, -state.getHeuristicEvaluation());
+	//				} else {
+	////					maxHorizon--;
+	//					temp = maxQ(state, maxDepth, alpha, beta);
+	////					maxHorizon++;
+	//				}
+				}
+				if (temp.getValue() < result.getValue()) {
+					result.set(a, temp.getValue());
+				}
+				if (result.getValue() <= alpha) {
+					state.unmove(a);
+					return result;
+				}
+				if(result.getValue() <= beta) {
+					beta = result.getValue();
+				}
+				
+				state.unmove(a);
+			} else {
+				state.unmove(a);
+			}
 		}
 		
 		return result;
