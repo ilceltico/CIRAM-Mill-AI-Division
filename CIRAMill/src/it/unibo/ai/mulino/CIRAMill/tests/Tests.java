@@ -180,7 +180,7 @@ public class Tests {
 			IMinimax minimax = new AlphaBetaTransposition(tieChecker, new BitBoardTranspositionTable());
 			new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();;
 		}
-		
+				
 //		LRUMap<Long, ValuedAction> map = new LRUMap<>();
 //		map.put(1L, new ValuedAction(new BitBoardAction(), 30));
 //		
@@ -194,6 +194,14 @@ public class Tests {
 		
 		
 //		System.out.println(state.getHeuristicEvaluation());
+		
+		BitBoardState state = new BitBoardState(5, 5, (1 << 3) | (1 << 4) | (1 << 6), (1 << 5) | (1 << 17) | (1 << 20), BitBoardState.WHITE , null);
+	
+		System.out.println(state);
+		
+		BitBoardState state2 = new BitBoardState(5, 5, BitBoardUtils.rotationClockwise180((1 << 3) | (1 << 4) | (1 << 6)), BitBoardUtils.rotationClockwise180((1 << 5) | (1 << 17) | (1 << 20)), BitBoardState.WHITE , null);
+
+		System.out.println(state2);
 	}
 	
 	static class IterativeTestRunnable implements Runnable {

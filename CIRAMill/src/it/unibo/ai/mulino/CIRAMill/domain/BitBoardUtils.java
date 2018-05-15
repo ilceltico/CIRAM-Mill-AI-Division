@@ -93,17 +93,15 @@ public class BitBoardUtils {
 		return result;
 	}
 	
-	public static int rotationClockwise(int board) {
+	public static int rotationClockwise90(int board) {
         return ((board & 0x3F3F3F) << 2) | ((board & 0xC0C0C0) >>> 6);
     }
 	
 	public static int rotationClockwise180(int board) {
-		// forse cosi'
-//		return ((board & 0x3F3F3F) << 4) | ((board & 0xC0C0C0) >>> 4);
-		return 0;
+		return ((board & 0x0F0F0F) << 4) | ((board & 0xF0F0F0) >>> 4);
 	}
 
-    public static int rotationAnticlockwise(int board) {
+    public static int rotationAnticlockwise90(int board) {
     	return ((board & 0xFCFCFC) >>> 2 | (board & 0x030303) << 6);
     }
 	

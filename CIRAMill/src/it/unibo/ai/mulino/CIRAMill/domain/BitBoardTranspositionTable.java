@@ -59,19 +59,19 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 			
 			switch(symms & 0b00011) {
 			case BitBoardState.ROTATION_90:
-				from = BitBoardUtils.rotationAnticlockwise(from);
-				to = BitBoardUtils.rotationAnticlockwise(to);
-				remove = BitBoardUtils.rotationAnticlockwise(remove);
+				from = BitBoardUtils.rotationAnticlockwise90(from);
+				to = BitBoardUtils.rotationAnticlockwise90(to);
+				remove = BitBoardUtils.rotationAnticlockwise90(remove);
 				break;
 			case BitBoardState.ROTATION_180:
-				from = BitBoardUtils.rotationAnticlockwise(BitBoardUtils.rotationAnticlockwise(from));
-				to = BitBoardUtils.rotationAnticlockwise(BitBoardUtils.rotationAnticlockwise(to));
-				remove = BitBoardUtils.rotationAnticlockwise(BitBoardUtils.rotationAnticlockwise(remove));
+				from = BitBoardUtils.rotationClockwise180(from);
+				to = BitBoardUtils.rotationClockwise180(to);
+				remove = BitBoardUtils.rotationClockwise180(remove);
 				break;
 			case BitBoardState.ROTATION_270:
-				from = BitBoardUtils.rotationClockwise(from);
-				to = BitBoardUtils.rotationClockwise(to);
-				remove = BitBoardUtils.rotationClockwise(remove);
+				from = BitBoardUtils.rotationClockwise90(from);
+				to = BitBoardUtils.rotationClockwise90(to);
+				remove = BitBoardUtils.rotationClockwise90(remove);
 				break;
 			default:
 			}
@@ -103,19 +103,19 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 		
 		switch(symms & 0b00011) {
 		case BitBoardState.ROTATION_90:
-			from = BitBoardUtils.rotationClockwise(from);
-			to = BitBoardUtils.rotationClockwise(to);
-			remove = BitBoardUtils.rotationClockwise(remove);
+			from = BitBoardUtils.rotationClockwise90(from);
+			to = BitBoardUtils.rotationClockwise90(to);
+			remove = BitBoardUtils.rotationClockwise90(remove);
 			break;
 		case BitBoardState.ROTATION_180:
-			from = BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(from));
-			to = BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(to));
-			remove = BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(remove));
+			from = BitBoardUtils.rotationClockwise180(from);
+			to = BitBoardUtils.rotationClockwise180(to);
+			remove = BitBoardUtils.rotationClockwise180(remove);
 			break;
 		case BitBoardState.ROTATION_270:
-			from = BitBoardUtils.rotationAnticlockwise(from);
-			to = BitBoardUtils.rotationAnticlockwise(to);
-			remove = BitBoardUtils.rotationAnticlockwise(remove);
+			from = BitBoardUtils.rotationAnticlockwise90(from);
+			to = BitBoardUtils.rotationAnticlockwise90(to);
+			remove = BitBoardUtils.rotationAnticlockwise90(remove);
 			break;
 		default:
 		}

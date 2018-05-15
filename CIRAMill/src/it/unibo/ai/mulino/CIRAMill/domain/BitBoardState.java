@@ -1351,8 +1351,8 @@ public class BitBoardState implements IState {
 		hash |= ((long) playerToMove) << 56;		
 		
 		// rotation 90
-		tempHash = BitBoardUtils.rotationClockwise(board[WHITE]);
-		tempHash |= ((long) BitBoardUtils.rotationClockwise(board[BLACK])) << 24;
+		tempHash = BitBoardUtils.rotationClockwise90(board[WHITE]);
+		tempHash |= ((long) BitBoardUtils.rotationClockwise90(board[BLACK])) << 24;
 		tempHash |= ((long) checkersToPut[WHITE]) << 48;
 		tempHash |= ((long) checkersToPut[BLACK]) << 52;
 		tempHash |= ((long) playerToMove) << 56;
@@ -1363,8 +1363,8 @@ public class BitBoardState implements IState {
 		}
 		
 		// rotation 180
-		tempHash = BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[WHITE]));
-		tempHash |= ((long) BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[BLACK]))) << 24;
+		tempHash = BitBoardUtils.rotationClockwise180(board[WHITE]);
+		tempHash |= ((long) BitBoardUtils.rotationClockwise180(board[BLACK])) << 24;
 		tempHash |= ((long) checkersToPut[WHITE]) << 48;
 		tempHash |= ((long) checkersToPut[BLACK]) << 52;
 		tempHash |= ((long) playerToMove) << 56;
@@ -1375,8 +1375,8 @@ public class BitBoardState implements IState {
 		}
 
 		// rotation 270
-		tempHash = BitBoardUtils.rotationAnticlockwise(board[WHITE]);
-		tempHash |= ((long) BitBoardUtils.rotationAnticlockwise(board[BLACK])) << 24;
+		tempHash = BitBoardUtils.rotationAnticlockwise90(board[WHITE]);
+		tempHash |= ((long) BitBoardUtils.rotationAnticlockwise90(board[BLACK])) << 24;
 		tempHash |= ((long) checkersToPut[WHITE]) << 48;
 		tempHash |= ((long) checkersToPut[BLACK]) << 52;
 		tempHash |= ((long) playerToMove) << 56;
@@ -1399,8 +1399,8 @@ public class BitBoardState implements IState {
 		}
 		
 		// vertical flip - rotation 90
-		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(board[WHITE]));
-		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(board[BLACK]))) << 24;
+		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE]));
+		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK]))) << 24;
 		tempHash |= ((long) checkersToPut[WHITE]) << 48;
 		tempHash |= ((long) checkersToPut[BLACK]) << 52;
 		tempHash |= ((long) playerToMove) << 56;
@@ -1412,8 +1412,8 @@ public class BitBoardState implements IState {
 		}
 		
 		// vertical flip - rotation 180
-		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[WHITE])));
-		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[BLACK])))) << 24;
+		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE]));
+		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK]))) << 24;
 		tempHash |= ((long) checkersToPut[WHITE]) << 48;
 		tempHash |= ((long) checkersToPut[BLACK]) << 52;
 		tempHash |= ((long) playerToMove) << 56;
@@ -1425,8 +1425,8 @@ public class BitBoardState implements IState {
 		}
 
 		// vertical flip - rotation 270
-		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise(board[WHITE]));
-		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise(board[BLACK]))) << 24;
+		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE]));
+		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK]))) << 24;
 		tempHash |= ((long) checkersToPut[WHITE]) << 48;
 		tempHash |= ((long) checkersToPut[BLACK]) << 52;
 		tempHash |= ((long) playerToMove) << 56;
@@ -1450,8 +1450,8 @@ public class BitBoardState implements IState {
 		}
 		
 		// inside out - rotation 90
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise(board[WHITE]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise(board[BLACK]))) << 24;
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[WHITE]));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[BLACK]))) << 24;
 		tempHash |= ((long) checkersToPut[WHITE]) << 48;
 		tempHash |= ((long) checkersToPut[BLACK]) << 52;
 		tempHash |= ((long) playerToMove) << 56;
@@ -1463,8 +1463,8 @@ public class BitBoardState implements IState {
 		}
 		
 		// inside out - rotation 180
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[WHITE])));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[BLACK])))) << 24;
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[WHITE]));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[BLACK]))) << 24;
 		tempHash |= ((long) checkersToPut[WHITE]) << 48;
 		tempHash |= ((long) checkersToPut[BLACK]) << 52;
 		tempHash |= ((long) playerToMove) << 56;
@@ -1476,8 +1476,8 @@ public class BitBoardState implements IState {
 		}
 		
 		// inside out - rotation 270
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise(board[WHITE]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise(board[BLACK]))) << 24;
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[WHITE]));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[BLACK]))) << 24;
 		tempHash |= ((long) checkersToPut[WHITE]) << 48;
 		tempHash |= ((long) checkersToPut[BLACK]) << 52;
 		tempHash |= ((long) playerToMove) << 56;
@@ -1502,8 +1502,8 @@ public class BitBoardState implements IState {
 		}
 		
 		// inside out - vertical flip - rotation 90
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(board[WHITE])));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(board[BLACK])))) << 24;
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE])));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK])))) << 24;
 		tempHash |= ((long) checkersToPut[WHITE]) << 48;
 		tempHash |= ((long) checkersToPut[BLACK]) << 52;
 		tempHash |= ((long) playerToMove) << 56;
@@ -1516,8 +1516,8 @@ public class BitBoardState implements IState {
 		}
 		
 		// inside out - vertical flip - rotation 180
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[WHITE]))));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[BLACK]))))) << 24;
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE])));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK])))) << 24;
 		tempHash |= ((long) checkersToPut[WHITE]) << 48;
 		tempHash |= ((long) checkersToPut[BLACK]) << 52;
 		tempHash |= ((long) playerToMove) << 56;
@@ -1530,8 +1530,8 @@ public class BitBoardState implements IState {
 		}
 		
 		// inside out - vertical flip - rotation 270
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise(board[WHITE])));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise(board[BLACK])))) << 24;
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE])));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK])))) << 24;
 		tempHash |= ((long) checkersToPut[WHITE]) << 48;
 		tempHash |= ((long) checkersToPut[BLACK]) << 52;
 		tempHash |= ((long) playerToMove) << 56;
@@ -1556,8 +1556,8 @@ public class BitBoardState implements IState {
 		}
 		
 		// color inversion - rotation 90
-		tempHash = BitBoardUtils.rotationClockwise(board[BLACK]);
-		tempHash |= ((long) BitBoardUtils.rotationClockwise(board[WHITE])) << 24;
+		tempHash = BitBoardUtils.rotationClockwise90(board[BLACK]);
+		tempHash |= ((long) BitBoardUtils.rotationClockwise90(board[WHITE])) << 24;
 		tempHash |= ((long) checkersToPut[BLACK]) << 48;
 		tempHash |= ((long) checkersToPut[WHITE]) << 52;
 		tempHash |= ((long) opponentPlayer) << 56;
@@ -1569,8 +1569,8 @@ public class BitBoardState implements IState {
 		}
 
 		// color inversion - rotation 180
-		tempHash = BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[WHITE]))) << 24;
+		tempHash = BitBoardUtils.rotationClockwise180(board[BLACK]);
+		tempHash |= ((long) BitBoardUtils.rotationClockwise180(board[WHITE])) << 24;
 		tempHash |= ((long) checkersToPut[BLACK]) << 48;
 		tempHash |= ((long) checkersToPut[WHITE]) << 52;
 		tempHash |= ((long) opponentPlayer) << 56;
@@ -1582,8 +1582,8 @@ public class BitBoardState implements IState {
 		}
 
 		// color inversion - rotation 270
-		tempHash = BitBoardUtils.rotationAnticlockwise(board[BLACK]);
-		tempHash |= ((long) BitBoardUtils.rotationAnticlockwise(board[WHITE])) << 24;
+		tempHash = BitBoardUtils.rotationAnticlockwise90(board[BLACK]);
+		tempHash |= ((long) BitBoardUtils.rotationAnticlockwise90(board[WHITE])) << 24;
 		tempHash |= ((long) checkersToPut[BLACK]) << 48;
 		tempHash |= ((long) checkersToPut[WHITE]) << 52;
 		tempHash |= ((long) opponentPlayer) << 56;
@@ -1608,8 +1608,8 @@ public class BitBoardState implements IState {
 		}
 
 		// color inversion - vertical flip - rotation 90
-		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(board[WHITE]))) << 24;
+		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK]));
+		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE]))) << 24;
 		tempHash |= ((long) checkersToPut[BLACK]) << 48;
 		tempHash |= ((long) checkersToPut[WHITE]) << 52;
 		tempHash |= ((long) opponentPlayer) << 56;
@@ -1622,8 +1622,8 @@ public class BitBoardState implements IState {
 		}
 
 		// color inversion - vertical flip - rotation 180
-		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[BLACK])));
-		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[WHITE])))) << 24;
+		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK]));
+		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE]))) << 24;
 		tempHash |= ((long) checkersToPut[BLACK]) << 48;
 		tempHash |= ((long) checkersToPut[WHITE]) << 52;
 		tempHash |= ((long) opponentPlayer) << 56;
@@ -1636,8 +1636,8 @@ public class BitBoardState implements IState {
 		}
 
 		// color inversion - vertical flip - rotation 270
-		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise(board[WHITE]))) << 24;
+		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK]));
+		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE]))) << 24;
 		tempHash |= ((long) checkersToPut[BLACK]) << 48;
 		tempHash |= ((long) checkersToPut[WHITE]) << 52;
 		tempHash |= ((long) opponentPlayer) << 56;
@@ -1663,8 +1663,8 @@ public class BitBoardState implements IState {
 		}
 
 		// color inversion - inside out - rotation 90
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise(board[WHITE]))) << 24;
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[BLACK]));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[WHITE]))) << 24;
 		tempHash |= ((long) checkersToPut[BLACK]) << 48;
 		tempHash |= ((long) checkersToPut[WHITE]) << 52;
 		tempHash |= ((long) opponentPlayer) << 56;
@@ -1677,8 +1677,8 @@ public class BitBoardState implements IState {
 		}
 
 		// color inversion - inside out - rotation 180
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[BLACK])));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[WHITE])))) << 24;
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[BLACK]));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[WHITE]))) << 24;
 		tempHash |= ((long) checkersToPut[BLACK]) << 48;
 		tempHash |= ((long) checkersToPut[WHITE]) << 52;
 		tempHash |= ((long) opponentPlayer) << 56;
@@ -1691,8 +1691,8 @@ public class BitBoardState implements IState {
 		}
 
 		// coor inversion - inside out - rotation 270
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise(board[WHITE]))) << 24;
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[BLACK]));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[WHITE]))) << 24;
 		tempHash |= ((long) checkersToPut[BLACK]) << 48;
 		tempHash |= ((long) checkersToPut[WHITE]) << 52;
 		tempHash |= ((long) opponentPlayer) << 56;
@@ -1719,8 +1719,8 @@ public class BitBoardState implements IState {
 		}
 
 		// color inversion - inside out - vertical flip - rotation 90
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(board[BLACK])));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(board[WHITE])))) << 24;
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK])));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE])))) << 24;
 		tempHash |= ((long) checkersToPut[BLACK]) << 48;
 		tempHash |= ((long) checkersToPut[WHITE]) << 52;
 		tempHash |= ((long) opponentPlayer) << 56;
@@ -1734,8 +1734,8 @@ public class BitBoardState implements IState {
 		}
 
 		// color inversion - inside out - vertical flip - rotation 180
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[BLACK]))));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(board[WHITE]))))) << 24;
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK])));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE])))) << 24;
 		tempHash |= ((long) checkersToPut[BLACK]) << 48;
 		tempHash |= ((long) checkersToPut[WHITE]) << 52;
 		tempHash |= ((long) opponentPlayer) << 56;
@@ -1749,8 +1749,8 @@ public class BitBoardState implements IState {
 		}
 
 		// color inversion - inside out - vertical flip - rotation 270
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise(board[BLACK])));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise(board[WHITE])))) << 24;
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK])));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE])))) << 24;
 		tempHash |= ((long) checkersToPut[BLACK]) << 48;
 		tempHash |= ((long) checkersToPut[WHITE]) << 52;
 		tempHash |= ((long) opponentPlayer) << 56;
