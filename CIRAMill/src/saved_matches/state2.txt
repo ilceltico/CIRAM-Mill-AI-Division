@@ -1,0 +1,263 @@
+STATE 2
+ALPHA-BETA CLASSIC
+AlphaBeta:
+Elapsed time: 9
+Expanded states: 69
+Selected action is: f2f4, value: -12
+Level 2 completed
+
+AlphaBeta:
+Elapsed time: 5
+Expanded states: 196
+Selected action is: f2f4, value: -12
+Level 3 completed
+
+AlphaBeta:
+Elapsed time: 37
+Expanded states: 2188
+Selected action is: g1g4, value: -12
+Level 4 completed
+
+AlphaBeta:
+Elapsed time: 48
+Expanded states: 4381
+Selected action is: g1g4, value: -3
+Level 5 completed
+
+AlphaBeta:
+Elapsed time: 172
+Expanded states: 53864
+Selected action is: g1g4, value: -12
+Level 6 completed
+
+AlphaBeta:
+Elapsed time: 191
+Expanded states: 51374
+Selected action is: g1g4, value: -4
+Level 7 completed
+
+AlphaBeta:
+Elapsed time: 1400
+Expanded states: 1036606
+Selected action is: g1g4, value: -9
+Level 8 completed
+
+AlphaBeta:
+Elapsed time: 1031
+Expanded states: 1371204
+Selected action is: g1g4, value: 9
+Level 9 completed
+
+AlphaBeta:
+Elapsed time: 16086
+Expanded states: 22183001
+Selected action is: g1g4, value: -5
+Level 10 completed
+
+AlphaBeta:
+Elapsed time: 24407
+Expanded states: 33635093
+Selected action is: g1g4, value: 22
+Level 11 completed
+
+1950
+
+
+Selected action: g1g4, value: 22
+7 W--------O--------W
+6 |--O-----W-----O--|
+5 |--|--O--W--O--|--|
+4 B--W--W     B--O--B
+3 |--|--O--W--O--|--|
+2 |--B-----B-----B--|
+1 B--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+-----------------------------
+TRANSPOSITION WITH NO SIMMETRIES
+AlphaBetaTransposition:
+Elapsed time: 5
+Expanded states: 69
+TT Hits: 0
+Selected action is: f2f4, value: -12
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 6
+Expanded states: 205
+TT Hits: 10
+Selected action is: f2f4, value: -12
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 35
+Expanded states: 2756
+TT Hits: 138
+Selected action is: g1g4, value: -12
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 30
+Expanded states: 5812
+TT Hits: 506
+Selected action is: g1g4, value: -3
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 149
+Expanded states: 26125
+TT Hits: 1864
+Selected action is: g1g4, value: -12
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 286
+Expanded states: 80272
+TT Hits: 11192
+Selected action is: g1g4, value: -4
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1235
+Expanded states: 525946
+TT Hits: 70898
+Selected action is: g1g4, value: -9
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1545
+Expanded states: 1113774
+TT Hits: 203172
+Selected action is: g1g4, value: 9
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 5895
+Expanded states: 5546242
+TT Hits: 994113
+Selected action is: g1g4, value: -5
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 14027
+Expanded states: 10891002
+TT Hits: 2395103
+Selected action is: g1g4, value: 22
+Level 11 completed
+
+1914
+
+
+Selected action: g1g4, value: 22
+7 W--------O--------W
+6 |--O-----W-----O--|
+5 |--|--O--W--O--|--|
+4 B--W--W     B--O--B
+3 |--|--O--W--O--|--|
+2 |--B-----B-----B--|
+1 B--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+-------------------------
+TRANSPOSITION WITH SIMMETRIES
+AlphaBetaTransposition:
+Elapsed time: 7
+Expanded states: 69
+TT Hits: 0
+Selected action is: f2f4, value: -12
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 8
+Expanded states: 205
+TT Hits: 10
+Selected action is: f2f4, value: -12
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 57
+Expanded states: 2756
+TT Hits: 138
+Selected action is: g1g4, value: -12
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 38
+Expanded states: 5812
+TT Hits: 506
+Selected action is: g1g4, value: -3
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 119
+Expanded states: 26125
+TT Hits: 1864
+Selected action is: g1g4, value: -12
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 429
+Expanded states: 80272
+TT Hits: 11192
+Selected action is: g1g4, value: -4
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1243
+Expanded states: 525946
+TT Hits: 70898
+Selected action is: g1g4, value: -9
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1407
+Expanded states: 1113774
+TT Hits: 203172
+Selected action is: g1g4, value: 9
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 6299
+Expanded states: 5546242
+TT Hits: 994113
+Selected action is: g1g4, value: -5
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 12551
+Expanded states: 10891002
+TT Hits: 2395103
+Selected action is: g1g4, value: 22
+Level 11 completed
+
+1403
+
+
+Selected action: g1g4, value: 22
+7 W--------O--------W
+6 |--O-----W-----O--|
+5 |--|--O--W--O--|--|
+4 B--W--W     B--O--B
+3 |--|--O--W--O--|--|
+2 |--B-----B-----B--|
+1 B--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
