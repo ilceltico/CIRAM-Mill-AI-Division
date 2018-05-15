@@ -24,15 +24,59 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 	public IAction[] getActions(IState state) {
 		BitBoardState bState = (BitBoardState) state;
 		BitBoardHash bHash = bState.getHash();
+		byte symms = bHash.getSymms();
 		BitBoardEntry entry = tranpositionTable.get(bHash.getHash());
 		if (entry == null)
 			return new BitBoardAction[0];
 		
 		BitBoardAction[] results = new BitBoardAction[2];
-		for (int i=0; i<results.length; i++) {
-			//TODO Applica simmetrie all'azione in ordine inverso
-			//Occhio a creare una valued action nuova, niente riferimenti.
-			results[i] = entry.actions[i];
+		int from;
+		int to;
+		int remove;
+		
+		for (int i=0; i<results.length; i++) {			
+			from = entry.actions[i].getFrom();
+			to = entry.actions[i].getTo();
+			remove = entry.actions[i].getRemove();
+			
+			if((symms & BitBoardState.COLOR_INVERSION) != 0) {
+				/*
+				 * per l'azione penso non serva
+				 */
+			}
+			
+			if((symms & BitBoardState.INSIDE_OUT) != 0) {
+				from = BitBoardUtils.insideOut(from);
+				to = BitBoardUtils.insideOut(to);
+				remove = BitBoardUtils.insideOut(remove);
+			}
+			
+			if((symms & BitBoardState.VERTICAL_FLIP) != 0) {
+				from = BitBoardUtils.verticalFlip(from);
+				to = BitBoardUtils.verticalFlip(to);
+				remove = BitBoardUtils.verticalFlip(remove);
+			}
+			
+			switch(symms & 0b00011) {
+			case BitBoardState.ROTATION_90:
+				from = BitBoardUtils.rotationAnticlockwise(from);
+				to = BitBoardUtils.rotationAnticlockwise(to);
+				remove = BitBoardUtils.rotationAnticlockwise(remove);
+				break;
+			case BitBoardState.ROTATION_180:
+				from = BitBoardUtils.rotationAnticlockwise(BitBoardUtils.rotationAnticlockwise(from));
+				to = BitBoardUtils.rotationAnticlockwise(BitBoardUtils.rotationAnticlockwise(to));
+				remove = BitBoardUtils.rotationAnticlockwise(BitBoardUtils.rotationAnticlockwise(remove));
+				break;
+			case BitBoardState.ROTATION_270:
+				from = BitBoardUtils.rotationClockwise(from);
+				to = BitBoardUtils.rotationClockwise(to);
+				remove = BitBoardUtils.rotationClockwise(remove);
+				break;
+			default:
+			}
+			
+			results[i] = new BitBoardAction(from, to, remove);
 		}
 		
 		if (results[0].equals(results[1])) {
@@ -49,24 +93,66 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 		BitBoardState bState = (BitBoardState) state;
 //		System.out.println(bState);
 		BitBoardHash bHash = bState.getHash();
+		byte symms = bHash.getSymms();
 		
 		BitBoardAction actionToPut = (BitBoardAction) action;
-		//TODO Applica simmetrie all'azione
 		
+		int from = actionToPut.getFrom();
+		int to = actionToPut.getTo();
+		int remove = actionToPut.getRemove();
+		
+		switch(symms & 0b00011) {
+		case BitBoardState.ROTATION_90:
+			from = BitBoardUtils.rotationClockwise(from);
+			to = BitBoardUtils.rotationClockwise(to);
+			remove = BitBoardUtils.rotationClockwise(remove);
+			break;
+		case BitBoardState.ROTATION_180:
+			from = BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(from));
+			to = BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(to));
+			remove = BitBoardUtils.rotationClockwise(BitBoardUtils.rotationClockwise(remove));
+			break;
+		case BitBoardState.ROTATION_270:
+			from = BitBoardUtils.rotationAnticlockwise(from);
+			to = BitBoardUtils.rotationAnticlockwise(to);
+			remove = BitBoardUtils.rotationAnticlockwise(remove);
+			break;
+		default:
+		}
+		
+		if((symms & BitBoardState.VERTICAL_FLIP) != 0) {
+			from = BitBoardUtils.verticalFlip(from);
+			to = BitBoardUtils.verticalFlip(to);
+			remove = BitBoardUtils.verticalFlip(remove);
+		}
+		
+		if((symms & BitBoardState.INSIDE_OUT) != 0) {
+			from = BitBoardUtils.insideOut(from);
+			to = BitBoardUtils.insideOut(to);
+			remove = BitBoardUtils.insideOut(remove);
+		}
+
+		if((symms & BitBoardState.COLOR_INVERSION) != 0) {
+			/*
+			 * per l'azione penso non serva
+			 */
+		}
+		
+		BitBoardAction transformedActionToPut = new BitBoardAction(from, to, remove);		
 
 		BitBoardEntry entry = tranpositionTable.get(bHash.getHash());
 		if (entry == null) {
 			entry = new BitBoardEntry();
 			entry.setDepth(depth);
-			entry.setActions(new BitBoardAction[]{actionToPut, 
-					actionToPut});
+			entry.setActions(new BitBoardAction[]{transformedActionToPut, 
+					transformedActionToPut});
 			
 			tranpositionTable.put(bHash.getHash(), entry);
 		} else {
 			if (entry.getDepth() <= depth) {
-				entry.getActions()[0] = actionToPut;
+				entry.getActions()[0] = transformedActionToPut;
 			} else {
-				entry.getActions()[1] = actionToPut;
+				entry.getActions()[1] = transformedActionToPut;
 			}
 		}
 	}

@@ -93,5 +93,35 @@ public class BitBoardUtils {
 		return result;
 	}
 	
+	public static int rotationClockwise(int board) {
+        return ((board & 0x3F3F3F) << 2) | ((board & 0xC0C0C0) >>> 6);
+    }
 	
+	public static int rotationClockwise180(int board) {
+		// forse cosi'
+//		return ((board & 0x3F3F3F) << 4) | ((board & 0xC0C0C0) >>> 4);
+		return 0;
+	}
+
+    public static int rotationAnticlockwise(int board) {
+    	return ((board & 0xFCFCFC) >>> 2 | (board & 0x030303) << 6);
+    }
+	
+    public static int insideOut(int board) {
+        return ((board & 0xFF0000) >>> 16) | (board & 0x00FF00) | ((board & 0x0000FF) << 16);
+    }
+
+    public static int verticalFlip(int board) {
+       board = ((board & 0x010101) << 7) |
+            ((board & 0x020202) << 5) |
+            ((board & 0x040404) << 3) |
+            ((board & 0x080808) << 1) |
+            ((board & 0x101010) >> 1) |
+            ((board & 0x202020) >> 3) |
+            ((board & 0x404040) >> 5) |
+            ((board & 0x808080) >> 7);
+        
+        return ((board & 0x010101) << 7) | ((board & 0xFEFEFE) >>> 1);    
+    }
+    	
 }

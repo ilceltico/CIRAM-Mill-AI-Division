@@ -9,6 +9,7 @@ import it.unibo.ai.mulino.CIRAMill.domain.BitBoardAction;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardState;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardTieChecker;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardTranspositionTable;
+import it.unibo.ai.mulino.CIRAMill.domain.BitBoardUtils;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBeta;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBetaKiller;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBetaKillerVariant;
@@ -23,13 +24,13 @@ import it.unibo.ai.mulino.CIRAMill.minimax.ValuedAction;
 
 public class Tests {
 	
-	public static final int DEPTH = 3;
+	public static final int DEPTH = 8;
 	public static final int KNUM = 10;
-	public static final int STATE = 0;
+	public static final int STATE = 1;
 	
 	public static final boolean minimax = false;
 	public static final boolean alphabeta = false;
-	public static final boolean alphabeta_killer = false;
+	public static final boolean alphabeta_killer = true;
 	public static final boolean alphabeta_killer_variant = false;
 	public static final boolean alphabeta_quiescent = false;
 	public static final boolean alphabeta_transp = false;
@@ -41,7 +42,7 @@ public class Tests {
 	public static final boolean it_alphabeta_killer = false;
 	public static final boolean it_alphabeta_killer_variant = false;
 	public static final boolean it_alphabeta_quiescent = false;
-	public static final boolean it_alphabeta_transp = true;
+	public static final boolean it_alphabeta_transp = false;
 	
 
 	public static void main(String[] args) {
@@ -179,10 +180,6 @@ public class Tests {
 			IMinimax minimax = new AlphaBetaTransposition(tieChecker, new BitBoardTranspositionTable());
 			new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();;
 		}
-		
-		
-		
-		
 		
 //		LRUMap<Long, ValuedAction> map = new LRUMap<>();
 //		map.put(1L, new ValuedAction(new BitBoardAction(), 30));
