@@ -8,10 +8,12 @@ import org.apache.commons.collections4.map.LRUMap;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardAction;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardState;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardTieChecker;
+import it.unibo.ai.mulino.CIRAMill.domain.BitBoardTranspositionTable;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBeta;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBetaKiller;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBetaKillerVariant;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBetaQuiescent;
+import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBetaTransposition;
 import it.unibo.ai.mulino.CIRAMill.minimax.IAction;
 import it.unibo.ai.mulino.CIRAMill.minimax.IMinimax;
 import it.unibo.ai.mulino.CIRAMill.minimax.ITieChecker;
@@ -21,7 +23,7 @@ import it.unibo.ai.mulino.CIRAMill.minimax.ValuedAction;
 
 public class Tests {
 	
-	public static final int DEPTH = 10;
+	public static final int DEPTH = 3;
 	public static final int KNUM = 10;
 	public static final int STATE = 0;
 	
@@ -30,14 +32,16 @@ public class Tests {
 	public static final boolean alphabeta_killer = false;
 	public static final boolean alphabeta_killer_variant = false;
 	public static final boolean alphabeta_quiescent = false;
+	public static final boolean alphabeta_transp = false;
 	
 	public static final int seconds = 60;
-	public static final int startingDepth = 1;
+	public static final int startingDepth = 2;
 	public static final boolean it_minimax = false;
 	public static final boolean it_alphabeta = false;
 	public static final boolean it_alphabeta_killer = false;
 	public static final boolean it_alphabeta_killer_variant = false;
 	public static final boolean it_alphabeta_quiescent = false;
+	public static final boolean it_alphabeta_transp = true;
 	
 
 	public static void main(String[] args) {
@@ -140,6 +144,10 @@ public class Tests {
 			new Thread(new MinimaxTestRunnable(new AlphaBetaQuiescent(tieChecker), tieChecker)).start();
 
 		}
+		if (alphabeta_transp) {
+			BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+			new Thread(new MinimaxTestRunnable(new AlphaBetaTransposition(tieChecker, new BitBoardTranspositionTable()), tieChecker)).start();;
+		}
 		
 		if (it_minimax) {
 			BitBoardTieChecker tieChecker = new BitBoardTieChecker();
@@ -166,21 +174,26 @@ public class Tests {
 			IMinimax minimax = new AlphaBetaQuiescent(tieChecker);
 			new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();;
 		}
+		if (it_alphabeta_transp) {
+			BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+			IMinimax minimax = new AlphaBetaTransposition(tieChecker, new BitBoardTranspositionTable());
+			new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();;
+		}
 		
 		
 		
 		
 		
-		LRUMap<Long, ValuedAction> map = new LRUMap<>();
-		map.put(1L, new ValuedAction(new BitBoardAction(), 30));
-		
-		ValuedAction va = map.get(1L);
-		System.out.println(va);
-		va.set(va.getAction(), 50);
-		System.out.println(va);
-		
-
-		System.out.println(map.get(1L));
+//		LRUMap<Long, ValuedAction> map = new LRUMap<>();
+//		map.put(1L, new ValuedAction(new BitBoardAction(), 30));
+//		
+//		ValuedAction va = map.get(1L);
+//		System.out.println(va);
+//		va.set(va.getAction(), 50);
+//		System.out.println(va);
+//		
+//
+//		System.out.println(map.get(1L));
 		
 		
 //		System.out.println(state.getHeuristicEvaluation());
@@ -189,43 +202,53 @@ public class Tests {
 	static class IterativeTestRunnable implements Runnable {
 		IMinimax minimax;
 		ITieChecker tieChecker;
-		int maxSeconds;
+		long millis;
 		
 		public IterativeTestRunnable(IMinimax minimax, ITieChecker tieChecker, int maxSeconds) {
 			this.minimax = minimax;
 			this.tieChecker = tieChecker;
-			this.maxSeconds = maxSeconds;
+			this.millis = ((long)maxSeconds) * 1000;
 		}
 
 		@SuppressWarnings("deprecation")
 		@Override
 		public void run() {
-			BitBoardState state;
+			BitBoardState state, stateClone;
 			switch (STATE) {
 			case 0: state =  new BitBoardState(tieChecker); break;
 			case 1: state = new BitBoardState(0, 0, (1 << 9) | (1 << 11) | (1 << 13) | (1 << 15), 0b110010110000000101000010 , BitBoardState.WHITE, tieChecker); break;
+			case 2: state = new BitBoardState(0, 0, (1 << 0) | (1 << 2) | (1 << 9) | (1 << 15) | (1 << 17) | (1 << 21) | (1 << 23),
+					(1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 12) | (1 << 13) | (1 << 14) | (1 << 19), BitBoardState.BLACK, tieChecker); break;
 			default: throw new IllegalArgumentException("Invalid STATE number");
 			}
+			stateClone = (BitBoardState) state.clone();
 			
-			IterativeDeepeningRunnable runnable = new IterativeDeepeningRunnable(minimax, state, startingDepth);
+			IterativeDeepeningRunnable runnable = new IterativeDeepeningRunnable(minimax, stateClone, startingDepth);
 			Thread iterativeThread = new Thread(runnable);
 			iterativeThread.start();
 			
-			while (maxSeconds > 1) {
+			long curMillis;
+			while (millis > 2000) {
+				curMillis = System.currentTimeMillis();
 				try {
-					Thread.sleep(1000);
+					Thread.sleep(500);
 				} catch (InterruptedException e) {
 					System.out.println("Shouldn't happen...");
 					e.printStackTrace();
 				}
-				maxSeconds--;
+				millis -= System.currentTimeMillis() - curMillis;
+				if (!iterativeThread.isAlive())
+					break;
+//				System.out.println(millis);
 			}
 			
-			iterativeThread.stop();
+			if (iterativeThread.isAlive())
+				iterativeThread.stop();
+			System.out.println(millis);
 			
 			ValuedAction vAction = runnable.getSelectedValuedAction();
 			state.move(vAction.getAction());
-			System.out.println("\n\n" + state);
+			System.out.println("\n\nSelected action: " + vAction + "\n" + state);
 		}
 	}
 	
@@ -238,19 +261,28 @@ public class Tests {
 			this.minimax = minimax;
 			this.tieChecker = tieChecker;
 		}
-
+//		7 W--------O--------W
+//		6 |--O-----W-----O--|
+//		5 |--|--O--W--O--|--|
+//		4 B--W--W     B--O--O
+//		3 |--|--O--W--O--|--|
+//		2 |--B-----B-----B--|
+//		1 B--------B--------B
+//		  a  b  c  d  e  f  g
 		@Override
 		public void run() {
 			BitBoardState state;
 			switch (STATE) {
 			case 0: state =  new BitBoardState(tieChecker); break;
 			case 1: state = new BitBoardState(0, 0, (1 << 9) | (1 << 11) | (1 << 13) | (1 << 15), 0b110010110000000101000010 , BitBoardState.WHITE, tieChecker); break;
+			case 2: state = new BitBoardState(0, 0, (1 << 0) | (1 << 2) | (1 << 9) | (1 << 15) | (1 << 17) | (1 << 21) | (1 << 23),
+													(1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 12) | (1 << 13) | (1 << 14) | (1 << 19), BitBoardState.BLACK, tieChecker); break;
 			default: throw new IllegalArgumentException("Invalid STATE number");
 			}
 			
 			ValuedAction vAction = minimax.minimaxDecision(state, DEPTH);
 			state.move(vAction.getAction());
-			System.out.println("\n\n" + state);
+			System.out.println("\n\nSelected action: " + vAction + "\n" + state);
 		}
 		
 	}

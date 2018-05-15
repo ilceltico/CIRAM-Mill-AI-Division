@@ -355,13 +355,13 @@ public class BitBoardState implements IState {
 		int remove;
 		byte opponentPlayer = playerToMove == BitBoardState.WHITE ? BitBoardState.BLACK : BitBoardState.WHITE;
 		
-//		if (this.equals(new BitBoardState(tieChecker))) {
-//			result.add(new BitBoardAction(0, 1, 0));
-//			result.add(new BitBoardAction(0, 1 << 1, 0));
-//			result.add(new BitBoardAction(0, 1 << 8, 0));
-//			result.add(new BitBoardAction(0, 1 << 9, 0));
-//			return result;
-//		}
+		if (this.equals(new BitBoardState(tieChecker))) {
+			result.add(new BitBoardAction(0, 1, 0));
+			result.add(new BitBoardAction(0, 1 << 1, 0));
+			result.add(new BitBoardAction(0, 1 << 8, 0));
+			result.add(new BitBoardAction(0, 1 << 9, 0));
+			return result;
+		}
 		
 		for (int i = 0; i < 24; i++) {
 			to = 1 << i;
@@ -1037,14 +1037,13 @@ public class BitBoardState implements IState {
 	public boolean isWinningState() {
 		if(gamePhase != MIDGAME)
 			return false;
-		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
 		
-		if(checkersOnBoard[opponentPlayer] < 3)
+		if(checkersOnBoard[playerToMove] < 3)
 			return true;
-		else if(checkersOnBoard[opponentPlayer] > 3) {
+		else if(checkersOnBoard[playerToMove] > 3) {
 			
 			for(int i=0; i<24; i++) {				
-				if((board[opponentPlayer] & (1 << i)) != 0) {					
+				if((board[playerToMove] & (1 << i)) != 0) {					
 					for(int position : ADJACENT_POSITIONS[i]) {
 						if(((board[WHITE] | board[BLACK]) & (1 << position)) == 0)
 							return false;
@@ -1073,7 +1072,7 @@ public class BitBoardState implements IState {
 			playerToMoveMill = board[playerToMove] & mill;
 			opponentPlayerMill = board[opponentPlayer] & mill;
 			
-			// l'avversario può bloccare un morris
+			// l'avversario puï¿½ bloccare un morris
 			
 			if(gamePhase != MIDGAME || checkersOnBoard[playerToMove] == 3) {
 				if((opponentPlayerMill) == 0 && Integer.bitCount(playerToMoveMill) == 2) {
@@ -1105,7 +1104,7 @@ public class BitBoardState implements IState {
 				}
 			}
 			
-			// l'avversario può chiudere un morris
+			// l'avversario puï¿½ chiudere un morris
 //			if(playerToMoveMill == 0 && Integer.bitCount(opponentPlayerMill) == 2) {
 //				for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros(opponentPlayerMill ^ mill)]) {
 //					if((board[opponentPlayer] & adjacentPosition) != 0) {
@@ -1133,13 +1132,13 @@ public class BitBoardState implements IState {
 		return this.gamePhase;
 	}
 	
-//	public boolean isLegalMove(IAction action) {
-//		
-//		if(getFollowingMoves().contains(action))
-//			return true;
-//		else
-//			return false;
-//		
+	public boolean isLegalMove(IAction action) {
+		
+		if(getFollowingMoves().contains(action))
+			return true;
+		else
+			return false;
+		
 //		BitBoardAction bAction = (BitBoardAction) action;
 //		byte opponentPlayer = playerToMove==WHITE?BLACK:WHITE;
 //		
@@ -1329,16 +1328,16 @@ public class BitBoardState implements IState {
 //		}
 //
 //		return true;		
-//	}
+	}
 	
 	public BitBoardHash getHash() {
 		byte symms = 0;
 		
 		long hash = board[WHITE];
-		hash |= board[BLACK] << 24;
-		hash |= checkersToPut[WHITE] << 48;
-		hash |= checkersToPut[BLACK] << 52;
-		hash |= playerToMove << 56;
+		hash |= (((long) board[BLACK]) << 24);
+		hash |= (((long) checkersToPut[WHITE]) << 48);
+		hash |= (((long) checkersToPut[BLACK]) << 52);
+		hash |= (((long) playerToMove) << 56);
 		
 		//TODO Symmetries
 		
