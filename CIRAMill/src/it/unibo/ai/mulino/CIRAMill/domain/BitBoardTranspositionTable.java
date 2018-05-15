@@ -77,6 +77,8 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 			}
 			
 			results[i] = new BitBoardAction(from, to, remove);
+			
+//			results[i] = new BitBoardAction(entry.actions[i].getFrom(), entry.actions[i].getTo(), entry.actions[i].getRemove());
 		}
 		
 		if (results[0].equals(results[1])) {
@@ -140,6 +142,8 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 		
 		BitBoardAction transformedActionToPut = new BitBoardAction(from, to, remove);		
 
+//		BitBoardAction transformedActionToPut = new BitBoardAction(actionToPut.getFrom(), actionToPut.getTo(), actionToPut.getRemove());		
+		
 		BitBoardEntry entry = tranpositionTable.get(bHash.getHash());
 		if (entry == null) {
 			entry = new BitBoardEntry();
