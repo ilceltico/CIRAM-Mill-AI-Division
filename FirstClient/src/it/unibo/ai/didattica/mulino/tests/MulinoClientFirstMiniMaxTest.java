@@ -27,7 +27,7 @@ public class MulinoClientFirstMiniMaxTest {
 
 	public static void main(String[] args) {
 //		 doTest1();
-		doTest1WithAlphaBeta();
+//		doTest1WithAlphaBeta();
 		// doTest2();
 //		 doTest2WithAlphaBeta();
 		// doTest2WithAlphaBetaAndOptimizationsTreeSet();
@@ -37,7 +37,7 @@ public class MulinoClientFirstMiniMaxTest {
 //		 playAgainstBlackCPU();
 //		 playAgainstBlackIterativeCPU();
 //		 playAgainstBlackIterativeKillerCPU();
-//		 doTestStates();
+		 doTestStates();
 
 //		doTestIterativeDeepening();
 //		doTestIterativeDeepeningAlphaBeta();
@@ -48,6 +48,7 @@ public class MulinoClientFirstMiniMaxTest {
 
 	public static void doTest1() {
 		MulinoClientFirstMiniMax.player = Checker.WHITE;
+		MulinoClientFirstMiniMax.otherPlayer = Checker.BLACK;
 		State initialState = new State();
 
 		try {
@@ -1040,33 +1041,41 @@ public class MulinoClientFirstMiniMaxTest {
 		
 		try {
 			state = new State();
-			state.setBlackCheckers(7);
-			state.setWhiteCheckers(7);
-			state.setCurrentPhase(State.Phase.FIRST);
-			state.setBlackCheckersOnBoard(2);
-			state.setWhiteCheckersOnBoard(2);
+			state.setBlackCheckers(0);
+			state.setWhiteCheckers(0);
+			state.setCurrentPhase(State.Phase.SECOND);
+			state.setBlackCheckersOnBoard(8);
+			state.setWhiteCheckersOnBoard(4);
+			state.getBoard().put("f4", Checker.WHITE);
+			state.getBoard().put("d6", Checker.WHITE);
 			state.getBoard().put("b4", Checker.WHITE);
-			state.getBoard().put("c4", Checker.WHITE);
+			state.getBoard().put("d2", Checker.WHITE);
 
-			state.getBoard().put("d2", Checker.BLACK);
-			state.getBoard().put("a4", Checker.BLACK);
+			state.getBoard().put("d7", Checker.BLACK);
+			state.getBoard().put("b6", Checker.BLACK);
+			state.getBoard().put("c5", Checker.BLACK);
+			state.getBoard().put("d5", Checker.BLACK);
+			state.getBoard().put("c4", Checker.BLACK);
+			state.getBoard().put("e4", Checker.BLACK);
+			state.getBoard().put("c3", Checker.BLACK);
+			state.getBoard().put("a1", Checker.BLACK);
 			System.out.println(state);
 			
-			MulinoClientFirstMiniMaxAlphaBetaKiller client = new MulinoClientFirstMiniMaxAlphaBetaKiller(Checker.WHITE);
+			MulinoClientFirstMiniMax client = new MulinoClientFirstMiniMax(Checker.WHITE);
 			
-			MulinoClientFirstMiniMaxAlphaBetaKiller.player = Checker.WHITE;
-			MulinoClientFirstMiniMaxAlphaBetaKiller.otherPlayer = Checker.BLACK;
+			MulinoClientFirstMiniMax.player = Checker.WHITE;
+			MulinoClientFirstMiniMax.otherPlayer = Checker.BLACK;
 			a = client.iterativeDeepeningMinimaxDecision(state, 60000);
 
 			switch (state.getCurrentPhase()) {
 			case FIRST:
-				state = Phase1.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBetaKiller.player);
+				state = Phase1.applyMove(state, a, MulinoClientFirstMiniMax.player);
 				break;
 			case SECOND:
-				state = Phase2.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBetaKiller.player);
+				state = Phase2.applyMove(state, a, MulinoClientFirstMiniMax.player);
 				break;
 			case FINAL:
-				state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMaxAlphaBetaKiller.player);
+				state = PhaseFinal.applyMove(state, a, MulinoClientFirstMiniMax.player);
 				break;
 			default:
 				throw new Exception("Illegal Phase");

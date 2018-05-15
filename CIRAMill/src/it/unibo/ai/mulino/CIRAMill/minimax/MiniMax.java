@@ -6,6 +6,8 @@ public class MiniMax implements IMinimax {
 	
 	private int expandedStates = 0;
 	private long elapsedTime;	
+	private int tieCount = 0;
+	private int winCount = 0;
 	private ITieChecker tieChecker;
 	
 	public MiniMax(ITieChecker tieChecker) {
@@ -20,8 +22,12 @@ public class MiniMax implements IMinimax {
 		System.out.println("MiniMax:");
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
+		System.out.println("Tie Count: " + tieCount);
+		System.out.println("Win count: " + winCount);
 		System.out.println("Selected action is: " + valuedAction);
 		expandedStates = 0;
+		tieCount = 0;
+		winCount = 0;
 		return valuedAction;
 	}
 	
@@ -36,10 +42,12 @@ public class MiniMax implements IMinimax {
 //			BitBoardState newState = (BitBoardState) state.applyMove(a);
 			if (state.isWinningState()) {
 				result.set(a, Integer.MAX_VALUE-1);
+				winCount++;
 				state.unmove(a);
 				break;
 			} else if (tieChecker.isTie(state)) {
 //				System.out.println("tie");
+				tieCount++;
 				temp.set(a, 0);
 			} else if (maxDepth > 1) {
 //				state.move(a);
@@ -70,10 +78,12 @@ public class MiniMax implements IMinimax {
 //			BitBoardState newState = (BitBoardState) state.applyMove(a);
 			if (state.isWinningState()) {
 				result.set(a, Integer.MIN_VALUE+1);
+				winCount++;
 				state.unmove(a);
 				break;
 			} else if (tieChecker.isTie(state)) {
 //				System.out.println("tie");
+				tieCount++;
 				temp.set(a, 0);
 			} else if (maxDepth > 1) {
 //				state.move(a);

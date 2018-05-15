@@ -123,7 +123,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		
 		@Override
 		public void run() {
-			int iterativeLevel = 2;
+			int iterativeLevel = 1;
 			try {
 				while(iterativeLevel<20) {
 					iterativeAction = minimaxDecision(state, iterativeLevel);
@@ -154,15 +154,21 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		
 		return runnable.getIterativeAction();
 	}
-
+	
+	private static int tieCount = 0;
+	private static int winCount = 0;
 	public static Action minimaxDecision(State state, int maxDepth) throws Exception {
 		elapsedTime = System.currentTimeMillis();
 		ValuedAction a = max(state, maxDepth);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
+		System.out.println("Tie Count: " + tieCount);
+		System.out.println("Win Count: " + winCount);
 		System.out.println("Selected action is: " + a);
 		expandedStates = 0;
+		tieCount = 0;
+		winCount = 0;
 		return a.getAction();
 	}
 
@@ -176,10 +182,12 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 			newState = successors.get(a);
 			if (isWinningState(newState, player)) {
 				result = new ValuedAction(a, Integer.MAX_VALUE-1);
+				winCount++;
 				return result;
 			}
 			if (statesAlreadySeen.contains(newState)) {
 				temp = new ValuedAction(a, 0);
+				tieCount++;
 			} else if (maxDepth > 1) {
 				statesAlreadySeen.add(newState);
 				temp = min(newState, maxDepth - 1);
@@ -222,10 +230,12 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 			newState = successors.get(a);
 			if (isWinningState(newState, minPlayer)) {
 				result = new ValuedAction(a, Integer.MIN_VALUE+1);
+				winCount++;
 				return result;
 			}
 			if (statesAlreadySeen.contains(newState)) {
 				temp = new ValuedAction(a, 0);
+				tieCount++;
 			} else if (maxDepth > 1) {
 				statesAlreadySeen.add(newState);
 				temp = max(newState, maxDepth - 1);

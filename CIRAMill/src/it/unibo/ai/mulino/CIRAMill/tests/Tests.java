@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.commons.collections4.map.LRUMap;
 
+import it.unibo.ai.mulino.CIRAMill.domain.BetterBitBoardTieChecker;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardAction;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardState;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardTieChecker;
@@ -26,9 +27,9 @@ import it.unibo.ai.mulino.CIRAMill.minimax.ValuedAction;
 
 public class Tests {
 	
-	public static final int DEPTH = 8;
+	public static final int DEPTH = 4;
 	public static final int KNUM = 10;
-	public static final int STATE = 1;
+	public static final int STATE = 2;
 	
 	public static final boolean minimax = false;
 	public static final boolean alphabeta = false;
@@ -36,12 +37,12 @@ public class Tests {
 	public static final boolean alphabeta_killer_variant = false;
 	public static final boolean alphabeta_quiescent = false;
 	public static final boolean alphabeta_transp = false;
-	public static final boolean mtd = true;
+	public static final boolean mtd = false;
 	
 	public static final int seconds = 60;
-	public static final int startingDepth = 2;
+	public static final int startingDepth = 1;
 	public static final boolean it_minimax = false;
-	public static final boolean it_alphabeta = false;
+	public static final boolean it_alphabeta = true;
 	public static final boolean it_alphabeta_killer = false;
 	public static final boolean it_alphabeta_killer_variant = false;
 	public static final boolean it_alphabeta_quiescent = false;
@@ -241,7 +242,7 @@ public class Tests {
 			default: throw new IllegalArgumentException("Invalid STATE number");
 			}
 			stateClone = (BitBoardState) state.clone();
-			
+//			System.out.println(state);
 			IterativeDeepeningRunnable runnable = new IterativeDeepeningRunnable(minimax, stateClone, startingDepth);
 			Thread iterativeThread = new Thread(runnable);
 			iterativeThread.start();
@@ -280,14 +281,7 @@ public class Tests {
 			this.minimax = minimax;
 			this.tieChecker = tieChecker;
 		}
-//		7 W--------O--------W
-//		6 |--O-----W-----O--|
-//		5 |--|--O--W--O--|--|
-//		4 B--W--W     B--O--O
-//		3 |--|--O--W--O--|--|
-//		2 |--B-----B-----B--|
-//		1 B--------B--------B
-//		  a  b  c  d  e  f  g
+		
 		@Override
 		public void run() {
 			BitBoardState state;
@@ -322,6 +316,8 @@ public class Tests {
             switch (STATE) {
             case 0: state =  new BitBoardState(tieChecker); break;
             case 1: state = new BitBoardState(0, 0, (1 << 9) | (1 << 11) | (1 << 13) | (1 << 15), 0b110010110000000101000010 , BitBoardState.WHITE, tieChecker); break;
+            case 2: state = new BitBoardState(0, 0, (1 << 0) | (1 << 2) | (1 << 9) | (1 << 15) | (1 << 17) | (1 << 21) | (1 << 23),
+					(1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 12) | (1 << 13) | (1 << 14) | (1 << 19), BitBoardState.BLACK, tieChecker); break;
             default: throw new IllegalArgumentException("Invalid STATE number");
             }
             

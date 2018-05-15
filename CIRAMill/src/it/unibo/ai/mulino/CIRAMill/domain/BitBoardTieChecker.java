@@ -15,7 +15,9 @@ public class BitBoardTieChecker implements ITieChecker {
 //		return statesAlreadySeen.contains(state);
 		
 		int index = statesAlreadySeen.indexOf(state);
-		return index < statesAlreadySeen.size()-1 && index >= 0;
+		if (index < 0)
+			throw new IllegalArgumentException();
+		return index < statesAlreadySeen.size()-1;
 	}
 	
 	public void addState(IState state) {
@@ -24,7 +26,11 @@ public class BitBoardTieChecker implements ITieChecker {
 		//
 		// come controllare la fase dello stato (e' privato) (getter suppongo)
 		BitBoardState bState = (BitBoardState) state;
-		if(bState.getGamePhase() == BitBoardState.MIDGAME && !statesAlreadySeen.contains(bState))
+
+//		if(bState.getGamePhase() == BitBoardState.MIDGAME && !statesAlreadySeen.contains(bState))
+//			statesAlreadySeen.add(bState);
+		
+		if(bState.getGamePhase() == BitBoardState.MIDGAME)
 			statesAlreadySeen.add(bState);
 		
 //		if(((BitBoardState) state).getGamePhase() == BitBoardState.MIDGAME && !statesAlreadySeen.contains(((BitBoardState) state).getHash())) {
@@ -34,7 +40,18 @@ public class BitBoardTieChecker implements ITieChecker {
 	
 	public void removeState(IState state) {
 //		statesAlreadySeen.remove(((BitBoardState) state).getHash());
-		statesAlreadySeen.remove(state);
+		if (statesAlreadySeen.lastIndexOf(state) == statesAlreadySeen.size()-1)
+			statesAlreadySeen.remove(statesAlreadySeen.size()-1);
+		else
+			throw new IllegalArgumentException();
+	}
+	
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		result.append("TieChecker:\n");
+		for (BitBoardState state : statesAlreadySeen)
+			result.append(state + "\n");
+		return result.toString();
 	}
 
 }

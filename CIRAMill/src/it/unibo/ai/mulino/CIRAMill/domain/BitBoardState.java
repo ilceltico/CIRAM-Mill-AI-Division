@@ -362,13 +362,13 @@ public class BitBoardState implements IState {
 		int remove;
 		byte opponentPlayer = playerToMove == BitBoardState.WHITE ? BitBoardState.BLACK : BitBoardState.WHITE;
 		
-		if (this.equals(new BitBoardState(tieChecker))) {
-			result.add(new BitBoardAction(0, 1, 0));
-			result.add(new BitBoardAction(0, 1 << 1, 0));
-			result.add(new BitBoardAction(0, 1 << 8, 0));
-			result.add(new BitBoardAction(0, 1 << 9, 0));
-			return result;
-		}
+//		if (this.equals(new BitBoardState(tieChecker))) {
+//			result.add(new BitBoardAction(0, 1, 0));
+//			result.add(new BitBoardAction(0, 1 << 1, 0));
+//			result.add(new BitBoardAction(0, 1 << 8, 0));
+//			result.add(new BitBoardAction(0, 1 << 9, 0));
+//			return result;
+//		}
 		
 		for (int i = 0; i < 24; i++) {
 			to = 1 << i;
@@ -394,7 +394,7 @@ public class BitBoardState implements IState {
 							remove = 1 << j;
 							
 							// opponent checker
-							if ((board[opponentPlayer] & remove) != 0 && willCompleteMorris(0, j, opponentPlayer)) {								
+							if ((board[opponentPlayer] & remove) != 0) {								
 								temp = new BitBoardAction(0, to, remove);
 								result.add(temp);
 							}
@@ -449,7 +449,7 @@ public class BitBoardState implements IState {
 									remove = 1 << j;
 									
 									// opponent checker
-									if ((board[opponentPlayer] & remove) != 0 && willCompleteMorris(0, j, opponentPlayer)) {
+									if ((board[opponentPlayer] & remove) != 0) {
 										temp = new BitBoardAction(from, to, remove);
 										result.add(temp);
 									}
@@ -506,7 +506,7 @@ public class BitBoardState implements IState {
 									remove = 1 << k;
 									
 									// opponent checker
-									if ((board[opponentPlayer] & remove) != 0 && !willCompleteMorris(0, k, opponentPlayer)) {
+									if ((board[opponentPlayer] & remove) != 0) {
 										temp = new BitBoardAction(from, to, remove);
 										result.add(temp);
 									}
@@ -538,8 +538,7 @@ public class BitBoardState implements IState {
 	@Override
 	public void move(IAction action) {
 		
-		
-		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+		byte opponentPlayer = (playerToMove == WHITE) ? BLACK : WHITE;
 		
 		board[playerToMove] ^= ((BitBoardAction) action).getFrom();
 		board[playerToMove] |= ((BitBoardAction) action).getTo();
@@ -567,7 +566,7 @@ public class BitBoardState implements IState {
 		
 		
 		byte opponentPlayer = playerToMove;
-		playerToMove = opponentPlayer == WHITE ? BLACK : WHITE;
+		playerToMove = (opponentPlayer == WHITE) ? BLACK : WHITE;
 		
 		board[playerToMove] |= ((BitBoardAction) action).getFrom();
 		board[playerToMove] ^= ((BitBoardAction) action).getTo();
@@ -581,8 +580,6 @@ public class BitBoardState implements IState {
 		
 		if(((BitBoardAction) action).getRemove() != 0)
 			checkersOnBoard[opponentPlayer]++;
-		
-		
 	}
 
 //	@Override
@@ -606,7 +603,15 @@ public class BitBoardState implements IState {
 	}
 	
 	@Override
-	public boolean equals(Object state) {		
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (obj.getClass() != this.getClass())
+			return false;
+		
+		BitBoardState state = (BitBoardState) obj;
 		if(this.board[WHITE] == ((BitBoardState) state).board[WHITE] &&
 				this.board[BLACK] == ((BitBoardState) state).board[BLACK] &&
 				this.checkersToPut[WHITE] == ((BitBoardState) state).checkersToPut[WHITE] &&
@@ -616,7 +621,8 @@ public class BitBoardState implements IState {
 //						&&
 //				this.playerToMove == ((BitBoardState) state).playerToMove &&
 //				((this.gamePhase == MIDGAME && ((BitBoardState) state).gamePhase == MIDGAME) || (this.gamePhase != MIDGAME && ((BitBoardState) state).gamePhase != MIDGAME)))
-			)return true;
+			)
+			return true;
 		
 //		if(this.board[WHITE] == ((BitBoardState) state).board[WHITE] &&
 //				this.board[BLACK] == ((BitBoardState) state).board[BLACK] 
@@ -627,12 +633,6 @@ public class BitBoardState implements IState {
 //			return true;
 		
 		return false;
-	}
-	
-	@Override
-	public int hashCode() {
-		// TODO Auto-generated method stub
-		return super.hashCode();
 	}
 
 	@Override
@@ -1335,6 +1335,10 @@ public class BitBoardState implements IState {
 //		}
 //
 //		return true;		
+	}
+	
+	public int hashCode() {
+		return this.board[WHITE] + 31*this.board[BLACK] + 31*31*this.checkersToPut[WHITE] + 31*31*31*this.checkersToPut[BLACK];
 	}
 	
 	public BitBoardHash getHash() {

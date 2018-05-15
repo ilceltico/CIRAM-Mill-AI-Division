@@ -34,11 +34,11 @@ public class MTD implements IMinimax{
 		System.out.println("MTD-f:");
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
-		System.out.println("Number of mtd's iterations: " + times);
+		System.out.println("Number of Alpha-Beta iterations: " + times);
 		System.out.println("First guess: " + firstGuess);
 //		System.out.println("Killer hits: " + killerArrayHits);
 		System.out.println("Selected action is: " + valuedAction);
-//		expandedStates = 0;
+		expandedStates = 0;
 		return valuedAction;
 	}
 	

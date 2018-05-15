@@ -22,6 +22,7 @@ public class AlphaBeta implements IMinimax {
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
 		System.out.println("Selected action is: " + valuedAction);
+//		System.out.println(tieChecker);
 		expandedStates = 0;
 		return valuedAction;
 	}
