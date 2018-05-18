@@ -1,22 +1,19 @@
 package it.unibo.ai.mulino.CIRAMill.tests;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import org.apache.commons.collections4.map.LRUMap;
-
-import it.unibo.ai.mulino.CIRAMill.domain.BetterBitBoardTieChecker;
-import it.unibo.ai.mulino.CIRAMill.domain.BitBoardAction;
+import it.unibo.ai.mulino.CIRAMill.domain.BitBoardButterflyTable;
+import it.unibo.ai.mulino.CIRAMill.domain.BitBoardButterflyTableColor;
+import it.unibo.ai.mulino.CIRAMill.domain.BitBoardHistoryTable;
+import it.unibo.ai.mulino.CIRAMill.domain.BitBoardHistoryTableColor;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardState;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardTieChecker;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardTranspositionTable;
-import it.unibo.ai.mulino.CIRAMill.domain.BitBoardUtils;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBeta;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBetaKiller;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBetaKillerVariant;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBetaQuiescent;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBetaTransposition;
-import it.unibo.ai.mulino.CIRAMill.minimax.IAction;
+import it.unibo.ai.mulino.CIRAMill.minimax.HistoryAlphaBeta;
 import it.unibo.ai.mulino.CIRAMill.minimax.IMinimax;
 import it.unibo.ai.mulino.CIRAMill.minimax.ITieChecker;
 import it.unibo.ai.mulino.CIRAMill.minimax.IterativeDeepeningRunnable;
@@ -25,6 +22,8 @@ import it.unibo.ai.mulino.CIRAMill.minimax.MTDVariant;
 import it.unibo.ai.mulino.CIRAMill.minimax.MiniMax;
 import it.unibo.ai.mulino.CIRAMill.minimax.Negascout;
 import it.unibo.ai.mulino.CIRAMill.minimax.Negascout2;
+import it.unibo.ai.mulino.CIRAMill.minimax.RelativeHistoryAlphaBeta;
+import it.unibo.ai.mulino.CIRAMill.minimax.RelativeHistoryAlphaBetaColor;
 import it.unibo.ai.mulino.CIRAMill.minimax.ValuedAction;
 
 public class Tests {
@@ -40,12 +39,17 @@ public class Tests {
 	public static final boolean alphabeta_quiescent = false;
 	public static final boolean alphabeta_transp = false;
 	public static final boolean mtd = false;
-	public static final boolean negascout2 = false;
 	public static final boolean mtd_variant = false;
 	public static final boolean negascout = false;
+	public static final boolean negascout2 = false;
+	public static final boolean history = false;
+	public static final boolean relative_history = false;
+	public static final boolean relative_history_color = false;
+	
 	
 	public static final int seconds = 60;
 	public static final int startingDepth = 1;
+	
 	public static final boolean it_minimax = false;
 	public static final boolean it_alphabeta = false;
 	public static final boolean it_alphabeta_killer = false;
@@ -53,11 +57,14 @@ public class Tests {
 	public static final boolean it_alphabeta_quiescent = false;
 	public static final boolean it_alphabeta_transp = true;
 	public static final boolean it_mtd = false;
-	public static final boolean it_negascout2 = false;
 	public static final boolean it_mtd_variant = false;
 	public static final boolean it_negascout = true;
+	public static final boolean it_negascout2 = false;
+	public static final boolean it_history = false;
+	public static final boolean it_relative_history = false;
+	public static final boolean it_relative_history_color = false;
 	
-
+	
 	public static void main(String[] args) {
 //		BitBoardState state = new BitBoardState(7, 7, (1 << 0) | (1 << 1), (1 << 5) | (1 << 13), BitBoardState.WHITE);
 //		BitBoardState state = new BitBoardState(0, 0, (1 << 0) | (1 << 1) | (1 << 2) | (1 << 15) | (1 << 17) | (1 << 21) | (1 << 23),
@@ -178,6 +185,23 @@ public class Tests {
         	 BitBoardTieChecker tieChecker = new BitBoardTieChecker();
         	 new Thread(new MinimaxTestRunnable(new Negascout2(tieChecker), tieChecker)).start();
         }
+        if (history) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+			BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+            new Thread(new MinimaxTestRunnable(new HistoryAlphaBeta(tieChecker, historyTable), tieChecker)).start();
+        }
+        if (relative_history) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+			BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+			BitBoardButterflyTable butterflyTable = new BitBoardButterflyTable();
+            new Thread(new MinimaxTestRunnable(new RelativeHistoryAlphaBeta(tieChecker, historyTable, butterflyTable), tieChecker)).start();
+        }
+        if (relative_history_color) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+			BitBoardHistoryTableColor historyTable = new BitBoardHistoryTableColor();
+			BitBoardButterflyTableColor butterflyTable = new BitBoardButterflyTableColor();
+            new Thread(new MinimaxTestRunnable(new RelativeHistoryAlphaBetaColor(tieChecker, historyTable, butterflyTable), tieChecker)).start();
+        }
 
         
 		if (it_minimax) {
@@ -230,6 +254,26 @@ public class Tests {
 			IMinimax minimax = new Negascout2(tieChecker);
 			new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();;
 		}
+        if (it_history) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+            IMinimax minimax = new HistoryAlphaBeta(tieChecker, historyTable);
+            new Thread(new IterativeTestRunnable(minimax ,tieChecker, seconds)).start();
+        }
+        if (it_relative_history) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+            BitBoardButterflyTable butterflyTable = new BitBoardButterflyTable();
+            IMinimax minimax = new RelativeHistoryAlphaBeta(tieChecker, historyTable, butterflyTable);
+            new Thread(new IterativeTestRunnable(minimax ,tieChecker, seconds)).start();
+        }
+        if (it_relative_history_color) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            BitBoardHistoryTableColor historyTable = new BitBoardHistoryTableColor();
+            BitBoardButterflyTableColor butterflyTable = new BitBoardButterflyTableColor();
+            IMinimax minimax = new RelativeHistoryAlphaBetaColor(tieChecker, historyTable, butterflyTable);
+            new Thread(new IterativeTestRunnable(minimax ,tieChecker, seconds)).start();
+        }
 
 				
 //		LRUMap<Long, ValuedAction> map = new LRUMap<>();

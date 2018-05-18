@@ -32,8 +32,10 @@ public class Negascout implements IMinimax{
 				break;
 			} else if(tieChecker.isTie(state)) {
 				temp.set(a, 0);
-			} else {
+			} else if (maxDepth > 1){
 				temp.set(a, -negascout(state, Integer.MIN_VALUE+1, Integer.MAX_VALUE-1, maxDepth));
+			} else {
+				temp.set(a, -state.getHeuristicEvaluation());
 			}
 			
 			if(temp.getValue() > valuedAction.getValue())
