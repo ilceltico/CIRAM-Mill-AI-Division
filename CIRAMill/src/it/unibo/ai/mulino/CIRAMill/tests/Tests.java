@@ -20,16 +20,17 @@ import it.unibo.ai.mulino.CIRAMill.minimax.IAction;
 import it.unibo.ai.mulino.CIRAMill.minimax.IMinimax;
 import it.unibo.ai.mulino.CIRAMill.minimax.ITieChecker;
 import it.unibo.ai.mulino.CIRAMill.minimax.IterativeDeepeningRunnable;
-import it.unibo.ai.mulino.CIRAMill.minimax.IterativeDeepeningRunnableMTD;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTD;
+import it.unibo.ai.mulino.CIRAMill.minimax.MTDVariant;
 import it.unibo.ai.mulino.CIRAMill.minimax.MiniMax;
+import it.unibo.ai.mulino.CIRAMill.minimax.Negascout;
 import it.unibo.ai.mulino.CIRAMill.minimax.ValuedAction;
 
 public class Tests {
-	
-	public static final int DEPTH = 4;
+
+	public static final int DEPTH = 6;
 	public static final int KNUM = 10;
-	public static final int STATE = 2;
+	public static final int STATE = 1;
 	
 	public static final boolean minimax = false;
 	public static final boolean alphabeta = false;
@@ -38,16 +39,21 @@ public class Tests {
 	public static final boolean alphabeta_quiescent = false;
 	public static final boolean alphabeta_transp = false;
 	public static final boolean mtd = false;
+	public static final boolean mtd_variant = false;
+	public static final boolean negascout = false;
+	
 	
 	public static final int seconds = 60;
 	public static final int startingDepth = 1;
 	public static final boolean it_minimax = false;
-	public static final boolean it_alphabeta = true;
+	public static final boolean it_alphabeta = false;
 	public static final boolean it_alphabeta_killer = false;
 	public static final boolean it_alphabeta_killer_variant = false;
 	public static final boolean it_alphabeta_quiescent = false;
 	public static final boolean it_alphabeta_transp = false;
 	public static final boolean it_mtd = false;
+	public static final boolean it_mtd_variant = false;
+	public static final boolean it_negascout = true;
 	
 
 	public static void main(String[] args) {
@@ -156,9 +162,16 @@ public class Tests {
 		}
         if (mtd) {
             BitBoardTieChecker tieChecker = new BitBoardTieChecker();
-            new Thread(new MinimaxTestRunnable(new MTD(tieChecker, 0), tieChecker)).start();
+            new Thread(new MinimaxTestRunnable(new MTD(tieChecker), tieChecker)).start();
         }
-
+        if (mtd_variant) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            new Thread(new MinimaxTestRunnable(new MTDVariant(tieChecker), tieChecker)).start();
+        }
+        if (negascout) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            new Thread(new MinimaxTestRunnable(new Negascout(tieChecker), tieChecker)).start();
+        }
 		
 		if (it_minimax) {
 			BitBoardTieChecker tieChecker = new BitBoardTieChecker();
@@ -192,7 +205,18 @@ public class Tests {
 		}
         if (it_mtd) {
             BitBoardTieChecker tieChecker = new BitBoardTieChecker();
-            new Thread(new IterativeTestRunnableMTD(tieChecker, seconds)).start();
+            IMinimax minimax = new MTD(tieChecker);
+            new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
+        }
+        if (it_mtd_variant) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            IMinimax minimax = new MTDVariant(tieChecker);
+            new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
+        }
+        if (it_negascout) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            IMinimax minimax = new Negascout(tieChecker);
+            new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
         }
 
 				
@@ -299,49 +323,4 @@ public class Tests {
 		}
 		
 	}
-	
-    static class IterativeTestRunnableMTD implements Runnable {
-        ITieChecker tieChecker;
-        int maxSeconds;
-        
-        public IterativeTestRunnableMTD(ITieChecker tieChecker, int maxSeconds) {
-            this.tieChecker = tieChecker;
-            this.maxSeconds = maxSeconds;
-        }
-
-        @SuppressWarnings("deprecation")
-        @Override
-        public void run() {
-            BitBoardState state;
-            switch (STATE) {
-            case 0: state =  new BitBoardState(tieChecker); break;
-            case 1: state = new BitBoardState(0, 0, (1 << 9) | (1 << 11) | (1 << 13) | (1 << 15), 0b110010110000000101000010 , BitBoardState.WHITE, tieChecker); break;
-            case 2: state = new BitBoardState(0, 0, (1 << 0) | (1 << 2) | (1 << 9) | (1 << 15) | (1 << 17) | (1 << 21) | (1 << 23),
-					(1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 12) | (1 << 13) | (1 << 14) | (1 << 19), BitBoardState.BLACK, tieChecker); break;
-            default: throw new IllegalArgumentException("Invalid STATE number");
-            }
-            
-            IterativeDeepeningRunnableMTD runnable = new IterativeDeepeningRunnableMTD(tieChecker, state, startingDepth);
-            Thread iterativeThread = new Thread(runnable);
-            iterativeThread.start();
-            
-            while (maxSeconds > 1) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    System.out.println("Shouldn't happen...");
-                    e.printStackTrace();
-                }
-                maxSeconds--;
-            }
-            
-            iterativeThread.stop();
-            
-            ValuedAction vAction = runnable.getSelectedValuedAction();
-            state.move(vAction.getAction());
-            System.out.println("\n\n" + state);
-        }
-    }
-
-
 }
