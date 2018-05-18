@@ -91,7 +91,7 @@ public class Program {
 					millis -= System.currentTimeMillis() - curMillis;
 					if (!iterativeThread.isAlive())
 						break;
-					System.out.println(maxMillis);
+					System.out.println(millis);
 				}
 				
 				if (iterativeThread.isAlive())
@@ -132,6 +132,7 @@ public class Program {
 
 				iterativeDeepening = new IterativeDeepeningRunnable(minimax, bCurrentState, startingDepth);
 				iterativeThread = new Thread(iterativeDeepening);
+				iterativeThread.start();
 				
 				long curMillis;
 				long millis = maxMillis;
@@ -146,7 +147,7 @@ public class Program {
 					millis -= System.currentTimeMillis() - curMillis;
 					if (!iterativeThread.isAlive())
 						break;
-					System.out.println(maxMillis);
+					System.out.println(millis);
 				}
 				
 				if (iterativeThread.isAlive())
