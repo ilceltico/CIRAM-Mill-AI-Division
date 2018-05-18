@@ -2,33 +2,34 @@ package it.unibo.ai.mulino.CIRAMill.minimax;
 
 import java.util.List;
 
-public class MTD implements IMinimax{
+public class MTDVariant implements IMinimax{
 	
 	private int expandedStates = 0;
 	private int times = 0;
 	private long elapsedTime;
 	private ITieChecker tieChecker;
-	private int firstGuess;
+	private int firstGuess[];
 	
-	public MTD(ITieChecker tieChecker) {
+	public MTDVariant(ITieChecker tieChecker) {
 		this.tieChecker = tieChecker;
-		this.firstGuess = 0;
+		this.firstGuess = new int[]{0,0};
 	}
 
 	@Override
 	public ValuedAction minimaxDecision(IState state, int maxDepth) {
 		elapsedTime = System.currentTimeMillis();
-		ValuedAction valuedAction = mtdf(state, firstGuess, maxDepth);
+		ValuedAction valuedAction = mtdf(state, firstGuess[0], maxDepth);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
-		System.out.println("MTD-f:");
+		System.out.println("MTD-f Variant:");
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
 		System.out.println("Number of Alpha-Beta iterations: " + times);
-		System.out.println("First guess: " + firstGuess);
+		System.out.println("First guess: " + firstGuess[0]);
 		System.out.println("Selected action is: " + valuedAction);
 		expandedStates = 0;
 		times = 0;
-		firstGuess = valuedAction.getValue();
+		firstGuess[0] = firstGuess[1];
+		firstGuess[1] = valuedAction.getValue();
 		return valuedAction;
 	}
 	
@@ -134,3 +135,4 @@ public class MTD implements IMinimax{
 		return result;
 	}
 }
+
