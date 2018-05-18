@@ -2011,225 +2011,225 @@ public class BitBoardState implements IState {
 		}
 		
 		// color inversion
-//		tempHash = board[BLACK];
-//		tempHash |= ((long) board[WHITE]) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = COLOR_INVERSION;
-//		}
-//		
-//		// color inversion - rotation 90
-//		tempHash = BitBoardUtils.rotationClockwise90(board[BLACK]);
-//		tempHash |= ((long) BitBoardUtils.rotationClockwise90(board[WHITE])) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = ROTATION_90;
-//			symms |= COLOR_INVERSION;
-//		}
-//
-//		// color inversion - rotation 180
-//		tempHash = BitBoardUtils.rotationClockwise180(board[BLACK]);
-//		tempHash |= ((long) BitBoardUtils.rotationClockwise180(board[WHITE])) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = ROTATION_180;
-//			symms |= COLOR_INVERSION;
-//		}
-//
-//		// color inversion - rotation 270
-//		tempHash = BitBoardUtils.rotationAnticlockwise90(board[BLACK]);
-//		tempHash |= ((long) BitBoardUtils.rotationAnticlockwise90(board[WHITE])) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = ROTATION_270;
-//			symms |= COLOR_INVERSION;
-//		}
-//		
-//		// color inversion - vertical flip
-//		tempHash = BitBoardUtils.verticalFlip(board[BLACK]);
-//		tempHash |= ((long) BitBoardUtils.verticalFlip(board[WHITE])) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = VERTICAL_FLIP;
-//			symms |= COLOR_INVERSION;
-//		}
-//
-//		 //color inversion - vertical flip - rotation 90
-//		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK]));
-//		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE]))) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = VERTICAL_FLIP;
-//			symms |= ROTATION_90;
-//			symms |= COLOR_INVERSION;
-//		}
-//
-//		// color inversion - vertical flip - rotation 180
-//		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK]));
-//		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE]))) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = VERTICAL_FLIP;
-//			symms |= ROTATION_180;
-//			symms |= COLOR_INVERSION;
-//		}
-//
-//		// color inversion - vertical flip - rotation 270
-//		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK]));
-//		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE]))) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = VERTICAL_FLIP;
-//			symms |= ROTATION_270;
-//			symms |= COLOR_INVERSION;
-//		}
-//		
-//		// color inversion - inside out
-//		tempHash = BitBoardUtils.insideOut(board[BLACK]);
-//		tempHash |= ((long) BitBoardUtils.insideOut(board[WHITE])) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = INSIDE_OUT;
-//			symms |= COLOR_INVERSION;
-//		}
-//
-//		// color inversion - inside out - rotation 90
-//		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[BLACK]));
-//		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[WHITE]))) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = INSIDE_OUT;
-//			symms |= ROTATION_90;
-//			symms |= COLOR_INVERSION;
-//		}
-//
-//		// color inversion - inside out - rotation 180
-//		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[BLACK]));
-//		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[WHITE]))) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = INSIDE_OUT;
-//			symms |= ROTATION_180;
-//			symms |= COLOR_INVERSION;
-//		}
-//
-//		// coor inversion - inside out - rotation 270
-//		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[BLACK]));
-//		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[WHITE]))) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = INSIDE_OUT;
-//			symms |= ROTATION_270;
-//			symms |= COLOR_INVERSION;
-//		}
-//		
-//		// color inversion - inside out - vertical flip
-//		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[BLACK]));
-//		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[WHITE]))) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = INSIDE_OUT;
-//			symms |= VERTICAL_FLIP;
-//			symms |= COLOR_INVERSION;
-//		}
-//
-//		// color inversion - inside out - vertical flip - rotation 90
-//		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK])));
-//		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE])))) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = INSIDE_OUT;
-//			symms |= VERTICAL_FLIP;
-//			symms |= ROTATION_90;
-//			symms |= COLOR_INVERSION;
-//		}
-//
-//		// color inversion - inside out - vertical flip - rotation 180
-//		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK])));
-//		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE])))) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = INSIDE_OUT;
-//			symms |= VERTICAL_FLIP;
-//			symms |= ROTATION_180;
-//			symms |= COLOR_INVERSION;
-//		}
-//
-//		// color inversion - inside out - vertical flip - rotation 270
-//		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK])));
-//		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE])))) << 24;
-//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-//		tempHash |= ((long) opponentPlayer) << 56;
-//
-//		if(tempHash < hash) {
-//			hash = tempHash;
-//			symms = INSIDE_OUT;
-//			symms |= VERTICAL_FLIP;
-//			symms |= ROTATION_270;
-//			symms |= COLOR_INVERSION;
-//		}
-//		
+		tempHash = board[BLACK];
+		tempHash |= ((long) board[WHITE]) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = COLOR_INVERSION;
+		}
+		
+		// color inversion - rotation 90
+		tempHash = BitBoardUtils.rotationClockwise90(board[BLACK]);
+		tempHash |= ((long) BitBoardUtils.rotationClockwise90(board[WHITE])) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = ROTATION_90;
+			symms |= COLOR_INVERSION;
+		}
+
+		// color inversion - rotation 180
+		tempHash = BitBoardUtils.rotationClockwise180(board[BLACK]);
+		tempHash |= ((long) BitBoardUtils.rotationClockwise180(board[WHITE])) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = ROTATION_180;
+			symms |= COLOR_INVERSION;
+		}
+
+		// color inversion - rotation 270
+		tempHash = BitBoardUtils.rotationAnticlockwise90(board[BLACK]);
+		tempHash |= ((long) BitBoardUtils.rotationAnticlockwise90(board[WHITE])) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = ROTATION_270;
+			symms |= COLOR_INVERSION;
+		}
+		
+		// color inversion - vertical flip
+		tempHash = BitBoardUtils.verticalFlip(board[BLACK]);
+		tempHash |= ((long) BitBoardUtils.verticalFlip(board[WHITE])) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = VERTICAL_FLIP;
+			symms |= COLOR_INVERSION;
+		}
+
+		 //color inversion - vertical flip - rotation 90
+		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK]));
+		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE]))) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = VERTICAL_FLIP;
+			symms |= ROTATION_90;
+			symms |= COLOR_INVERSION;
+		}
+
+		// color inversion - vertical flip - rotation 180
+		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK]));
+		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE]))) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = VERTICAL_FLIP;
+			symms |= ROTATION_180;
+			symms |= COLOR_INVERSION;
+		}
+
+		// color inversion - vertical flip - rotation 270
+		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK]));
+		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE]))) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = VERTICAL_FLIP;
+			symms |= ROTATION_270;
+			symms |= COLOR_INVERSION;
+		}
+		
+		// color inversion - inside out
+		tempHash = BitBoardUtils.insideOut(board[BLACK]);
+		tempHash |= ((long) BitBoardUtils.insideOut(board[WHITE])) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = INSIDE_OUT;
+			symms |= COLOR_INVERSION;
+		}
+
+		// color inversion - inside out - rotation 90
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[BLACK]));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[WHITE]))) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = INSIDE_OUT;
+			symms |= ROTATION_90;
+			symms |= COLOR_INVERSION;
+		}
+
+		// color inversion - inside out - rotation 180
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[BLACK]));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[WHITE]))) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = INSIDE_OUT;
+			symms |= ROTATION_180;
+			symms |= COLOR_INVERSION;
+		}
+
+		// coor inversion - inside out - rotation 270
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[BLACK]));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[WHITE]))) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = INSIDE_OUT;
+			symms |= ROTATION_270;
+			symms |= COLOR_INVERSION;
+		}
+		
+		// color inversion - inside out - vertical flip
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[BLACK]));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[WHITE]))) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = INSIDE_OUT;
+			symms |= VERTICAL_FLIP;
+			symms |= COLOR_INVERSION;
+		}
+
+		// color inversion - inside out - vertical flip - rotation 90
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK])));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE])))) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = INSIDE_OUT;
+			symms |= VERTICAL_FLIP;
+			symms |= ROTATION_90;
+			symms |= COLOR_INVERSION;
+		}
+
+		// color inversion - inside out - vertical flip - rotation 180
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK])));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE])))) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = INSIDE_OUT;
+			symms |= VERTICAL_FLIP;
+			symms |= ROTATION_180;
+			symms |= COLOR_INVERSION;
+		}
+
+		// color inversion - inside out - vertical flip - rotation 270
+		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK])));
+		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE])))) << 24;
+		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+		tempHash |= ((long) opponentPlayer) << 56;
+
+		if(tempHash < hash) {
+			hash = tempHash;
+			symms = INSIDE_OUT;
+			symms |= VERTICAL_FLIP;
+			symms |= ROTATION_270;
+			symms |= COLOR_INVERSION;
+		}
+		
 		return new BitBoardHash(hash, symms);
 	}
 
