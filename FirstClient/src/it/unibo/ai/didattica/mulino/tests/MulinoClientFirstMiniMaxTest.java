@@ -1040,31 +1040,53 @@ public class MulinoClientFirstMiniMaxTest {
 //		}
 		
 		try {
+//			state = new State();
+//			state.setBlackCheckers(0);
+//			state.setWhiteCheckers(0);
+//			state.setCurrentPhase(State.Phase.SECOND);
+//			state.setBlackCheckersOnBoard(8);
+//			state.setWhiteCheckersOnBoard(4);
+//			state.getBoard().put("f4", Checker.WHITE);
+//			state.getBoard().put("d6", Checker.WHITE);
+//			state.getBoard().put("b4", Checker.WHITE);
+//			state.getBoard().put("d2", Checker.WHITE);
+//
+//			state.getBoard().put("d7", Checker.BLACK);
+//			state.getBoard().put("b6", Checker.BLACK);
+//			state.getBoard().put("c5", Checker.BLACK);
+//			state.getBoard().put("d5", Checker.BLACK);
+//			state.getBoard().put("c4", Checker.BLACK);
+//			state.getBoard().put("e4", Checker.BLACK);
+//			state.getBoard().put("c3", Checker.BLACK);
+//			state.getBoard().put("a1", Checker.BLACK);
 			state = new State();
 			state.setBlackCheckers(0);
 			state.setWhiteCheckers(0);
 			state.setCurrentPhase(State.Phase.SECOND);
 			state.setBlackCheckersOnBoard(8);
-			state.setWhiteCheckersOnBoard(4);
-			state.getBoard().put("f4", Checker.WHITE);
+			state.setWhiteCheckersOnBoard(7);
+			state.getBoard().put("a7", Checker.WHITE);
+			state.getBoard().put("g7", Checker.WHITE);
 			state.getBoard().put("d6", Checker.WHITE);
+			state.getBoard().put("d5", Checker.WHITE);
 			state.getBoard().put("b4", Checker.WHITE);
-			state.getBoard().put("d2", Checker.WHITE);
+			state.getBoard().put("c4", Checker.WHITE);
+			state.getBoard().put("d3", Checker.WHITE);
 
-			state.getBoard().put("d7", Checker.BLACK);
-			state.getBoard().put("b6", Checker.BLACK);
-			state.getBoard().put("c5", Checker.BLACK);
-			state.getBoard().put("d5", Checker.BLACK);
-			state.getBoard().put("c4", Checker.BLACK);
+			state.getBoard().put("a4", Checker.BLACK);
 			state.getBoard().put("e4", Checker.BLACK);
-			state.getBoard().put("c3", Checker.BLACK);
+			state.getBoard().put("b2", Checker.BLACK);
+			state.getBoard().put("d2", Checker.BLACK);
+			state.getBoard().put("f2", Checker.BLACK);
 			state.getBoard().put("a1", Checker.BLACK);
+			state.getBoard().put("d1", Checker.BLACK);
+			state.getBoard().put("g1", Checker.BLACK);
 			System.out.println(state);
 			
-			MulinoClientFirstMiniMax client = new MulinoClientFirstMiniMax(Checker.WHITE);
+			MulinoClientFirstMiniMax client = new MulinoClientFirstMiniMax(Checker.BLACK);
 			
-			MulinoClientFirstMiniMax.player = Checker.WHITE;
-			MulinoClientFirstMiniMax.otherPlayer = Checker.BLACK;
+			MulinoClientFirstMiniMax.player = Checker.BLACK;
+			MulinoClientFirstMiniMax.otherPlayer = Checker.WHITE;
 			a = client.iterativeDeepeningMinimaxDecision(state, 60000);
 
 			switch (state.getCurrentPhase()) {

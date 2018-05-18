@@ -114,15 +114,16 @@ public class AlphaBetaTransposition implements IMinimax {
 			
 			state.unmove(a);
 		}
-
-		tranpositionTable.putAction(state, result.getAction(), maxDepth);
+		
+		if (result.getAction() != null)
+			tranpositionTable.putAction(state, result.getAction(), maxDepth);
 		return result;
 	}
 	
 	private ValuedAction min(IState state, int maxDepth, int alpha, int beta) {
 		ValuedAction result = new ValuedAction(null, Integer.MAX_VALUE);
 		ValuedAction temp = new ValuedAction();
-		
+
 		//Tranposition Handling
 		IAction[] transpActions = tranpositionTable.getActions(state);
 		IAction action;
@@ -198,8 +199,9 @@ public class AlphaBetaTransposition implements IMinimax {
 			
 			state.unmove(a);
 		}
-
-		tranpositionTable.putAction(state, result.getAction(), maxDepth);
+		
+		if (result.getAction() != null)
+			tranpositionTable.putAction(state, result.getAction(), maxDepth);
 		return result;
 	}
 

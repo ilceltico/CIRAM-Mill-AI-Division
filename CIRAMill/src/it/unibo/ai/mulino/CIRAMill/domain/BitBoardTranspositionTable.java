@@ -1,5 +1,7 @@
 package it.unibo.ai.mulino.CIRAMill.domain;
 
+import java.util.List;
+
 import org.apache.commons.collections4.map.LRUMap;
 
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardState.BitBoardHash;
@@ -39,11 +41,15 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 			to = entry.actions[i].getTo();
 			remove = entry.actions[i].getRemove();
 			
-			if((symms & BitBoardState.COLOR_INVERSION) != 0) {
-				/*
-				 * per l'azione penso non serva
-				 */
-			}
+//			if((symms & BitBoardState.COLOR_INVERSION) != 0) {
+//				/*
+//				 * per l'azione penso non serva
+//				 */
+//				if (!bState.equals(entry.getState()[i])) {
+//					System.out.println("Color");
+//					bState.getHash();
+//				}
+//			}
 			
 			if((symms & BitBoardState.INSIDE_OUT) != 0) {
 				from = BitBoardUtils.insideOut(from);
@@ -80,6 +86,12 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 			
 //			results[i] = new BitBoardAction(entry.actions[i].getFrom(), entry.actions[i].getTo(), entry.actions[i].getRemove());
 		}
+		
+//		List<IAction> actions = state.getFollowingMoves();
+//		for (int i=0; i<results.length; i++) {
+//			if (!actions.contains(results[i]))
+//				throw new IllegalArgumentException();
+//		}
 		
 		if (results[0].equals(results[1])) {
 			return new BitBoardAction[] {results[0]};
@@ -134,11 +146,11 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 			remove = BitBoardUtils.insideOut(remove);
 		}
 
-		if((symms & BitBoardState.COLOR_INVERSION) != 0) {
-			/*
-			 * per l'azione penso non serva
-			 */
-		}
+//		if((symms & BitBoardState.COLOR_INVERSION) != 0) {
+//			/*
+//			 * per l'azione penso non serva
+//			 */
+//		}
 		
 		BitBoardAction transformedActionToPut = new BitBoardAction(from, to, remove);		
 
@@ -151,12 +163,19 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 			entry.setActions(new BitBoardAction[]{transformedActionToPut, 
 					transformedActionToPut});
 			
+//			entry.setState(new BitBoardState[] {(BitBoardState) bState.clone(), (BitBoardState) bState.clone()});
+			
 			tranpositionTable.put(bHash.getHash(), entry);
 		} else {
 			if (entry.getDepth() <= depth) {
 				entry.getActions()[0] = transformedActionToPut;
+				
+//				entry.getState()[0] = (BitBoardState) bState.clone();
+				
 			} else {
 				entry.getActions()[1] = transformedActionToPut;
+				
+//				entry.getState()[1] = (BitBoardState) bState.clone();
 			}
 		}
 	}
@@ -164,6 +183,7 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 	class BitBoardEntry {
 		private BitBoardAction[] actions;
 		private int depth;
+//		private BitBoardState[] state;
 		
 		BitBoardEntry() {
 		}
@@ -183,6 +203,14 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 		void setDepth(int depth) {
 			this.depth = depth;
 		}
+
+//		public BitBoardState[] getState() {
+//			return state;
+//		}
+//
+//		public void setState(BitBoardState[] state) {
+//			this.state = state;
+//		}
 	}
 
 }

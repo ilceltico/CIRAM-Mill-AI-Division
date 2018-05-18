@@ -2,9 +2,33 @@ package it.unibo.ai.mulino.CIRAMill.domain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
+import it.unibo.ai.didattica.mulino.actions.Action;
+import it.unibo.ai.didattica.mulino.actions.FromAndToAreEqualsException;
+import it.unibo.ai.didattica.mulino.actions.FromAndToAreNotConnectedException;
+import it.unibo.ai.didattica.mulino.actions.NoMoreCheckersAvailableException;
+import it.unibo.ai.didattica.mulino.actions.NullActionException;
+import it.unibo.ai.didattica.mulino.actions.NullCheckerException;
+import it.unibo.ai.didattica.mulino.actions.NullStateException;
+import it.unibo.ai.didattica.mulino.actions.Phase1;
+import it.unibo.ai.didattica.mulino.actions.Phase1Action;
+import it.unibo.ai.didattica.mulino.actions.Phase2;
+import it.unibo.ai.didattica.mulino.actions.Phase2Action;
+import it.unibo.ai.didattica.mulino.actions.PhaseFinal;
+import it.unibo.ai.didattica.mulino.actions.PhaseFinalAction;
+import it.unibo.ai.didattica.mulino.actions.PositionNotEmptyException;
+import it.unibo.ai.didattica.mulino.actions.TryingToMoveOpponentCheckerException;
+import it.unibo.ai.didattica.mulino.actions.TryingToRemoveCheckerInTripleException;
+import it.unibo.ai.didattica.mulino.actions.TryingToRemoveEmptyCheckerException;
+import it.unibo.ai.didattica.mulino.actions.TryingToRemoveOwnCheckerException;
+import it.unibo.ai.didattica.mulino.actions.Util;
+import it.unibo.ai.didattica.mulino.actions.WrongPhaseException;
+import it.unibo.ai.didattica.mulino.actions.WrongPositionException;
 import it.unibo.ai.didattica.mulino.domain.State;
+import it.unibo.ai.didattica.mulino.domain.State.Checker;
+import it.unibo.ai.didattica.mulino.domain.State.Phase;
 import it.unibo.ai.mulino.CIRAMill.minimax.IAction;
 import it.unibo.ai.mulino.CIRAMill.minimax.IState;
 import it.unibo.ai.mulino.CIRAMill.minimax.ITieChecker;
@@ -157,7 +181,7 @@ public class BitBoardState implements IState {
 	private int[] board = new int[2];
 	private byte[] checkersToPut = new byte[2];
 	private byte[] checkersOnBoard = new byte[2];
-	private byte playerToMove;
+	public byte playerToMove;
 	private byte gamePhase;
 	private ITieChecker tieChecker;
 
@@ -337,7 +361,369 @@ public class BitBoardState implements IState {
 
 		return result;
 	}
+	
+	public State fromBitBoardToState() {
+		State result = new State();
+		if (gamePhase != MIDGAME)
+			result.setCurrentPhase(Phase.FIRST);
+		else
+			if (checkersOnBoard[WHITE] <= 3 || checkersOnBoard[BLACK] <= 3)
+				result.setCurrentPhase(Phase.FINAL);
+			else
+				result.setCurrentPhase(Phase.SECOND);
+		result.setBlackCheckers(this.checkersToPut[BLACK]);
+		result.setWhiteCheckers(this.checkersToPut[WHITE]);
+		result.setBlackCheckersOnBoard(this.checkersOnBoard[BLACK]);
+		result.setWhiteCheckersOnBoard(this.checkersOnBoard[WHITE]);
+		
+		int position;
+		for (int i=0; i<24; i++) {
+			position = 1 << i;
+			if ((this.board[WHITE] & position) != 0)
+				result.getBoard().put(BitBoardUtils.positionFromBoard(position), Checker.WHITE);
+			if ((this.board[BLACK] & position) != 0)
+				result.getBoard().put(BitBoardUtils.positionFromBoard(position), Checker.BLACK);
+		}
+		
+		return result;
+	}
+	
+	public static LinkedHashMap<Action, State> successors(State state, Checker p) throws Exception {
+		switch (state.getCurrentPhase()) {
+		case FIRST:
+			return successorsFirst(state, p);
+		case SECOND:
+			return successorsSecond(state, p);
+		case FINAL:
+			return successorsFinalOrSecond(state, p);
+		default:
+			throw new Exception("Illegal Phase");
+		}
+	}
 
+	public static LinkedHashMap<Action, State> successorsFirst(State state, Checker p) {
+		LinkedHashMap<Action, State> result = new LinkedHashMap<Action, State>();
+		Phase1Action temp;
+		State newState;
+		LinkedHashMap<String, Checker> board = new LinkedHashMap<String, Checker>(state.getBoard());
+		State.Checker otherChecker = p == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
+
+		for (String position : state.positions) {
+			if (board.get(position) == State.Checker.EMPTY) {
+				temp = new Phase1Action();
+				temp.setPutPosition(position);
+				newState = state.clone();
+				newState.getBoard().put(position, p);
+				try {
+					if (Util.hasCompletedTriple(newState, position, p)) {
+						boolean foundRemovableChecker = false;
+						for (String otherPosition : state.positions) {
+							if (board.get(otherPosition) == otherChecker
+									&& !Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
+								temp.setRemoveOpponentChecker(otherPosition);
+								newState = Phase1.applyMove(state, temp, p);
+								result.put(temp, newState);
+								temp = new Phase1Action();
+								temp.setPutPosition(position);
+								newState = state.clone();
+								newState.getBoard().put(position, p);
+								foundRemovableChecker = true;
+							}
+						}
+						if (!foundRemovableChecker) {
+							for (String otherPosition : state.positions) {
+								if (board.get(otherPosition) == otherChecker
+										&& Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
+									temp.setRemoveOpponentChecker(otherPosition);
+									newState = Phase1.applyMove(state, temp, p);
+									result.put(temp, newState);
+									temp = new Phase1Action();
+									temp.setPutPosition(position);
+									newState = state.clone();
+									newState.getBoard().put(position, p);
+								}
+							}
+						}
+					} else {
+						newState = Phase1.applyMove(state, temp, p);
+						result.put(temp, newState);
+						temp = new Phase1Action();
+						temp.setPutPosition(position);
+						newState = state.clone();
+						newState.getBoard().put(position, p);
+					}
+				} catch (WrongPhaseException | PositionNotEmptyException | NullCheckerException
+						| NoMoreCheckersAvailableException | WrongPositionException | TryingToRemoveOwnCheckerException
+						| TryingToRemoveEmptyCheckerException | NullStateException
+						| TryingToRemoveCheckerInTripleException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return result;
+	}
+
+	public static LinkedHashMap<Action, State> successorsSecond(State state, Checker p) {
+		LinkedHashMap<Action, State> result = new LinkedHashMap<Action, State>();
+		Phase2Action temp;
+		State newState;
+		LinkedHashMap<String, Checker> board = new LinkedHashMap<String, Checker>(state.getBoard());
+		State.Checker otherChecker = p == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
+
+		for (String position : state.positions) {
+			if (board.get(position) == p) {
+				temp = new Phase2Action();
+				temp.setFrom(position);
+				try {
+					for (String adjPos : Util.getAdiacentTiles(position)) {
+						if (board.get(adjPos) == Checker.EMPTY) {
+
+							temp.setTo(adjPos);
+							newState = state.clone();
+							newState.getBoard().put(adjPos, p);
+							newState.getBoard().put(position, Checker.EMPTY);
+							try {
+								if (Util.hasCompletedTriple(newState, adjPos, p)) {
+									boolean foundRemovableChecker = false;
+									for (String otherPosition : state.positions) {
+										if (board.get(otherPosition) == otherChecker
+												&& !Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
+											temp.setRemoveOpponentChecker(otherPosition);
+											if (state.getCurrentPhase() == Phase.SECOND)
+												newState = Phase2.applyMove(state, temp, p);
+											else {
+												PhaseFinalAction finalAction = new PhaseFinalAction();
+												finalAction.setFrom(temp.getFrom());
+												finalAction.setTo(temp.getTo());
+												finalAction.setRemoveOpponentChecker(temp.getRemoveOpponentChecker());
+												newState = PhaseFinal.applyMove(state, finalAction, p);
+											}
+											result.put(temp, newState);
+											temp = new Phase2Action();
+											temp.setFrom(position);
+											temp.setTo(adjPos);
+											foundRemovableChecker = true;
+											newState = state.clone();
+											newState.getBoard().put(adjPos, p);
+											newState.getBoard().put(position, Checker.EMPTY);
+										}
+									}
+									if (!foundRemovableChecker) {
+										for (String otherPosition : state.positions) {
+											if (board.get(otherPosition) == otherChecker
+													&& Util.hasCompletedTriple(newState, otherPosition, otherChecker)
+													) {
+												temp.setRemoveOpponentChecker(otherPosition);
+												if (state.getCurrentPhase() == Phase.SECOND)
+													newState = Phase2.applyMove(state, temp, p);
+												else {
+													PhaseFinalAction finalAction = new PhaseFinalAction();
+													finalAction.setFrom(temp.getFrom());
+													finalAction.setTo(temp.getTo());
+													finalAction
+															.setRemoveOpponentChecker(temp.getRemoveOpponentChecker());
+													newState = PhaseFinal.applyMove(state, finalAction, p);
+												}
+												result.put(temp, newState);
+												temp = new Phase2Action();
+												temp.setFrom(position);
+												temp.setTo(adjPos);
+												newState = state.clone();
+												newState.getBoard().put(adjPos, p);
+												newState.getBoard().put(position, Checker.EMPTY);
+											}
+										}
+									}
+								} else {
+									if (state.getCurrentPhase() == Phase.SECOND)
+										newState = Phase2.applyMove(state, temp, p);
+									else {
+										PhaseFinalAction finalAction = new PhaseFinalAction();
+										finalAction.setFrom(temp.getFrom());
+										finalAction.setTo(temp.getTo());
+										finalAction.setRemoveOpponentChecker(temp.getRemoveOpponentChecker());
+										newState = PhaseFinal.applyMove(state, finalAction, p);
+									}
+									result.put(temp, newState);
+									temp = new Phase2Action();
+									temp.setFrom(position);
+									newState = state.clone();
+									newState.getBoard().put(adjPos, p);
+									newState.getBoard().put(position, Checker.EMPTY);
+								}
+							} catch (WrongPhaseException | PositionNotEmptyException | NullCheckerException
+									| WrongPositionException | TryingToRemoveOwnCheckerException
+									| TryingToRemoveEmptyCheckerException | NullStateException
+									| TryingToRemoveCheckerInTripleException | NullActionException
+									| TryingToMoveOpponentCheckerException | FromAndToAreEqualsException
+									| FromAndToAreNotConnectedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+
+						}
+					}
+				} catch (WrongPositionException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return result;
+	}
+
+	public static LinkedHashMap<Action, State> successorsFinalOrSecond(State state, Checker p) {
+		if (p == Checker.WHITE) {
+			if (state.getWhiteCheckersOnBoard() > 3) {
+				LinkedHashMap<Action, State> resultMap = new LinkedHashMap<>();
+				successorsSecond(state, p).forEach((k, v) -> {
+					Phase2Action action = (Phase2Action) k;
+					PhaseFinalAction result = new PhaseFinalAction();
+					result.setFrom(action.getFrom());
+					result.setTo(action.getTo());
+					result.setRemoveOpponentChecker(action.getRemoveOpponentChecker());
+					resultMap.put(result, v);
+				});
+				return resultMap;
+			} else {
+				return successorsFinal(state, p);
+			}
+		}
+		// Player is BLACK
+		else {
+			if (state.getBlackCheckersOnBoard() > 3) {
+				LinkedHashMap<Action, State> resultMap = new LinkedHashMap<>();
+				successorsSecond(state, p).forEach((k, v) -> {
+					Phase2Action action = (Phase2Action) k;
+					PhaseFinalAction result = new PhaseFinalAction();
+					result.setFrom(action.getFrom());
+					result.setTo(action.getTo());
+					result.setRemoveOpponentChecker(action.getRemoveOpponentChecker());
+					resultMap.put(result, v);
+				});
+				return resultMap;
+			} else {
+				return successorsFinal(state, p);
+			}
+		}
+	}
+
+	public static LinkedHashMap<Action, State> successorsFinal(State state, Checker p) {
+		LinkedHashMap<Action, State> result = new LinkedHashMap<Action, State>();
+		PhaseFinalAction temp;
+		State newState;
+		LinkedHashMap<String, Checker> board = new LinkedHashMap<String, Checker>(state.getBoard());
+		State.Checker otherChecker = p == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
+
+		for (String position : state.positions) {
+			if (board.get(position) == p) {
+				temp = new PhaseFinalAction();
+				temp.setFrom(position);
+				for (String toPos : state.positions) {
+					if (board.get(toPos) == Checker.EMPTY) {
+
+						temp.setTo(toPos);
+						newState = state.clone();
+						newState.getBoard().put(toPos, p);
+						newState.getBoard().put(position, Checker.EMPTY);
+						try {
+							if (Util.hasCompletedTriple(newState, toPos, p)) {
+								boolean foundRemovableChecker = false;
+								for (String otherPosition : state.positions) {
+									if (board.get(otherPosition) == otherChecker
+											&& !Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
+										temp.setRemoveOpponentChecker(otherPosition);
+										newState = PhaseFinal.applyMove(state, temp, p);
+										result.put(temp, newState);
+										temp = new PhaseFinalAction();
+										temp.setFrom(position);
+										temp.setTo(toPos);
+										foundRemovableChecker = true;
+										newState = state.clone();
+										newState.getBoard().put(toPos, p);
+										newState.getBoard().put(position, Checker.EMPTY);
+									}
+								}
+								if (!foundRemovableChecker) {
+									for (String otherPosition : state.positions) {
+										if (board.get(otherPosition) == otherChecker
+												&& Util.hasCompletedTriple(newState, otherPosition, otherChecker)
+												) {
+											temp.setRemoveOpponentChecker(otherPosition);
+											newState = PhaseFinal.applyMove(state, temp, p);
+											result.put(temp, newState);
+											temp = new PhaseFinalAction();
+											temp.setFrom(position);
+											temp.setTo(toPos);
+											newState = state.clone();
+											newState.getBoard().put(toPos, p);
+											newState.getBoard().put(position, Checker.EMPTY);
+										}
+									}
+								}
+							} else {
+								newState = PhaseFinal.applyMove(state, temp, p);
+								result.put(temp, newState);
+								temp = new PhaseFinalAction();
+								temp.setFrom(position);
+								newState = state.clone();
+								newState.getBoard().put(toPos, p);
+								newState.getBoard().put(position, Checker.EMPTY);
+							}
+						} catch (WrongPhaseException | PositionNotEmptyException | NullCheckerException
+								| WrongPositionException | TryingToRemoveOwnCheckerException
+								| TryingToRemoveEmptyCheckerException | NullStateException
+								| TryingToRemoveCheckerInTripleException | NullActionException
+								| TryingToMoveOpponentCheckerException | FromAndToAreEqualsException
+								| FromAndToAreNotConnectedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+
+					}
+				}
+			}
+		}
+
+		return result;
+	}
+
+	private static Action stringToAction(String actionString, Phase fase) {
+		if (fase == Phase.FIRST) { // prima fase
+			Phase1Action action;
+			action = new Phase1Action();
+			action.setPutPosition(actionString.substring(0, 2));
+			if (actionString.length() == 4)
+				action.setRemoveOpponentChecker(actionString.substring(2, 4));
+			else
+				action.setRemoveOpponentChecker(null);
+			return action;
+		} else if (fase == Phase.SECOND) { // seconda fase
+			Phase2Action action;
+			action = new Phase2Action();
+			action.setFrom(actionString.substring(0, 2));
+			action.setTo(actionString.substring(2, 4));
+			if (actionString.length() == 6)
+				action.setRemoveOpponentChecker(actionString.substring(4, 6));
+			else
+				action.setRemoveOpponentChecker(null);
+			return action;
+		} else { // ultima fase
+			PhaseFinalAction action;
+			action = new PhaseFinalAction();
+			action.setFrom(actionString.substring(0, 2));
+			action.setTo(actionString.substring(2, 4));
+			if (actionString.length() == 6)
+				action.setRemoveOpponentChecker(actionString.substring(4, 6));
+			else
+				action.setRemoveOpponentChecker(null);
+			return action;
+		}
+	}
+	
 	@Override
 	public List<IAction> getFollowingMoves() {
 		List<IAction> result = new ArrayList<>();
@@ -345,12 +731,68 @@ public class BitBoardState implements IState {
 		if(gamePhase == MIDGAME) {
 			if (checkersOnBoard[playerToMove] > 3) {
 				result = getFollowingMovesMidGame();
-			} else {
+			} else
 				result = getFollowingMovesEndGame();
-			}
+					
+//			} else if (checkersOnBoard[playerToMove] == 3){
+//				result = getFollowingMovesEndGame();
+//			} else
+//				throw new IllegalArgumentException("Qualcosa non quadra");
 		} else {
 			result = getFollowingMovesInitialPhase();
 		}
+		
+//		try {
+//			HashMap<Action, State> oldList = successors(fromBitBoardToState(), playerToMove == WHITE ? Checker.WHITE : Checker.BLACK);
+////			if (oldList.keySet().size() != result.size())
+////				throw new IllegalArgumentException("Dimensioni diverse");
+//			for (IAction bitAction : result) {
+//				boolean found = false;
+//				for (Action action : oldList.keySet()) {
+//					String key = action.toString();
+//					if (key.equals(bitAction.toString())) {
+//						found = true;
+//						if (!oldList.get(action).equals(((BitBoardState) applyMove(bitAction)).fromBitBoardToState())) {
+//							System.out.println("bitAction " + ((BitBoardAction) bitAction));
+//							System.out.println("action " + action);
+//							System.out.println("current state\n" + this);
+//							System.out.println("next bit state\n" + ((BitBoardState)this.applyMove(bitAction)));
+//							System.out.println("next chesani state\n" + oldList.get(action));
+//							throw new IllegalArgumentException("Stati successori non uguali");
+//						}
+//						break;
+//					}
+//				}
+//				if (!found)
+//					throw new IllegalArgumentException();						
+//			}
+//			
+//			for (Action action : oldList.keySet()) {
+//				boolean found = false;
+//				for (IAction bitAction : result) {
+//					String key = bitAction.toString();
+//					if (key.equals(action.toString())) {
+//						found = true;
+//						if (!oldList.get(action).equals(((BitBoardState) applyMove(bitAction)).fromBitBoardToState())) {
+//							System.out.println("bitAction " + bitAction);
+//							System.out.println("action " + action);
+//							System.out.println("current state\n" + this);
+//							System.out.println("next bit state\n" + this.applyMove(bitAction));
+//							System.out.println("next chesani state\n" + oldList.get(action));
+//							throw new IllegalArgumentException("Stati successori non uguali2");
+//						}
+//						break;
+//					}
+//				}
+//				if (!found)
+//					throw new IllegalArgumentException();	
+//			}
+//			
+//		} catch (Exception e) {
+////			e.printStackTrace();
+//			throw new IllegalArgumentException(e);
+//		}
+//		
 		
 		return result;
 	}
@@ -449,7 +891,7 @@ public class BitBoardState implements IState {
 									remove = 1 << j;
 									
 									// opponent checker
-									if ((board[opponentPlayer] & remove) != 0) {
+									if ((board[opponentPlayer] & remove) != 0 && willCompleteMorris(0, j, opponentPlayer)) {
 										temp = new BitBoardAction(from, to, remove);
 										result.add(temp);
 									}
@@ -506,7 +948,7 @@ public class BitBoardState implements IState {
 									remove = 1 << k;
 									
 									// opponent checker
-									if ((board[opponentPlayer] & remove) != 0) {
+									if ((board[opponentPlayer] & remove) != 0 && willCompleteMorris(0, k, opponentPlayer)) {
 										temp = new BitBoardAction(from, to, remove);
 										result.add(temp);
 									}
@@ -582,8 +1024,7 @@ public class BitBoardState implements IState {
 			checkersOnBoard[opponentPlayer]++;
 	}
 
-//	@Override
-//	public IState applyMove(IAction action) {
+	public IState applyMove(IAction action) {
 //		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
 //		int put = checkersToPut[playerToMove];
 //		
@@ -595,7 +1036,29 @@ public class BitBoardState implements IState {
 //		} else {
 //			return new BitBoardState(checkersToPut[opponentPlayer], put, board[WHITE] ^ ((BitBoardAction) action).getRemove(), (board[BLACK] ^ ((BitBoardAction) action).getFrom()) | ((BitBoardAction) action).getTo(), opponentPlayer, this.tieChecker);
 //		}
-//	}
+		
+		BitBoardState result = (BitBoardState) this.clone();
+		byte opponentPlayer = (playerToMove == WHITE) ? BLACK : WHITE;
+		
+		result.board[playerToMove] ^= ((BitBoardAction) action).getFrom();
+		result.board[playerToMove] |= ((BitBoardAction) action).getTo();
+		result.board[opponentPlayer] ^= ((BitBoardAction) action).getRemove();
+		
+		if(result.gamePhase != MIDGAME) {
+			result.checkersToPut[playerToMove]--;
+			result.checkersOnBoard[playerToMove]++;
+		}
+		
+		if(((BitBoardAction) action).getRemove() != 0)
+			result.checkersOnBoard[opponentPlayer]--;
+
+		if((result.checkersToPut[WHITE] | result.checkersToPut[BLACK]) == 0)
+			result.gamePhase = MIDGAME;
+		
+		result.playerToMove = opponentPlayer;
+		
+		return result;
+	}
 
 	@Override
 	public IState clone() {		
@@ -612,16 +1075,16 @@ public class BitBoardState implements IState {
 			return false;
 		
 		BitBoardState state = (BitBoardState) obj;
-		if(this.board[WHITE] == ((BitBoardState) state).board[WHITE] &&
-				this.board[BLACK] == ((BitBoardState) state).board[BLACK] &&
-				this.checkersToPut[WHITE] == ((BitBoardState) state).checkersToPut[WHITE] &&
-				this.checkersToPut[BLACK] == ((BitBoardState) state).checkersToPut[BLACK] 
-//				this.checkersOnBoard[WHITE] == ((BitBoardState) state).checkersOnBoard[WHITE] &&
-//				this.checkersOnBoard[BLACK] == ((BitBoardState) state).checkersOnBoard[BLACK]
+		if(this.board[WHITE] == state.board[WHITE] &&
+				this.board[BLACK] == state.board[BLACK] &&
+				this.checkersToPut[WHITE] == state.checkersToPut[WHITE] &&
+				this.checkersToPut[BLACK] == state.checkersToPut[BLACK] 
+//				&& this.checkersOnBoard[WHITE] == state.checkersOnBoard[WHITE] &&
+//				this.checkersOnBoard[BLACK] == state.checkersOnBoard[BLACK]
 //						&&
-//				this.playerToMove == ((BitBoardState) state).playerToMove &&
-//				((this.gamePhase == MIDGAME && ((BitBoardState) state).gamePhase == MIDGAME) || (this.gamePhase != MIDGAME && ((BitBoardState) state).gamePhase != MIDGAME)))
-			)
+//				this.playerToMove == state.playerToMove &&
+//				((this.gamePhase == MIDGAME && state.gamePhase == MIDGAME) || (this.gamePhase != MIDGAME && state.gamePhase != MIDGAME))
+				)
 			return true;
 		
 //		if(this.board[WHITE] == ((BitBoardState) state).board[WHITE] &&
@@ -1548,225 +2011,225 @@ public class BitBoardState implements IState {
 		}
 		
 		// color inversion
-		tempHash = board[BLACK];
-		tempHash |= ((long) board[WHITE]) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = COLOR_INVERSION;
-		}
-		
-		// color inversion - rotation 90
-		tempHash = BitBoardUtils.rotationClockwise90(board[BLACK]);
-		tempHash |= ((long) BitBoardUtils.rotationClockwise90(board[WHITE])) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = ROTATION_90;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - rotation 180
-		tempHash = BitBoardUtils.rotationClockwise180(board[BLACK]);
-		tempHash |= ((long) BitBoardUtils.rotationClockwise180(board[WHITE])) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = ROTATION_180;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - rotation 270
-		tempHash = BitBoardUtils.rotationAnticlockwise90(board[BLACK]);
-		tempHash |= ((long) BitBoardUtils.rotationAnticlockwise90(board[WHITE])) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = ROTATION_270;
-			symms |= COLOR_INVERSION;
-		}
-		
-		// color inversion - vertical flip
-		tempHash = BitBoardUtils.verticalFlip(board[BLACK]);
-		tempHash |= ((long) BitBoardUtils.verticalFlip(board[WHITE])) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = VERTICAL_FLIP;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - vertical flip - rotation 90
-		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE]))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = VERTICAL_FLIP;
-			symms |= ROTATION_90;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - vertical flip - rotation 180
-		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE]))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = VERTICAL_FLIP;
-			symms |= ROTATION_180;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - vertical flip - rotation 270
-		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE]))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = VERTICAL_FLIP;
-			symms |= ROTATION_270;
-			symms |= COLOR_INVERSION;
-		}
-		
-		// color inversion - inside out
-		tempHash = BitBoardUtils.insideOut(board[BLACK]);
-		tempHash |= ((long) BitBoardUtils.insideOut(board[WHITE])) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms |= INSIDE_OUT;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - inside out - rotation 90
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[WHITE]))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= ROTATION_90;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - inside out - rotation 180
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[WHITE]))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= ROTATION_180;
-			symms |= COLOR_INVERSION;
-		}
-
-		// coor inversion - inside out - rotation 270
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[WHITE]))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= ROTATION_270;
-			symms |= COLOR_INVERSION;
-		}
-		
-		// color inversion - inside out - vertical flip
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[WHITE]))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= VERTICAL_FLIP;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - inside out - vertical flip - rotation 90
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK])));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE])))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= VERTICAL_FLIP;
-			symms |= ROTATION_90;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - inside out - vertical flip - rotation 180
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK])));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE])))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= VERTICAL_FLIP;
-			symms |= ROTATION_180;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - inside out - vertical flip - rotation 270
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK])));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE])))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= VERTICAL_FLIP;
-			symms |= ROTATION_270;
-			symms |= COLOR_INVERSION;
-		}
-		
+//		tempHash = board[BLACK];
+//		tempHash |= ((long) board[WHITE]) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = COLOR_INVERSION;
+//		}
+//		
+//		// color inversion - rotation 90
+//		tempHash = BitBoardUtils.rotationClockwise90(board[BLACK]);
+//		tempHash |= ((long) BitBoardUtils.rotationClockwise90(board[WHITE])) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = ROTATION_90;
+//			symms |= COLOR_INVERSION;
+//		}
+//
+//		// color inversion - rotation 180
+//		tempHash = BitBoardUtils.rotationClockwise180(board[BLACK]);
+//		tempHash |= ((long) BitBoardUtils.rotationClockwise180(board[WHITE])) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = ROTATION_180;
+//			symms |= COLOR_INVERSION;
+//		}
+//
+//		// color inversion - rotation 270
+//		tempHash = BitBoardUtils.rotationAnticlockwise90(board[BLACK]);
+//		tempHash |= ((long) BitBoardUtils.rotationAnticlockwise90(board[WHITE])) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = ROTATION_270;
+//			symms |= COLOR_INVERSION;
+//		}
+//		
+//		// color inversion - vertical flip
+//		tempHash = BitBoardUtils.verticalFlip(board[BLACK]);
+//		tempHash |= ((long) BitBoardUtils.verticalFlip(board[WHITE])) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = VERTICAL_FLIP;
+//			symms |= COLOR_INVERSION;
+//		}
+//
+//		 //color inversion - vertical flip - rotation 90
+//		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK]));
+//		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE]))) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = VERTICAL_FLIP;
+//			symms |= ROTATION_90;
+//			symms |= COLOR_INVERSION;
+//		}
+//
+//		// color inversion - vertical flip - rotation 180
+//		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK]));
+//		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE]))) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = VERTICAL_FLIP;
+//			symms |= ROTATION_180;
+//			symms |= COLOR_INVERSION;
+//		}
+//
+//		// color inversion - vertical flip - rotation 270
+//		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK]));
+//		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE]))) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = VERTICAL_FLIP;
+//			symms |= ROTATION_270;
+//			symms |= COLOR_INVERSION;
+//		}
+//		
+//		// color inversion - inside out
+//		tempHash = BitBoardUtils.insideOut(board[BLACK]);
+//		tempHash |= ((long) BitBoardUtils.insideOut(board[WHITE])) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = INSIDE_OUT;
+//			symms |= COLOR_INVERSION;
+//		}
+//
+//		// color inversion - inside out - rotation 90
+//		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[BLACK]));
+//		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[WHITE]))) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = INSIDE_OUT;
+//			symms |= ROTATION_90;
+//			symms |= COLOR_INVERSION;
+//		}
+//
+//		// color inversion - inside out - rotation 180
+//		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[BLACK]));
+//		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[WHITE]))) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = INSIDE_OUT;
+//			symms |= ROTATION_180;
+//			symms |= COLOR_INVERSION;
+//		}
+//
+//		// coor inversion - inside out - rotation 270
+//		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[BLACK]));
+//		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[WHITE]))) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = INSIDE_OUT;
+//			symms |= ROTATION_270;
+//			symms |= COLOR_INVERSION;
+//		}
+//		
+//		// color inversion - inside out - vertical flip
+//		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[BLACK]));
+//		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[WHITE]))) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = INSIDE_OUT;
+//			symms |= VERTICAL_FLIP;
+//			symms |= COLOR_INVERSION;
+//		}
+//
+//		// color inversion - inside out - vertical flip - rotation 90
+//		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK])));
+//		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE])))) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = INSIDE_OUT;
+//			symms |= VERTICAL_FLIP;
+//			symms |= ROTATION_90;
+//			symms |= COLOR_INVERSION;
+//		}
+//
+//		// color inversion - inside out - vertical flip - rotation 180
+//		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK])));
+//		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE])))) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = INSIDE_OUT;
+//			symms |= VERTICAL_FLIP;
+//			symms |= ROTATION_180;
+//			symms |= COLOR_INVERSION;
+//		}
+//
+//		// color inversion - inside out - vertical flip - rotation 270
+//		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK])));
+//		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE])))) << 24;
+//		tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//		tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//		tempHash |= ((long) opponentPlayer) << 56;
+//
+//		if(tempHash < hash) {
+//			hash = tempHash;
+//			symms = INSIDE_OUT;
+//			symms |= VERTICAL_FLIP;
+//			symms |= ROTATION_270;
+//			symms |= COLOR_INVERSION;
+//		}
+//		
 		return new BitBoardHash(hash, symms);
 	}
 

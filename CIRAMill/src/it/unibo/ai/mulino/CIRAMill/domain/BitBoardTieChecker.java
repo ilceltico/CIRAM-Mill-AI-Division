@@ -15,9 +15,9 @@ public class BitBoardTieChecker implements ITieChecker {
 //		return statesAlreadySeen.contains(state);
 		
 		int index = statesAlreadySeen.indexOf(state);
-		if (index < 0)
-			throw new IllegalArgumentException();
-		return index < statesAlreadySeen.size()-1;
+//		if (index < 0)
+//			throw new IllegalArgumentException();
+		return index < statesAlreadySeen.size()-1 && index >= 0;
 	}
 	
 	public void addState(IState state) {
@@ -40,10 +40,12 @@ public class BitBoardTieChecker implements ITieChecker {
 	
 	public void removeState(IState state) {
 //		statesAlreadySeen.remove(((BitBoardState) state).getHash());
-		if (statesAlreadySeen.lastIndexOf(state) == statesAlreadySeen.size()-1)
-			statesAlreadySeen.remove(statesAlreadySeen.size()-1);
-		else
-			throw new IllegalArgumentException();
+		int lastIndex = statesAlreadySeen.lastIndexOf(state);
+		if (lastIndex >= 0)
+			if (lastIndex == statesAlreadySeen.size()-1)
+				statesAlreadySeen.remove(statesAlreadySeen.size()-1);
+			else
+				throw new IllegalArgumentException();
 	}
 	
 	public String toString() {
@@ -52,6 +54,12 @@ public class BitBoardTieChecker implements ITieChecker {
 		for (BitBoardState state : statesAlreadySeen)
 			result.append(state + "\n");
 		return result.toString();
+	}
+	
+	public BitBoardTieChecker clone() {
+		BitBoardTieChecker result = new BitBoardTieChecker();
+		result.statesAlreadySeen = new ArrayList<>(statesAlreadySeen);
+		return result;
 	}
 
 }

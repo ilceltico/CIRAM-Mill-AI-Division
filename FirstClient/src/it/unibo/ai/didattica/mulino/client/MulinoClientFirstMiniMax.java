@@ -163,21 +163,25 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
+		System.out.println("New Expanded states: " + newExpandedStates);
 		System.out.println("Tie Count: " + tieCount);
 		System.out.println("Win Count: " + winCount);
 		System.out.println("Selected action is: " + a);
 		expandedStates = 0;
+		newExpandedStates = 0;
 		tieCount = 0;
 		winCount = 0;
 		return a.getAction();
 	}
 
+	private static int newExpandedStates = 0;
 	public static ValuedAction max(State state, int maxDepth) throws Exception {
 		LinkedHashMap<Action, State> successors = successors(state, player);
 		ValuedAction result = new ValuedAction(null, Integer.MIN_VALUE);
 		ValuedAction temp;
 		State newState;
-
+		
+		newExpandedStates += successors.keySet().size();
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
 			if (isWinningState(newState, player)) {
@@ -226,6 +230,7 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		ValuedAction temp;
 		State newState;
 
+		newExpandedStates += successors.keySet().size();
 		for (Action a : successors.keySet()) {
 			newState = successors.get(a);
 			if (isWinningState(newState, minPlayer)) {
@@ -303,6 +308,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 								result.put(temp, newState);
 								temp = new Phase1Action();
 								temp.setPutPosition(position);
+								newState = state.clone();
+								newState.getBoard().put(position, p);
 								expandedStates++;
 								foundRemovableChecker = true;
 							}
@@ -316,6 +323,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 									result.put(temp, newState);
 									temp = new Phase1Action();
 									temp.setPutPosition(position);
+									newState = state.clone();
+									newState.getBoard().put(position, p);
 									expandedStates++;
 								}
 							}
@@ -325,6 +334,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 						result.put(temp, newState);
 						temp = new Phase1Action();
 						temp.setPutPosition(position);
+						newState = state.clone();
+						newState.getBoard().put(position, p);
 						expandedStates++;
 					}
 				} catch (WrongPhaseException | PositionNotEmptyException | NullCheckerException
@@ -346,7 +357,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 		State newState;
 		LinkedHashMap<String, Checker> board = new LinkedHashMap<String, Checker>(state.getBoard());
 		State.Checker otherChecker = p == Checker.WHITE ? Checker.BLACK : Checker.WHITE;
-
+		int num=0;
+		
 		for (String position : state.positions) {
 			if (board.get(position) == p) {
 				temp = new Phase2Action();
@@ -379,6 +391,9 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 											temp = new Phase2Action();
 											temp.setFrom(position);
 											temp.setTo(adjPos);
+											newState = state.clone();
+											newState.getBoard().put(adjPos, p);
+											newState.getBoard().put(position, Checker.EMPTY);
 											expandedStates++;
 											foundRemovableChecker = true;
 										}
@@ -386,7 +401,8 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 									if (!foundRemovableChecker) {
 										for (String otherPosition : state.positions) {
 											if (board.get(otherPosition) == otherChecker
-													&& Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
+													&& Util.hasCompletedTriple(newState, otherPosition, otherChecker)
+													) {
 												temp.setRemoveOpponentChecker(otherPosition);
 												if (state.getCurrentPhase() == Phase.SECOND)
 													newState = Phase2.applyMove(state, temp, p);
@@ -394,15 +410,21 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 													PhaseFinalAction finalAction = new PhaseFinalAction();
 													finalAction.setFrom(temp.getFrom());
 													finalAction.setTo(temp.getTo());
-													finalAction
-															.setRemoveOpponentChecker(temp.getRemoveOpponentChecker());
+													finalAction.setRemoveOpponentChecker(temp.getRemoveOpponentChecker());
 													newState = PhaseFinal.applyMove(state, finalAction, p);
 												}
 												result.put(temp, newState);
 												temp = new Phase2Action();
 												temp.setFrom(position);
 												temp.setTo(adjPos);
+												newState = state.clone();
+												newState.getBoard().put(adjPos, p);
+												newState.getBoard().put(position, Checker.EMPTY);
 												expandedStates++;
+											} else if (board.get(otherPosition) == otherChecker) {
+												System.out.println(state);
+												System.out.println(newState);
+												System.out.println(++num+"\n\n");
 											}
 										}
 									}
@@ -419,6 +441,9 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 									result.put(temp, newState);
 									temp = new Phase2Action();
 									temp.setFrom(position);
+									newState = state.clone();
+									newState.getBoard().put(adjPos, p);
+									newState.getBoard().put(position, Checker.EMPTY);
 									expandedStates++;
 								}
 							} catch (WrongPhaseException | PositionNotEmptyException | NullCheckerException
@@ -509,6 +534,9 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 										temp = new PhaseFinalAction();
 										temp.setFrom(position);
 										temp.setTo(toPos);
+										newState = state.clone();
+										newState.getBoard().put(toPos, p);
+										newState.getBoard().put(position, Checker.EMPTY);
 										expandedStates++;
 										foundRemovableChecker = true;
 									}
@@ -516,13 +544,17 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 								if (!foundRemovableChecker) {
 									for (String otherPosition : state.positions) {
 										if (board.get(otherPosition) == otherChecker
-												&& Util.hasCompletedTriple(newState, otherPosition, otherChecker)) {
+												&& Util.hasCompletedTriple(newState, otherPosition, otherChecker)
+												) {
 											temp.setRemoveOpponentChecker(otherPosition);
 											newState = PhaseFinal.applyMove(state, temp, p);
 											result.put(temp, newState);
 											temp = new PhaseFinalAction();
 											temp.setFrom(position);
 											temp.setTo(toPos);
+											newState = state.clone();
+											newState.getBoard().put(toPos, p);
+											newState.getBoard().put(position, Checker.EMPTY);
 											expandedStates++;
 										}
 									}
@@ -532,6 +564,9 @@ public class MulinoClientFirstMiniMax extends MulinoClient {
 								result.put(temp, newState);
 								temp = new PhaseFinalAction();
 								temp.setFrom(position);
+								newState = state.clone();
+								newState.getBoard().put(toPos, p);
+								newState.getBoard().put(position, Checker.EMPTY);
 								expandedStates++;
 							}
 						} catch (WrongPhaseException | PositionNotEmptyException | NullCheckerException
