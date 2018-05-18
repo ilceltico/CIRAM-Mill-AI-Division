@@ -28,6 +28,6 @@ public class ValuedAction {
 	
 	@Override
 	public String toString() {
-		return this.action.toString() + ", value: " + value;
+		return this.action + ", value: " + value;
 	}
 }
