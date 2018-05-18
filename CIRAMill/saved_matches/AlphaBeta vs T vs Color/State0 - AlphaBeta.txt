@@ -1,0 +1,50 @@
+STATE 0
+
+AlphaBeta:
+Elapsed time: 3
+Expanded states: 24
+Selected action is: a7, value: 6
+Level 1 completed
+
+AlphaBeta:
+Elapsed time: 2
+Expanded states: 70
+Selected action is: a7, value: 0
+Level 2 completed
+
+AlphaBeta:
+Elapsed time: 5
+Expanded states: 625
+Selected action is: a7, value: 18
+Level 3 completed
+
+AlphaBeta:
+Elapsed time: 16
+Expanded states: 2849
+Selected action is: a7, value: 0
+Level 4 completed
+
+AlphaBeta:
+Elapsed time: 146
+Expanded states: 187455
+Selected action is: d7, value: 18
+Level 5 completed
+
+AlphaBeta:
+Elapsed time: 117
+Expanded states: 158989
+Selected action is: a7, value: 0
+Level 6 completed
+
+AlphaBeta:
+Elapsed time: 4757
+Expanded states: 15497029
+Selected action is: a7, value: 18
+Level 7 completed
+
+AlphaBeta:
+Elapsed time: 2772
+Expanded states: 8548955
+Selected action is: a7, value: 0
+Level 8 completed
+

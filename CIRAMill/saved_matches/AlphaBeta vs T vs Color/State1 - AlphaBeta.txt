@@ -1,0 +1,50 @@
+STATE 1
+
+AlphaBeta:
+Elapsed time: 3
+Expanded states: 10
+Selected action is: d2d3, value: -34
+Level 1 completed
+
+AlphaBeta:
+Elapsed time: 2
+Expanded states: 82
+Selected action is: d6f6, value: 32
+Level 2 completed
+
+AlphaBeta:
+Elapsed time: 17
+Expanded states: 1135
+Selected action is: f4f2, value: -108
+Level 3 completed
+
+AlphaBeta:
+Elapsed time: 31
+Expanded states: 5287
+Selected action is: d2d3, value: 26
+Level 4 completed
+
+AlphaBeta:
+Elapsed time: 142
+Expanded states: 46333
+Selected action is: d2f2, value: -99
+Level 5 completed
+
+AlphaBeta:
+Elapsed time: 435
+Expanded states: 318159
+Selected action is: d2d3, value: 16
+Level 6 completed
+
+AlphaBeta:
+Elapsed time: 767
+Expanded states: 1258376
+Selected action is: d2f2, value: -99
+Level 7 completed
+
+AlphaBeta:
+Elapsed time: 3389
+Expanded states: 9281535
+Selected action is: d2d3, value: 10
+Level 8 completed
+

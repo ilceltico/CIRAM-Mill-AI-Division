@@ -1,0 +1,66 @@
+STATE 3
+WITH COLOR SYMMETRY
+
+AlphaBetaTransposition:
+Elapsed time: 4
+Expanded states: 54
+TT Hits: 0
+Selected action is: d6f6, value: 0
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 14
+Expanded states: 666
+TT Hits: 1
+Selected action is: d6c5, value: 0
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 38
+Expanded states: 6034
+TT Hits: 55
+Selected action is: d6c5, value: 0
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 22
+Expanded states: 7816
+TT Hits: 139
+Selected action is: d6c5, value: 0
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 88
+Expanded states: 48706
+TT Hits: 2952
+Selected action is: d6c5, value: 0
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 464
+Expanded states: 447170
+TT Hits: 16154
+Selected action is: d6c5, value: 0
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 622
+Expanded states: 943790
+TT Hits: 167048
+Selected action is: d6c5, value: 0
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 8313
+Expanded states: 26329451
+TT Hits: 1778403
+Selected action is: d6c5, value: 0
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 6833
+Expanded states: 16825581
+TT Hits: 4612391
+Selected action is: d6c5, value: 0
+Level 9 completed
+

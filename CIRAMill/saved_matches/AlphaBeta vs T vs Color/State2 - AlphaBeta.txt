@@ -1,0 +1,62 @@
+STATE 2
+
+AlphaBeta:
+Elapsed time: 2
+Expanded states: 5
+Selected action is: e4e5, value: 28
+Level 1 completed
+
+AlphaBeta:
+Elapsed time: 2
+Expanded states: 69
+Selected action is: f2f4, value: -12
+Level 2 completed
+
+AlphaBeta:
+Elapsed time: 5
+Expanded states: 196
+Selected action is: f2f4, value: -12
+Level 3 completed
+
+AlphaBeta:
+Elapsed time: 23
+Expanded states: 2188
+Selected action is: g1g4, value: -12
+Level 4 completed
+
+AlphaBeta:
+Elapsed time: 32
+Expanded states: 4381
+Selected action is: g1g4, value: -3
+Level 5 completed
+
+AlphaBeta:
+Elapsed time: 164
+Expanded states: 53399
+Selected action is: g1g4, value: -12
+Level 6 completed
+
+AlphaBeta:
+Elapsed time: 132
+Expanded states: 51785
+Selected action is: g1g4, value: -4
+Level 7 completed
+
+AlphaBeta:
+Elapsed time: 1019
+Expanded states: 1029532
+Selected action is: g1g4, value: -9
+Level 8 completed
+
+AlphaBeta:
+Elapsed time: 785
+Expanded states: 1385264
+Selected action is: g1g4, value: 9
+Level 9 completed
+
+AlphaBeta:
+Elapsed time: 11717
+Expanded states: 21877091
+Selected action is: g1g4, value: -5
+Level 10 completed
+

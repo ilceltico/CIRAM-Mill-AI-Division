@@ -1,0 +1,73 @@
+STATE 0
+WITH COLOR SYMMETRY
+
+AlphaBetaTransposition:
+Elapsed time: 6
+Expanded states: 24
+TT Hits: 0
+Selected action is: a7, value: 6
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3
+Expanded states: 70
+TT Hits: 21
+Selected action is: a7, value: 0
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 10
+Expanded states: 624
+TT Hits: 54
+Selected action is: a7, value: 18
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 27
+Expanded states: 2021
+TT Hits: 540
+Selected action is: a7, value: 0
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 83
+Expanded states: 20563
+TT Hits: 2015
+Selected action is: d7, value: 18
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 145
+Expanded states: 60783
+TT Hits: 13788
+Selected action is: d7, value: 0
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 538
+Expanded states: 505853
+TT Hits: 52926
+Selected action is: d7, value: 18
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 754
+Expanded states: 1279929
+TT Hits: 300495
+Selected action is: d7, value: 0
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4696
+Expanded states: 9193944
+TT Hits: 1187235
+Selected action is: d7, value: 18
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 14712
+Expanded states: 25105390
+TT Hits: 6474613
+Selected action is: d7, value: 0
+Level 10 completed
+

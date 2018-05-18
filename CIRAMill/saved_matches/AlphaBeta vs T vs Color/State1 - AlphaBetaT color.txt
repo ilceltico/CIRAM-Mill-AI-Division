@@ -1,0 +1,73 @@
+STATE 1
+WITH COLOR SYMMETRY
+
+AlphaBetaTransposition:
+Elapsed time: 5
+Expanded states: 10
+TT Hits: 0
+Selected action is: d2d3, value: -34
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4
+Expanded states: 90
+TT Hits: 1
+Selected action is: d6f6, value: 32
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 15
+Expanded states: 899
+TT Hits: 14
+Selected action is: d2d3, value: -108
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 23
+Expanded states: 1421
+TT Hits: 275
+Selected action is: d2d3, value: 26
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 104
+Expanded states: 25098
+TT Hits: 1091
+Selected action is: d2f2, value: -99
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 91
+Expanded states: 38695
+TT Hits: 8597
+Selected action is: d2d3, value: 16
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 700
+Expanded states: 587583
+TT Hits: 36554
+Selected action is: d2f2, value: -99
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 375
+Expanded states: 438005
+TT Hits: 114315
+Selected action is: d2d3, value: 10
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4216
+Expanded states: 8019482
+TT Hits: 540473
+Selected action is: d2f2, value: -89
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2775
+Expanded states: 5843420
+TT Hits: 1758533
+Selected action is: d2f2, value: -2147483647
+Level 10 completed
+

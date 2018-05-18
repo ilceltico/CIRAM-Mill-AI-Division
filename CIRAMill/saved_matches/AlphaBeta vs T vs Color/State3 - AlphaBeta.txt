@@ -1,0 +1,38 @@
+STATE 3
+
+AlphaBeta:
+Elapsed time: 4
+Expanded states: 54
+Selected action is: d6f6, value: 0
+Level 1 completed
+
+AlphaBeta:
+Elapsed time: 13
+Expanded states: 666
+Selected action is: d6c5, value: 0
+Level 2 completed
+
+AlphaBeta:
+Elapsed time: 50
+Expanded states: 18329
+Selected action is: d6c5, value: 0
+Level 3 completed
+
+AlphaBeta:
+Elapsed time: 148
+Expanded states: 84534
+Selected action is: d6c5, value: 0
+Level 4 completed
+
+AlphaBeta:
+Elapsed time: 1549
+Expanded states: 2658460
+Selected action is: d6c5, value: 0
+Level 5 completed
+
+AlphaBeta:
+Elapsed time: 5362
+Expanded states: 12760563
+Selected action is: d6c5, value: 0
+Level 6 completed
+

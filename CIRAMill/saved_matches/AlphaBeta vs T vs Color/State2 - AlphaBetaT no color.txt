@@ -1,0 +1,80 @@
+STATE 2
+NO COLOR SYMMETRY
+
+AlphaBetaTransposition:
+Elapsed time: 3
+Expanded states: 5
+TT Hits: 0
+Selected action is: e4e5, value: 28
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 79
+TT Hits: 1
+Selected action is: f2f4, value: -12
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 7
+Expanded states: 206
+TT Hits: 10
+Selected action is: f2f4, value: -12
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 30
+Expanded states: 2654
+TT Hits: 127
+Selected action is: g1g4, value: -12
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 49
+Expanded states: 6030
+TT Hits: 539
+Selected action is: g1g4, value: -3
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 121
+Expanded states: 25958
+TT Hits: 1870
+Selected action is: g1g4, value: -12
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 254
+Expanded states: 79580
+TT Hits: 10930
+Selected action is: g1g4, value: -4
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 715
+Expanded states: 531324
+TT Hits: 70552
+Selected action is: g1g4, value: -9
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 962
+Expanded states: 1099457
+TT Hits: 197656
+Selected action is: g1g4, value: 9
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4765
+Expanded states: 5677626
+TT Hits: 1043515
+Selected action is: g1g4, value: -5
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 9517
+Expanded states: 10928348
+TT Hits: 2432793
+Selected action is: g1g4, value: 22
+Level 11 completed
+
