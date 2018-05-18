@@ -70,7 +70,6 @@ public class RelativeHistoryAlphaBetaColor implements IMinimax {
 			}
 			if (result.getValue() >= beta) {
 				state.unmove(a);
-				//HistoryTable[ bestmove ] = HistoryTable[ bestmove ] + 2depth (initialDepth - maxDepth ???)
 				historyTable.incrementValue(result.getAction(), maxDepth, player);
 				return result;
 			} else {
@@ -83,8 +82,8 @@ public class RelativeHistoryAlphaBetaColor implements IMinimax {
 			state.unmove(a);
 		}
 		
-		//HistoryTable[ bestmove ] = HistoryTable[ bestmove ] + 2depth (initialDepth - maxDepth ???)
-		historyTable.incrementValue(result.getAction(), maxDepth, player);
+		if(result.getAction() != null)
+			historyTable.incrementValue(result.getAction(), maxDepth, player);
 		return result;
 	}
 	
@@ -119,7 +118,6 @@ public class RelativeHistoryAlphaBetaColor implements IMinimax {
 			}
 			if (result.getValue() <= alpha) {
 				state.unmove(a);
-				//HistoryTable[ bestmove ] = HistoryTable[ bestmove ] + 2depth (initialDepth - maxDepth ???)
 				historyTable.incrementValue(result.getAction(), maxDepth, player);
 				return result;
 			} else {
@@ -132,8 +130,8 @@ public class RelativeHistoryAlphaBetaColor implements IMinimax {
 			state.unmove(a);
 		}
 		
-		//HistoryTable[ bestmove ] = HistoryTable[ bestmove ] + 2depth (initialDepth - maxDepth ???)
-		historyTable.incrementValue(result.getAction(), maxDepth, player);
+		if(result.getAction() != null)
+			historyTable.incrementValue(result.getAction(), maxDepth, player);
 		return result;
 	}
 	

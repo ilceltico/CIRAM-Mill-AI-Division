@@ -62,7 +62,6 @@ public class HistoryAlphaBeta implements IMinimax {
 			}
 			if (result.getValue() >= beta) {
 				state.unmove(a);
-				//HistoryTable[ bestmove ] = HistoryTable[ bestmove ] + 2depth (initialDepth - maxDepth ???)
 				historyTable.incrementValue(result.getAction(), maxDepth);
 				return result;
 			}
@@ -73,8 +72,8 @@ public class HistoryAlphaBeta implements IMinimax {
 			state.unmove(a);
 		}
 		
-		//HistoryTable[ bestmove ] = HistoryTable[ bestmove ] + 2depth (initialDepth - maxDepth ???)
-		historyTable.incrementValue(result.getAction(), maxDepth);
+		if(result.getAction() != null)
+			historyTable.incrementValue(result.getAction(), maxDepth);
 		return result;
 	}
 	
@@ -107,7 +106,6 @@ public class HistoryAlphaBeta implements IMinimax {
 			}
 			if (result.getValue() <= alpha) {
 				state.unmove(a);
-				//HistoryTable[ bestmove ] = HistoryTable[ bestmove ] + 2depth (initialDepth - maxDepth ???)
 				historyTable.incrementValue(result.getAction(), maxDepth);
 				return result;
 			}
@@ -118,8 +116,8 @@ public class HistoryAlphaBeta implements IMinimax {
 			state.unmove(a);
 		}
 		
-		//HistoryTable[ bestmove ] = HistoryTable[ bestmove ] + 2depth (initialDepth - maxDepth ???)
-		historyTable.incrementValue(result.getAction(), maxDepth);
+		if(result.getAction() != null)
+			historyTable.incrementValue(result.getAction(), maxDepth);
 		return result;
 	}
 	
