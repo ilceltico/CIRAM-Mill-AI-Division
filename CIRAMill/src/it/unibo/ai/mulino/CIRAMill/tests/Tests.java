@@ -23,17 +23,8 @@ import it.unibo.ai.mulino.CIRAMill.minimax.IterativeDeepeningRunnable;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTD;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTDVariant;
 import it.unibo.ai.mulino.CIRAMill.minimax.MiniMax;
-<<<<<<< HEAD
-import it.unibo.ai.mulino.CIRAMill.minimax.Negascout2;
-import it.unibo.ai.mulino.CIRAMill.minimax.ValuedAction;
-
-public class Tests {
-	
-	public static final int DEPTH = 6;
-	public static final int KNUM = 10;
-	public static final int STATE = 3;
-=======
 import it.unibo.ai.mulino.CIRAMill.minimax.Negascout;
+import it.unibo.ai.mulino.CIRAMill.minimax.Negascout2;
 import it.unibo.ai.mulino.CIRAMill.minimax.ValuedAction;
 
 public class Tests {
@@ -41,7 +32,6 @@ public class Tests {
 	public static final int DEPTH = 6;
 	public static final int KNUM = 10;
 	public static final int STATE = 1;
->>>>>>> 701030c39f20bffcce6445b18eea416db324ab5c
 	
 	public static final boolean minimax = false;
 	public static final boolean alphabeta = false;
@@ -50,13 +40,9 @@ public class Tests {
 	public static final boolean alphabeta_quiescent = false;
 	public static final boolean alphabeta_transp = false;
 	public static final boolean mtd = false;
-<<<<<<< HEAD
 	public static final boolean negascout2 = false;
-=======
 	public static final boolean mtd_variant = false;
 	public static final boolean negascout = false;
-	
->>>>>>> 701030c39f20bffcce6445b18eea416db324ab5c
 	
 	public static final int seconds = 60;
 	public static final int startingDepth = 1;
@@ -67,12 +53,9 @@ public class Tests {
 	public static final boolean it_alphabeta_quiescent = false;
 	public static final boolean it_alphabeta_transp = true;
 	public static final boolean it_mtd = false;
-<<<<<<< HEAD
 	public static final boolean it_negascout2 = false;
-=======
 	public static final boolean it_mtd_variant = false;
 	public static final boolean it_negascout = true;
->>>>>>> 701030c39f20bffcce6445b18eea416db324ab5c
 	
 
 	public static void main(String[] args) {
@@ -191,15 +174,12 @@ public class Tests {
             BitBoardTieChecker tieChecker = new BitBoardTieChecker();
             new Thread(new MinimaxTestRunnable(new Negascout(tieChecker), tieChecker)).start();
         }
-<<<<<<< HEAD
         if (negascout2) {
         	 BitBoardTieChecker tieChecker = new BitBoardTieChecker();
         	 new Thread(new MinimaxTestRunnable(new Negascout2(tieChecker), tieChecker)).start();
         }
 
-=======
->>>>>>> 701030c39f20bffcce6445b18eea416db324ab5c
-		
+        
 		if (it_minimax) {
 			BitBoardTieChecker tieChecker = new BitBoardTieChecker();
 			IMinimax minimax = new MiniMax(tieChecker);
@@ -358,53 +338,5 @@ public class Tests {
 		}
 		
 	}
-<<<<<<< HEAD
-	
-    static class IterativeTestRunnableMTD implements Runnable {
-        ITieChecker tieChecker;
-        int maxSeconds;
-        
-        public IterativeTestRunnableMTD(ITieChecker tieChecker, int maxSeconds) {
-            this.tieChecker = tieChecker;
-            this.maxSeconds = maxSeconds;
-        }
 
-        @SuppressWarnings("deprecation")
-        @Override
-        public void run() {
-            BitBoardState state;
-            switch (STATE) {
-            case 0: state =  new BitBoardState(tieChecker); break;
-            case 1: state = new BitBoardState(0, 0, (1 << 9) | (1 << 11) | (1 << 13) | (1 << 15), 0b110010110000000101000010 , BitBoardState.WHITE, tieChecker); break;
-            case 2: state = new BitBoardState(0, 0, (1 << 0) | (1 << 2) | (1 << 9) | (1 << 15) | (1 << 17) | (1 << 21) | (1 << 23),
-					(1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 12) | (1 << 13) | (1 << 14) | (1 << 19), BitBoardState.BLACK, tieChecker); break;
-            case 3: state = new BitBoardState(0, 0, (1 << 9) | (1 << 12) | (1 << 15), (1 << 8) | (1 << 22) | (1 << 23), BitBoardState.WHITE, tieChecker); break;
-			default: throw new IllegalArgumentException("Invalid STATE number");
-            }
-            
-            IterativeDeepeningRunnableMTD runnable = new IterativeDeepeningRunnableMTD(tieChecker, state, startingDepth);
-            Thread iterativeThread = new Thread(runnable);
-            iterativeThread.start();
-            
-            while (maxSeconds > 1) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    System.out.println("Shouldn't happen...");
-                    e.printStackTrace();
-                }
-                maxSeconds--;
-            }
-            
-            iterativeThread.stop();
-            
-            ValuedAction vAction = runnable.getSelectedValuedAction();
-            state.move(vAction.getAction());
-            System.out.println("\n\n" + state);
-        }
-    }
-
-
-=======
->>>>>>> 701030c39f20bffcce6445b18eea416db324ab5c
 }
