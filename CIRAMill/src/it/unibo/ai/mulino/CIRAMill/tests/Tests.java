@@ -18,7 +18,9 @@ import it.unibo.ai.mulino.CIRAMill.minimax.IMinimax;
 import it.unibo.ai.mulino.CIRAMill.minimax.ITieChecker;
 import it.unibo.ai.mulino.CIRAMill.minimax.IterativeDeepeningRunnable;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTD;
+import it.unibo.ai.mulino.CIRAMill.minimax.MTDTransposition;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTDVariant;
+import it.unibo.ai.mulino.CIRAMill.minimax.MTDVariantTransposition;
 import it.unibo.ai.mulino.CIRAMill.minimax.MiniMax;
 import it.unibo.ai.mulino.CIRAMill.minimax.Negascout;
 import it.unibo.ai.mulino.CIRAMill.minimax.RelativeHistoryAlphaBeta;
@@ -45,6 +47,8 @@ public class Tests {
 	public static final boolean relative_history = false;
 	public static final boolean relative_history_color = false;
 	public static final boolean relative_history_transposition = false;
+	public static final boolean mtd_transposition = false;
+	public static final boolean mtd_variant_transposition = false;
 	
 	
 	public static final int seconds = 60;
@@ -63,6 +67,8 @@ public class Tests {
 	public static final boolean it_relative_history = false;
 	public static final boolean it_relative_history_color = false;
 	public static final boolean it_relative_history_transposition = true;
+	public static final boolean it_mtd_transposition = false;
+	public static final boolean it_mtd_variant_transposition = false;
 	
 	
 	public static void main(String[] args) {
@@ -205,7 +211,14 @@ public class Tests {
 			BitBoardTranspositionTable transpositionTable = new BitBoardTranspositionTable();
             new Thread(new MinimaxTestRunnable(new RelativeHistoryAlphaBetaTransposition(tieChecker, transpositionTable, historyTable, butterflyTable), tieChecker)).start();
         }
-
+        if(mtd_transposition) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            new Thread(new MinimaxTestRunnable(new MTDTransposition(tieChecker, new BitBoardTranspositionTable()), tieChecker)).start();
+        }
+        if(mtd_variant_transposition) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            new Thread(new MinimaxTestRunnable(new MTDVariantTransposition(tieChecker, new BitBoardTranspositionTable()), tieChecker)).start();
+        }
         
 		if (it_minimax) {
 			BitBoardTieChecker tieChecker = new BitBoardTieChecker();
@@ -280,7 +293,17 @@ public class Tests {
             IMinimax minimax = new RelativeHistoryAlphaBetaTransposition(tieChecker, transpositionTable, historyTable, butterflyTable);
             new Thread(new IterativeTestRunnable(minimax ,tieChecker, seconds)).start();
         }
-
+        if(it_mtd_transposition) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            IMinimax minimax = new MTDTransposition(tieChecker, new BitBoardTranspositionTable());
+            new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
+        }
+        if(it_mtd_variant_transposition) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            IMinimax minimax = new MTDVariantTransposition(tieChecker, new BitBoardTranspositionTable());
+            new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
+        }
+        
 				
 //		LRUMap<Long, ValuedAction> map = new LRUMap<>();
 //		map.put(1L, new ValuedAction(new BitBoardAction(), 30));
