@@ -7,7 +7,6 @@ public class HistoryAlphaBeta implements IMinimax {
 	
 	private int expandedStates = 0;
 	private long elapsedTime;
-	private int originalMaxDepth;
 	
 	private ITieChecker tieChecker;
 	private IHistoryTable historyTable;
@@ -19,7 +18,6 @@ public class HistoryAlphaBeta implements IMinimax {
 
 	@Override
 	public ValuedAction minimaxDecision(IState state, int maxDepth) {
-		originalMaxDepth = maxDepth;
 		elapsedTime = System.currentTimeMillis();
 		ValuedAction valuedAction = max(state, maxDepth, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;

@@ -18,11 +18,16 @@ import it.unibo.ai.mulino.CIRAMill.minimax.IMinimax;
 import it.unibo.ai.mulino.CIRAMill.minimax.ITieChecker;
 import it.unibo.ai.mulino.CIRAMill.minimax.IterativeDeepeningRunnable;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTD;
+import it.unibo.ai.mulino.CIRAMill.minimax.MTDHistory;
+import it.unibo.ai.mulino.CIRAMill.minimax.MTDRelativeHistory;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTDTransposition;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTDVariant;
+import it.unibo.ai.mulino.CIRAMill.minimax.MTDVariantHistory;
+import it.unibo.ai.mulino.CIRAMill.minimax.MTDVariantRelativeHistory;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTDVariantTransposition;
 import it.unibo.ai.mulino.CIRAMill.minimax.MiniMax;
 import it.unibo.ai.mulino.CIRAMill.minimax.Negascout;
+import it.unibo.ai.mulino.CIRAMill.minimax.NegascoutTransposition;
 import it.unibo.ai.mulino.CIRAMill.minimax.RelativeHistoryAlphaBeta;
 import it.unibo.ai.mulino.CIRAMill.minimax.RelativeHistoryAlphaBetaColor;
 import it.unibo.ai.mulino.CIRAMill.minimax.RelativeHistoryAlphaBetaTransposition;
@@ -30,9 +35,9 @@ import it.unibo.ai.mulino.CIRAMill.minimax.ValuedAction;
 
 public class Tests {
 
-	public static final int DEPTH = 6;
+	public static final int DEPTH = 8;
 	public static final int KNUM = 10;
-	public static final int STATE = 0;
+	public static final int STATE = 2;
 	
 	public static final boolean minimax = false;
 	public static final boolean alphabeta = false;
@@ -49,8 +54,12 @@ public class Tests {
 	public static final boolean relative_history_transposition = false;
 	public static final boolean mtd_transposition = false;
 	public static final boolean mtd_variant_transposition = false;
-	
-	
+	public static final boolean negascout_transposition = false;
+	public static final boolean mtd_history = false;
+	public static final boolean mtd_relative_history = false;
+	public static final boolean mtd_variant_history = false;
+	public static final boolean mtd_variant_relative_history = false;
+		
 	public static final int seconds = 60;
 	public static final int startingDepth = 1;
 	
@@ -66,9 +75,14 @@ public class Tests {
 	public static final boolean it_history = false;
 	public static final boolean it_relative_history = false;
 	public static final boolean it_relative_history_color = false;
-	public static final boolean it_relative_history_transposition = true;
+	public static final boolean it_relative_history_transposition = false;
 	public static final boolean it_mtd_transposition = false;
 	public static final boolean it_mtd_variant_transposition = false;
+	public static final boolean it_negascout_transposition = false;
+	public static final boolean it_mtd_history = false;
+	public static final boolean it_mtd_relative_history = false;
+	public static final boolean it_mtd_variant_history = false;
+	public static final boolean it_mtd_variant_relative_history = true;
 	
 	
 	public static void main(String[] args) {
@@ -219,6 +233,32 @@ public class Tests {
             BitBoardTieChecker tieChecker = new BitBoardTieChecker();
             new Thread(new MinimaxTestRunnable(new MTDVariantTransposition(tieChecker, new BitBoardTranspositionTable()), tieChecker)).start();
         }
+        if(negascout_transposition) {
+        	BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+        	new Thread(new MinimaxTestRunnable(new NegascoutTransposition(tieChecker, new BitBoardTranspositionTable()), tieChecker)).start();
+        }
+        if (mtd_history) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+			BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+			new Thread(new MinimaxTestRunnable(new MTDHistory(tieChecker, historyTable), tieChecker)).start();
+        }
+        if(mtd_relative_history) {
+        	BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+			BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+			BitBoardButterflyTable butterflyTable = new BitBoardButterflyTable();
+			new Thread(new MinimaxTestRunnable(new MTDRelativeHistory(tieChecker, historyTable, butterflyTable), tieChecker)).start();
+        }
+        if(mtd_variant_history) {
+        	BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+			BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+			new Thread(new MinimaxTestRunnable(new MTDVariantHistory(tieChecker, historyTable), tieChecker)).start();
+        }
+        if(mtd_variant_relative_history) {
+        	BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+			BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+			BitBoardButterflyTable butterflyTable = new BitBoardButterflyTable();
+			new Thread(new MinimaxTestRunnable(new MTDVariantRelativeHistory(tieChecker, historyTable, butterflyTable), tieChecker)).start();
+        }
         
 		if (it_minimax) {
 			BitBoardTieChecker tieChecker = new BitBoardTieChecker();
@@ -302,6 +342,37 @@ public class Tests {
             BitBoardTieChecker tieChecker = new BitBoardTieChecker();
             IMinimax minimax = new MTDVariantTransposition(tieChecker, new BitBoardTranspositionTable());
             new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
+        }
+        if(it_negascout_transposition) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            IMinimax minimax = new NegascoutTransposition(tieChecker, new BitBoardTranspositionTable());
+            new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
+        }
+        if (it_mtd_history) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+			BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+			IMinimax minimax = new MTDHistory(tieChecker, historyTable);
+			new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
+        }
+        if(it_mtd_relative_history) {
+        	BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+			BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+			BitBoardButterflyTable butterflyTable = new BitBoardButterflyTable();
+			IMinimax minimax = new MTDRelativeHistory(tieChecker, historyTable, butterflyTable);
+			new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
+        }
+        if(it_mtd_variant_history) {
+        	BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+			BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+			IMinimax minimax = new MTDVariantHistory(tieChecker, historyTable);
+			new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
+        }
+        if(it_mtd_variant_relative_history) {
+        	BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+			BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+			BitBoardButterflyTable butterflyTable = new BitBoardButterflyTable();
+			IMinimax minimax = new MTDVariantRelativeHistory(tieChecker, historyTable, butterflyTable);
+			new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
         }
         
 				

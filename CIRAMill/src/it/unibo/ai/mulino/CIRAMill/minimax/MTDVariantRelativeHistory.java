@@ -3,36 +3,65 @@ package it.unibo.ai.mulino.CIRAMill.minimax;
 import java.util.Comparator;
 import java.util.List;
 
-public class RelativeHistoryAlphaBeta implements IMinimax {
-
-
+public class MTDVariantRelativeHistory implements IMinimax{
+	
 	private int expandedStates = 0;
+	private int times = 0;
 	private long elapsedTime;
 	
 	private ITieChecker tieChecker;
 	private IHistoryTable historyTable;
 	private IHistoryTable butterflyTable;
+	private int firstGuess[];
 	
-	public RelativeHistoryAlphaBeta(ITieChecker tieChecker, IHistoryTable historyTable, IHistoryTable butterflyTable) {
+	public MTDVariantRelativeHistory(ITieChecker tieChecker, IHistoryTable historyTable, IHistoryTable butterflyTable) {
 		this.tieChecker = tieChecker;
 		this.historyTable = historyTable;
 		this.butterflyTable = butterflyTable;
+		this.firstGuess = new int[]{0,0};
 	}
 
 	@Override
 	public ValuedAction minimaxDecision(IState state, int maxDepth) {
 		elapsedTime = System.currentTimeMillis();
-		ValuedAction valuedAction = max(state, maxDepth, Integer.MIN_VALUE, Integer.MAX_VALUE);
+		ValuedAction valuedAction = mtdf(state, firstGuess[0], maxDepth);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
-		System.out.println("RelativeHistoryAlphaBeta:");
+		System.out.println("MTD-f Variant Relative History:");
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
+		System.out.println("Number of Alpha-Beta iterations: " + times);
+		System.out.println("First guess: " + firstGuess[0]);
 		System.out.println("Selected action is: " + valuedAction);
-//		System.out.println(tieChecker);
 		expandedStates = 0;
+		times = 0;
+		firstGuess[0] = firstGuess[1];
+		firstGuess[1] = valuedAction.getValue();
 		return valuedAction;
 	}
 	
+	private ValuedAction mtdf(IState state, int firstGuess, int maxDepth) {
+		ValuedAction result = new ValuedAction(null, firstGuess);
+		int beta;
+		int upperBound = Integer.MAX_VALUE;
+		int lowerBound = Integer.MIN_VALUE;
+		do {
+			times++;
+			
+			if(result.getValue() == lowerBound)
+				beta = result.getValue() + 1;
+			else
+				beta = result.getValue();
+			result = max(state, maxDepth, beta-1, beta);
+			if(result.getValue() < beta)
+				upperBound = result.getValue();
+			else
+				lowerBound = result.getValue();
+			
+		} while(lowerBound < upperBound);
+		
+		return result;
+	}
+	/*	AlfaBeta Relative History*/
 	private ValuedAction max(IState state, int maxDepth, int alpha, int beta) {
 		List<IAction> actions = state.getFollowingMoves();
 		ValuedAction result = new ValuedAction(null, Integer.MIN_VALUE);
@@ -134,5 +163,5 @@ public class RelativeHistoryAlphaBeta implements IMinimax {
 		}
 		
 	}
-
 }
+
