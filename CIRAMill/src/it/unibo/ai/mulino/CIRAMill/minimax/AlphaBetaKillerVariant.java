@@ -158,7 +158,7 @@ public class AlphaBetaKillerVariant implements IMinimax {
 				} else if (maxDepth > 1) {
 					temp = max(state, maxDepth - 1, currentDepth + 1, alpha, beta);
 				} else {
-					temp.set(killer.getAction(), -state.getHeuristicEvaluation());
+					temp.set(killer.getAction(), state.getHeuristicEvaluation());
 				}
 				
 				if (temp.getValue() < result.getValue()) {
@@ -193,7 +193,7 @@ public class AlphaBetaKillerVariant implements IMinimax {
 			} else if (maxDepth > 1) {
 				temp = max(state, maxDepth - 1, currentDepth + 1, alpha, beta);
 			} else {
-				temp.set(a, -state.getHeuristicEvaluation());
+				temp.set(a, state.getHeuristicEvaluation());
 			}
 			
 			if (temp.getValue() < result.getValue()) {

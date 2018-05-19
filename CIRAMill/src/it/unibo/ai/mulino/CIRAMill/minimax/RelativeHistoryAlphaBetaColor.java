@@ -111,7 +111,7 @@ public class RelativeHistoryAlphaBetaColor implements IMinimax {
 				player = 1;
 //				state.unmove(a);
 			} else {
-				temp.set(a, -state.getHeuristicEvaluation());
+				temp.set(a, state.getHeuristicEvaluation());
 			}
 			if (temp.getValue() < result.getValue()) {
 				result.set(a, temp.getValue());

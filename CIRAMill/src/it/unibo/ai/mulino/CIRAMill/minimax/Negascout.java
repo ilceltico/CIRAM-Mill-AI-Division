@@ -7,17 +7,13 @@ public class Negascout implements IMinimax{
 	private int expandedStates = 0;
 	private long elapsedTime;
 	private ITieChecker tieChecker;
-	
-	private int originalMaxDepth;
-	
+		
 	public Negascout(ITieChecker tieChecker) {
 		this.tieChecker = tieChecker;
 	}
 
 	@Override
-	public ValuedAction minimaxDecision(IState state, int maxDepth) {
-		originalMaxDepth = maxDepth;
-		
+	public ValuedAction minimaxDecision(IState state, int maxDepth) {		
 		elapsedTime = System.currentTimeMillis();
 		
 		List<IAction> actions = state.getFollowingMoves();
@@ -56,10 +52,11 @@ public class Negascout implements IMinimax{
 	private int negascout(IState state, int alfa, int beta, int maxDepth) {
 				
 		if(maxDepth <= 1)
-			if ((originalMaxDepth-maxDepth)%2==0)
-				return state.getHeuristicEvaluation();
-			else
-				return -state.getHeuristicEvaluation();
+			return state.getHeuristicEvaluation();
+//			if ((originalMaxDepth-maxDepth)%2==0)
+//				return state.getHeuristicEvaluation();
+//			else
+//				return -state.getHeuristicEvaluation();
 		
 		List<IAction> actions = state.getFollowingMoves();
 		int lo_value = alfa;
@@ -72,11 +69,12 @@ public class Negascout implements IMinimax{
 			state.move(a);
 			
 			if(state.isWinningState()) {
-				if ((originalMaxDepth-maxDepth)%2==0)
-					temp = Integer.MAX_VALUE-2;
-				else
-					temp = Integer.MIN_VALUE+2;
-				
+				temp = Integer.MAX_VALUE-2;
+//				if ((originalMaxDepth-maxDepth)%2==0)
+//					temp = Integer.MAX_VALUE-2;
+//				else
+//					temp = Integer.MIN_VALUE+2;
+//				
 				state.unmove(a);
 				return temp;
 			}

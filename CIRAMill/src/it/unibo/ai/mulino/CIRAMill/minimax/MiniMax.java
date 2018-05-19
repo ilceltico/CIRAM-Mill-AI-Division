@@ -162,7 +162,7 @@ public class MiniMax implements IMinimax {
 				statesAlreadySeen.remove(state.clone());
 //				state.unmove(a);
 			} else {
-				temp.set(a, -state.getHeuristicEvaluation());
+				temp.set(a, state.getHeuristicEvaluation());
 			}
 			
 			if (temp.getValue() < result.getValue()) {
