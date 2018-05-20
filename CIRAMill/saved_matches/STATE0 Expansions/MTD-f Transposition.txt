@@ -1,0 +1,167 @@
+MTD-f Transposition:
+Elapsed time: 3
+Expanded states: 25
+Number of Alpha-Beta iterations: 2
+First guess: 0
+TT Hits: 1
+Selected action is: a7, value: 6
+Level 1 completed
+
+MTD-f Transposition:
+Elapsed time: 1
+Expanded states: 72
+Number of Alpha-Beta iterations: 2
+First guess: 6
+TT Hits: 23
+Selected action is: a7, value: 0
+Level 2 completed
+
+MTD-f Transposition:
+Elapsed time: 4
+Expanded states: 678
+Number of Alpha-Beta iterations: 3
+First guess: 0
+TT Hits: 82
+Selected action is: a7, value: 18
+Level 3 completed
+
+MTD-f Transposition:
+Elapsed time: 14
+Expanded states: 6173
+Number of Alpha-Beta iterations: 5
+First guess: 18
+TT Hits: 2490
+Selected action is: d6, value: 0
+Level 4 completed
+
+MTD-f Transposition:
+Elapsed time: 26
+Expanded states: 18616
+Number of Alpha-Beta iterations: 7
+First guess: 0
+TT Hits: 4125
+Selected action is: d6, value: 18
+Level 5 completed
+
+MTD-f Transposition:
+Elapsed time: 93
+Expanded states: 168564
+Number of Alpha-Beta iterations: 8
+First guess: 18
+TT Hits: 81726
+Selected action is: d6, value: -1
+Level 6 completed
+
+MTD-f Transposition:
+Elapsed time: 165
+Expanded states: 448439
+Number of Alpha-Beta iterations: 9
+First guess: -1
+TT Hits: 106716
+Selected action is: d6, value: 18
+Level 7 completed
+
+59000
+MTD-f Transposition:
+Elapsed time: 1536
+Expanded states: 5297664
+Number of Alpha-Beta iterations: 13
+First guess: 18
+TT Hits: 2589647
+Selected action is: d6, value: -2
+Level 8 completed
+
+58000
+57000
+56000
+MTD-f Transposition:
+Elapsed time: 2532
+Expanded states: 9684666
+Number of Alpha-Beta iterations: 14
+First guess: -2
+TT Hits: 2966025
+Selected action is: d6, value: 18
+Level 9 completed
+
+55000
+54000
+53000
+52000
+51000
+50000
+49000
+47999
+46999
+45999
+44999
+43999
+42999
+41999
+40999
+39999
+38999
+37999
+36999
+35999
+34999
+33999
+32999
+31999
+30999
+29999
+28999
+27999
+26999
+25999
+24999
+23999
+22999
+21998
+20998
+19998
+MTD-f Transposition:
+Elapsed time: 36144
+Expanded states: 120514439
+Number of Alpha-Beta iterations: 18
+First guess: 18
+TT Hits: 60768498
+Selected action is: d6, value: -2
+Level 10 completed
+
+18998
+17998
+16998
+15998
+14998
+13998
+12998
+11998
+10998
+9998
+8998
+7998
+6998
+5998
+4998
+3998
+2998
+1998
+1998
+
+
+Selected action: d6, value: -2
+7 O--------O--------O
+6 |--O-----W-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: INITIALPHASE;
+White Checkers: 8;
+Black Checkers: 9;
+White Checkers On Board: 1;
+Black Checkers On Board: 0;
+

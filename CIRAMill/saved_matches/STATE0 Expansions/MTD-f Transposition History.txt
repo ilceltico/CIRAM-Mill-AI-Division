@@ -1,0 +1,166 @@
+MTD-f Transposition History:
+Elapsed time: 3
+Expanded states: 25
+Number of Alpha-Beta iterations: 2
+First guess: 0
+TT Hits: 1
+Selected action is: a7, value: 6
+Level 1 completed
+
+MTD-f Transposition History:
+Elapsed time: 1
+Expanded states: 72
+Number of Alpha-Beta iterations: 2
+First guess: 6
+TT Hits: 23
+Selected action is: a7, value: 0
+Level 2 completed
+
+MTD-f Transposition History:
+Elapsed time: 4
+Expanded states: 672
+Number of Alpha-Beta iterations: 3
+First guess: 0
+TT Hits: 82
+Selected action is: a7, value: 18
+Level 3 completed
+
+MTD-f Transposition History:
+Elapsed time: 10
+Expanded states: 2797
+Number of Alpha-Beta iterations: 3
+First guess: 18
+TT Hits: 1102
+Selected action is: d7, value: 0
+Level 4 completed
+
+MTD-f Transposition History:
+Elapsed time: 30
+Expanded states: 23106
+Number of Alpha-Beta iterations: 6
+First guess: 0
+TT Hits: 3815
+Selected action is: d7, value: 18
+Level 5 completed
+
+MTD-f Transposition History:
+Elapsed time: 102
+Expanded states: 147669
+Number of Alpha-Beta iterations: 7
+First guess: 18
+TT Hits: 69743
+Selected action is: a7, value: 0
+Level 6 completed
+
+MTD-f Transposition History:
+Elapsed time: 224
+Expanded states: 512240
+Number of Alpha-Beta iterations: 8
+First guess: 0
+TT Hits: 103583
+Selected action is: a7, value: 18
+Level 7 completed
+
+59000
+58000
+MTD-f Transposition History:
+Elapsed time: 1690
+Expanded states: 5243306
+Number of Alpha-Beta iterations: 13
+First guess: 18
+TT Hits: 2601298
+Selected action is: a7, value: 0
+Level 8 completed
+
+56999
+55999
+54845
+53845
+52845
+51292
+MTD-f Transposition History:
+Elapsed time: 7611
+Expanded states: 19465024
+Number of Alpha-Beta iterations: 18
+First guess: 0
+TT Hits: 4755677
+Selected action is: a7, value: 18
+Level 9 completed
+
+50292
+49292
+48292
+47292
+46292
+45291
+44291
+43291
+42291
+41291
+40291
+39291
+38279
+37279
+36279
+35279
+34279
+33279
+32278
+31278
+30278
+29278
+28278
+27266
+26266
+25266
+24266
+23266
+22266
+21266
+20266
+19265
+18265
+17265
+16265
+15265
+14265
+13265
+12265
+11265
+10265
+9265
+8265
+7265
+MTD-f Transposition History:
+Elapsed time: 43340
+Expanded states: 131659369
+Number of Alpha-Beta iterations: 19
+First guess: 18
+TT Hits: 66365417
+Selected action is: a7, value: 0
+Level 10 completed
+
+6265
+4532
+3532
+2532
+1532
+1532
+
+
+Selected action: a7, value: 0
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: INITIALPHASE;
+White Checkers: 8;
+Black Checkers: 9;
+White Checkers On Board: 1;
+Black Checkers On Board: 0;
+

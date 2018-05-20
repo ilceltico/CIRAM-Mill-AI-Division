@@ -1,0 +1,170 @@
+MTD-f Variant Transposition:
+Elapsed time: 3
+Expanded states: 25
+Number of Alpha-Beta iterations: 2
+First guess: 0
+TT Hits: 1
+Selected action is: a7, value: 6
+Level 1 completed
+
+MTD-f Variant Transposition:
+Elapsed time: 1
+Expanded states: 72
+Number of Alpha-Beta iterations: 2
+First guess: 0
+TT Hits: 23
+Selected action is: a7, value: 0
+Level 2 completed
+
+MTD-f Variant Transposition:
+Elapsed time: 3
+Expanded states: 678
+Number of Alpha-Beta iterations: 3
+First guess: 6
+TT Hits: 82
+Selected action is: a7, value: 18
+Level 3 completed
+
+MTD-f Variant Transposition:
+Elapsed time: 9
+Expanded states: 2777
+Number of Alpha-Beta iterations: 2
+First guess: 0
+TT Hits: 786
+Selected action is: d6, value: 0
+Level 4 completed
+
+MTD-f Variant Transposition:
+Elapsed time: 13
+Expanded states: 13534
+Number of Alpha-Beta iterations: 2
+First guess: 18
+TT Hits: 1470
+Selected action is: d6, value: 18
+Level 5 completed
+
+MTD-f Variant Transposition:
+Elapsed time: 29
+Expanded states: 35204
+Number of Alpha-Beta iterations: 2
+First guess: 0
+TT Hits: 11969
+Selected action is: d6, value: -1
+Level 6 completed
+
+MTD-f Variant Transposition:
+Elapsed time: 124
+Expanded states: 312106
+Number of Alpha-Beta iterations: 2
+First guess: 18
+TT Hits: 35266
+Selected action is: d6, value: 18
+Level 7 completed
+
+MTD-f Variant Transposition:
+Elapsed time: 280
+Expanded states: 810494
+Number of Alpha-Beta iterations: 2
+First guess: -1
+TT Hits: 237293
+Selected action is: d6, value: -2
+Level 8 completed
+
+59000
+MTD-f Variant Transposition:
+Elapsed time: 1457
+Expanded states: 5512679
+Number of Alpha-Beta iterations: 2
+First guess: 18
+TT Hits: 775231
+Selected action is: d6, value: 18
+Level 9 completed
+
+58000
+56890
+55890
+54890
+53890
+MTD-f Variant Transposition:
+Elapsed time: 4844
+Expanded states: 13423055
+Number of Alpha-Beta iterations: 2
+First guess: -2
+TT Hits: 4198909
+Selected action is: d6, value: -2
+Level 10 completed
+
+52890
+51890
+50890
+49890
+48890
+47890
+46890
+45890
+44890
+43890
+42855
+41765
+39413
+38413
+37413
+36413
+35413
+34412
+33412
+32412
+31412
+30412
+29412
+28412
+27340
+26340
+25308
+24308
+21440
+20440
+19440
+18440
+17440
+16412
+MTD-f Variant Transposition:
+Elapsed time: 36876
+Expanded states: 114430401
+Number of Alpha-Beta iterations: 7
+First guess: 18
+TT Hits: 28529322
+Selected action is: d6, value: 23
+Level 11 completed
+
+15412
+14412
+13412
+12412
+11412
+10412
+9348
+8348
+4430
+3430
+2430
+1430
+1430
+
+
+Selected action: d6, value: 23
+7 O--------O--------O
+6 |--O-----W-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: INITIALPHASE;
+White Checkers: 8;
+Black Checkers: 9;
+White Checkers On Board: 1;
+Black Checkers On Board: 0;
+

@@ -41,7 +41,7 @@ public class Tests {
 
 	public static final int DEPTH = 6;
 	public static final int KNUM = 10;
-	public static final int STATE = 2;
+	public static final int STATE = 0;
 	
 	public static final boolean minimax = false;
 	public static final boolean alphabeta = false;
@@ -78,25 +78,25 @@ public class Tests {
 	public static final boolean it_alphabeta_killer = false;
 	public static final boolean it_alphabeta_killer_variant = false;
 	public static final boolean it_alphabeta_quiescent = false;
-	public static final boolean it_alphabeta_transp = false;
+	public static final boolean it_alphabeta_transp = true; ////
 	public static final boolean it_mtd = false;
 	public static final boolean it_mtd_variant = false;
 	public static final boolean it_negascout = false;
 	public static final boolean it_history = false;
 	public static final boolean it_relative_history = false;
 	public static final boolean it_relative_history_color = false;
-	public static final boolean it_relative_history_transposition = false;
-	public static final boolean it_mtd_transposition = false;
-	public static final boolean it_mtd_variant_transposition = false;
-	public static final boolean it_negascout_transposition = false;
-	public static final boolean it_mtd_history = true;
+	public static final boolean it_relative_history_transposition = false; ////
+	public static final boolean it_mtd_transposition = false; //
+	public static final boolean it_mtd_variant_transposition = false; ////
+	public static final boolean it_negascout_transposition = false; //
+	public static final boolean it_mtd_history = false;
 	public static final boolean it_mtd_relative_history = false;
 	public static final boolean it_mtd_variant_history = false;
 	public static final boolean it_mtd_variant_relative_history = false;
 	public static final boolean it_negascout_history = false;
 	public static final boolean it_negascout_relative_history = false;
-	public static final boolean it_negascout_transposition_history = false;
-	public static final boolean it_mtd_transposition_history = false;
+	public static final boolean it_negascout_transposition_history = false; //
+	public static final boolean it_mtd_transposition_history = false; //
 	public static final boolean it_mtd_transposition_relative_history = false;
 	
 	
@@ -496,7 +496,7 @@ public class Tests {
 			while (millis > 2000) {
 				curMillis = System.currentTimeMillis();
 				try {
-					Thread.sleep(58000);
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					System.out.println("Shouldn't happen...");
 					e.printStackTrace();

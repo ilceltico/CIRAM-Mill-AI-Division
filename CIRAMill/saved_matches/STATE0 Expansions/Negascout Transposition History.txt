@@ -1,0 +1,142 @@
+Negascout Transposition History:
+Elapsed time: 3
+Expanded states: 24
+TT Hits: 0
+Selected action is: a7, value: 6
+Level 1 completed
+
+Negascout Transposition History:
+Elapsed time: 3
+Expanded states: 576
+TT Hits: 21
+Selected action is: a7, value: 0
+Level 2 completed
+
+Negascout Transposition History:
+Elapsed time: 10
+Expanded states: 1712
+TT Hits: 531
+Selected action is: a7, value: 18
+Level 3 completed
+
+Negascout Transposition History:
+Elapsed time: 20
+Expanded states: 14165
+TT Hits: 1127
+Selected action is: a7, value: 0
+Level 4 completed
+
+Negascout Transposition History:
+Elapsed time: 37
+Expanded states: 48411
+TT Hits: 13038
+Selected action is: d7, value: 18
+Level 5 completed
+
+Negascout Transposition History:
+Elapsed time: 106
+Expanded states: 291231
+TT Hits: 25153
+Selected action is: d7, value: 0
+Level 6 completed
+
+Negascout Transposition History:
+Elapsed time: 373
+Expanded states: 1038548
+TT Hits: 267316
+Selected action is: d7, value: 18
+Level 7 completed
+
+59000
+58000
+Negascout Transposition History:
+Elapsed time: 1458
+Expanded states: 5511645
+TT Hits: 519035
+Selected action is: d7, value: 0
+Level 8 completed
+
+57000
+56000
+55000
+54000
+53000
+52000
+51000
+Negascout Transposition History:
+Elapsed time: 7219
+Expanded states: 19779654
+TT Hits: 5076195
+Selected action is: d7, value: 18
+Level 9 completed
+
+50000
+48485
+47485
+46485
+45485
+44485
+43485
+42485
+41485
+40484
+39484
+38484
+37484
+36484
+35484
+34484
+33462
+32462
+31462
+30462
+29462
+28462
+27462
+26462
+25462
+24462
+23462
+22462
+Negascout Transposition History:
+Elapsed time: 28592
+Expanded states: 96717491
+TT Hits: 9928974
+Selected action is: d7, value: 0
+Level 10 completed
+
+21462
+20462
+18278
+17278
+16278
+15278
+14255
+13255
+12255
+7838
+6820
+5820
+4820
+3820
+2820
+1820
+1820
+
+
+Selected action: d7, value: 0
+7 O--------W--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: INITIALPHASE;
+White Checkers: 8;
+Black Checkers: 9;
+White Checkers On Board: 1;
+Black Checkers On Board: 0;
+

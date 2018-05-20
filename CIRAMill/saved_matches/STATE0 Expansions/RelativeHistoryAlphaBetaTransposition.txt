@@ -1,0 +1,151 @@
+RelativeHistoryAlphaBetaTransposition:
+Elapsed time: 4
+Expanded states: 24
+TT Hits: 0
+Selected action is: a7, value: 6
+Level 1 completed
+
+RelativeHistoryAlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 70
+TT Hits: 21
+Selected action is: a7, value: 0
+Level 2 completed
+
+RelativeHistoryAlphaBetaTransposition:
+Elapsed time: 4
+Expanded states: 623
+TT Hits: 54
+Selected action is: a7, value: 18
+Level 3 completed
+
+RelativeHistoryAlphaBetaTransposition:
+Elapsed time: 13
+Expanded states: 2905
+TT Hits: 592
+Selected action is: d6, value: 0
+Level 4 completed
+
+RelativeHistoryAlphaBetaTransposition:
+Elapsed time: 16
+Expanded states: 13629
+TT Hits: 1431
+Selected action is: d6, value: 18
+Level 5 completed
+
+RelativeHistoryAlphaBetaTransposition:
+Elapsed time: 37
+Expanded states: 38133
+TT Hits: 12155
+Selected action is: d6, value: -1
+Level 6 completed
+
+RelativeHistoryAlphaBetaTransposition:
+Elapsed time: 148
+Expanded states: 315241
+TT Hits: 35833
+Selected action is: d6, value: 18
+Level 7 completed
+
+RelativeHistoryAlphaBetaTransposition:
+Elapsed time: 343
+Expanded states: 851827
+TT Hits: 257077
+Selected action is: d6, value: -2
+Level 8 completed
+
+59000
+58000
+RelativeHistoryAlphaBetaTransposition:
+Elapsed time: 1600
+Expanded states: 5741415
+TT Hits: 817605
+Selected action is: d6, value: 18
+Level 9 completed
+
+56999
+55999
+54999
+53999
+RelativeHistoryAlphaBetaTransposition:
+Elapsed time: 4204
+Expanded states: 13389309
+TT Hits: 4541622
+Selected action is: d6, value: -2
+Level 10 completed
+
+52999
+51999
+50999
+49999
+48999
+47999
+46999
+45999
+44998
+43998
+42998
+41951
+40951
+39951
+38951
+37951
+36951
+35951
+34951
+33951
+31945
+30945
+29941
+28941
+27941
+26941
+25941
+24941
+23941
+RelativeHistoryAlphaBetaTransposition:
+Elapsed time: 30256
+Expanded states: 95485237
+TT Hits: 15828709
+Selected action is: d6, value: 23
+Level 11 completed
+
+22941
+21941
+20941
+19941
+18941
+17941
+16941
+15941
+14941
+11971
+10971
+9971
+8971
+7971
+6971
+5971
+4971
+3971
+2971
+1971
+1971
+
+
+Selected action: d6, value: 23
+7 O--------O--------O
+6 |--O-----W-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: INITIALPHASE;
+White Checkers: 8;
+Black Checkers: 9;
+White Checkers On Board: 1;
+Black Checkers On Board: 0;
+

@@ -1,0 +1,4525 @@
+CIRAMill White
+
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--W--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 72136726
+TT Hits: 25906215
+Selected action is: g4g7, value: 34
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 26
+TT Hits: 8
+Selected action is: g4g7, value: -10
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 96
+TT Hits: 29
+Selected action is: g4g7, value: 0
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 249
+TT Hits: 94
+Selected action is: g4g7, value: -3
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3
+Expanded states: 996
+TT Hits: 345
+Selected action is: g4g1, value: 5
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 13
+Expanded states: 5099
+TT Hits: 1340
+Selected action is: b4b2, value: -20
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 15
+Expanded states: 7170
+TT Hits: 2779
+Selected action is: b4b2, value: -15
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 34
+Expanded states: 39796
+TT Hits: 10591
+Selected action is: b4b2, value: -36
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 36
+Expanded states: 63098
+TT Hits: 29659
+Selected action is: f4f6, value: -11
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 290
+Expanded states: 480498
+TT Hits: 105163
+Selected action is: f4f6, value: -37
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 575
+Expanded states: 1141934
+TT Hits: 407195
+Selected action is: f4f6, value: -31
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4313
+Expanded states: 9365431
+TT Hits: 2027233
+Selected action is: b4b2, value: -53
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2908
+Expanded states: 5911030
+TT Hits: 2343324
+Selected action is: b4b2, value: -43
+Level 13 completed
+
+AlphaBetaTransposition:
+Elapsed time: 48570
+Expanded states: 115948801
+TT Hits: 18328789
+Selected action is: f4f6, value: -120
+Level 14 completed
+
+2000
+2000
+TIE CHECKER 
+TieChecker:
+7 W--------O--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--W     B--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--B     O--B--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------O--------O
+6 |--W-----W-----W--|
+5 |--|--B--B--B--|--|
+4 O--W--O     O--O--W
+3 |--|--O--W--O--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 5;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--W-----B-----O--|
+5 |--|--B--B--B--|--|
+4 O--O--O     O--W--B
+3 |--|--O--W--O--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--O--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--W-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------W
+6 |--B-----O-----O--|
+5 |--|--B--B--B--|--|
+4 W--O--W     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------O--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--B     B--O--W
+3 |--|--W--W--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+
+New state is:
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------B--------O
+6 |--B-----O-----W--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 2383779
+TT Hits: 980390
+Selected action is: g4f4, value: -10
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 36
+TT Hits: 10
+Selected action is: f6f4, value: -15
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 134
+TT Hits: 31
+Selected action is: f6d6, value: 0
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 259
+TT Hits: 105
+Selected action is: f6d6, value: -26
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 6
+Expanded states: 1249
+TT Hits: 447
+Selected action is: f6d6, value: -16
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 8
+Expanded states: 2547
+TT Hits: 881
+Selected action is: f6d6, value: -26
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 20
+Expanded states: 9284
+TT Hits: 2895
+Selected action is: f6d6, value: -11
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 21
+Expanded states: 15355
+TT Hits: 5094
+Selected action is: f6d6, value: -37
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 39
+Expanded states: 58441
+TT Hits: 24521
+Selected action is: f6d6, value: -31
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 216
+Expanded states: 477530
+TT Hits: 130156
+Selected action is: f6d6, value: -67
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1474
+Expanded states: 2884299
+TT Hits: 926139
+Selected action is: f6d6, value: -61
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1900
+Expanded states: 4445221
+TT Hits: 980195
+Selected action is: f6d6, value: -120
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2005
+Expanded states: 4148919
+TT Hits: 1616515
+Selected action is: f6d6, value: -105
+Level 13 completed
+
+1999
+1999
+TIE CHECKER 
+TieChecker:
+7 W--------O--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--W     B--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--B     O--B--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------O--------O
+6 |--W-----W-----W--|
+5 |--|--B--B--B--|--|
+4 O--W--O     O--O--W
+3 |--|--O--W--O--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 5;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--W-----B-----O--|
+5 |--|--B--B--B--|--|
+4 O--O--O     O--W--B
+3 |--|--O--W--O--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--O--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--W-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------W
+6 |--B-----O-----O--|
+5 |--|--B--B--B--|--|
+4 W--O--W     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------O--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--B     B--O--W
+3 |--|--W--W--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--O     B--W--O
+3 |--|--B--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+
+New state is:
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 124278786
+TT Hits: 19688599
+Selected action is: g4f4, value: 18
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 39
+TT Hits: 8
+Selected action is: g4f4, value: -26
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 76
+TT Hits: 25
+Selected action is: g4f4, value: -16
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 189
+TT Hits: 70
+Selected action is: g4f4, value: -21
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 695
+TT Hits: 275
+Selected action is: g4f4, value: -11
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 10
+Expanded states: 4618
+TT Hits: 1041
+Selected action is: b4b2, value: -36
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 19
+Expanded states: 9018
+TT Hits: 4216
+Selected action is: b4b2, value: -28
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 32
+Expanded states: 43345
+TT Hits: 9683
+Selected action is: b4b2, value: -51
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 31
+Expanded states: 51448
+TT Hits: 23942
+Selected action is: b4b2, value: -42
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 234
+Expanded states: 554184
+TT Hits: 97472
+Selected action is: g4g7, value: -120
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 465
+Expanded states: 846068
+TT Hits: 370614
+Selected action is: g4f4, value: -91
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4727
+Expanded states: 11752725
+TT Hits: 1735175
+Selected action is: g4f4, value: -2147483647
+Level 12 completed
+
+2000
+TIE CHECKER 
+TieChecker:
+7 W--------O--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--W     B--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--B     O--B--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------O--------O
+6 |--W-----W-----W--|
+5 |--|--B--B--B--|--|
+4 O--W--O     O--O--W
+3 |--|--O--W--O--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 5;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--W-----B-----O--|
+5 |--|--B--B--B--|--|
+4 O--O--O     O--W--B
+3 |--|--O--W--O--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--O--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--W-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------W
+6 |--B-----O-----O--|
+5 |--|--B--B--B--|--|
+4 W--O--W     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------O--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--B     B--O--W
+3 |--|--W--W--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--O     B--W--O
+3 |--|--B--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+
+New state is:
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 6
+TT Hits: 1
+Selected action is: c3d3, value: -16
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 18
+TT Hits: 7
+Selected action is: c3d3, value: -21
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 60
+TT Hits: 19
+Selected action is: c3d3, value: -11
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 328
+TT Hits: 90
+Selected action is: c3d3, value: -32
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 914
+TT Hits: 413
+Selected action is: c3d3, value: -32
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3
+Expanded states: 6239
+TT Hits: 1424
+Selected action is: b4b2, value: -44
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4
+Expanded states: 5520
+TT Hits: 2272
+Selected action is: b4b2, value: -42
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 18
+Expanded states: 36737
+TT Hits: 7340
+Selected action is: c3d3, value: -94
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 19
+Expanded states: 35691
+TT Hits: 14111
+Selected action is: c3d3, value: -80
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 411
+Expanded states: 938881
+TT Hits: 144819
+Selected action is: c3d3, value: -2147483647
+Level 10 completed
+
+2000
+TIE CHECKER 
+TieChecker:
+7 W--------O--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--W     B--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--B     O--B--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------O--------O
+6 |--W-----W-----W--|
+5 |--|--B--B--B--|--|
+4 O--W--O     O--O--W
+3 |--|--O--W--O--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 5;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--W-----B-----O--|
+5 |--|--B--B--B--|--|
+4 O--O--O     O--W--B
+3 |--|--O--W--O--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--O--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--W-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------W
+6 |--B-----O-----O--|
+5 |--|--B--B--B--|--|
+4 W--O--W     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------O--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--B     B--O--W
+3 |--|--W--W--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--O     B--W--O
+3 |--|--B--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+
+New state is:
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 4
+TT Hits: 1
+Selected action is: d3c3, value: 12
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 34
+TT Hits: 5
+Selected action is: b4b2, value: -32
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 72
+TT Hits: 32
+Selected action is: b4b2, value: -32
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 675
+TT Hits: 123
+Selected action is: d3c3, value: -44
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 467
+TT Hits: 218
+Selected action is: d3c3, value: -27
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 9
+Expanded states: 3543
+TT Hits: 617
+Selected action is: d3c3, value: -54
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 14
+Expanded states: 4187
+TT Hits: 2157
+Selected action is: d3c3, value: -38
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 48
+Expanded states: 59548
+TT Hits: 8994
+Selected action is: d3c3, value: -2147483647
+Level 8 completed
+
+2000
+TIE CHECKER 
+TieChecker:
+7 W--------O--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--W     B--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--B     O--B--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------O--------O
+6 |--W-----W-----W--|
+5 |--|--B--B--B--|--|
+4 O--W--O     O--O--W
+3 |--|--O--W--O--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 5;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--W-----B-----O--|
+5 |--|--B--B--B--|--|
+4 O--O--O     O--W--B
+3 |--|--O--W--O--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--O--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--W-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------W
+6 |--B-----O-----O--|
+5 |--|--B--B--B--|--|
+4 W--O--W     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------O--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--B     B--O--W
+3 |--|--W--W--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--O     B--W--O
+3 |--|--B--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+
+New state is:
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------B--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 4
+TT Hits: 1
+Selected action is: c3d3, value: -32
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 16
+TT Hits: 5
+Selected action is: c3d3, value: -37
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 35
+TT Hits: 17
+Selected action is: c3d3, value: -27
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 159
+TT Hits: 33
+Selected action is: c3d3, value: -46
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 302
+TT Hits: 163
+Selected action is: c3d3, value: -38
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 1929
+TT Hits: 323
+Selected action is: c3d3, value: -2147483647
+Level 6 completed
+
+2000
+TIE CHECKER 
+TieChecker:
+7 W--------O--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--W     B--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--B     O--B--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------O--------O
+6 |--W-----W-----W--|
+5 |--|--B--B--B--|--|
+4 O--W--O     O--O--W
+3 |--|--O--W--O--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 5;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--W-----B-----O--|
+5 |--|--B--B--B--|--|
+4 O--O--O     O--W--B
+3 |--|--O--W--O--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--O--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--W-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------W
+6 |--B-----O-----O--|
+5 |--|--B--B--B--|--|
+4 W--O--W     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------O--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--B     B--O--W
+3 |--|--W--W--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--O     B--W--O
+3 |--|--B--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+
+New state is:
+7 W--------B--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 4
+TT Hits: 1
+Selected action is: b4b6, value: -27
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 34
+TT Hits: 5
+Selected action is: d2b2, value: -46
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 44
+TT Hits: 22
+Selected action is: d2b2, value: -38
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 584
+TT Hits: 101
+Selected action is: d2b2, value: -113
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 1112
+TT Hits: 462
+Selected action is: d3c3, value: -93
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3
+Expanded states: 5746
+TT Hits: 862
+Selected action is: d3c3, value: -126
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 7
+Expanded states: 7204
+TT Hits: 3579
+Selected action is: d3c3, value: -115
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 31
+Expanded states: 64392
+TT Hits: 8552
+Selected action is: d3c3, value: -2147483647
+Level 8 completed
+
+2000
+TIE CHECKER 
+TieChecker:
+7 W--------O--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--W     B--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--B     O--B--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------O--------O
+6 |--W-----W-----W--|
+5 |--|--B--B--B--|--|
+4 O--W--O     O--O--W
+3 |--|--O--W--O--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 5;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--W-----B-----O--|
+5 |--|--B--B--B--|--|
+4 O--O--O     O--W--B
+3 |--|--O--W--O--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--O--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--W-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------W
+6 |--B-----O-----O--|
+5 |--|--B--B--B--|--|
+4 W--O--W     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------O--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--B     B--O--W
+3 |--|--W--W--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--O     B--W--O
+3 |--|--B--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+
+New state is:
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 4
+TT Hits: 1
+Selected action is: d2d3, value: -43
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 21
+TT Hits: 5
+Selected action is: d2d3, value: -60
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 101
+TT Hits: 32
+Selected action is: d2b2, value: -49
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 765
+TT Hits: 84
+Selected action is: d2d3, value: -126
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3
+Expanded states: 597
+TT Hits: 305
+Selected action is: d2d3, value: -111
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 9
+Expanded states: 4402
+TT Hits: 572
+Selected action is: d2d3, value: -2147483647
+Level 6 completed
+
+2000
+TIE CHECKER 
+TieChecker:
+7 W--------O--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--W     B--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--B     O--B--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------O--------O
+6 |--W-----W-----W--|
+5 |--|--B--B--B--|--|
+4 O--W--O     O--O--W
+3 |--|--O--W--O--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 5;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--W-----B-----O--|
+5 |--|--B--B--B--|--|
+4 O--O--O     O--W--B
+3 |--|--O--W--O--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--O--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--W-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------W
+6 |--B-----O-----O--|
+5 |--|--B--B--B--|--|
+4 W--O--W     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------O--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--B     B--O--W
+3 |--|--W--W--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--O     B--W--O
+3 |--|--B--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+
+New state is:
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--O--B--|--|
+2 |--O-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 2
+TT Hits: 1
+Selected action is: b4b2, value: -49
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 17
+TT Hits: 3
+Selected action is: b4b2, value: -59
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 67
+TT Hits: 17
+Selected action is: b4b2, value: -64
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 377
+TT Hits: 44
+Selected action is: b4b2, value: -64
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 6
+Expanded states: 1865
+TT Hits: 145
+Selected action is: b4b2, value: -109
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 23
+Expanded states: 11944
+TT Hits: 958
+Selected action is: b4b2, value: -2147483647
+Level 6 completed
+
+2000
+TIE CHECKER 
+TieChecker:
+7 W--------O--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--W     B--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--B     O--B--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------O--------O
+6 |--W-----W-----W--|
+5 |--|--B--B--B--|--|
+4 O--W--O     O--O--W
+3 |--|--O--W--O--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 5;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--W-----B-----O--|
+5 |--|--B--B--B--|--|
+4 O--O--O     O--W--B
+3 |--|--O--W--O--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--O--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--W-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------W
+6 |--B-----O-----O--|
+5 |--|--B--B--B--|--|
+4 W--O--W     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------O--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--B     B--O--W
+3 |--|--W--W--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--O     B--W--O
+3 |--|--B--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--O--B--|--|
+2 |--O-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+
+New state is:
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--B     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--B--O     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 1
+TT Hits: 1
+Selected action is: b2d2, value: -59
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 13
+TT Hits: 2
+Selected action is: b2d2, value: -61
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 69
+TT Hits: 14
+Selected action is: b2d2, value: -61
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 393
+TT Hits: 27
+Selected action is: b2d2, value: -2147483647
+Level 4 completed
+
+1999
+TIE CHECKER 
+TieChecker:
+7 W--------O--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--W     B--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--B     O--B--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------O--------O
+6 |--W-----W-----W--|
+5 |--|--B--B--B--|--|
+4 O--W--O     O--O--W
+3 |--|--O--W--O--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 5;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--W-----B-----O--|
+5 |--|--B--B--B--|--|
+4 O--O--O     O--W--B
+3 |--|--O--W--O--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--O--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--W-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------W
+6 |--B-----O-----O--|
+5 |--|--B--B--B--|--|
+4 W--O--W     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------O--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--B     B--O--W
+3 |--|--W--W--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--O     B--W--O
+3 |--|--B--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--O--B--|--|
+2 |--O-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--B     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--B--O     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+
+New state is:
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--B--O     B--O--O
+3 |--|--O--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--B--O     B--O--O
+3 |--|--O--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 1
+TT Hits: 1
+Selected action is: d2b2, value: -26
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 2
+TT Hits: 2
+Selected action is: d2b2, value: -2147483647
+Level 2 completed
+
+1999
+TIE CHECKER 
+TieChecker:
+7 W--------O--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--W     B--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--B     O--B--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------O--------O
+6 |--W-----W-----W--|
+5 |--|--B--B--B--|--|
+4 O--W--O     O--O--W
+3 |--|--O--W--O--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 5;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--O
+3 |--|--O--W--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--W-----B-----O--|
+5 |--|--B--B--B--|--|
+4 O--O--O     O--W--B
+3 |--|--O--W--O--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--O--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--W-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--B--|--|
+4 W--W--B     O--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------W
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------B--------W
+6 |--B-----O-----O--|
+5 |--|--B--B--B--|--|
+4 W--O--W     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 W--------O--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--B     B--O--W
+3 |--|--W--W--B--|--|
+2 |--W-----B-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+7 W--------B--------O
+6 |--B-----W-----W--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+7 O--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--O     B--W--O
+3 |--|--B--O--B--|--|
+2 |--W-----B-----O--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--W
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--W--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--B     B--O--O
+3 |--|--O--O--B--|--|
+2 |--O-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--B     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--B--O     B--O--O
+3 |--|--O--O--B--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--B--O     B--O--O
+3 |--|--O--O--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--B--O     B--O--O
+3 |--|--O--B--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Player: WHITE;
+Phase: MIDGAME;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+
+New state is:
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--B--O     B--O--O
+3 |--|--O--B--O--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------B--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 W--B--O     B--O--O
+3 |--|--O--O--O--|--|
+2 |--W-----B-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 8;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 0
+TT Hits: 0
+Selected action is: null, value: -2147483648
+Level 1 completed
+
+1999
+Exception in thread "main" java.lang.NullPointerException
+	at it.unibo.ai.mulino.CIRAMill.main.Program.main(Program.java:101)

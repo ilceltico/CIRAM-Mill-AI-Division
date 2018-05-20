@@ -1,5 +1,7 @@
 package it.unibo.ai.mulino.CIRAMill.main;
 
+import java.util.ArrayList;
+
 import it.unibo.ai.didattica.mulino.actions.Action;
 import it.unibo.ai.didattica.mulino.actions.Phase1Action;
 import it.unibo.ai.didattica.mulino.actions.Phase2Action;
@@ -55,7 +57,7 @@ public class Program {
 		
 		//SCELTA ALGORITMO, EURISTICA, TRANSP, HIST, TIECHECKER
 		BitBoardTieChecker tieChecker = new BitBoardTieChecker();
-		BitBoardTieChecker tieCheckerCopy;
+		ArrayList<BitBoardState> statesAlreadySeen = new ArrayList<>();
 		IMinimax minimax = new AlphaBetaTransposition(tieChecker, new BitBoardTranspositionTable());
 		//FINE SCELTA
 		
@@ -64,13 +66,20 @@ public class Program {
 		Thread iterativeThread;
 		State currentState;
 		BitBoardState bCurrentState;
+		BitBoardState lastState = null;
 		do {
 
 			if (playerMe == BitBoardState.WHITE) {
 				currentState = client.read();
 				bCurrentState = BitBoardState.fromStateToBitBoard(currentState, playerMe, tieChecker);
-				tieChecker.addState(bCurrentState);
-				tieCheckerCopy = tieChecker.clone();
+				if (bCurrentState.getGamePhase() == BitBoardState.MIDGAME) {
+					if (bCurrentState.getCheckersOnBoard(playerMe) < lastState.getCheckersOnBoard(playerMe) ||
+							bCurrentState.getCheckersOnBoard(playerOpponent) < lastState.getCheckersOnBoard(playerOpponent))
+						statesAlreadySeen = new ArrayList<BitBoardState>();
+					statesAlreadySeen.add((BitBoardState) bCurrentState.clone());
+				}
+				tieChecker.swapList(statesAlreadySeen);
+				lastState = (BitBoardState) bCurrentState.clone();
 				System.out.println("Current state is:");
 				System.out.println(currentState.toString());
 				
@@ -83,7 +92,7 @@ public class Program {
 				while (millis > securityMillis) {
 					curMillis = System.currentTimeMillis();
 					try {
-						Thread.sleep(58000);
+						Thread.sleep(1000);
 					} catch (InterruptedException e) {
 						System.out.println("Shouldn't happen...");
 						e.printStackTrace();
@@ -91,7 +100,7 @@ public class Program {
 					millis -= System.currentTimeMillis() - curMillis;
 					if (!iterativeThread.isAlive())
 						break;
-					System.out.println(millis);
+//					System.out.println(millis);
 				}
 				
 				if (iterativeThread.isAlive())
@@ -99,15 +108,20 @@ public class Program {
 				System.out.println(millis);
 				
 				Action a = stringToAction(iterativeDeepening.getSelectedValuedAction().getAction().toString(), currentState.getCurrentPhase());
-				tieChecker = tieCheckerCopy;
-				System.out.println("TIE CHECKER \n" + tieChecker.toString());
 				
 				client.write(a);
 
 				currentState = client.read();
 				bCurrentState = BitBoardState.fromStateToBitBoard(currentState, BitBoardState.BLACK, tieChecker);
-				tieChecker.addState(bCurrentState);
-				tieCheckerCopy = tieChecker.clone();
+				if (bCurrentState.getGamePhase() == BitBoardState.MIDGAME) {
+					if (bCurrentState.getCheckersOnBoard(playerMe) < lastState.getCheckersOnBoard(playerMe) ||
+							bCurrentState.getCheckersOnBoard(playerOpponent) < lastState.getCheckersOnBoard(playerOpponent))
+						statesAlreadySeen = new ArrayList<BitBoardState>();
+					statesAlreadySeen.add((BitBoardState) bCurrentState.clone());
+				}
+				tieChecker.swapList(statesAlreadySeen);
+				lastState = (BitBoardState) bCurrentState.clone();
+				System.out.println("TIE CHECKER \n" + tieChecker.toString());
 				System.out.println("New state is:");
 				System.out.println(currentState.toString());
 
@@ -116,8 +130,15 @@ public class Program {
 			} else if (playerMe == BitBoardState.BLACK) {
 				currentState = client.read();
 				bCurrentState = BitBoardState.fromStateToBitBoard(currentState, BitBoardState.WHITE, tieChecker);
-				tieChecker.addState(bCurrentState);
-				tieCheckerCopy = tieChecker.clone();
+				if (bCurrentState.getGamePhase() == BitBoardState.MIDGAME) {
+					if (bCurrentState.getCheckersOnBoard(playerMe) < lastState.getCheckersOnBoard(playerMe) ||
+							bCurrentState.getCheckersOnBoard(playerOpponent) < lastState.getCheckersOnBoard(playerOpponent))
+						statesAlreadySeen = new ArrayList<BitBoardState>();
+					statesAlreadySeen.add((BitBoardState) bCurrentState.clone());
+				}
+				tieChecker.swapList(statesAlreadySeen);
+				lastState = (BitBoardState) bCurrentState.clone();
+				System.out.println("TIE CHECKER \n" + tieChecker.toString());
 				System.out.println("New state is:");
 				System.out.println(currentState.toString());
 
@@ -125,8 +146,14 @@ public class Program {
 
 				currentState = client.read();
 				bCurrentState = BitBoardState.fromStateToBitBoard(currentState, BitBoardState.BLACK, tieChecker);
-				tieChecker.addState(bCurrentState);
-				tieCheckerCopy = tieChecker.clone();
+				if (bCurrentState.getGamePhase() == BitBoardState.MIDGAME) {
+					if (bCurrentState.getCheckersOnBoard(playerMe) < lastState.getCheckersOnBoard(playerMe) ||
+							bCurrentState.getCheckersOnBoard(playerOpponent) < lastState.getCheckersOnBoard(playerOpponent))
+						statesAlreadySeen = new ArrayList<BitBoardState>();
+					statesAlreadySeen.add((BitBoardState) bCurrentState.clone());
+				}
+				tieChecker.swapList(statesAlreadySeen);
+				lastState = (BitBoardState) bCurrentState.clone();
 				System.out.println("Current state is:");
 				System.out.println(currentState.toString());
 
@@ -139,7 +166,7 @@ public class Program {
 				while (millis > securityMillis) {
 					curMillis = System.currentTimeMillis();
 					try {
-						Thread.sleep(58000);
+						Thread.sleep(1000);
 					} catch (InterruptedException e) {
 						System.out.println("Shouldn't happen...");
 						e.printStackTrace();
@@ -155,8 +182,6 @@ public class Program {
 				System.out.println(millis);
 				
 				Action a = stringToAction(iterativeDeepening.getSelectedValuedAction().getAction().toString(), currentState.getCurrentPhase());
-				tieChecker = tieCheckerCopy;
-				System.out.println("TIE CHECKER \n" + tieChecker.toString());
 				
 				client.write(a);
 			} else {

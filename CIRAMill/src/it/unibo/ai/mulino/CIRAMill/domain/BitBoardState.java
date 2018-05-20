@@ -231,6 +231,12 @@ public class BitBoardState implements IState {
 	public BitBoardState(ITieChecker tieChecker) {
 		this(DEFAULT_INITIAL_CHECKERS, DEFAULT_INITIAL_CHECKERS, tieChecker);
 	}
+	
+	public byte getCheckersOnBoard(int player) {
+		if (player != WHITE && player != BLACK)
+			throw new IllegalArgumentException();
+		return checkersOnBoard[player];
+	}
 
 	public static int checkIntToByte(int value) {
 		if (value > Byte.MAX_VALUE)

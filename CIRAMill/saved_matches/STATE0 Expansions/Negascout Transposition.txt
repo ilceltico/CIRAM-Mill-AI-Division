@@ -1,0 +1,144 @@
+Negascout Transposition:
+Elapsed time: 1
+Expanded states: 24
+TT Hits: 0
+Selected action is: a7, value: 6
+Level 1 completed
+
+Negascout Transposition:
+Elapsed time: 3
+Expanded states: 576
+TT Hits: 20
+Selected action is: a7, value: 0
+Level 2 completed
+
+Negascout Transposition:
+Elapsed time: 8
+Expanded states: 1718
+TT Hits: 530
+Selected action is: a7, value: 18
+Level 3 completed
+
+Negascout Transposition:
+Elapsed time: 21
+Expanded states: 14299
+TT Hits: 1196
+Selected action is: d6, value: 0
+Level 4 completed
+
+Negascout Transposition:
+Elapsed time: 54
+Expanded states: 37015
+TT Hits: 12430
+Selected action is: d7, value: 18
+Level 5 completed
+
+Negascout Transposition:
+Elapsed time: 96
+Expanded states: 284473
+TT Hits: 23829
+Selected action is: a7, value: -1
+Level 6 completed
+
+Negascout Transposition:
+Elapsed time: 267
+Expanded states: 852776
+TT Hits: 249793
+Selected action is: a7, value: 18
+Level 7 completed
+
+59000
+Negascout Transposition:
+Elapsed time: 1115
+Expanded states: 5252261
+TT Hits: 459278
+Selected action is: a7, value: -2
+Level 8 completed
+
+58000
+57000
+56000
+55000
+Negascout Transposition:
+Elapsed time: 3956
+Expanded states: 14840205
+TT Hits: 4610770
+Selected action is: a7, value: 18
+Level 9 completed
+
+54000
+53000
+52000
+51000
+50000
+49000
+48000
+47000
+45860
+44860
+43860
+42860
+41860
+40857
+39857
+38857
+37857
+36856
+35856
+Negascout Transposition:
+Elapsed time: 19405
+Expanded states: 90060246
+TT Hits: 8462958
+Selected action is: a7, value: -2
+Level 10 completed
+
+34856
+33856
+32856
+31856
+30856
+28650
+27650
+26650
+24774
+23774
+22774
+21774
+20774
+19755
+18755
+17755
+16755
+15755
+14753
+13753
+11083
+10083
+9083
+8083
+7083
+6083
+5083
+4083
+3083
+2083
+1083
+1083
+
+
+Selected action: a7, value: -2
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: INITIALPHASE;
+White Checkers: 8;
+Black Checkers: 9;
+White Checkers On Board: 1;
+Black Checkers On Board: 0;
+

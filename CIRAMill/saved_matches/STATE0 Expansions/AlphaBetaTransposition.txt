@@ -1,0 +1,148 @@
+AlphaBetaTransposition:
+Elapsed time: 3
+Expanded states: 24
+TT Hits: 0
+Selected action is: a7, value: 6
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 70
+TT Hits: 21
+Selected action is: a7, value: 0
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4
+Expanded states: 624
+TT Hits: 54
+Selected action is: a7, value: 18
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 9
+Expanded states: 3069
+TT Hits: 621
+Selected action is: d6, value: 0
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 15
+Expanded states: 13978
+TT Hits: 1451
+Selected action is: d6, value: 18
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 35
+Expanded states: 36946
+TT Hits: 12178
+Selected action is: d6, value: -1
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 137
+Expanded states: 326117
+TT Hits: 35606
+Selected action is: d6, value: 18
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 314
+Expanded states: 905542
+TT Hits: 248526
+Selected action is: d6, value: -2
+Level 8 completed
+
+59000
+58000
+AlphaBetaTransposition:
+Elapsed time: 1694
+Expanded states: 6294630
+TT Hits: 809493
+Selected action is: d6, value: 18
+Level 9 completed
+
+57000
+55929
+54929
+53929
+AlphaBetaTransposition:
+Elapsed time: 4645
+Expanded states: 14389937
+TT Hits: 4362877
+Selected action is: d6, value: -2
+Level 10 completed
+
+52929
+51928
+50928
+49928
+48928
+47928
+46928
+45928
+44928
+43928
+41979
+40979
+39979
+38979
+37979
+36979
+35943
+34943
+33943
+32943
+31915
+30915
+29915
+28915
+26378
+25378
+24378
+23378
+22378
+AlphaBetaTransposition:
+Elapsed time: 31696
+Expanded states: 96718695
+TT Hits: 15172247
+Selected action is: d6, value: 23
+Level 11 completed
+
+21377
+20336
+19336
+18336
+17270
+16175
+15175
+14175
+9294
+8294
+7294
+6294
+5294
+4294
+3294
+2294
+1294
+1294
+
+
+Selected action: d6, value: 23
+7 O--------O--------O
+6 |--O-----W-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Player: BLACK;
+Phase: INITIALPHASE;
+White Checkers: 8;
+Black Checkers: 9;
+White Checkers On Board: 1;
+Black Checkers On Board: 0;
+

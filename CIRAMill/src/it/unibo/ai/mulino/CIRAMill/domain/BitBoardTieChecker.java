@@ -61,5 +61,9 @@ public class BitBoardTieChecker implements ITieChecker {
 		result.statesAlreadySeen = new ArrayList<>(statesAlreadySeen);
 		return result;
 	}
+	
+	public void swapList(ArrayList<BitBoardState> newStatesAlreadySeen) {
+		this.statesAlreadySeen = new ArrayList<>(newStatesAlreadySeen);
+	}
 
 }
