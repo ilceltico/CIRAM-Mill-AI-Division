@@ -1,0 +1,84 @@
+AlphaBetaTransposition:
+Elapsed time: 3
+Expanded states: 24
+TT Hits: 0
+Selected action is: a7, value: 6
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 70
+TT Hits: 21
+Selected action is: a7, value: 0
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3
+Expanded states: 624
+TT Hits: 54
+Selected action is: a7, value: 18
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 10
+Expanded states: 3069
+TT Hits: 621
+Selected action is: d6, value: 0
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 16
+Expanded states: 13978
+TT Hits: 1451
+Selected action is: d6, value: 18
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 21
+Expanded states: 36946
+TT Hits: 12178
+Selected action is: d6, value: -1
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 117
+Expanded states: 326117
+TT Hits: 35606
+Selected action is: d6, value: 18
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 290
+Expanded states: 905542
+TT Hits: 248526
+Selected action is: d6, value: -2
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1625
+Expanded states: 6294630
+TT Hits: 809493
+Selected action is: d6, value: 18
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4372
+Expanded states: 14389937
+TT Hits: 4362877
+Selected action is: d6, value: -2
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 31591
+Expanded states: 96718695
+TT Hits: 15172247
+Selected action is: d6, value: 23
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4666454
+Expanded states: 521351203
+TT Hits: -1577929311
+Selected action is: a7, value: -1
+Level 12 completed
+
