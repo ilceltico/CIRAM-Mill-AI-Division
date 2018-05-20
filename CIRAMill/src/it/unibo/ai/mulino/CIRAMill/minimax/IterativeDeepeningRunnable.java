@@ -29,7 +29,7 @@ public class IterativeDeepeningRunnable implements Runnable {
 		while (true) {
 			selectedValuedAction = minimax.minimaxDecision(state, depth);
 			System.out.println("Level " + depth + " completed\n");
-			if (selectedValuedAction.getValue() >= Integer.MAX_VALUE-1 || selectedValuedAction.getValue() <= Integer.MIN_VALUE+1)
+			if (selectedValuedAction.getValue() >= Integer.MAX_VALUE-3 || selectedValuedAction.getValue() <= Integer.MIN_VALUE+3)
 				break;
 			depth++;
 		}

@@ -22,15 +22,19 @@ import it.unibo.ai.mulino.CIRAMill.minimax.MTDHistory;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTDRelativeHistory;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTDTransposition;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTDTranspositionHistory;
+import it.unibo.ai.mulino.CIRAMill.minimax.MTDTranspositionRelativeHistory;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTDVariant;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTDVariantHistory;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTDVariantRelativeHistory;
 import it.unibo.ai.mulino.CIRAMill.minimax.MTDVariantTransposition;
+import it.unibo.ai.mulino.CIRAMill.minimax.MTDVariantTranspositionHistory;
+import it.unibo.ai.mulino.CIRAMill.minimax.MTDVariantTranspositionRelativeHistory;
 import it.unibo.ai.mulino.CIRAMill.minimax.MiniMax;
 import it.unibo.ai.mulino.CIRAMill.minimax.Negascout;
 import it.unibo.ai.mulino.CIRAMill.minimax.NegascoutHistory;
 import it.unibo.ai.mulino.CIRAMill.minimax.NegascoutRelativeHistory;
 import it.unibo.ai.mulino.CIRAMill.minimax.NegascoutTransposition;
+import it.unibo.ai.mulino.CIRAMill.minimax.NegascoutTranspositionRelativeHistory;
 import it.unibo.ai.mulino.CIRAMill.minimax.NegascoutTraspositionHistory;
 import it.unibo.ai.mulino.CIRAMill.minimax.RelativeHistoryAlphaBeta;
 import it.unibo.ai.mulino.CIRAMill.minimax.RelativeHistoryAlphaBetaColor;
@@ -41,7 +45,7 @@ public class Tests {
 
 	public static final int DEPTH = 6;
 	public static final int KNUM = 10;
-	public static final int STATE = 0;
+	public static final int STATE = 1;
 	
 	public static final boolean minimax = false;
 	public static final boolean alphabeta = false;
@@ -68,7 +72,9 @@ public class Tests {
 	public static final boolean negascout_transposition_history = false;
 	public static final boolean mtd_transposition_history = false;
 	public static final boolean mtd_transposition_relative_history = false;
-	
+	public static final boolean mtd_variant_transposition_history = false;
+	public static final boolean mtd_variant_transposition_relative_history = false;
+	public static final boolean negascout_transposition_relative_history = false;
 		
 	public static final int seconds = 60;
 	public static final int startingDepth = 1;
@@ -78,7 +84,7 @@ public class Tests {
 	public static final boolean it_alphabeta_killer = false;
 	public static final boolean it_alphabeta_killer_variant = false;
 	public static final boolean it_alphabeta_quiescent = false;
-	public static final boolean it_alphabeta_transp = true; ////
+	public static final boolean it_alphabeta_transp = false; ////
 	public static final boolean it_mtd = false;
 	public static final boolean it_mtd_variant = false;
 	public static final boolean it_negascout = false;
@@ -88,7 +94,7 @@ public class Tests {
 	public static final boolean it_relative_history_transposition = false; ////
 	public static final boolean it_mtd_transposition = false; //
 	public static final boolean it_mtd_variant_transposition = false; ////
-	public static final boolean it_negascout_transposition = false; //
+	public static final boolean it_negascout_transposition = true; //
 	public static final boolean it_mtd_history = false;
 	public static final boolean it_mtd_relative_history = false;
 	public static final boolean it_mtd_variant_history = false;
@@ -98,6 +104,9 @@ public class Tests {
 	public static final boolean it_negascout_transposition_history = false; //
 	public static final boolean it_mtd_transposition_history = false; //
 	public static final boolean it_mtd_transposition_relative_history = false;
+	public static final boolean it_mtd_variant_transposition_history = false;
+	public static final boolean it_mtd_variant_transposition_relative_history = false;
+	public static final boolean it_negascout_transposition_relative_history = false;
 	
 	
 	public static void main(String[] args) {
@@ -297,6 +306,33 @@ public class Tests {
             BitBoardTranspositionTable transpositionTable = new BitBoardTranspositionTable();
             new Thread(new MinimaxTestRunnable(new MTDTranspositionHistory(tieChecker, transpositionTable, historyTable), tieChecker)).start();
         }
+        if (mtd_transposition_relative_history) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+            BitBoardButterflyTable butterflyTable = new BitBoardButterflyTable();
+            BitBoardTranspositionTable transpositionTable = new BitBoardTranspositionTable();
+            new Thread(new MinimaxTestRunnable(new MTDTranspositionRelativeHistory(tieChecker, transpositionTable, historyTable, butterflyTable), tieChecker)).start();
+        }
+        if (mtd_variant_transposition_history) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+            BitBoardTranspositionTable transpositionTable = new BitBoardTranspositionTable();
+            new Thread(new MinimaxTestRunnable(new MTDVariantTranspositionHistory(tieChecker, transpositionTable, historyTable), tieChecker)).start();
+        }
+        if (mtd_variant_transposition_relative_history) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+            BitBoardButterflyTable butterflyTable = new BitBoardButterflyTable();
+            BitBoardTranspositionTable transpositionTable = new BitBoardTranspositionTable();
+            new Thread(new MinimaxTestRunnable(new MTDVariantTranspositionRelativeHistory(tieChecker, transpositionTable, historyTable, butterflyTable), tieChecker)).start();
+        }
+        if (negascout_transposition_relative_history) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+            BitBoardButterflyTable butterflyTable = new BitBoardButterflyTable();
+            BitBoardTranspositionTable transpositionTable = new BitBoardTranspositionTable();
+            new Thread(new MinimaxTestRunnable(new NegascoutTranspositionRelativeHistory(tieChecker, transpositionTable, historyTable, butterflyTable), tieChecker)).start();
+        }
         
 		if (it_minimax) {
 			BitBoardTieChecker tieChecker = new BitBoardTieChecker();
@@ -437,6 +473,34 @@ public class Tests {
             IMinimax minimax = new MTDTranspositionHistory(tieChecker, new BitBoardTranspositionTable(), historyTable);
             new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
         }
+        if (it_mtd_transposition_relative_history) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+            BitBoardButterflyTable butterflyTable = new BitBoardButterflyTable();
+            IMinimax minimax = new MTDTranspositionRelativeHistory(tieChecker, new BitBoardTranspositionTable(), historyTable, butterflyTable);
+            new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
+        }
+        if (it_mtd_variant_transposition_history) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+            IMinimax minimax = new MTDVariantTranspositionHistory(tieChecker, new BitBoardTranspositionTable(), historyTable);
+            new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
+        }
+        if (it_mtd_variant_transposition_relative_history) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+            BitBoardButterflyTable butterflyTable = new BitBoardButterflyTable();
+            IMinimax minimax = new MTDVariantTranspositionRelativeHistory(tieChecker, new BitBoardTranspositionTable(), historyTable, butterflyTable);
+            new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
+        }
+        if (it_negascout_transposition_relative_history) {
+            BitBoardTieChecker tieChecker = new BitBoardTieChecker();
+            BitBoardHistoryTable historyTable = new BitBoardHistoryTable();
+            BitBoardButterflyTable butterflyTable = new BitBoardButterflyTable();
+            BitBoardTranspositionTable transpositionTable = new BitBoardTranspositionTable();
+            IMinimax minimax = new NegascoutTranspositionRelativeHistory(tieChecker, transpositionTable, historyTable, butterflyTable);
+            new Thread(new IterativeTestRunnable(minimax, tieChecker, seconds)).start();
+        }
         
 				
 //		LRUMap<Long, ValuedAction> map = new LRUMap<>();
@@ -504,7 +568,7 @@ public class Tests {
 				millis -= System.currentTimeMillis() - curMillis;
 				if (!iterativeThread.isAlive())
 					break;
-				System.out.println(millis);
+//				System.out.println(millis);
 			}
 			
 			if (iterativeThread.isAlive())
