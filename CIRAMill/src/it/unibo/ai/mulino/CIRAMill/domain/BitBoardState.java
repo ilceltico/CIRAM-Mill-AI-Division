@@ -2375,8 +2375,8 @@ public class BitBoardState implements IState {
 				symms |= ROTATION_270;
 			}
 			
-//			hash |= ((long) checkersToPut[WHITE]) << 48;
-//			hash |= ((long) checkersToPut[BLACK]) << 52;
+			hash |= ((long) checkersToPut[WHITE]) << 48;
+			hash |= ((long) checkersToPut[BLACK]) << 52;
 			hash |= ((long) playerToMove) << 56;
 		}
 		// BLACK = 1 ---> faccio le simmetrie con colore
@@ -2601,8 +2601,8 @@ public class BitBoardState implements IState {
 				symms |= COLOR_INVERSION;
 			}
 			
-//			hash |= ((long) checkersToPut[BLACK]) << 48;
-//			hash |= ((long) checkersToPut[WHITE]) << 52;
+			hash |= ((long) checkersToPut[BLACK]) << 48;
+			hash |= ((long) checkersToPut[WHITE]) << 52;
 			hash |= ((long) opponentPlayer) << 56;
 		}
 		

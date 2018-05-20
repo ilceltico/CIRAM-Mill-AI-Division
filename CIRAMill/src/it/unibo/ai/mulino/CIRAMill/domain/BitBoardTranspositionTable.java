@@ -10,11 +10,7 @@ import it.unibo.ai.mulino.CIRAMill.minimax.IState;
 import it.unibo.ai.mulino.CIRAMill.minimax.ITranspositionTable;
 
 public class BitBoardTranspositionTable implements ITranspositionTable {
-<<<<<<< HEAD
 	public static final int DEFAULT_SIZE = 4000000; //MAX SIZE is 5600000
-=======
-	public static final int DEFAULT_SIZE = 3600000; //MAX SIZE is 5600000
->>>>>>> 2fb2e1c50e74417d4f0f02d08ca8bef250cd235a
 	
 	private LRUMap<Long, BitBoardEntry> transpositionTable;
 	
