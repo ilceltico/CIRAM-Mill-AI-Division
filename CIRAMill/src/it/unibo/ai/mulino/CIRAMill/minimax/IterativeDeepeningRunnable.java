@@ -3,10 +3,10 @@ package it.unibo.ai.mulino.CIRAMill.minimax;
 public class IterativeDeepeningRunnable implements Runnable {
 	
 	private IMinimax minimax;
-	private IState state;
-	private int startingDepth;
+	protected IState state;
+	protected int startingDepth;
 	
-	private ValuedAction selectedValuedAction;
+	protected ValuedAction selectedValuedAction;
 	
 	public IterativeDeepeningRunnable(IMinimax minimax, IState state, int startingDepth) {
 		if (minimax == null)

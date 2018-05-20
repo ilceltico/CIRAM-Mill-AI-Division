@@ -9,24 +9,24 @@ import it.unibo.ai.didattica.mulino.actions.PhaseFinalAction;
 import it.unibo.ai.didattica.mulino.domain.State;
 import it.unibo.ai.didattica.mulino.domain.State.Checker;
 import it.unibo.ai.didattica.mulino.domain.State.Phase;
-import it.unibo.ai.mulino.CIRAMill.domain.BitBoardAction;
+import it.unibo.ai.mulino.CIRAMill.domain.BitBoardButterflyTable;
+import it.unibo.ai.mulino.CIRAMill.domain.BitBoardHistoryTable;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardState;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardTieChecker;
 import it.unibo.ai.mulino.CIRAMill.domain.BitBoardTranspositionTable;
-import it.unibo.ai.mulino.CIRAMill.domain.BitBoardUtils;
-import it.unibo.ai.mulino.CIRAMill.domain.ParallelIterativeDeepeningRunnableTT;
 import it.unibo.ai.mulino.CIRAMill.minimax.AlphaBetaTransposition;
 import it.unibo.ai.mulino.CIRAMill.minimax.IMinimax;
 import it.unibo.ai.mulino.CIRAMill.minimax.IterativeDeepeningRunnable;
-import it.unibo.ai.mulino.CIRAMill.minimax.MiniMax;
+import it.unibo.ai.mulino.CIRAMill.minimax.RelativeHistoryAlphaBetaTransposition;
 
 public class Program {
 	
-	public static String USAGE = "Usage: (white | black) -options\n" + 
-								"";
+	public static String USAGE = "Usage: (white | black) --options\n" + 
+								"Options (very incomplete list):"	+
+								"\tNo idle time resource wasting: --noidle";
 	public static final int STARTINGDEPTH = 1;
 	public static final int MAXMILLIS = 60000;
-	public static final int SECURITYMILLIS = 2000;
+	public static final int SECURITYMILLIS = 5000;
 	
 	
 	public static int startingDepth = STARTINGDEPTH;
@@ -35,6 +35,8 @@ public class Program {
 	
 	public static byte playerMe;
 	public static byte playerOpponent;
+	
+	public static boolean idle = true;
 
 	public static void main(String args[]) throws Exception {
 		MulinoClient client = null;
@@ -55,6 +57,11 @@ public class Program {
 			System.exit(1);
 		}
 		
+		if (args.length > 1) {
+			if (args[1].equals("--noidle"))
+				idle = false;
+		}
+		
 		
 		//SCELTA ALGORITMO, EURISTICA, TRANSP, HIST, TIECHECKER
 		BitBoardTieChecker tieChecker = new BitBoardTieChecker();
@@ -68,7 +75,7 @@ public class Program {
 //		for (int i=0; i<tts.length; i++) {
 //			tts[i] = new BitBoardTranspositionTable();
 //		}
-		IMinimax minimax = new AlphaBetaTransposition(tieChecker, transpositionTable);
+		IMinimax minimax = new RelativeHistoryAlphaBetaTransposition(tieChecker, transpositionTable, new BitBoardHistoryTable(), new BitBoardButterflyTable());
 //		IMinimax[] minimaxes = new AlphaBetaTransposition[7];
 //		for (int i=0; i<minimaxes.length; i++) {
 //			minimaxes[i] = new AlphaBetaTransposition(tieCheckers[i], tts[i]);
@@ -77,6 +84,8 @@ public class Program {
 		
 
 		IterativeDeepeningRunnable iterativeDeepening;
+		IterativeDeepeningRunnable[] opponentRunnables = new IterativeDeepeningRunnable[2];
+		Thread[] opponentThreads = new Thread[2];
 //		ParallelIterativeDeepeningRunnableTT iterativeDeepening;
 		Thread iterativeThread;
 		State currentState;
@@ -86,7 +95,25 @@ public class Program {
 		do {
 
 			if (playerMe == BitBoardState.WHITE) {
+				//Compute during opponent time
+				if (idle) {
+					for (int i=0; i<opponentRunnables.length; i++) {
+						BitBoardTieChecker t = new BitBoardTieChecker();
+						IMinimax m = new AlphaBetaTransposition(t, new BitBoardTranspositionTable(100000));
+						opponentRunnables[i] = new IterativeDeepeningRunnable(m, new BitBoardState(t), 10);
+						opponentThreads[i] = new Thread(opponentRunnables[i]);
+						opponentThreads[i].start();
+					}
+				}
+				
 				currentState = client.read();
+				long curMillis = System.currentTimeMillis();
+				if (idle) {
+					for (int i=0; i<opponentThreads.length; i++) {
+						if (opponentThreads[i] != null && opponentThreads[i].isAlive())
+							opponentThreads[i].stop();
+					}
+				}
 				bCurrentState = BitBoardState.fromStateToBitBoard(currentState, playerMe, tieChecker);
 //				bCurrentState = BitBoardState.fromStateToBitBoard(currentState, playerMe, null);
 				if (bCurrentState.getGamePhase() == BitBoardState.MIDGAME) {
@@ -135,8 +162,7 @@ public class Program {
 				iterativeThread = new Thread(iterativeDeepening);
 				iterativeThread.start();
 				
-				long curMillis;
-				long millis = maxMillis;
+				long millis = maxMillis- (System.currentTimeMillis()-curMillis);
 				while (millis > securityMillis) {
 					curMillis = System.currentTimeMillis();
 					try {
@@ -204,7 +230,25 @@ public class Program {
 
 				System.out.println("\nWaiting for opponent move...");
 
+				//Compute during opponent time
+				if (idle) {
+					for (int i=0; i<opponentRunnables.length; i++) {
+						BitBoardTieChecker t = new BitBoardTieChecker();
+						IMinimax m = new AlphaBetaTransposition(t, new BitBoardTranspositionTable(100000));
+						opponentRunnables[i] = new IterativeDeepeningRunnable(m, new BitBoardState(t), 10);
+						opponentThreads[i] = new Thread(opponentRunnables[i]);
+						opponentThreads[i].start();
+					}
+				}
+				
 				currentState = client.read();
+				long curMillis = System.currentTimeMillis();
+				if (idle) {
+					for (int i=0; i<opponentThreads.length; i++) {
+						if (opponentThreads[i] != null && opponentThreads[i].isAlive())
+							opponentThreads[i].stop();
+					}
+				}
 				bCurrentState = BitBoardState.fromStateToBitBoard(currentState, playerMe, tieChecker);
 //				bCurrentState = BitBoardState.fromStateToBitBoard(currentState, BitBoardState.BLACK, null);
 				if (bCurrentState.getGamePhase() == BitBoardState.MIDGAME) {
@@ -225,8 +269,8 @@ public class Program {
 				iterativeThread = new Thread(iterativeDeepening);
 				iterativeThread.start();
 				
-				long curMillis;
-				long millis = maxMillis;
+				
+				long millis = maxMillis- (System.currentTimeMillis()-curMillis);
 				while (millis > securityMillis) {
 					curMillis = System.currentTimeMillis();
 					try {
@@ -261,6 +305,7 @@ public class Program {
 //				tts[i].clear();
 //			}
 			transpositionTable.clear();
+			System.gc();
 			
 		} while (true);
 		

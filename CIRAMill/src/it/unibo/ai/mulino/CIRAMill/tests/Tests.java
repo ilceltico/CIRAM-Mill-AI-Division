@@ -45,7 +45,7 @@ public class Tests {
 
 	public static final int DEPTH = 6;
 	public static final int KNUM = 10;
-	public static final int STATE = 1;
+	public static final int STATE = 4;
 	
 	public static final boolean minimax = false;
 	public static final boolean alphabeta = false;
@@ -76,7 +76,7 @@ public class Tests {
 	public static final boolean mtd_variant_transposition_relative_history = false;
 	public static final boolean negascout_transposition_relative_history = false;
 		
-	public static final int seconds = 60;
+	public static final int seconds = 6000;
 	public static final int startingDepth = 1;
 	
 	public static final boolean it_minimax = false;
@@ -91,10 +91,10 @@ public class Tests {
 	public static final boolean it_history = false;
 	public static final boolean it_relative_history = false;
 	public static final boolean it_relative_history_color = false;
-	public static final boolean it_relative_history_transposition = false; ////
+	public static final boolean it_relative_history_transposition = true; ////
 	public static final boolean it_mtd_transposition = false; //
 	public static final boolean it_mtd_variant_transposition = false; ////
-	public static final boolean it_negascout_transposition = true; //
+	public static final boolean it_negascout_transposition = false; //
 	public static final boolean it_mtd_history = false;
 	public static final boolean it_mtd_relative_history = false;
 	public static final boolean it_mtd_variant_history = false;
@@ -548,6 +548,7 @@ public class Tests {
 					(1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 12) | (1 << 13) | (1 << 14) | (1 << 19), BitBoardState.BLACK, tieChecker); break;
 			
 			case 3: state = new BitBoardState(0, 0, (1 << 9) | (1 << 12) | (1 << 15), (1 << 8) | (1 << 22) | (1 << 23), BitBoardState.WHITE, tieChecker); break;
+			case 4: state = new BitBoardState(8, 9, (1 << 13), 0, BitBoardState.BLACK, tieChecker); break;
 			default: throw new IllegalArgumentException("Invalid STATE number");
 			}
 			stateClone = (BitBoardState) state.clone();
@@ -600,6 +601,7 @@ public class Tests {
 			case 2: state = new BitBoardState(0, 0, (1 << 0) | (1 << 2) | (1 << 9) | (1 << 15) | (1 << 17) | (1 << 21) | (1 << 23),
 													(1 << 4) | (1 << 5) | (1 << 6) | (1 << 7) | (1 << 12) | (1 << 13) | (1 << 14) | (1 << 19), BitBoardState.BLACK, tieChecker); break;
 			case 3: state = new BitBoardState(0, 0, (1 << 9) | (1 << 12) | (1 << 15), (1 << 8) | (1 << 22) | (1 << 23), BitBoardState.WHITE, tieChecker); break;
+			case 4: state = new BitBoardState(8, 9, (1 << 13), 0, BitBoardState.BLACK, tieChecker); break;
 			default: throw new IllegalArgumentException("Invalid STATE number");
 			}
 			
