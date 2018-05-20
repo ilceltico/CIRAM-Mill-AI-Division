@@ -7,7 +7,6 @@ public class NegascoutRelativeHistory implements IMinimax{
 	
 	private int expandedStates = 0;
 	private long elapsedTime;
-	private int originalMaxDepth;
 	
 	private ITieChecker tieChecker;
 	private IHistoryTable historyTable;
@@ -21,7 +20,6 @@ public class NegascoutRelativeHistory implements IMinimax{
 
 	@Override
 	public ValuedAction minimaxDecision(IState state, int maxDepth) {
-		originalMaxDepth = maxDepth;
 		elapsedTime = System.currentTimeMillis();
 		
 		ValuedAction valuedAction = evaluate(state, maxDepth);
@@ -48,6 +46,7 @@ public class NegascoutRelativeHistory implements IMinimax{
 			if(state.isWinningState()) {
 				result.set(a, Integer.MAX_VALUE-2);
 				state.unmove(a);
+				historyTable.incrementValue(a, maxDepth);
 				break;
 			} else if(tieChecker.isTie(state)) {
 				temp.set(a, 0);
@@ -73,10 +72,11 @@ public class NegascoutRelativeHistory implements IMinimax{
 	private int negascout(IState state, int alfa, int beta, int maxDepth) {
 				
 		if(maxDepth <= 1)
-			if ((originalMaxDepth-maxDepth)%2==0)
-				return state.getHeuristicEvaluation();
-			else
-				return -state.getHeuristicEvaluation();
+			return state.getHeuristicEvaluation();
+//			if ((originalMaxDepth-maxDepth)%2==0)
+//				return state.getHeuristicEvaluation();
+//			else
+//				return -state.getHeuristicEvaluation();
 		
 		List<IAction> actions = state.getFollowingMoves();
 		IAction bestAction = null;
@@ -92,10 +92,11 @@ public class NegascoutRelativeHistory implements IMinimax{
 			state.move(a);
 			
 			if(state.isWinningState()) {
-				if ((originalMaxDepth-maxDepth)%2==0)
-					temp = Integer.MAX_VALUE-2;
-				else
-					temp = Integer.MIN_VALUE+2;
+				temp = Integer.MAX_VALUE-2;
+//				if ((originalMaxDepth-maxDepth)%2==0)
+//					temp = Integer.MAX_VALUE-2;
+//				else
+//					temp = Integer.MIN_VALUE+2;
 				
 				state.unmove(a);
 				historyTable.incrementValue(a, maxDepth);

@@ -7,7 +7,6 @@ public class NegascoutTraspositionHistory implements IMinimax{
 	
 	private int expandedStates = 0;
 	private long elapsedTime;
-	private int originalMaxDepth;
 	private int ttHits = 0;
 	
 	private ITieChecker tieChecker;
@@ -22,7 +21,6 @@ public class NegascoutTraspositionHistory implements IMinimax{
 
 	@Override
 	public ValuedAction minimaxDecision(IState state, int maxDepth) {
-		originalMaxDepth = maxDepth;
 		elapsedTime = System.currentTimeMillis();
 		
 		ValuedAction valuedAction = evaluate(state, maxDepth);
@@ -111,10 +109,11 @@ public class NegascoutTraspositionHistory implements IMinimax{
 	private int negascout(IState state, int alfa, int beta, int maxDepth) {
 				
 		if(maxDepth <= 1)
-			if ((originalMaxDepth-maxDepth)%2==0)
-				return state.getHeuristicEvaluation();
-			else
-				return -state.getHeuristicEvaluation();
+			return state.getHeuristicEvaluation();
+//			if ((originalMaxDepth-maxDepth)%2==0)
+//				return state.getHeuristicEvaluation();
+//			else
+//				return -state.getHeuristicEvaluation();
 		
 		int lo_value = alfa;
 		int hi_value = beta;
@@ -132,10 +131,11 @@ public class NegascoutTraspositionHistory implements IMinimax{
 			state.move(action);
 			
 			if(state.isWinningState()) {
-				if ((originalMaxDepth-maxDepth)%2==0)
-					temp = Integer.MAX_VALUE-2;
-				else
-					temp = Integer.MIN_VALUE+2;
+				temp = Integer.MAX_VALUE-2;
+//				if ((originalMaxDepth-maxDepth)%2==0)
+//					temp = Integer.MAX_VALUE-2;
+//				else
+//					temp = Integer.MIN_VALUE+2;
 				
 				state.unmove(action);
 				transpositionTable.putAction(state, action, maxDepth);
@@ -176,10 +176,11 @@ public class NegascoutTraspositionHistory implements IMinimax{
 			state.move(a);
 			
 			if(state.isWinningState()) {
-				if ((originalMaxDepth-maxDepth)%2==0)
-					temp = Integer.MAX_VALUE-2;
-				else
-					temp = Integer.MIN_VALUE+2;
+				temp = Integer.MAX_VALUE-2;
+//				if ((originalMaxDepth-maxDepth)%2==0)
+//					temp = Integer.MAX_VALUE-2;
+//				else
+//					temp = Integer.MIN_VALUE+2;
 				
 				state.unmove(a);
 				transpositionTable.putAction(state, a, maxDepth);

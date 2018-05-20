@@ -127,7 +127,7 @@ public class MTDVariantHistory implements IMinimax{
 				temp = max(state, maxDepth - 1, alpha, beta);
 //				state.unmove(a);
 			} else {
-				temp.set(a, -state.getHeuristicEvaluation());
+				temp.set(a, state.getHeuristicEvaluation());
 			}
 			if (temp.getValue() < result.getValue()) {
 				result.set(a, temp.getValue());

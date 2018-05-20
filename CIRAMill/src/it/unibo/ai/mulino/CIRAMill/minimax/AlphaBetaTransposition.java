@@ -2,8 +2,6 @@ package it.unibo.ai.mulino.CIRAMill.minimax;
 
 import java.util.List;
 
-import it.unibo.ai.mulino.CIRAMill.domain.BitBoardState;
-
 public class AlphaBetaTransposition implements IMinimax {
 	
 	private int expandedStates = 0;

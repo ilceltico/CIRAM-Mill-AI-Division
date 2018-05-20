@@ -165,6 +165,7 @@ public class BitBoardState implements IState {
 	private static final int MIDGAME_PIECES_NUMBER = 6;
 	private static final int MIDGAME_OPENED_MORRIS = 7;
 	private static final int MIDGAME_OPENED_MORRIS_NEAR_OPPONENT = -2;
+	private static final int MIDGAME_UNBLOCKABLE_DOUBLE_MORRIS = 42;
 	
 	private static final int ENDGAME_TWO_PIECES_CONFIGURATION = 10;
 	private static final int ENDGAME_THREE_PIECES_CONFIGURATION = 1;
@@ -1296,6 +1297,10 @@ public class BitBoardState implements IState {
 		int openedMorrisNearOpponentPlayer = 0;
 		int openedMorrisNearOpponentOpponent = 0;
 		
+		//UNBLOCKABLE_DOUBLE_MORRIS
+		int unblockableDoubleMorrisPlayer = 0;
+		int unblockableDoubleMorrisOpponent = 0;
+		
 		int playerToMoveMill;
 		int opponentPlayerMill;
 		
@@ -1316,9 +1321,9 @@ public class BitBoardState implements IState {
 			
 			if(opponentPlayerMill == 0 && Integer.bitCount(playerToMoveMill) == 2) {
 				for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros(playerToMoveMill ^ mill)]) {
-					if((board[playerToMove] & adjacentPosition) != 0) {
+					if((board[playerToMove] & (1 << adjacentPosition)) != 0) {
 						foundPlayer = true;
-					} else if((board[opponentPlayer] & adjacentPosition) != 0) {
+					} else if((board[opponentPlayer] & (1 << adjacentPosition)) != 0) {
 						foundOpponent = true;
 					}
 				}
@@ -1331,9 +1336,9 @@ public class BitBoardState implements IState {
 				
 			} else if(playerToMoveMill == 0 && Integer.bitCount(opponentPlayerMill) == 2) {
 				for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros(opponentPlayerMill ^ mill)]) {
-					if((board[opponentPlayer] & adjacentPosition) != 0) {
+					if((board[opponentPlayer] & (1 << adjacentPosition)) != 0) {
 						foundOpponent = true;
-					} else if((board[playerToMove] & adjacentPosition) != 0) {
+					} else if((board[playerToMove] & (1 << adjacentPosition)) != 0) {
 						foundPlayer = true;
 					}
 				}
@@ -1345,11 +1350,43 @@ public class BitBoardState implements IState {
 				}
 				
 			}
+			
+			//UNBLOCKABLE_DOUBLE_MORRIS
+			// ho un mill
+			if((board[playerToMove] & mill) == mill) {
+				for(int i=0; i<24; i++) {
+					// per ogni pedina del mill
+					if((mill & (1 << i)) != 0) {
+						// per ogni pedina adiacente
+						for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+							// pedine adiacenti non appartenenti al mill
+							if((mill & (1 << adjacentPosition)) == 0) {
+								unblockableDoubleMorrisPlayer += is2PiecesConfigurationNotInMill(playerToMove, adjacentPosition, mill, false);
+							}
+						}
+					}
+				}
+			}
+			// ho un mill
+			else if((board[opponentPlayer] & mill) == mill) {
+				for(int i=0; i<24; i++) {
+					// per ogni pedina del mill
+					if((mill & (1 << i)) != 0) {
+						// per ogni pedina adiacente
+						for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+							// pedine adiacenti non appartenenti al mill
+							if((mill & (1 << adjacentPosition)) == 0) {
+								unblockableDoubleMorrisOpponent += is2PiecesConfigurationNotInMill(opponentPlayer, adjacentPosition, mill, true);
+							}
+						}
+					}
+				}
+			}
 		}
 		
 		//DOUBLE_MORRIS
-		int doubleMorrisPlayer = 0;
-		int doubleMorrisOpponent = 0;
+//		int doubleMorrisPlayer = 0;
+//		int doubleMorrisOpponent = 0;
 		
 		//BLOCKED_PIECES
 		int blockedPiecesPlayer = 0;
@@ -1361,28 +1398,28 @@ public class BitBoardState implements IState {
 		for(int i=0; i<24; i++) {
 			temp = 1 << i;			
 			
-			//DOUBLE_MORRIS
-			boolean check = true;
-			for(int mill : POSITION_MILLS[i]) {
-				if((board[playerToMove] & mill) != mill) {
-					check = false;
-					break;
-				}
-			}
-			if(check) {
-				doubleMorrisPlayer++;
-			}
-			
-			check = true;
-			for(int mill : POSITION_MILLS[i]) {
-				if((board[opponentPlayer] & mill) != mill) {
-					check = false;
-					break;
-				}
-			}
-			if(check) {
-				doubleMorrisOpponent++;
-			}
+//			//DOUBLE_MORRIS
+//			boolean check = true;
+//			for(int mill : POSITION_MILLS[i]) {
+//				if((board[playerToMove] & mill) != mill) {
+//					check = false;
+//					break;
+//				}
+//			}
+//			if(check) {
+//				doubleMorrisPlayer++;
+//			}
+//			
+//			check = true;
+//			for(int mill : POSITION_MILLS[i]) {
+//				if((board[opponentPlayer] & mill) != mill) {
+//					check = false;
+//					break;
+//				}
+//			}
+//			if(check) {
+//				doubleMorrisOpponent++;
+//			}
 			
 //			boolean checkPlayer = true;
 //			boolean checkOpponent = true;
@@ -1442,8 +1479,11 @@ public class BitBoardState implements IState {
 		result += MIDGAME_OPENED_MORRIS_NEAR_OPPONENT * openedMorrisNearOpponentPlayer;
 		result -= MIDGAME_OPENED_MORRIS_NEAR_OPPONENT * openedMorrisNearOpponentOpponent;
 		
-		result += MIDGAME_DOUBLE_MORRIS * doubleMorrisPlayer;
-		result -= MIDGAME_DOUBLE_MORRIS * doubleMorrisOpponent;
+		result += MIDGAME_UNBLOCKABLE_DOUBLE_MORRIS * unblockableDoubleMorrisPlayer;
+		result -= MIDGAME_UNBLOCKABLE_DOUBLE_MORRIS * unblockableDoubleMorrisOpponent;
+		
+//		result += MIDGAME_DOUBLE_MORRIS * doubleMorrisPlayer;
+//		result -= MIDGAME_DOUBLE_MORRIS * doubleMorrisOpponent;
 		
 		result += MIDGAME_BLOCKED_PIECES * blockedPiecesPlayer;
 		result -= MIDGAME_BLOCKED_PIECES * blockedPiecesOpponent;
@@ -1552,6 +1592,9 @@ public class BitBoardState implements IState {
 
 		//OPENED_MORRIS_NEAR_OPPONENT
 //		int openedMorrisNearOpponentPlayer = 0;
+		
+		//UNBLOCKABLE_DOUBLE_MORRIS
+		int unblockableDoubleMorrisPlayer = 0;
 
 		int playerToMoveMill;
 		int opponentPlayerMill;
@@ -1571,7 +1614,7 @@ public class BitBoardState implements IState {
 
 			if(opponentPlayerMill == 0 && Integer.bitCount(playerToMoveMill) == 2) {
 				for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros(playerToMoveMill ^ mill)]) {
-					if((board[playerToMove] & adjacentPosition) != 0) {
+					if((board[playerToMove] & (1 << adjacentPosition)) != 0) {
 						foundPlayer = true;
 					}
 //					else if((board[opponentPlayer] & adjacentPosition) != 0) {
@@ -1586,10 +1629,28 @@ public class BitBoardState implements IState {
 				}
 
 			}
+			
+			//UNBLOCKABLE_DOUBLE_MORRIS
+			// ho un mill
+			if((board[playerToMove] & mill) == mill) {
+				for(int i=0; i<24; i++) {
+					// per ogni pedina del mill
+					if((mill & (1 << i)) != 0) {
+						// per ogni pedina adiacente
+						for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+							// pedine adiacenti non appartenenti al mill
+							if((mill & (1 << adjacentPosition)) == 0) {
+								unblockableDoubleMorrisPlayer += is2PiecesConfigurationNotInMill(playerToMove, adjacentPosition, mill, false);
+							}
+						}
+					}
+				}
+			}
+			
 		}
 
 		//DOUBLE_MORRIS
-		int doubleMorrisPlayer = 0;
+//		int doubleMorrisPlayer = 0;
 
 		//BLOCKED_PIECES
 //		int blockedPiecesPlayer = 0;
@@ -1597,37 +1658,37 @@ public class BitBoardState implements IState {
 		int temp;
 //		int fullBoard = board[playerToMove] | board[opponentPlayer];
 
-		for(int i=0; i<24; i++) {
-			temp = 1 << i;			
-
-			//DOUBLE_MORRIS
-			boolean check = true;
-			for(int mill : POSITION_MILLS[i]) {
-				if((board[playerToMove] & mill) != mill) {
-					check = false;
-					break;
-				}
-			}
-			if(check) {
-				doubleMorrisPlayer++;
-			}
-
-			//BLOCKED_PIECES
-//			if((board[opponentPlayer] & temp) != 0) {
-//				boolean isBlocked = true;
+//		for(int i=0; i<24; i++) {
+//			temp = 1 << i;			
 //
-//				for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
-//					if((fullBoard & (1 << adjacentPosition)) == 0) {
-//						isBlocked = false;
-//						break;
-//					}
-//				}
-//				if(isBlocked) {
-//					blockedPiecesPlayer++;
-//				}
+////			//DOUBLE_MORRIS
+////			boolean check = true;
+////			for(int mill : POSITION_MILLS[i]) {
+////				if((board[playerToMove] & mill) != mill) {
+////					check = false;
+////					break;
+////				}
+////			}
+////			if(check) {
+////				doubleMorrisPlayer++;
+////			}
 //
-//			}
-		}
+//			//BLOCKED_PIECES
+////			if((board[opponentPlayer] & temp) != 0) {
+////				boolean isBlocked = true;
+////
+////				for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+////					if((fullBoard & (1 << adjacentPosition)) == 0) {
+////						isBlocked = false;
+////						break;
+////					}
+////				}
+////				if(isBlocked) {
+////					blockedPiecesPlayer++;
+////				}
+////
+////			}
+//		}
 
 		result += MIDGAME_CLOSED_MORRIS * closedMorrisPlayer;
 
@@ -1638,7 +1699,9 @@ public class BitBoardState implements IState {
 		// ogni opened morris puo' essere chiuso
 		result += MIDGAME_OPENED_MORRIS_NEAR_OPPONENT * openedMorrisPlayer;
 		
-		result += MIDGAME_DOUBLE_MORRIS * doubleMorrisPlayer;
+//		result += MIDGAME_DOUBLE_MORRIS * doubleMorrisPlayer;
+		
+		result += MIDGAME_UNBLOCKABLE_DOUBLE_MORRIS * unblockableDoubleMorrisPlayer;
 		
 		// nessuno pezzo puo' essere bloccato
 //		result += MIDGAME_BLOCKED_PIECES * blockedPiecesPlayer;
@@ -1772,6 +1835,9 @@ public class BitBoardState implements IState {
 
 		//OPENED_MORRIS
 		int openedMorrisOpponent = 0;
+		
+		//UNBLOCKABLE_DOUBLE_MORRIS
+		int unblockableDoubleMorrisOpponent = 0;
 
 		//OPENED_MORRIS_NEAR_OPPONENT
 //		int openedMorrisNearOpponentOpponent = 0;
@@ -1791,7 +1857,7 @@ public class BitBoardState implements IState {
 
 			if(playerToMoveMill == 0 && Integer.bitCount(opponentPlayerMill) == 2) {
 				for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros(opponentPlayerMill ^ mill)]) {
-					if((board[opponentPlayer] & adjacentPosition) != 0) {
+					if((board[opponentPlayer] & (1 << adjacentPosition)) != 0) {
 						foundOpponent = true;
 					}
 //					else if((board[playerToMove] & adjacentPosition) != 0) {
@@ -1806,46 +1872,63 @@ public class BitBoardState implements IState {
 				}
 
 			}
+			
+			//UNBLOCKABLE_DOUBLE_MORRIS
+			if((board[opponentPlayer] & mill) == mill) {
+				for(int i=0; i<24; i++) {
+					// per ogni pedina del mill
+					if((mill & (1 << i)) != 0) {
+						// per ogni pedina adiacente
+						for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+							// pedine adiacenti non appartenenti al mill
+							if((mill & (1 << adjacentPosition)) == 0) {
+								unblockableDoubleMorrisOpponent += is2PiecesConfigurationNotInMill(opponentPlayer, adjacentPosition, mill, true);
+							}
+						}
+					}
+				}
+			}
+			
 		}
 
 		//DOUBLE_MORRIS
-		int doubleMorrisOpponent = 0;
+//		int doubleMorrisOpponent = 0;
 
 		//BLOCKED_PIECES
 //		int blockedPiecesOpponent = 0;
 
 //		int fullBoard = board[playerToMove] | board[opponentPlayer];
 
-		for(int i=0; i<24; i++) {
-			temp = 1 << i;			
-
-			//DOUBLE_MORRIS
-			boolean check = true;
-			for(int mill : POSITION_MILLS[i]) {
-				if((board[opponentPlayer] & mill) != mill) {
-					check = false;
-					break;
-				}
-			}
-			if(check) {
-				doubleMorrisOpponent++;
-			}
-
-			//BLOCKED_PIECES
-//			if((board[playerToMove] & temp) != 0) {
-//				boolean isBlocked = true;
+//		for(int i=0; i<24; i++) {
+//			temp = 1 << i;			
 //
-//				for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
-//					if((fullBoard & (1 << adjacentPosition)) == 0) {
-//						isBlocked = false;
-//						break;
-//					}
-//				}
-//				if(isBlocked) {
-//					blockedPiecesOpponent++;
-//				}
-//			}
-		}
+////			//DOUBLE_MORRIS
+////			boolean check = true;
+////			for(int mill : POSITION_MILLS[i]) {
+////				if((board[opponentPlayer] & mill) != mill) {
+////					check = false;
+////					break;
+////				}
+////			}
+////			if(check) {
+////				doubleMorrisOpponent++;
+////			}
+//
+//			//BLOCKED_PIECES
+////			if((board[playerToMove] & temp) != 0) {
+////				boolean isBlocked = true;
+////
+////				for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+////					if((fullBoard & (1 << adjacentPosition)) == 0) {
+////						isBlocked = false;
+////						break;
+////					}
+////				}
+////				if(isBlocked) {
+////					blockedPiecesOpponent++;
+////				}
+////			}
+//		}
 
 		result -= MIDGAME_CLOSED_MORRIS * closedMorrisOpponent;
 
@@ -1856,12 +1939,74 @@ public class BitBoardState implements IState {
 		// ogni opened morris puo' essere chiuso
 		result -= MIDGAME_OPENED_MORRIS_NEAR_OPPONENT * openedMorrisOpponent;
 		
-		result -= MIDGAME_DOUBLE_MORRIS * doubleMorrisOpponent;
+//		result -= MIDGAME_DOUBLE_MORRIS * doubleMorrisOpponent;
+
+		result -= MIDGAME_UNBLOCKABLE_DOUBLE_MORRIS * unblockableDoubleMorrisOpponent;
 
 		// nessuno pezzo puo' essere bloccato
 //		result -= MIDGAME_BLOCKED_PIECES * blockedPiecesOpponent;
 
 		result += MIDGAME_PIECES_NUMBER * (checkersOnBoard[playerToMove] - checkersOnBoard[opponentPlayer]);
+		
+		return result;
+	}
+	
+//	public int fivePiecesConfiguration() {
+//		int result = 0;
+//		
+//		// per ogni mill, prendo le sue pedine, prendo quelle adiacenti non
+//		// appartenenti alla riga dell mill, se la pedina appartiene ad un
+//		// 2piecesConfiguration e le altre due pedine non appartengono alla riga
+//		// del morris -> 1
+//		// se c'e' un avversario adiacente alla posizione appartenente al 2piecesConfig -> 2
+//		for(int mill : MILLS) {
+//			if((board[playerToMove] & mill) == mill) {
+//				for(int i=0; i<24; i++) {
+//					// per ogni pedina del mill
+//					if((mill & (1 << i)) != 0) {
+//						// per ogni pedina adiacente
+//						for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+//							// pedine adiacenti non appartenenti al mill
+//							if((mill & (1 << adjacentPosition)) == 0) {
+//								result += is2PiecesConfigurationNotInMill(playerToMove, adjacentPosition, mill, true);
+//							}
+//						}
+//					}
+//				}
+//			}
+//		}
+//		
+//		return result;
+//	}
+	
+	private int is2PiecesConfigurationNotInMill(int player, int position, int millToAvoid, boolean lookForOpponentBlock) {
+		byte opponentPlayer = player == WHITE ? BLACK : WHITE;
+		int result = 0;
+		// mill passanti per position
+		for(int mill : POSITION_MILLS[position]) {
+				// se il mill non e' al millToAvoid
+				// se e' un 2piecesConfig			
+				if((mill & millToAvoid) == 0 && Integer.bitCount(board[opponentPlayer] & mill) == 0 && Integer.bitCount(board[player] & mill) == 2) {
+					// se posizione vuota e' la position
+					if((board[player] & (1 << position)) == 0) {
+					    result++;
+						
+					    if(lookForOpponentBlock) {
+						    // se c'e' un avversario adiacente alla posizione libera del 2piecesConfig
+							for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros((board[player] & mill) ^ mill)]) {
+								if((board[opponentPlayer] & (1 << adjacentPosition)) != 0) {
+									/*
+									 * OK ma avversario
+									 */
+									result--;
+									// forse posso fare return
+								}
+							}
+					    }
+					}
+				}
+//			}
+		}
 		
 		return result;
 	}

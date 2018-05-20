@@ -3,21 +3,20 @@ package it.unibo.ai.mulino.CIRAMill.minimax;
 import java.util.Comparator;
 import java.util.List;
 
-public class MTDTranspositionHistory implements IMinimax{
-	
+public class MTDVariantTranspositionHistory implements IMinimax{
 	private int expandedStates = 0;
 	private int times = 0;
 	private long elapsedTime;	
-	private int firstGuess;
+	private int firstGuess[];
 	private int ttHits = 0;
 	
 	private ITieChecker tieChecker;	
 	private ITranspositionTable transpositionTable;
 	private IHistoryTable historyTable;
 	
-	public MTDTranspositionHistory(ITieChecker tieChecker, ITranspositionTable transpositionTable, IHistoryTable historyTable) {
+	public MTDVariantTranspositionHistory(ITieChecker tieChecker, ITranspositionTable transpositionTable, IHistoryTable historyTable) {
 		this.tieChecker = tieChecker;
-		this.firstGuess = 0;
+		this.firstGuess = new int[]{0,0};
 		this.transpositionTable = transpositionTable;
 		this.historyTable = historyTable;
 	}
@@ -25,19 +24,20 @@ public class MTDTranspositionHistory implements IMinimax{
 	@Override
 	public ValuedAction minimaxDecision(IState state, int maxDepth) {
 		elapsedTime = System.currentTimeMillis();
-		ValuedAction valuedAction = mtdf(state, firstGuess, maxDepth);
+		ValuedAction valuedAction = mtdf(state, firstGuess[0], maxDepth);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;
-		System.out.println("MTD-f Transposition History:");
+		System.out.println("MTD-f Variant Transposition History:");
 		System.out.println("Elapsed time: " + elapsedTime);
 		System.out.println("Expanded states: " + expandedStates);
 		System.out.println("Number of Alpha-Beta iterations: " + times);
-		System.out.println("First guess: " + firstGuess);
+		System.out.println("First guess: " + firstGuess[0]);
 		System.out.println("TT Hits: " + ttHits);
 		System.out.println("Selected action is: " + valuedAction);
 		expandedStates = 0;
 		times = 0;
 		ttHits = 0;
-		firstGuess = valuedAction.getValue();
+		firstGuess[0] = firstGuess[1];
+		firstGuess[1] = valuedAction.getValue();
 		return valuedAction;
 	}
 	
@@ -63,7 +63,6 @@ public class MTDTranspositionHistory implements IMinimax{
 		
 		return result;
 	}
-	
 	/*	AlfaBeta Transposition History	*/
 	private ValuedAction max(IState state, int maxDepth, int alpha, int beta) {
 		ValuedAction result = new ValuedAction(null, Integer.MIN_VALUE);

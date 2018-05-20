@@ -3,14 +3,11 @@ package it.unibo.ai.mulino.CIRAMill.minimax;
 import java.util.Comparator;
 import java.util.List;
 
-import it.unibo.ai.mulino.CIRAMill.minimax.HistoryAlphaBeta.IActionComparator;
-
 public class RelativeHistoryAlphaBetaColor implements IMinimax {
 
 
 	private int expandedStates = 0;
 	private long elapsedTime;
-	private int originalMaxDepth;
 	private byte player;
 	
 	private ITieChecker tieChecker;
@@ -25,7 +22,6 @@ public class RelativeHistoryAlphaBetaColor implements IMinimax {
 
 	@Override
 	public ValuedAction minimaxDecision(IState state, int maxDepth) {
-		originalMaxDepth = maxDepth;
 		elapsedTime = System.currentTimeMillis();
 		ValuedAction valuedAction = max(state, maxDepth, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		elapsedTime = System.currentTimeMillis() - elapsedTime;

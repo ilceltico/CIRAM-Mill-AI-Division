@@ -85,6 +85,7 @@ public class MTDTranspositionRelativeHistory implements IMinimax{
 				result.set(action, Integer.MAX_VALUE-1);
 				state.unmove(action);
 				transpositionTable.putAction(state, action, maxDepth);
+				historyTable.incrementValue(action, maxDepth);
 				return result;
 			} else if (tieChecker.isTie(state)) {
 				temp.set(action, 0);
@@ -129,6 +130,7 @@ public class MTDTranspositionRelativeHistory implements IMinimax{
 				result.set(a, Integer.MAX_VALUE-1);
 				state.unmove(a);
 				transpositionTable.putAction(state, a, maxDepth);
+				historyTable.incrementValue(a, maxDepth);
 				return result;
 			} else if (tieChecker.isTie(state)) {
 				temp.set(a, 0);
@@ -183,6 +185,7 @@ public class MTDTranspositionRelativeHistory implements IMinimax{
 				result.set(action, Integer.MIN_VALUE+1);
 				state.unmove(action);
 				transpositionTable.putAction(state, action, maxDepth);
+				historyTable.incrementValue(action, maxDepth);
 				return result;
 			} else if (tieChecker.isTie(state)) {
 				temp.set(action, 0);
@@ -191,7 +194,7 @@ public class MTDTranspositionRelativeHistory implements IMinimax{
 				temp = max(state, maxDepth - 1, alpha, beta);
 //				state.unmove(a);
 			} else {
-				temp.set(action, -state.getHeuristicEvaluation());
+				temp.set(action, state.getHeuristicEvaluation());
 			}
 			if (temp.getValue() < result.getValue()) {
 				result.set(action, temp.getValue());
@@ -226,6 +229,7 @@ public class MTDTranspositionRelativeHistory implements IMinimax{
 				result.set(a, Integer.MIN_VALUE+1);
 				state.unmove(a);
 				transpositionTable.putAction(state, a, maxDepth);
+				historyTable.incrementValue(a, maxDepth);
 				return result;
 			} else if (tieChecker.isTie(state)) {
 				temp.set(a, 0);
@@ -234,7 +238,7 @@ public class MTDTranspositionRelativeHistory implements IMinimax{
 				temp = max(state, maxDepth - 1, alpha, beta);
 //				state.unmove(a);
 			} else {
-				temp.set(a, -state.getHeuristicEvaluation());
+				temp.set(a, state.getHeuristicEvaluation());
 			}
 			if (temp.getValue() < result.getValue()) {
 				result.set(a, temp.getValue());

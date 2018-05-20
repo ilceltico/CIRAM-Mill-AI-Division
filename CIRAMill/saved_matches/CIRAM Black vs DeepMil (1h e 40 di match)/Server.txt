@@ -1,0 +1,1797 @@
+Launching game with timeout 60
+Waiting for connections...
+Player W connected!
+Player B connected!
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 9;
+Black Checkers: 9;
+White Checkers On Board: 0;
+Black Checkers On Board: 0;
+
+Waiting for W move...
+Player W move n1: d2
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----W-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 8;
+Black Checkers: 9;
+White Checkers On Board: 1;
+Black Checkers On Board: 0;
+
+Waiting for B move...
+Player B move n1: f2
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----W-----B--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 8;
+Black Checkers: 8;
+White Checkers On Board: 1;
+Black Checkers On Board: 1;
+
+Waiting for W move...
+Player W move n2: f4
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--W--O
+3 |--|--O--O--O--|--|
+2 |--O-----W-----B--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 8;
+White Checkers On Board: 2;
+Black Checkers On Board: 1;
+
+Waiting for B move...
+Player B move n2: g4
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----W-----B--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 7;
+White Checkers On Board: 2;
+Black Checkers On Board: 2;
+
+Waiting for W move...
+Player W move n3: a1
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----W-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 7;
+White Checkers On Board: 3;
+Black Checkers On Board: 2;
+
+Waiting for B move...
+Player B move n3: d1
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 6;
+White Checkers On Board: 3;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n4: b4
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 5;
+Black Checkers: 6;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n4: a4
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--W--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 5;
+Black Checkers: 5;
+White Checkers On Board: 4;
+Black Checkers On Board: 4;
+
+Waiting for W move...
+Player W move n5: d6
+7 O--------O--------O
+6 |--O-----W-----O--|
+5 |--|--O--O--O--|--|
+4 B--W--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 4;
+Black Checkers: 5;
+White Checkers On Board: 5;
+Black Checkers On Board: 4;
+
+Waiting for B move...
+Player B move n5: b6
+7 O--------O--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--O--|--|
+4 B--W--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 4;
+Black Checkers: 4;
+White Checkers On Board: 5;
+Black Checkers On Board: 5;
+
+Waiting for W move...
+Player W move n6: d7
+7 O--------W--------O
+6 |--B-----W-----O--|
+5 |--|--O--O--O--|--|
+4 B--W--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 3;
+Black Checkers: 4;
+White Checkers On Board: 6;
+Black Checkers On Board: 5;
+
+Waiting for B move...
+Player B move n6: d5
+7 O--------W--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 B--W--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 3;
+Black Checkers: 3;
+White Checkers On Board: 6;
+Black Checkers On Board: 6;
+
+Waiting for W move...
+Player W move n7: e3
+7 O--------W--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 B--W--O     O--W--B
+3 |--|--O--O--W--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 2;
+Black Checkers: 3;
+White Checkers On Board: 7;
+Black Checkers On Board: 6;
+
+Waiting for B move...
+Player B move n7: e4
+7 O--------W--------O
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 B--W--O     B--W--B
+3 |--|--O--O--W--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 2;
+Black Checkers: 2;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+Waiting for W move...
+Player W move n8: g7
+7 O--------W--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 B--W--O     B--W--B
+3 |--|--O--O--W--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 1;
+Black Checkers: 2;
+White Checkers On Board: 8;
+Black Checkers On Board: 7;
+
+Waiting for B move...
+Player B move n8: a7
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 B--W--O     B--W--B
+3 |--|--O--O--W--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 1;
+Black Checkers: 1;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+Waiting for W move...
+Player W move n9: c3
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 B--W--O     B--W--B
+3 |--|--W--O--W--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 0;
+Black Checkers: 1;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+Waiting for B move...
+Player B move n9: d3
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 B--W--O     B--W--B
+3 |--|--W--B--W--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n10: c3c4
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 B--W--W     B--W--B
+3 |--|--O--B--W--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for B move...
+Player B move n10: d3c3
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 B--W--W     B--W--B
+3 |--|--B--O--W--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n11: e3d3
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 B--W--W     B--W--B
+3 |--|--B--W--O--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for B move...
+Player B move n11: e4e3
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--O--B--O--|--|
+4 B--W--W     O--W--B
+3 |--|--B--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n12: c4c5
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--W--B--O--|--|
+4 B--W--O     O--W--B
+3 |--|--B--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for B move...
+Player B move n12: c3c4
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--W--B--O--|--|
+4 B--W--B     O--W--B
+3 |--|--O--W--B--|--|
+2 |--O-----W-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n13: d2b2
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--W--B--O--|--|
+4 B--W--B     O--W--B
+3 |--|--O--W--B--|--|
+2 |--W-----O-----B--|
+1 W--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for B move...
+Player B move n13: d1d2
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--W--B--O--|--|
+4 B--W--B     O--W--B
+3 |--|--O--W--B--|--|
+2 |--W-----B-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n14: d3c3
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--W--B--O--|--|
+4 B--W--B     O--W--B
+3 |--|--W--O--B--|--|
+2 |--W-----B-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for B move...
+Player B move n14: e3d3
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--W--B--O--|--|
+4 B--W--B     O--W--B
+3 |--|--W--B--O--|--|
+2 |--W-----B-----B--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n15: a1d1
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--W--B--O--|--|
+4 B--W--B     O--W--B
+3 |--|--W--B--O--|--|
+2 |--W-----B-----B--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for B move...
+Player B move n15: a4a1
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--W--B--O--|--|
+4 O--W--B     O--W--B
+3 |--|--W--B--O--|--|
+2 |--W-----B-----B--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n16: b4a4
+7 B--------W--------W
+6 |--B-----W-----O--|
+5 |--|--W--B--O--|--|
+4 W--O--B     O--W--B
+3 |--|--W--B--O--|--|
+2 |--W-----B-----B--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for B move...
+Player B move n16: b6b4
+7 B--------W--------W
+6 |--O-----W-----O--|
+5 |--|--W--B--O--|--|
+4 W--B--B     O--W--B
+3 |--|--W--B--O--|--|
+2 |--W-----B-----B--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n17: f4e4
+7 B--------W--------W
+6 |--O-----W-----O--|
+5 |--|--W--B--O--|--|
+4 W--B--B     W--O--B
+3 |--|--W--B--O--|--|
+2 |--W-----B-----B--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for B move...
+Player B move n17: f2f4
+7 B--------W--------W
+6 |--O-----W-----O--|
+5 |--|--W--B--O--|--|
+4 W--B--B     W--B--B
+3 |--|--W--B--O--|--|
+2 |--W-----B-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n18: d6f6
+7 B--------W--------W
+6 |--O-----O-----W--|
+5 |--|--W--B--O--|--|
+4 W--B--B     W--B--B
+3 |--|--W--B--O--|--|
+2 |--W-----B-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for B move...
+Player B move n18: b4b6
+7 B--------W--------W
+6 |--B-----O-----W--|
+5 |--|--W--B--O--|--|
+4 W--O--B     W--B--B
+3 |--|--W--B--O--|--|
+2 |--W-----B-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n19: d7d6
+7 B--------O--------W
+6 |--B-----W-----W--|
+5 |--|--W--B--O--|--|
+4 W--O--B     W--B--B
+3 |--|--W--B--O--|--|
+2 |--W-----B-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for B move...
+Player B move n19: a7d7
+7 O--------B--------W
+6 |--B-----W-----W--|
+5 |--|--W--B--O--|--|
+4 W--O--B     W--B--B
+3 |--|--W--B--O--|--|
+2 |--W-----B-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n20: b2b4
+7 O--------B--------W
+6 |--B-----W-----W--|
+5 |--|--W--B--O--|--|
+4 W--W--B     W--B--B
+3 |--|--W--B--O--|--|
+2 |--O-----B-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for B move...
+Player B move n20: d2b2
+7 O--------B--------W
+6 |--B-----W-----W--|
+5 |--|--W--B--O--|--|
+4 W--W--B     W--B--B
+3 |--|--W--B--O--|--|
+2 |--B-----O-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n21: d1d2
+7 O--------B--------W
+6 |--B-----W-----W--|
+5 |--|--W--B--O--|--|
+4 W--W--B     W--B--B
+3 |--|--W--B--O--|--|
+2 |--B-----W-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for B move...
+Player B move n21: d7a7
+7 B--------O--------W
+6 |--B-----W-----W--|
+5 |--|--W--B--O--|--|
+4 W--W--B     W--B--B
+3 |--|--W--B--O--|--|
+2 |--B-----W-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n22: e4e3
+7 B--------O--------W
+6 |--B-----W-----W--|
+5 |--|--W--B--O--|--|
+4 W--W--B     O--B--B
+3 |--|--W--B--W--|--|
+2 |--B-----W-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for B move...
+Player B move n22: f4e4
+7 B--------O--------W
+6 |--B-----W-----W--|
+5 |--|--W--B--O--|--|
+4 W--W--B     B--O--B
+3 |--|--W--B--W--|--|
+2 |--B-----W-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n23: f6f4
+7 B--------O--------W
+6 |--B-----W-----O--|
+5 |--|--W--B--O--|--|
+4 W--W--B     B--W--B
+3 |--|--W--B--W--|--|
+2 |--B-----W-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for B move...
+Player B move n23: a7d7
+7 O--------B--------W
+6 |--B-----W-----O--|
+5 |--|--W--B--O--|--|
+4 W--W--B     B--W--B
+3 |--|--W--B--W--|--|
+2 |--B-----W-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n24: d2f2
+7 O--------B--------W
+6 |--B-----W-----O--|
+5 |--|--W--B--O--|--|
+4 W--W--B     B--W--B
+3 |--|--W--B--W--|--|
+2 |--B-----O-----W--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for B move...
+Player B move n24: b2d2
+7 O--------B--------W
+6 |--B-----W-----O--|
+5 |--|--W--B--O--|--|
+4 W--W--B     B--W--B
+3 |--|--W--B--W--|--|
+2 |--O-----B-----W--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 9;
+
+Waiting for W move...
+Player W move n25: d6f6d2
+7 O--------B--------W
+6 |--B-----O-----W--|
+5 |--|--W--B--O--|--|
+4 W--W--B     B--W--B
+3 |--|--W--B--W--|--|
+2 |--O-----O-----W--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+Waiting for B move...
+Player B move n25: b6d6e3
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--W--B--O--|--|
+4 W--W--B     B--W--B
+3 |--|--W--B--O--|--|
+2 |--O-----O-----W--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+Waiting for W move...
+Player W move n26: f2d2
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--W--B--O--|--|
+4 W--W--B     B--W--B
+3 |--|--W--B--O--|--|
+2 |--O-----W-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+Waiting for B move...
+Player B move n26: d5e5
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--W--O--B--|--|
+4 W--W--B     B--W--B
+3 |--|--W--B--O--|--|
+2 |--O-----W-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+Waiting for W move...
+Player W move n27: d2f2d3
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--W--O--B--|--|
+4 W--W--B     B--W--B
+3 |--|--W--O--O--|--|
+2 |--O-----O-----W--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 7;
+
+Waiting for B move...
+Player B move n27: e5d5c5
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--B
+3 |--|--W--O--O--|--|
+2 |--O-----O-----W--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+Waiting for W move...
+Player W move n28: f2d2
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--B
+3 |--|--W--O--O--|--|
+2 |--O-----W-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+Waiting for B move...
+Player B move n28: a1d1
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--B     B--W--B
+3 |--|--W--O--O--|--|
+2 |--O-----W-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+Waiting for W move...
+Player W move n29: d2f2c4
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--O     B--W--B
+3 |--|--W--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 6;
+
+Waiting for B move...
+Player B move n29: d1d2
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--O     B--W--B
+3 |--|--W--O--O--|--|
+2 |--O-----B-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 6;
+
+Waiting for W move...
+Player W move n30: c3c4d2
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--O--B--O--|--|
+4 W--W--W     B--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+Waiting for B move...
+Player B move n30: d5c5
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--B--O--O--|--|
+4 W--W--W     B--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+Waiting for W move...
+Player W move n31: b4b2
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--B--O--O--|--|
+4 W--O--W     B--W--B
+3 |--|--O--O--O--|--|
+2 |--W-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+Waiting for B move...
+Player B move n31: c5d5c4
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--O--B--O--|--|
+4 W--O--O     B--W--B
+3 |--|--O--O--O--|--|
+2 |--W-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 5;
+
+Waiting for W move...
+Player W move n32: f2d2
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--O--B--O--|--|
+4 W--O--O     B--W--B
+3 |--|--O--O--O--|--|
+2 |--W-----W-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 5;
+
+Waiting for B move...
+Player B move n32: e4e5
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--O--B--B--|--|
+4 W--O--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--W-----W-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 5;
+
+Waiting for W move...
+Player W move n33: b2b4
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--O--B--B--|--|
+4 W--W--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----W-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 5;
+
+Waiting for B move...
+Player B move n33: d5c5
+7 O--------B--------W
+6 |--O-----B-----W--|
+5 |--|--B--O--B--|--|
+4 W--W--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----W-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 5;
+
+Waiting for W move...
+Player W move n34: d2f2d6
+7 O--------B--------W
+6 |--O-----O-----W--|
+5 |--|--B--O--B--|--|
+4 W--W--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 4;
+
+Waiting for B move...
+Player B move n34: d7d6
+7 O--------O--------W
+6 |--O-----B-----W--|
+5 |--|--B--O--B--|--|
+4 W--W--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 4;
+
+Waiting for W move...
+Player W move n35: g7d7
+7 O--------W--------O
+6 |--O-----B-----W--|
+5 |--|--B--O--B--|--|
+4 W--W--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 6;
+Black Checkers On Board: 4;
+
+Waiting for B move...
+Player B move n35: d6d5d7
+7 O--------O--------O
+6 |--O-----O-----W--|
+5 |--|--B--B--B--|--|
+4 W--W--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 4;
+
+Waiting for W move...
+Player W move n36: b4c4
+7 O--------O--------O
+6 |--O-----O-----W--|
+5 |--|--B--B--B--|--|
+4 W--O--W     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 4;
+
+Waiting for B move...
+Player B move n36: d5d6
+7 O--------O--------O
+6 |--O-----B-----W--|
+5 |--|--B--O--B--|--|
+4 W--O--W     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 4;
+
+Waiting for W move...
+Player W move n37: c4b4
+7 O--------O--------O
+6 |--O-----B-----W--|
+5 |--|--B--O--B--|--|
+4 W--W--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 5;
+Black Checkers On Board: 4;
+
+Waiting for B move...
+Player B move n37: d6d5a4
+7 O--------O--------O
+6 |--O-----O-----W--|
+5 |--|--B--B--B--|--|
+4 O--W--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 4;
+
+Waiting for W move...
+Player W move n38: f2d2
+7 O--------O--------O
+6 |--O-----O-----W--|
+5 |--|--B--B--B--|--|
+4 O--W--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----W-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 4;
+
+Waiting for B move...
+Player B move n38: c5c4
+7 O--------O--------O
+6 |--O-----O-----W--|
+5 |--|--O--B--B--|--|
+4 O--W--B     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----W-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 4;
+
+Waiting for W move...
+Player W move n39: d2f2d5
+7 O--------O--------O
+6 |--O-----O-----W--|
+5 |--|--O--O--B--|--|
+4 O--W--B     O--W--B
+3 |--|--O--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n39: g4b6
+7 O--------O--------O
+6 |--B-----O-----W--|
+5 |--|--O--O--B--|--|
+4 O--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n40: f2d2
+7 O--------O--------O
+6 |--B-----O-----W--|
+5 |--|--O--O--B--|--|
+4 O--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--O-----W-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n40: e5f2
+7 O--------O--------O
+6 |--B-----O-----W--|
+5 |--|--O--O--O--|--|
+4 O--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--O-----W-----B--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n41: d2b2
+7 O--------O--------O
+6 |--B-----O-----W--|
+5 |--|--O--O--O--|--|
+4 O--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--W-----O-----B--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n41: b6d6
+7 O--------O--------O
+6 |--O-----B-----W--|
+5 |--|--O--O--O--|--|
+4 O--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--W-----O-----B--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n42: b4b6
+7 O--------O--------O
+6 |--W-----B-----W--|
+5 |--|--O--O--O--|--|
+4 O--O--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--W-----O-----B--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n42: f2d2
+7 O--------O--------O
+6 |--W-----B-----W--|
+5 |--|--O--O--O--|--|
+4 O--O--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--W-----B-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n43: f4f2
+7 O--------O--------O
+6 |--W-----B-----W--|
+5 |--|--O--O--O--|--|
+4 O--O--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--W-----B-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n43: c4f4
+7 O--------O--------O
+6 |--W-----B-----W--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--W-----B-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n44: b2b4
+7 O--------O--------O
+6 |--W-----B-----W--|
+5 |--|--O--O--O--|--|
+4 O--W--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----B-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n44: f4d1
+7 O--------O--------O
+6 |--W-----B-----W--|
+5 |--|--O--O--O--|--|
+4 O--W--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----B-----W--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n45: b4b2
+7 O--------O--------O
+6 |--W-----B-----W--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--W-----B-----W--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n45: d1b4
+7 O--------O--------O
+6 |--W-----B-----W--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--W-----B-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n46: f2f4
+7 O--------O--------O
+6 |--W-----B-----W--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--W--O
+3 |--|--O--O--O--|--|
+2 |--W-----B-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n46: d6g4
+7 O--------O--------O
+6 |--W-----O-----W--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--W--B
+3 |--|--O--O--O--|--|
+2 |--W-----B-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n47: f4f2
+7 O--------O--------O
+6 |--W-----O-----W--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--O--B
+3 |--|--O--O--O--|--|
+2 |--W-----B-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n47: g4f4
+7 O--------O--------O
+6 |--W-----O-----W--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--W-----B-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n48: f6d6
+7 O--------O--------O
+6 |--W-----W-----O--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--W-----B-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n48: d2g4
+7 O--------O--------O
+6 |--W-----W-----O--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--B--B
+3 |--|--O--O--O--|--|
+2 |--W-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n49: d6f6
+7 O--------O--------O
+6 |--W-----O-----W--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--B--B
+3 |--|--O--O--O--|--|
+2 |--W-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n49: g4d6
+7 O--------O--------O
+6 |--W-----B-----W--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--W-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n50: b2d2
+7 O--------O--------O
+6 |--W-----B-----W--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----W-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n50: d6a4
+7 O--------O--------O
+6 |--W-----O-----W--|
+5 |--|--O--O--O--|--|
+4 B--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----W-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n51: d2b2
+7 O--------O--------O
+6 |--W-----O-----W--|
+5 |--|--O--O--O--|--|
+4 B--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--W-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n51: a4a7
+7 B--------O--------O
+6 |--W-----O-----W--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--W-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n52: b2d2
+7 B--------O--------O
+6 |--W-----O-----W--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----W-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n52: a7b2
+7 O--------O--------O
+6 |--W-----O-----W--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--B-----W-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n53: f6d6
+7 O--------O--------O
+6 |--W-----W-----O--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--B-----W-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n53: b2f6
+7 O--------O--------O
+6 |--W-----W-----B--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----W-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n54: d6d7
+7 O--------W--------O
+6 |--W-----O-----B--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----W-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n54: f6a7
+7 B--------W--------O
+6 |--W-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----W-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n55: d2d1
+7 B--------W--------O
+6 |--W-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player B move n55: a7c5
+7 O--------W--------O
+6 |--W-----O-----O--|
+5 |--|--B--O--O--|--|
+4 O--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for W move...
+Player W move n56: d7d6
+7 O--------O--------O
+6 |--W-----W-----O--|
+5 |--|--B--O--O--|--|
+4 O--B--O     O--B--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----W--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Final;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Waiting for B move...
+Player Bhas not chosen move n56
+Player W WIN!!!
