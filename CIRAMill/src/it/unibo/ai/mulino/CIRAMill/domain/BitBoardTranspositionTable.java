@@ -10,12 +10,16 @@ import it.unibo.ai.mulino.CIRAMill.minimax.IState;
 import it.unibo.ai.mulino.CIRAMill.minimax.ITranspositionTable;
 
 public class BitBoardTranspositionTable implements ITranspositionTable {
+<<<<<<< HEAD
 	public static final int DEFAULT_SIZE = 4000000; //MAX SIZE is 5600000
+=======
+	public static final int DEFAULT_SIZE = 3600000; //MAX SIZE is 5600000
+>>>>>>> 2fb2e1c50e74417d4f0f02d08ca8bef250cd235a
 	
-	private LRUMap<Long, BitBoardEntry> tranpositionTable;
+	private LRUMap<Long, BitBoardEntry> transpositionTable;
 	
 	public BitBoardTranspositionTable(int size) {
-		tranpositionTable = new LRUMap<>(size, size);
+		transpositionTable = new LRUMap<>(size, size);
 	}
 	
 	public BitBoardTranspositionTable() {
@@ -27,7 +31,7 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 		BitBoardState bState = (BitBoardState) state;
 		BitBoardHash bHash = bState.getHash();
 		byte symms = bHash.getSymms();
-		BitBoardEntry entry = tranpositionTable.get(bHash.getHash());
+		BitBoardEntry entry = transpositionTable.get(bHash.getHash());
 		if (entry == null)
 			return new BitBoardAction[0];
 		
@@ -156,16 +160,16 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 
 //		BitBoardAction transformedActionToPut = new BitBoardAction(actionToPut.getFrom(), actionToPut.getTo(), actionToPut.getRemove());		
 		
-		BitBoardEntry entry = tranpositionTable.get(bHash.getHash());
+		BitBoardEntry entry = transpositionTable.get(bHash.getHash());
 		if (entry == null) {
 			entry = new BitBoardEntry();
-			entry.setDepth(depth);
+			entry.setDepth((byte) depth);
 			entry.setActions(new BitBoardAction[]{transformedActionToPut, 
 					transformedActionToPut});
 			
 //			entry.setState(new BitBoardState[] {(BitBoardState) bState.clone(), (BitBoardState) bState.clone()});
 			
-			tranpositionTable.put(bHash.getHash(), entry);
+			transpositionTable.put(bHash.getHash(), entry);
 		} else {
 			if (entry.getDepth() <= depth) {
 				entry.getActions()[0] = transformedActionToPut;
@@ -180,9 +184,14 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 		}
 	}
 	
+	public void clear() {
+		transpositionTable = new LRUMap<>(DEFAULT_SIZE, DEFAULT_SIZE);
+//		transpositionTable.clear();
+	}
+	
 	class BitBoardEntry {
 		private BitBoardAction[] actions;
-		private int depth;
+		private byte depth;
 //		private BitBoardState[] state;
 		
 		BitBoardEntry() {
@@ -196,11 +205,11 @@ public class BitBoardTranspositionTable implements ITranspositionTable {
 			this.actions = actions;
 		}
 
-		int getDepth() {
+		byte getDepth() {
 			return depth;
 		}
 
-		void setDepth(int depth) {
+		void setDepth(byte depth) {
 			this.depth = depth;
 		}
 

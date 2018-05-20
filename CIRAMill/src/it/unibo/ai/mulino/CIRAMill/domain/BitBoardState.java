@@ -91,7 +91,7 @@ public class BitBoardState implements IState {
 
 	private static final int[] MILLS = { MILL_0_1_2, MILL_2_3_4, MILL_4_5_6, MILL_6_7_0, MILL_8_9_10, MILL_10_11_12,
 			MILL_12_13_14, MILL_14_15_8, MILL_16_17_18, MILL_18_19_20, MILL_20_21_22, MILL_22_23_16, MILL_1_9_17,
-			MILL_3_11_19, MILL_5_13_21, MILL_7_15_23 };
+			MILL_5_13_21, MILL_3_11_19, MILL_7_15_23 };
 
 	private static final int[][] POSITION_MILLS = {
 			{MILL_0_1_2, MILL_6_7_0},
@@ -1106,19 +1106,53 @@ public class BitBoardState implements IState {
 
 	@Override
 	public int getHeuristicEvaluation() {
+//		int result;
+//		
+//		if(gamePhase == MIDGAME) {
+//			if (checkersOnBoard[playerToMove] > 3) {
+//				result = getHeuristicEvaluationMidGame();
+//			} else {
+//				result = getHeuristicEvaluationEndGame();
+//			}
+//		} else {
+//			result = getHeuristicEvaluationInitialPhase();
+//		}
+//		
+//		return result;
+		
+//		byte originalPlayer = playerToMove;
+//		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+//		int result;
+//		
+//		playerToMove = opponentPlayer;
+//		opponentPlayer = opponentPlayer == WHITE ? BLACK : WHITE;
+//		
+//		result = newHeuristic();
+//		
+//		playerToMove = originalPlayer;
+//		
+//		return -result;
+		
 		int result;
+		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
 		
 		if(gamePhase == MIDGAME) {
-			if (checkersOnBoard[playerToMove] > 3) {
-				result = getHeuristicEvaluationMidGame();
-			} else {
+			if (checkersOnBoard[playerToMove] > 3 && checkersOnBoard[opponentPlayer] == 3) {
+				result = getHeuristicEvaluationPlayerMidGameOpponentEndGame();
+			} else if(checkersOnBoard[playerToMove] == 3 && checkersOnBoard[opponentPlayer] > 3) {
+				result = getHeuristicEvaluationPlayerEndGameOpponentMidGame();
+			} else if(checkersOnBoard[playerToMove] == 3 && checkersOnBoard[opponentPlayer] == 3) {
 				result = getHeuristicEvaluationEndGame();
+			} else {
+				result = getHeuristicEvaluationMidGame();
 			}
+			
 		} else {
 			result = getHeuristicEvaluationInitialPhase();
 		}
 		
 		return result;
+
 	}
 	
 	private int getHeuristicEvaluationInitialPhase() {
@@ -1295,10 +1329,6 @@ public class BitBoardState implements IState {
 						openedMorrisNearOpponentPlayer++;
 				}
 				
-//				if(foundPlayer && foundOpponent) {
-//					openedMorrisNearOpponentPlayer++;
-//				}
-				
 			} else if(playerToMoveMill == 0 && Integer.bitCount(opponentPlayerMill) == 2) {
 				for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros(opponentPlayerMill ^ mill)]) {
 					if((board[opponentPlayer] & adjacentPosition) != 0) {
@@ -1314,9 +1344,6 @@ public class BitBoardState implements IState {
 						openedMorrisNearOpponentOpponent++;
 				}
 				
-//				if(foundOpponent && foundPlayer) {
-//					openedMorrisNearOpponentOpponent++;
-//				}
 			}
 		}
 		
@@ -1505,6 +1532,336 @@ public class BitBoardState implements IState {
 		
 		result += ENDGAME_THREE_PIECES_CONFIGURATION * threePiecesConfigurationPlayer;
 		result -= ENDGAME_THREE_PIECES_CONFIGURATION * threePiecesConfigurationOpponent;
+		
+		return result;
+	}
+	
+	private int getHeuristicEvaluationPlayerMidGameOpponentEndGame() {
+		int result = 0;
+		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+		
+		/*
+		 * player MIDGAME
+		 */
+		
+		//CLOSED_MORRIS
+		int closedMorrisPlayer = 0;
+
+		//OPENED_MORRIS
+		int openedMorrisPlayer = 0;
+
+		//OPENED_MORRIS_NEAR_OPPONENT
+//		int openedMorrisNearOpponentPlayer = 0;
+
+		int playerToMoveMill;
+		int opponentPlayerMill;
+
+		for(int mill : MILLS) {
+			playerToMoveMill = board[playerToMove] & mill;
+			opponentPlayerMill = board[opponentPlayer] & mill;
+
+			//CLOSED_MORRIS
+			if(playerToMoveMill == mill) {
+				closedMorrisPlayer++;
+			}
+
+			//OPENED_MORRIS
+			boolean foundPlayer = false;
+//			boolean foundOpponent = false;
+
+			if(opponentPlayerMill == 0 && Integer.bitCount(playerToMoveMill) == 2) {
+				for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros(playerToMoveMill ^ mill)]) {
+					if((board[playerToMove] & adjacentPosition) != 0) {
+						foundPlayer = true;
+					}
+//					else if((board[opponentPlayer] & adjacentPosition) != 0) {
+//						foundOpponent = true;
+//					}
+				}
+
+				if(foundPlayer) {
+					openedMorrisPlayer++;
+//					if(foundOpponent)
+//						openedMorrisNearOpponentPlayer++;
+				}
+
+			}
+		}
+
+		//DOUBLE_MORRIS
+		int doubleMorrisPlayer = 0;
+
+		//BLOCKED_PIECES
+//		int blockedPiecesPlayer = 0;
+
+		int temp;
+//		int fullBoard = board[playerToMove] | board[opponentPlayer];
+
+		for(int i=0; i<24; i++) {
+			temp = 1 << i;			
+
+			//DOUBLE_MORRIS
+			boolean check = true;
+			for(int mill : POSITION_MILLS[i]) {
+				if((board[playerToMove] & mill) != mill) {
+					check = false;
+					break;
+				}
+			}
+			if(check) {
+				doubleMorrisPlayer++;
+			}
+
+			//BLOCKED_PIECES
+//			if((board[opponentPlayer] & temp) != 0) {
+//				boolean isBlocked = true;
+//
+//				for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+//					if((fullBoard & (1 << adjacentPosition)) == 0) {
+//						isBlocked = false;
+//						break;
+//					}
+//				}
+//				if(isBlocked) {
+//					blockedPiecesPlayer++;
+//				}
+//
+//			}
+		}
+
+		result += MIDGAME_CLOSED_MORRIS * closedMorrisPlayer;
+
+//		result += MIDGAME_OPENED_MORRIS * openedMorrisPlayer;
+//
+//		result += MIDGAME_OPENED_MORRIS_NEAR_OPPONENT * openedMorrisNearOpponentPlayer;
+		
+		// ogni opened morris puo' essere chiuso
+		result += MIDGAME_OPENED_MORRIS_NEAR_OPPONENT * openedMorrisPlayer;
+		
+		result += MIDGAME_DOUBLE_MORRIS * doubleMorrisPlayer;
+		
+		// nessuno pezzo puo' essere bloccato
+//		result += MIDGAME_BLOCKED_PIECES * blockedPiecesPlayer;
+
+		result += MIDGAME_PIECES_NUMBER * (checkersOnBoard[playerToMove] - checkersOnBoard[opponentPlayer]);
+				
+		/*
+		 * opponent ENDGAME
+		 */
+		
+		//CLOSED_MORRIS
+		int closedMorrisOpponent = 0;
+
+		//TWO_PIECES_CONFIGURATION
+		int twoPiecesConfigurationOpponent = 0;
+
+		for(int mill : MILLS) {
+			playerToMoveMill = board[playerToMove] & mill;
+			opponentPlayerMill = board[opponentPlayer] & mill;
+
+			//CLOSED_MORRIS
+			if(opponentPlayerMill == mill) {
+				closedMorrisOpponent++;
+			}
+
+			//TWO_PIECES_CONFIGURATION
+			if(playerToMoveMill == 0 && Integer.bitCount(opponentPlayerMill) == 2) {
+				twoPiecesConfigurationOpponent++;
+			}
+		}
+
+		//THREE_PIECES_CONFIGURATION
+		int threePiecesConfigurationOpponent = 0;
+
+		for(int i=0; i<24; i++) {
+			temp = 1 << i;
+			
+			if((board[opponentPlayer] & temp) != 0) {
+				boolean check = true;
+				for(int mill : POSITION_MILLS[i]) {
+					if(!((board[playerToMove] & mill) == 0 && Integer.bitCount(board[opponentPlayer] & mill) == 2)) {
+						check = false;
+						break;
+					}
+				}
+				if(check) {
+					threePiecesConfigurationOpponent++;
+				}
+			}
+
+		}
+
+		result -= ENDGAME_CLOSED_MORRIS * closedMorrisOpponent;
+
+		result -= ENDGAME_TWO_PIECES_CONFIGURATION * twoPiecesConfigurationOpponent;
+
+		result -= ENDGAME_THREE_PIECES_CONFIGURATION * threePiecesConfigurationOpponent;
+		
+		return result;
+	}
+	
+	private int getHeuristicEvaluationPlayerEndGameOpponentMidGame() {
+		int result = 0;
+		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+		
+		/*
+		 * player ENDGAME
+		 */
+		
+		//CLOSED_MORRIS
+		int closedMorrisPlayer = 0;
+
+		//TWO_PIECES_CONFIGURATION
+		int twoPiecesConfigurationPlayer = 0;
+
+		int playerToMoveMill;
+		int opponentPlayerMill;
+
+		for(int mill : MILLS) {
+			playerToMoveMill = board[playerToMove] & mill;
+			opponentPlayerMill = board[opponentPlayer] & mill;
+
+			//CLOSED_MORRIS
+			if(playerToMoveMill == mill) {
+				closedMorrisPlayer++;
+			}
+
+			//TWO_PIECES_CONFIGURATION
+			if(opponentPlayerMill == 0 && Integer.bitCount(playerToMoveMill) == 2) {
+				twoPiecesConfigurationPlayer++;
+			}
+		}
+
+		//THREE_PIECES_CONFIGURATION
+		int threePiecesConfigurationPlayer = 0;
+
+		int temp;
+
+		for(int i=0; i<24; i++) {
+			temp = 1 << i;
+
+			//THREE_PIECES_CONFIGURATION
+			if((board[playerToMove] & temp) != 0) {
+				boolean check = true;
+				for(int mill : POSITION_MILLS[i]) {
+					if(!((board[opponentPlayer] & mill) == 0 && Integer.bitCount(board[playerToMove] & mill) == 2)) {
+						check = false;
+						break;
+					}
+				}
+				if(check) {
+					threePiecesConfigurationPlayer++;
+				}
+
+			}
+
+		}
+
+		result += ENDGAME_CLOSED_MORRIS * closedMorrisPlayer;
+
+		result += ENDGAME_TWO_PIECES_CONFIGURATION * twoPiecesConfigurationPlayer;
+
+		result += ENDGAME_THREE_PIECES_CONFIGURATION * threePiecesConfigurationPlayer;
+		
+		/*
+		 * opponent MIDGAME
+		 */
+		
+		//CLOSED_MORRIS
+		int closedMorrisOpponent = 0;
+
+		//OPENED_MORRIS
+		int openedMorrisOpponent = 0;
+
+		//OPENED_MORRIS_NEAR_OPPONENT
+//		int openedMorrisNearOpponentOpponent = 0;
+
+		for(int mill : MILLS) {
+			playerToMoveMill = board[playerToMove] & mill;
+			opponentPlayerMill = board[opponentPlayer] & mill;
+
+			//CLOSED_MORRIS
+			if(opponentPlayerMill == mill) {
+				closedMorrisOpponent++;
+			}
+
+			//OPENED_MORRIS
+//			boolean foundPlayer = false;
+			boolean foundOpponent = false;
+
+			if(playerToMoveMill == 0 && Integer.bitCount(opponentPlayerMill) == 2) {
+				for(int adjacentPosition : ADJACENT_POSITIONS[Integer.numberOfTrailingZeros(opponentPlayerMill ^ mill)]) {
+					if((board[opponentPlayer] & adjacentPosition) != 0) {
+						foundOpponent = true;
+					}
+//					else if((board[playerToMove] & adjacentPosition) != 0) {
+//						foundPlayer = true;
+//					}
+				}
+
+				if(foundOpponent) {
+					openedMorrisOpponent++;
+//					if(foundPlayer)
+//						openedMorrisNearOpponentOpponent++;
+				}
+
+			}
+		}
+
+		//DOUBLE_MORRIS
+		int doubleMorrisOpponent = 0;
+
+		//BLOCKED_PIECES
+//		int blockedPiecesOpponent = 0;
+
+//		int fullBoard = board[playerToMove] | board[opponentPlayer];
+
+		for(int i=0; i<24; i++) {
+			temp = 1 << i;			
+
+			//DOUBLE_MORRIS
+			boolean check = true;
+			for(int mill : POSITION_MILLS[i]) {
+				if((board[opponentPlayer] & mill) != mill) {
+					check = false;
+					break;
+				}
+			}
+			if(check) {
+				doubleMorrisOpponent++;
+			}
+
+			//BLOCKED_PIECES
+//			if((board[playerToMove] & temp) != 0) {
+//				boolean isBlocked = true;
+//
+//				for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+//					if((fullBoard & (1 << adjacentPosition)) == 0) {
+//						isBlocked = false;
+//						break;
+//					}
+//				}
+//				if(isBlocked) {
+//					blockedPiecesOpponent++;
+//				}
+//			}
+		}
+
+		result -= MIDGAME_CLOSED_MORRIS * closedMorrisOpponent;
+
+//		result -= MIDGAME_OPENED_MORRIS * openedMorrisOpponent;
+//
+//		result -= MIDGAME_OPENED_MORRIS_NEAR_OPPONENT * openedMorrisNearOpponentOpponent;
+
+		// ogni opened morris puo' essere chiuso
+		result -= MIDGAME_OPENED_MORRIS_NEAR_OPPONENT * openedMorrisOpponent;
+		
+		result -= MIDGAME_DOUBLE_MORRIS * doubleMorrisOpponent;
+
+		// nessuno pezzo puo' essere bloccato
+//		result -= MIDGAME_BLOCKED_PIECES * blockedPiecesOpponent;
+
+		result += MIDGAME_PIECES_NUMBER * (checkersOnBoard[playerToMove] - checkersOnBoard[opponentPlayer]);
 		
 		return result;
 	}
@@ -1816,430 +2173,442 @@ public class BitBoardState implements IState {
 		long tempHash;
 		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
 		
-		// current
-		hash = board[WHITE];
-		hash |= ((long) board[BLACK]) << 24;
-		hash |= ((long) checkersToPut[WHITE]) << 48;
-		hash |= ((long) checkersToPut[BLACK]) << 52;
-		hash |= ((long) playerToMove) << 56;		
-		
-		// rotation 90
-		tempHash = BitBoardUtils.rotationClockwise90(board[WHITE]);
-		tempHash |= ((long) BitBoardUtils.rotationClockwise90(board[BLACK])) << 24;
-		tempHash |= ((long) checkersToPut[WHITE]) << 48;
-		tempHash |= ((long) checkersToPut[BLACK]) << 52;
-		tempHash |= ((long) playerToMove) << 56;
-		
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = ROTATION_90;
+		// WHITE = 0 ---> faccio le simmetrie senza colore
+		if(playerToMove == WHITE) {
+			// current
+			hash = board[WHITE];
+			hash |= ((long) board[BLACK]) << 24;
+//			hash |= ((long) checkersToPut[WHITE]) << 48;
+//			hash |= ((long) checkersToPut[BLACK]) << 52;
+//			hash |= ((long) playerToMove) << 56;		
+			
+			// rotation 90
+			tempHash = BitBoardUtils.rotationClockwise90(board[WHITE]);
+			tempHash |= ((long) BitBoardUtils.rotationClockwise90(board[BLACK])) << 24;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 48;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 52;
+//			tempHash |= ((long) playerToMove) << 56;
+			
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = ROTATION_90;
+			}
+			
+			// rotation 180
+			tempHash = BitBoardUtils.rotationClockwise180(board[WHITE]);
+			tempHash |= ((long) BitBoardUtils.rotationClockwise180(board[BLACK])) << 24;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 48;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 52;
+//			tempHash |= ((long) playerToMove) << 56;
+
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = ROTATION_180;
+			}
+
+			// rotation 270
+			tempHash = BitBoardUtils.rotationAnticlockwise90(board[WHITE]);
+			tempHash |= ((long) BitBoardUtils.rotationAnticlockwise90(board[BLACK])) << 24;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 48;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 52;
+//			tempHash |= ((long) playerToMove) << 56;
+
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = ROTATION_270;
+			}
+			
+			// vertical flip
+			tempHash = BitBoardUtils.verticalFlip(board[WHITE]);
+			tempHash |= ((long) BitBoardUtils.verticalFlip(board[BLACK])) << 24;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 48;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 52;
+//			tempHash |= ((long) playerToMove) << 56;
+
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = VERTICAL_FLIP;
+			}
+			
+			// vertical flip - rotation 90
+			tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE]));
+			tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK]))) << 24;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 48;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 52;
+//			tempHash |= ((long) playerToMove) << 56;
+
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = VERTICAL_FLIP;
+				symms |= ROTATION_90;
+			}
+			
+			// vertical flip - rotation 180
+			tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE]));
+			tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK]))) << 24;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 48;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 52;
+//			tempHash |= ((long) playerToMove) << 56;
+
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = VERTICAL_FLIP;
+				symms |= ROTATION_180;
+			}
+
+			// vertical flip - rotation 270
+			tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE]));
+			tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK]))) << 24;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 48;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 52;
+//			tempHash |= ((long) playerToMove) << 56;
+
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = VERTICAL_FLIP;
+				symms |= ROTATION_270;
+			}
+			
+			// inside out
+			tempHash = BitBoardUtils.insideOut(board[WHITE]);
+			tempHash |= ((long) BitBoardUtils.insideOut(board[BLACK])) << 24;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 48;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 52;
+//			tempHash |= ((long) playerToMove) << 56;
+
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+			}
+			
+			// inside out - rotation 90
+			tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[WHITE]));
+			tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[BLACK]))) << 24;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 48;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 52;
+//			tempHash |= ((long) playerToMove) << 56;
+
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+				symms |= ROTATION_90;
+			}
+			
+			// inside out - rotation 180
+			tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[WHITE]));
+			tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[BLACK]))) << 24;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 48;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 52;
+//			tempHash |= ((long) playerToMove) << 56;
+
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+				symms |= ROTATION_180;
+			}
+			
+			// inside out - rotation 270
+			tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[WHITE]));
+			tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[BLACK]))) << 24;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 48;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 52;
+//			tempHash |= ((long) playerToMove) << 56;
+
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+				symms |= ROTATION_270;
+			}
+			
+			// inside out - vertical flip
+			tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[WHITE]));
+			tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[BLACK]))) << 24;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 48;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 52;
+//			tempHash |= ((long) playerToMove) << 56;
+
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+				symms |= VERTICAL_FLIP;
+			}
+			
+			// inside out - vertical flip - rotation 90
+			tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE])));
+			tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK])))) << 24;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 48;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 52;
+//			tempHash |= ((long) playerToMove) << 56;
+
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+				symms |= VERTICAL_FLIP;
+				symms |= ROTATION_90;
+			}
+			
+			// inside out - vertical flip - rotation 180
+			tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE])));
+			tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK])))) << 24;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 48;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 52;
+//			tempHash |= ((long) playerToMove) << 56;
+
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+				symms |= VERTICAL_FLIP;
+				symms |= ROTATION_180;
+			}
+			
+			// inside out - vertical flip - rotation 270
+			tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE])));
+			tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK])))) << 24;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 48;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 52;
+//			tempHash |= ((long) playerToMove) << 56;
+
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+				symms |= VERTICAL_FLIP;
+				symms |= ROTATION_270;
+			}
+			
+//			hash |= ((long) checkersToPut[WHITE]) << 48;
+//			hash |= ((long) checkersToPut[BLACK]) << 52;
+			hash |= ((long) playerToMove) << 56;
 		}
-		
-		// rotation 180
-		tempHash = BitBoardUtils.rotationClockwise180(board[WHITE]);
-		tempHash |= ((long) BitBoardUtils.rotationClockwise180(board[BLACK])) << 24;
-		tempHash |= ((long) checkersToPut[WHITE]) << 48;
-		tempHash |= ((long) checkersToPut[BLACK]) << 52;
-		tempHash |= ((long) playerToMove) << 56;
+		// BLACK = 1 ---> faccio le simmetrie con colore
+		else {
+			// color inversion
+			hash = board[BLACK];
+			hash |= ((long) board[WHITE]) << 24;
+//			hash |= ((long) checkersToPut[BLACK]) << 48;
+//			hash |= ((long) checkersToPut[WHITE]) << 52;
+//			hash |= ((long) opponentPlayer) << 56;
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = ROTATION_180;
-		}
+//			if(tempHash < hash) {
+//				hash = tempHash;
+				symms = COLOR_INVERSION;
+//			}
+			
+			// color inversion - rotation 90
+			tempHash = BitBoardUtils.rotationClockwise90(board[BLACK]);
+			tempHash |= ((long) BitBoardUtils.rotationClockwise90(board[WHITE])) << 24;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//			tempHash |= ((long) opponentPlayer) << 56;
 
-		// rotation 270
-		tempHash = BitBoardUtils.rotationAnticlockwise90(board[WHITE]);
-		tempHash |= ((long) BitBoardUtils.rotationAnticlockwise90(board[BLACK])) << 24;
-		tempHash |= ((long) checkersToPut[WHITE]) << 48;
-		tempHash |= ((long) checkersToPut[BLACK]) << 52;
-		tempHash |= ((long) playerToMove) << 56;
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = ROTATION_90;
+				symms |= COLOR_INVERSION;
+			}
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = ROTATION_270;
-		}
-		
-		// vertical flip
-		tempHash = BitBoardUtils.verticalFlip(board[WHITE]);
-		tempHash |= ((long) BitBoardUtils.verticalFlip(board[BLACK])) << 24;
-		tempHash |= ((long) checkersToPut[WHITE]) << 48;
-		tempHash |= ((long) checkersToPut[BLACK]) << 52;
-		tempHash |= ((long) playerToMove) << 56;
+			// color inversion - rotation 180
+			tempHash = BitBoardUtils.rotationClockwise180(board[BLACK]);
+			tempHash |= ((long) BitBoardUtils.rotationClockwise180(board[WHITE])) << 24;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//			tempHash |= ((long) opponentPlayer) << 56;
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = VERTICAL_FLIP;
-		}
-		
-		// vertical flip - rotation 90
-		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE]));
-		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK]))) << 24;
-		tempHash |= ((long) checkersToPut[WHITE]) << 48;
-		tempHash |= ((long) checkersToPut[BLACK]) << 52;
-		tempHash |= ((long) playerToMove) << 56;
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = ROTATION_180;
+				symms |= COLOR_INVERSION;
+			}
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = VERTICAL_FLIP;
-			symms |= ROTATION_90;
-		}
-		
-		// vertical flip - rotation 180
-		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE]));
-		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK]))) << 24;
-		tempHash |= ((long) checkersToPut[WHITE]) << 48;
-		tempHash |= ((long) checkersToPut[BLACK]) << 52;
-		tempHash |= ((long) playerToMove) << 56;
+			// color inversion - rotation 270
+			tempHash = BitBoardUtils.rotationAnticlockwise90(board[BLACK]);
+			tempHash |= ((long) BitBoardUtils.rotationAnticlockwise90(board[WHITE])) << 24;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//			tempHash |= ((long) opponentPlayer) << 56;
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = VERTICAL_FLIP;
-			symms |= ROTATION_180;
-		}
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = ROTATION_270;
+				symms |= COLOR_INVERSION;
+			}
+			
+			// color inversion - vertical flip
+			tempHash = BitBoardUtils.verticalFlip(board[BLACK]);
+			tempHash |= ((long) BitBoardUtils.verticalFlip(board[WHITE])) << 24;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//			tempHash |= ((long) opponentPlayer) << 56;
 
-		// vertical flip - rotation 270
-		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE]));
-		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK]))) << 24;
-		tempHash |= ((long) checkersToPut[WHITE]) << 48;
-		tempHash |= ((long) checkersToPut[BLACK]) << 52;
-		tempHash |= ((long) playerToMove) << 56;
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = VERTICAL_FLIP;
+				symms |= COLOR_INVERSION;
+			}
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = VERTICAL_FLIP;
-			symms |= ROTATION_270;
-		}
-		
-		// inside out
-		tempHash = BitBoardUtils.insideOut(board[WHITE]);
-		tempHash |= ((long) BitBoardUtils.insideOut(board[BLACK])) << 24;
-		tempHash |= ((long) checkersToPut[WHITE]) << 48;
-		tempHash |= ((long) checkersToPut[BLACK]) << 52;
-		tempHash |= ((long) playerToMove) << 56;
+			 //color inversion - vertical flip - rotation 90
+			tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK]));
+			tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE]))) << 24;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//			tempHash |= ((long) opponentPlayer) << 56;
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-		}
-		
-		// inside out - rotation 90
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[WHITE]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[BLACK]))) << 24;
-		tempHash |= ((long) checkersToPut[WHITE]) << 48;
-		tempHash |= ((long) checkersToPut[BLACK]) << 52;
-		tempHash |= ((long) playerToMove) << 56;
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = VERTICAL_FLIP;
+				symms |= ROTATION_90;
+				symms |= COLOR_INVERSION;
+			}
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= ROTATION_90;
-		}
-		
-		// inside out - rotation 180
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[WHITE]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[BLACK]))) << 24;
-		tempHash |= ((long) checkersToPut[WHITE]) << 48;
-		tempHash |= ((long) checkersToPut[BLACK]) << 52;
-		tempHash |= ((long) playerToMove) << 56;
+			// color inversion - vertical flip - rotation 180
+			tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK]));
+			tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE]))) << 24;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//			tempHash |= ((long) opponentPlayer) << 56;
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= ROTATION_180;
-		}
-		
-		// inside out - rotation 270
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[WHITE]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[BLACK]))) << 24;
-		tempHash |= ((long) checkersToPut[WHITE]) << 48;
-		tempHash |= ((long) checkersToPut[BLACK]) << 52;
-		tempHash |= ((long) playerToMove) << 56;
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = VERTICAL_FLIP;
+				symms |= ROTATION_180;
+				symms |= COLOR_INVERSION;
+			}
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= ROTATION_270;
-		}
-		
-		// inside out - vertical flip
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[WHITE]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[BLACK]))) << 24;
-		tempHash |= ((long) checkersToPut[WHITE]) << 48;
-		tempHash |= ((long) checkersToPut[BLACK]) << 52;
-		tempHash |= ((long) playerToMove) << 56;
+			// color inversion - vertical flip - rotation 270
+			tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK]));
+			tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE]))) << 24;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//			tempHash |= ((long) opponentPlayer) << 56;
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= VERTICAL_FLIP;
-		}
-		
-		// inside out - vertical flip - rotation 90
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE])));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK])))) << 24;
-		tempHash |= ((long) checkersToPut[WHITE]) << 48;
-		tempHash |= ((long) checkersToPut[BLACK]) << 52;
-		tempHash |= ((long) playerToMove) << 56;
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = VERTICAL_FLIP;
+				symms |= ROTATION_270;
+				symms |= COLOR_INVERSION;
+			}
+			
+			// color inversion - inside out
+			tempHash = BitBoardUtils.insideOut(board[BLACK]);
+			tempHash |= ((long) BitBoardUtils.insideOut(board[WHITE])) << 24;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//			tempHash |= ((long) opponentPlayer) << 56;
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= VERTICAL_FLIP;
-			symms |= ROTATION_90;
-		}
-		
-		// inside out - vertical flip - rotation 180
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE])));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK])))) << 24;
-		tempHash |= ((long) checkersToPut[WHITE]) << 48;
-		tempHash |= ((long) checkersToPut[BLACK]) << 52;
-		tempHash |= ((long) playerToMove) << 56;
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+				symms |= COLOR_INVERSION;
+			}
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= VERTICAL_FLIP;
-			symms |= ROTATION_180;
-		}
-		
-		// inside out - vertical flip - rotation 270
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE])));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK])))) << 24;
-		tempHash |= ((long) checkersToPut[WHITE]) << 48;
-		tempHash |= ((long) checkersToPut[BLACK]) << 52;
-		tempHash |= ((long) playerToMove) << 56;
+			// color inversion - inside out - rotation 90
+			tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[BLACK]));
+			tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[WHITE]))) << 24;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//			tempHash |= ((long) opponentPlayer) << 56;
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= VERTICAL_FLIP;
-			symms |= ROTATION_270;
-		}
-		
-		// color inversion
-		tempHash = board[BLACK];
-		tempHash |= ((long) board[WHITE]) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+				symms |= ROTATION_90;
+				symms |= COLOR_INVERSION;
+			}
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = COLOR_INVERSION;
-		}
-		
-		// color inversion - rotation 90
-		tempHash = BitBoardUtils.rotationClockwise90(board[BLACK]);
-		tempHash |= ((long) BitBoardUtils.rotationClockwise90(board[WHITE])) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
+			// color inversion - inside out - rotation 180
+			tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[BLACK]));
+			tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[WHITE]))) << 24;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//			tempHash |= ((long) opponentPlayer) << 56;
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = ROTATION_90;
-			symms |= COLOR_INVERSION;
-		}
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+				symms |= ROTATION_180;
+				symms |= COLOR_INVERSION;
+			}
 
-		// color inversion - rotation 180
-		tempHash = BitBoardUtils.rotationClockwise180(board[BLACK]);
-		tempHash |= ((long) BitBoardUtils.rotationClockwise180(board[WHITE])) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
+			// coor inversion - inside out - rotation 270
+			tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[BLACK]));
+			tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[WHITE]))) << 24;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//			tempHash |= ((long) opponentPlayer) << 56;
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = ROTATION_180;
-			symms |= COLOR_INVERSION;
-		}
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+				symms |= ROTATION_270;
+				symms |= COLOR_INVERSION;
+			}
+			
+			// color inversion - inside out - vertical flip
+			tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[BLACK]));
+			tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[WHITE]))) << 24;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//			tempHash |= ((long) opponentPlayer) << 56;
 
-		// color inversion - rotation 270
-		tempHash = BitBoardUtils.rotationAnticlockwise90(board[BLACK]);
-		tempHash |= ((long) BitBoardUtils.rotationAnticlockwise90(board[WHITE])) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+				symms |= VERTICAL_FLIP;
+				symms |= COLOR_INVERSION;
+			}
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = ROTATION_270;
-			symms |= COLOR_INVERSION;
-		}
-		
-		// color inversion - vertical flip
-		tempHash = BitBoardUtils.verticalFlip(board[BLACK]);
-		tempHash |= ((long) BitBoardUtils.verticalFlip(board[WHITE])) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
+			// color inversion - inside out - vertical flip - rotation 90
+			tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK])));
+			tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE])))) << 24;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//			tempHash |= ((long) opponentPlayer) << 56;
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = VERTICAL_FLIP;
-			symms |= COLOR_INVERSION;
-		}
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+				symms |= VERTICAL_FLIP;
+				symms |= ROTATION_90;
+				symms |= COLOR_INVERSION;
+			}
 
-		 //color inversion - vertical flip - rotation 90
-		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE]))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
+			// color inversion - inside out - vertical flip - rotation 180
+			tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK])));
+			tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE])))) << 24;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//			tempHash |= ((long) opponentPlayer) << 56;
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = VERTICAL_FLIP;
-			symms |= ROTATION_90;
-			symms |= COLOR_INVERSION;
-		}
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+				symms |= VERTICAL_FLIP;
+				symms |= ROTATION_180;
+				symms |= COLOR_INVERSION;
+			}
 
-		// color inversion - vertical flip - rotation 180
-		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE]))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
+			// color inversion - inside out - vertical flip - rotation 270
+			tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK])));
+			tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE])))) << 24;
+//			tempHash |= ((long) checkersToPut[BLACK]) << 48;
+//			tempHash |= ((long) checkersToPut[WHITE]) << 52;
+//			tempHash |= ((long) opponentPlayer) << 56;
 
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = VERTICAL_FLIP;
-			symms |= ROTATION_180;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - vertical flip - rotation 270
-		tempHash = BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE]))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = VERTICAL_FLIP;
-			symms |= ROTATION_270;
-			symms |= COLOR_INVERSION;
-		}
-		
-		// color inversion - inside out
-		tempHash = BitBoardUtils.insideOut(board[BLACK]);
-		tempHash |= ((long) BitBoardUtils.insideOut(board[WHITE])) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - inside out - rotation 90
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise90(board[WHITE]))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= ROTATION_90;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - inside out - rotation 180
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationClockwise180(board[WHITE]))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= ROTATION_180;
-			symms |= COLOR_INVERSION;
-		}
-
-		// coor inversion - inside out - rotation 270
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.rotationAnticlockwise90(board[WHITE]))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= ROTATION_270;
-			symms |= COLOR_INVERSION;
-		}
-		
-		// color inversion - inside out - vertical flip
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[BLACK]));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(board[WHITE]))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= VERTICAL_FLIP;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - inside out - vertical flip - rotation 90
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[BLACK])));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise90(board[WHITE])))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= VERTICAL_FLIP;
-			symms |= ROTATION_90;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - inside out - vertical flip - rotation 180
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[BLACK])));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationClockwise180(board[WHITE])))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= VERTICAL_FLIP;
-			symms |= ROTATION_180;
-			symms |= COLOR_INVERSION;
-		}
-
-		// color inversion - inside out - vertical flip - rotation 270
-		tempHash = BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[BLACK])));
-		tempHash |= ((long) BitBoardUtils.insideOut(BitBoardUtils.verticalFlip(BitBoardUtils.rotationAnticlockwise90(board[WHITE])))) << 24;
-		tempHash |= ((long) checkersToPut[BLACK]) << 48;
-		tempHash |= ((long) checkersToPut[WHITE]) << 52;
-		tempHash |= ((long) opponentPlayer) << 56;
-
-		if(tempHash < hash) {
-			hash = tempHash;
-			symms = INSIDE_OUT;
-			symms |= VERTICAL_FLIP;
-			symms |= ROTATION_270;
-			symms |= COLOR_INVERSION;
+			if(tempHash < hash) {
+				hash = tempHash;
+				symms = INSIDE_OUT;
+				symms |= VERTICAL_FLIP;
+				symms |= ROTATION_270;
+				symms |= COLOR_INVERSION;
+			}
+			
+//			hash |= ((long) checkersToPut[BLACK]) << 48;
+//			hash |= ((long) checkersToPut[WHITE]) << 52;
+			hash |= ((long) opponentPlayer) << 56;
 		}
 		
 		return new BitBoardHash(hash, symms);
 	}
 
-	
 	public class BitBoardHash {
 		private long hash;
 		private byte symms;
@@ -2258,4 +2627,214 @@ public class BitBoardState implements IState {
 		}
 	}
 	
+	//------------------------------------
+	
+    static final int[] THREE_WAY_INTERSECTIONS = { 1, 3, 5, 7, 17, 19, 21, 23 };
+    static final int THREE_WAY_INTERSECTIONS_BB = (1 << 1) | (1 << 3) | (1 << 5) | (1 << 7) | (1 << 17) | (1 << 19) | (1 << 21) | (1 << 23);
+    static final int[] FOUR_WAY_INTERSECTIONS = { 9, 11, 13, 15 };
+    static final int FOUR_WAY_INTERSECTIONS_BB = (1 << 9) | (1 << 11) | (1 << 13) | (1 << 15);
+    
+    static final int FOUR_WAY_INTERSECTION_VALUE = 64;
+    static final int THREE_WAY_INTERSECTION_VALUE = 16;
+    static final int SPOKE_EXCLUSIVITY_VALUE = 24;
+    static final int MIDDLE_RING_EXCLUSIVITY_VALUE = 16;
+    
+    static final int MILL_VALUE = 32;
+    static final int ROW_EXCLUSIVITY_VALUE = 64;
+    static final int POTENTIAL_MILL_VALUE = 160;
+    static final int POTENTIAL_MILL_NEXT_TURN_VALUE = 128;
+    
+    static final int PIECE_ADVANTAGE_EXPONENT = 8;
+    static final int MOBILITY_ADVANTAGE_EXPONENT = 6;
+    static final int MILL_MOBILITY_EXPONENT = 3;
+    static final int SINGLE_JUMPER_EXPONENT = 3;
+    
+    public static final int OUTER_RING_IDX = 0;
+    public static final int MIDDLE_RING_IDX = 4;
+    public static final int INNER_RING_IDX = 8;
+    public static final int SPOKES_IDX = 12;
+	
+	private int newHeuristic() {
+		int result = 0;
+		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+		
+		result += (checkersOnBoard[playerToMove] - checkersOnBoard[opponentPlayer]) << PIECE_ADVANTAGE_EXPONENT;
+		
+		if(gamePhase != MIDGAME || (gamePhase == MIDGAME && checkersOnBoard[playerToMove] > 3))  {
+			// initialPhase e midGame
+			result += mobility() << MOBILITY_ADVANTAGE_EXPONENT;
+			result += intersectionAdvantage();
+			result += rowAdvantage();
+		} else {
+			//endgame
+			result <<= SINGLE_JUMPER_EXPONENT;
+			result += intersectionAdvantage();
+			result += rowAdvantage();
+		}
+		
+		return result;
+	}
+	
+	private int mobility() {
+		int result = 0;
+		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+		
+		for(int i=0; i<24; i++) {
+			if((board[playerToMove] & (i << 1)) != 0) {
+				for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+					if(((board[WHITE] | board[BLACK]) & (1 << adjacentPosition)) == 0) {
+						result++;
+					}
+				}
+			}
+		}
+		
+		for(int i=0; i<24; i++) {
+			if((board[opponentPlayer] & (i << 1)) != 0) {
+				for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+					if(((board[WHITE] | board[BLACK]) & (1 << adjacentPosition)) == 0) {
+						result--;
+					}
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	private int intersectionAdvantage() {
+		int result = 0;
+		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+		
+		result += Integer.bitCount(board[playerToMove] & THREE_WAY_INTERSECTIONS_BB) * THREE_WAY_INTERSECTION_VALUE +
+				Integer.bitCount(board[playerToMove] & FOUR_WAY_INTERSECTIONS_BB) * FOUR_WAY_INTERSECTION_VALUE;
+		
+//		result -= Integer.bitCount(board[opponentPlayer] & THREE_WAY_INTERSECTIONS_BB) * THREE_WAY_INTERSECTION_VALUE +
+//				Integer.bitCount(board[opponentPlayer] & FOUR_WAY_INTERSECTIONS_BB) * FOUR_WAY_INTERSECTION_VALUE;
+		
+		return result;
+	}
+	
+	private int rowAdvantage() {
+		int result = 0;
+		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+		int playerRow;
+		int opponentRow;
+		/*
+		 * 
+		 * 
+		 */
+		int rowFreePositions;
+		
+		int mill;
+		for(int i=0; i<MILLS.length; i++) {
+			mill = MILLS[i];
+			playerRow = board[playerToMove] & mill;
+			opponentRow = board[opponentPlayer] & mill;
+			
+			if(playerRow > 0 && opponentRow == 0) {
+				rowFreePositions = mill & ~playerRow;
+				
+				if(i >= SPOKES_IDX) {
+					result += SPOKE_EXCLUSIVITY_VALUE;
+				} else if(i >= MIDDLE_RING_IDX && i < INNER_RING_IDX) {
+					result += MIDDLE_RING_EXCLUSIVITY_VALUE;
+				}
+				
+				switch(Integer.bitCount(playerRow)) {
+				case 3:
+					result += MILL_VALUE;
+					int mobility = 0;
+					
+					for(int j=0; j<24; j++) {
+						if((playerRow & (1 << i)) != 0) {
+							for(int adjacentPosition : ADJACENT_POSITIONS[j]) {
+								if(((board[WHITE] | board[BLACK]) & (1 << adjacentPosition)) == 0) {
+									mobility++;
+								}
+							}
+						}
+					}
+					
+					result += mobility << MILL_MOBILITY_EXPONENT;
+					break;
+				case 2:
+					if(checkersToPut[playerToMove] > 0 || canSlideIntoRow(mill, rowFreePositions, playerRow, playerToMove)) {
+						/*
+						 * 
+						 * 
+						 */
+						result += POTENTIAL_MILL_VALUE;
+					}
+//					break;
+				case 1:
+					result += ROW_EXCLUSIVITY_VALUE;
+					break;
+				}
+				
+			} else if(opponentRow > 0 && playerRow == 0) {
+				rowFreePositions = mill & ~opponentRow;
+				
+				if(i >= SPOKES_IDX) {
+					result -= SPOKE_EXCLUSIVITY_VALUE;
+				} else if(i >= MIDDLE_RING_IDX && i < INNER_RING_IDX) {
+					result -= MIDDLE_RING_EXCLUSIVITY_VALUE;
+				}
+				
+				switch(Integer.bitCount(opponentRow)) {
+				case 3:
+					result -= MILL_VALUE;
+					int mobility = 0;
+					
+					for(int j=0; j<24; j++) {
+						if((opponentRow & (1 << i)) != 0) {
+							for(int adjacentPosition : ADJACENT_POSITIONS[j]) {
+								if(((board[WHITE] | board[BLACK]) & (1 << adjacentPosition)) == 0) {
+									mobility++;
+								}
+							}
+						}
+					}
+					
+					result -= mobility << MILL_MOBILITY_EXPONENT;
+					break;
+				case 2:
+					if(checkersToPut[opponentPlayer] > 0 || canSlideIntoRow(mill, rowFreePositions, opponentRow, opponentPlayer)) {
+						/*
+						 * 
+						 * 
+						 */
+						result -= POTENTIAL_MILL_NEXT_TURN_VALUE;
+					}
+//					break;
+				case 1:
+					result -= ROW_EXCLUSIVITY_VALUE;
+					break;
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	private boolean canSlideIntoRow(int mill, int rowFreePositions, int row, int player) {
+		byte opponentPlayer = playerToMove == WHITE ? BLACK : WHITE;
+		/*
+		 * 
+		 * 
+		 */
+		int notInRowPositions = ~row;
+		
+		for(int i=0; i<24; i++) {
+			if((rowFreePositions & (1 << i)) == 0) {
+				for(int adjacentPosition : ADJACENT_POSITIONS[i]) {
+					if((board[player] & ((1 << adjacentPosition) & notInRowPositions)) != 0) {
+						return true;
+					}
+				}
+			}
+		}
+		
+		return false;
+	}
 }

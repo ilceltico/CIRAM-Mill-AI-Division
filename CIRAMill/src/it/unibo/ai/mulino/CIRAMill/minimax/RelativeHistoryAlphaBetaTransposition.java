@@ -57,6 +57,7 @@ public class RelativeHistoryAlphaBetaTransposition implements IMinimax {
 				result.set(action, Integer.MAX_VALUE-1);
 				state.unmove(action);
 				tranpositionTable.putAction(state, action, maxDepth);
+				historyTable.incrementValue(result.getAction(), maxDepth);
 				return result;
 			} else if (tieChecker.isTie(state)) {
 				temp.set(action, 0);
@@ -101,6 +102,7 @@ public class RelativeHistoryAlphaBetaTransposition implements IMinimax {
 				result.set(a, Integer.MAX_VALUE-1);
 				state.unmove(a);
 				tranpositionTable.putAction(state, a, maxDepth);
+				historyTable.incrementValue(result.getAction(), maxDepth);
 				return result;
 			} else if (tieChecker.isTie(state)) {
 				temp.set(a, 0);
@@ -155,6 +157,7 @@ public class RelativeHistoryAlphaBetaTransposition implements IMinimax {
 				result.set(action, Integer.MIN_VALUE+1);
 				state.unmove(action);
 				tranpositionTable.putAction(state, action, maxDepth);
+				historyTable.incrementValue(result.getAction(), maxDepth);
 				return result;
 			} else if (tieChecker.isTie(state)) {
 				temp.set(action, 0);
@@ -198,6 +201,7 @@ public class RelativeHistoryAlphaBetaTransposition implements IMinimax {
 				result.set(a, Integer.MIN_VALUE+1);
 				state.unmove(a);
 				tranpositionTable.putAction(state, a, maxDepth);
+				historyTable.incrementValue(result.getAction(), maxDepth);
 				return result;
 			} else if (tieChecker.isTie(state)) {
 				temp.set(a, 0);
