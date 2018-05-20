@@ -233,6 +233,10 @@ public class BitBoardState implements IState {
 		this(DEFAULT_INITIAL_CHECKERS, DEFAULT_INITIAL_CHECKERS, tieChecker);
 	}
 	
+	public void setTieChecker(ITieChecker tieChecker) {
+		this.tieChecker = tieChecker;
+	}
+	
 	public byte getCheckersOnBoard(int player) {
 		if (player != WHITE && player != BLACK)
 			throw new IllegalArgumentException();
