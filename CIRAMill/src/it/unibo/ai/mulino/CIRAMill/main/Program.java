@@ -264,6 +264,65 @@ public class Program {
 				lastState = (BitBoardState) bCurrentState.clone();
 				System.out.println("Current state is:");
 				System.out.println(currentState.toString());
+				
+				if (turn==0) {
+					turn = 1;
+					Action a = null;
+					
+					if (new BitBoardState(8,9,(1 << 6), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("a7", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 0), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("g7", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 2), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("g1", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 4), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("a1", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 22), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("c5", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 16), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("e5", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 18), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("e3", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 20), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("c3", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 21), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("d2", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 23), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("b4", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 17), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("d6", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 19), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("f4", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 5), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("d2", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 7), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("b4", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 1), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("d6", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 3), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("f4", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 14), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("b6", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 8), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("f6", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 10), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("f2", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 12), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("b2", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 13), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("f4", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 11), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("d6", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 9), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("b4", State.Phase.FIRST);
+					else if (new BitBoardState(8,9,(1 << 15), 0, BitBoardState.BLACK, tieChecker).equals(bCurrentState))
+						a = stringToAction("d2", State.Phase.FIRST);
+					
+					if (a != null) {
+						client.write(a);
+						continue;
+					}
+				}
 
 				iterativeDeepening = new IterativeDeepeningRunnable(minimax, bCurrentState, startingDepth);
 				iterativeThread = new Thread(iterativeDeepening);
