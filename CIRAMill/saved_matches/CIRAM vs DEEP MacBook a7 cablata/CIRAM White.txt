@@ -1,0 +1,2967 @@
+CIRAM White
+
+Current state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 9;
+Black Checkers: 9;
+White Checkers On Board: 0;
+Black Checkers On Board: 0;
+
+New state is:
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 8;
+Black Checkers: 9;
+White Checkers On Board: 1;
+Black Checkers On Board: 0;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 8;
+Black Checkers: 8;
+White Checkers On Board: 1;
+Black Checkers On Board: 1;
+
+AlphaBetaTransposition:
+Elapsed time: 6
+Expanded states: 22
+TT Hits: 0
+Selected action is: d7, value: 18
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4
+Expanded states: 64
+TT Hits: 1
+Selected action is: d7, value: 0
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 8
+Expanded states: 524
+TT Hits: 23
+Selected action is: d7, value: 18
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 31
+Expanded states: 2082
+TT Hits: 305
+Selected action is: g1, value: 0
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 150
+Expanded states: 28096
+TT Hits: 1352
+Selected action is: g1, value: 18
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 93
+Expanded states: 31256
+TT Hits: 6291
+Selected action is: g1, value: 0
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1140
+Expanded states: 780414
+TT Hits: 67420
+Selected action is: g1, value: 18
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 883
+Expanded states: 722087
+TT Hits: 188220
+Selected action is: g1, value: -1
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4297
+Expanded states: 6897701
+TT Hits: 780852
+Selected action is: g1, value: 19
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 7851
+Expanded states: 13400544
+TT Hits: 3319838
+Selected action is: g4, value: -1
+Level 10 completed
+
+4596
+New state is:
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--W
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 8;
+White Checkers On Board: 2;
+Black Checkers On Board: 1;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--W
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 7;
+White Checkers On Board: 2;
+Black Checkers On Board: 2;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 64576021
+TT Hits: 11213488
+Selected action is: g7, value: 25
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 83
+TT Hits: 1
+Selected action is: g1, value: -1
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 648
+TT Hits: 21
+Selected action is: g1, value: 17
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 1424
+TT Hits: 123
+Selected action is: g1, value: -1
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 13
+Expanded states: 16023
+TT Hits: 965
+Selected action is: g1, value: 17
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 15
+Expanded states: 21170
+TT Hits: 5125
+Selected action is: g1, value: -2
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 230
+Expanded states: 292568
+TT Hits: 28759
+Selected action is: g1, value: 17
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 333
+Expanded states: 394642
+TT Hits: 114684
+Selected action is: g1, value: -1
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2776
+Expanded states: 2980313
+TT Hits: 391367
+Selected action is: g1, value: 18
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3778
+Expanded states: 6569736
+TT Hits: 1938080
+Selected action is: g1, value: -1
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 19626
+Expanded states: 41838691
+TT Hits: 5946115
+Selected action is: g1, value: 19
+Level 11 completed
+
+4762
+New state is:
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--W
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 7;
+White Checkers On Board: 3;
+Black Checkers On Board: 2;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------B
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--W
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 6;
+White Checkers On Board: 3;
+Black Checkers On Board: 3;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 50068113
+TT Hits: 8279284
+Selected action is: e4, value: 17
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 127
+TT Hits: 1
+Selected action is: d2, value: -1
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 679
+TT Hits: 19
+Selected action is: d2, value: 17
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 2378
+TT Hits: 115
+Selected action is: d2, value: -2
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 45
+Expanded states: 58356
+TT Hits: 2481
+Selected action is: d2, value: 17
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 102
+Expanded states: 28259
+TT Hits: 2450
+Selected action is: d2, value: -1
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 390
+Expanded states: 432631
+TT Hits: 29341
+Selected action is: b4, value: 18
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1616
+Expanded states: 1712910
+TT Hits: 191485
+Selected action is: d2, value: -1
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 5473
+Expanded states: 6641196
+TT Hits: 842656
+Selected action is: e5, value: 19
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 14767
+Expanded states: 21454040
+TT Hits: 3963274
+Selected action is: d2, value: -1
+Level 10 completed
+
+4741
+New state is:
+7 W--------O--------B
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--W
+3 |--|--O--O--O--|--|
+2 |--O-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 5;
+Black Checkers: 6;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------B
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--B--W
+3 |--|--O--O--O--|--|
+2 |--O-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 5;
+Black Checkers: 5;
+White Checkers On Board: 4;
+Black Checkers On Board: 4;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 43518127
+TT Hits: 8219915
+Selected action is: b2, value: 17
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 113
+TT Hits: 1
+Selected action is: f6, value: -2
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 482
+TT Hits: 17
+Selected action is: b6, value: 17
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 1559
+TT Hits: 105
+Selected action is: b2, value: -1
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 7
+Expanded states: 9585
+TT Hits: 553
+Selected action is: d6, value: 17
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 17
+Expanded states: 20155
+TT Hits: 2490
+Selected action is: d6, value: -1
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 171
+Expanded states: 132077
+TT Hits: 13680
+Selected action is: d6, value: 18
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 442
+Expanded states: 496608
+TT Hits: 78584
+Selected action is: b4, value: 0
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1758
+Expanded states: 2103266
+TT Hits: 322859
+Selected action is: b4, value: 19
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4619
+Expanded states: 5261586
+TT Hits: 1321980
+Selected action is: b4, value: 13
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 6666
+Expanded states: 8753963
+TT Hits: 2226768
+Selected action is: d6, value: 15
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 27467
+Expanded states: 35166475
+TT Hits: 11575859
+Selected action is: b4, value: 4
+Level 12 completed
+
+4551
+New state is:
+7 W--------O--------B
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--O     O--B--W
+3 |--|--O--O--O--|--|
+2 |--O-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 4;
+Black Checkers: 5;
+White Checkers On Board: 5;
+Black Checkers On Board: 4;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------B
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--O     O--B--W
+3 |--|--O--O--B--|--|
+2 |--O-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 4;
+Black Checkers: 4;
+White Checkers On Board: 5;
+Black Checkers On Board: 5;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 13773327
+TT Hits: 4819081
+Selected action is: b2, value: 35
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 74
+TT Hits: 1
+Selected action is: b2, value: -1
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 133
+Expanded states: 297
+TT Hits: 15
+Selected action is: b2, value: 48
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 1014
+TT Hits: 83
+Selected action is: b2, value: 19
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 7
+Expanded states: 10113
+TT Hits: 726
+Selected action is: b2, value: 47
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 9
+Expanded states: 8550
+TT Hits: 1633
+Selected action is: b2, value: 28
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 105
+Expanded states: 118126
+TT Hits: 12829
+Selected action is: b2, value: 47
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 769
+Expanded states: 649971
+TT Hits: 117748
+Selected action is: b2, value: 19
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 371
+Expanded states: 341346
+TT Hits: 69555
+Selected action is: b2, value: 39
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4170
+Expanded states: 3745795
+TT Hits: 921109
+Selected action is: b2, value: 10
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 14221
+Expanded states: 14917018
+TT Hits: 3106453
+Selected action is: b2, value: 29
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 15003
+Expanded states: 20240688
+TT Hits: 5703166
+Selected action is: b2, value: 12
+Level 12 completed
+
+4287
+New state is:
+7 W--------O--------B
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--O     O--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 3;
+Black Checkers: 4;
+White Checkers On Board: 6;
+Black Checkers On Board: 5;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------B
+6 |--B-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--O     O--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 3;
+Black Checkers: 3;
+White Checkers On Board: 6;
+Black Checkers On Board: 6;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 23075891
+TT Hits: 4464758
+Selected action is: f2g7, value: 48
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 52
+TT Hits: 1
+Selected action is: f2g7, value: 29
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 667
+TT Hits: 21
+Selected action is: f2g7, value: 47
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 823
+TT Hits: 122
+Selected action is: f2g7, value: 28
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 5
+Expanded states: 6346
+TT Hits: 501
+Selected action is: f2g7, value: 48
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 11
+Expanded states: 9026
+TT Hits: 2144
+Selected action is: f2g7, value: 22
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 32
+Expanded states: 25470
+TT Hits: 5722
+Selected action is: f2g7, value: 42
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 159
+Expanded states: 130844
+TT Hits: 31100
+Selected action is: f2g7, value: 10
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 285
+Expanded states: 201184
+TT Hits: 45622
+Selected action is: f2g7, value: 29
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 591
+Expanded states: 469842
+TT Hits: 144053
+Selected action is: f2g7, value: 12
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1840
+Expanded states: 1337431
+TT Hits: 311040
+Selected action is: f2g7, value: 26
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2516
+Expanded states: 2752716
+TT Hits: 924681
+Selected action is: f2g7, value: 10
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 8541
+Expanded states: 12095838
+TT Hits: 2793543
+Selected action is: f2g7, value: 30
+Level 13 completed
+
+AlphaBetaTransposition:
+Elapsed time: 16807
+Expanded states: 22673637
+TT Hits: 8055370
+Selected action is: f2g7, value: 17
+Level 14 completed
+
+4729
+New state is:
+7 W--------O--------O
+6 |--B-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--O     O--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----W-----W--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 2;
+Black Checkers: 3;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------B
+6 |--B-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--O     O--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----W-----W--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 2;
+Black Checkers: 2;
+White Checkers On Board: 7;
+Black Checkers On Board: 6;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 35177896
+TT Hits: 10631099
+Selected action is: a4, value: 47
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 62
+TT Hits: 1
+Selected action is: a4, value: 28
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 440
+TT Hits: 12
+Selected action is: c4, value: 48
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 530
+TT Hits: 44
+Selected action is: c4, value: 22
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 1516
+TT Hits: 232
+Selected action is: c4, value: 42
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 13
+Expanded states: 12058
+TT Hits: 1386
+Selected action is: c4, value: 10
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 12
+Expanded states: 11003
+TT Hits: 1602
+Selected action is: c4, value: 29
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 51
+Expanded states: 37423
+TT Hits: 5351
+Selected action is: c4, value: 12
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 185
+Expanded states: 141747
+TT Hits: 19180
+Selected action is: c4, value: 26
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 245
+Expanded states: 189260
+TT Hits: 36951
+Selected action is: c4, value: 10
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 939
+Expanded states: 623275
+TT Hits: 103582
+Selected action is: c4, value: 30
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1776
+Expanded states: 1621955
+TT Hits: 339090
+Selected action is: c4, value: 17
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4915
+Expanded states: 5774022
+TT Hits: 992174
+Selected action is: c4, value: 29
+Level 13 completed
+
+AlphaBetaTransposition:
+Elapsed time: 11179
+Expanded states: 16236132
+TT Hits: 3904808
+Selected action is: c4, value: 12
+Level 14 completed
+
+4318
+New state is:
+7 W--------O--------B
+6 |--B-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--W     O--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----W-----W--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 1;
+Black Checkers: 2;
+White Checkers On Board: 8;
+Black Checkers On Board: 6;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------B
+6 |--B-----O-----O--|
+5 |--|--O--O--O--|--|
+4 B--W--W     O--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----W-----W--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 1;
+Black Checkers: 1;
+White Checkers On Board: 8;
+Black Checkers On Board: 7;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 45892067
+TT Hits: 8625747
+Selected action is: c5, value: 48
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 64
+TT Hits: 1
+Selected action is: d6, value: 22
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 97
+TT Hits: 10
+Selected action is: d6, value: 42
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 722
+TT Hits: 37
+Selected action is: e5, value: 10
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 1256
+TT Hits: 133
+Selected action is: e4, value: 29
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 5
+Expanded states: 3418
+TT Hits: 463
+Selected action is: c5, value: 12
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 14
+Expanded states: 11807
+TT Hits: 1352
+Selected action is: f6, value: 26
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 52
+Expanded states: 35156
+TT Hits: 5404
+Selected action is: c5, value: 10
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 109
+Expanded states: 65023
+TT Hits: 9376
+Selected action is: c5, value: 30
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 298
+Expanded states: 224258
+TT Hits: 43132
+Selected action is: c5, value: 17
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1103
+Expanded states: 768140
+TT Hits: 126695
+Selected action is: d6, value: 29
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2499
+Expanded states: 1827489
+TT Hits: 438960
+Selected action is: c5, value: 12
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 5308
+Expanded states: 7610348
+TT Hits: 1499803
+Selected action is: c5, value: 23
+Level 13 completed
+
+AlphaBetaTransposition:
+Elapsed time: 15241
+Expanded states: 19975007
+TT Hits: 4957817
+Selected action is: c5, value: 13
+Level 14 completed
+
+4077
+New state is:
+7 W--------O--------B
+6 |--B-----O-----O--|
+5 |--|--W--O--O--|--|
+4 B--W--W     O--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----W-----W--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 0;
+Black Checkers: 1;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------B
+6 |--B-----B-----O--|
+5 |--|--W--O--O--|--|
+4 B--W--W     O--B--W
+3 |--|--O--O--B--|--|
+2 |--W-----W-----W--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 45460664
+TT Hits: 9999884
+Selected action is: c4c3, value: 56
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 27
+TT Hits: 1
+Selected action is: c4c3, value: 10
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 141
+TT Hits: 5
+Selected action is: c4c3, value: 27
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 247
+TT Hits: 22
+Selected action is: c4c3, value: 12
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 1133
+TT Hits: 87
+Selected action is: c4c3, value: 23
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3
+Expanded states: 2175
+TT Hits: 308
+Selected action is: c4c3, value: 13
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 11
+Expanded states: 11040
+TT Hits: 1295
+Selected action is: c4c3, value: 30
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 104
+Expanded states: 63371
+TT Hits: 8583
+Selected action is: c4c3, value: 17
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 220
+Expanded states: 171518
+TT Hits: 24742
+Selected action is: c4c3, value: 27
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 851
+Expanded states: 492927
+TT Hits: 90438
+Selected action is: d2d3, value: 12
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2143
+Expanded states: 2150824
+TT Hits: 398167
+Selected action is: c4c3, value: 23
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3780
+Expanded states: 3974087
+TT Hits: 854803
+Selected action is: c4c3, value: 13
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 9032
+Expanded states: 13406354
+TT Hits: 3408218
+Selected action is: d2d3, value: 22
+Level 13 completed
+
+AlphaBetaTransposition:
+Elapsed time: 10128
+Expanded states: 15257975
+TT Hits: 3922205
+Selected action is: d2d3, value: 10
+Level 14 completed
+
+4480
+New state is:
+7 W--------O--------B
+6 |--B-----B-----O--|
+5 |--|--W--O--O--|--|
+4 B--W--W     O--B--W
+3 |--|--O--W--B--|--|
+2 |--W-----O-----W--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------B
+6 |--B-----B-----B--|
+5 |--|--W--O--O--|--|
+4 B--W--W     O--O--W
+3 |--|--O--O--B--|--|
+2 |--W-----O-----W--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 35371847
+TT Hits: 9300071
+Selected action is: b2d2, value: 1
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 19
+TT Hits: 1
+Selected action is: b2d2, value: -7
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 111
+TT Hits: 8
+Selected action is: b2d2, value: 23
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 196
+TT Hits: 32
+Selected action is: b2d2, value: 13
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 1226
+TT Hits: 117
+Selected action is: b2d2, value: 33
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 7
+Expanded states: 3617
+TT Hits: 598
+Selected action is: b2d2, value: 15
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 20
+Expanded states: 16907
+TT Hits: 2049
+Selected action is: b2d2, value: 27
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 51
+Expanded states: 25594
+TT Hits: 6000
+Selected action is: b2d2, value: 17
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 237
+Expanded states: 171157
+TT Hits: 22270
+Selected action is: b2d2, value: 23
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 381
+Expanded states: 183233
+TT Hits: 55527
+Selected action is: b2d2, value: 15
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1314
+Expanded states: 1089484
+TT Hits: 176748
+Selected action is: b2d2, value: 23
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2983
+Expanded states: 3417259
+TT Hits: 1049167
+Selected action is: b2d2, value: 13
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 8413
+Expanded states: 12926595
+TT Hits: 2544695
+Selected action is: b2d2, value: 23
+Level 13 completed
+
+AlphaBetaTransposition:
+Elapsed time: 30589
+Expanded states: 36474498
+TT Hits: 11989838
+Selected action is: c4c3, value: 13
+Level 14 completed
+
+4057
+New state is:
+7 W--------O--------B
+6 |--B-----B-----B--|
+5 |--|--W--O--O--|--|
+4 B--W--O     O--O--W
+3 |--|--W--O--B--|--|
+2 |--W-----O-----W--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------B--------O
+6 |--B-----B-----B--|
+5 |--|--W--O--O--|--|
+4 B--W--O     O--O--W
+3 |--|--W--O--B--|--|
+2 |--W-----O-----W--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 8;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 16660413
+TT Hits: 4162561
+Selected action is: b4c4d7, value: 20
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 37
+TT Hits: 1
+Selected action is: b4c4d7, value: 10
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 305
+TT Hits: 15
+Selected action is: b4c4d7, value: 27
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 623
+TT Hits: 50
+Selected action is: b2d2, value: 15
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 5
+Expanded states: 4017
+TT Hits: 294
+Selected action is: b2d2, value: 27
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 8
+Expanded states: 4970
+TT Hits: 1161
+Selected action is: b2d2, value: 14
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 105
+Expanded states: 81161
+TT Hits: 7741
+Selected action is: b2d2, value: 20
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 186
+Expanded states: 138959
+TT Hits: 27293
+Selected action is: b4c4d7, value: 10
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 756
+Expanded states: 583927
+TT Hits: 89552
+Selected action is: b4c4d7, value: 20
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1508
+Expanded states: 1093693
+TT Hits: 281558
+Selected action is: b4c4d7, value: 13
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2814
+Expanded states: 3626854
+TT Hits: 683641
+Selected action is: b4c4d7, value: 26
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 5433
+Expanded states: 8208509
+TT Hits: 2585536
+Selected action is: b4c4d7, value: 16
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 9840
+Expanded states: 23014996
+TT Hits: 4328397
+Selected action is: b4c4d7, value: 36
+Level 13 completed
+
+4958
+New state is:
+7 W--------O--------O
+6 |--B-----B-----B--|
+5 |--|--W--O--O--|--|
+4 B--O--W     O--O--W
+3 |--|--W--O--B--|--|
+2 |--W-----O-----W--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 7;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------O
+6 |--O-----B-----B--|
+5 |--|--W--O--O--|--|
+4 B--B--W     O--O--W
+3 |--|--W--O--B--|--|
+2 |--W-----O-----W--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 7;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 48645202
+TT Hits: 17200478
+Selected action is: g4g7, value: 80
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 59
+TT Hits: 1
+Selected action is: g4g7, value: 17
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 190
+TT Hits: 10
+Selected action is: g4g7, value: 27
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 635
+TT Hits: 57
+Selected action is: b2d2, value: 14
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 9
+Expanded states: 4456
+TT Hits: 284
+Selected action is: b2d2, value: 20
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 6
+Expanded states: 7258
+TT Hits: 711
+Selected action is: g4g7, value: 10
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 48
+Expanded states: 34288
+TT Hits: 4415
+Selected action is: f2d2, value: 27
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 53
+Expanded states: 49579
+TT Hits: 9339
+Selected action is: f2d2, value: 13
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 322
+Expanded states: 248351
+TT Hits: 35518
+Selected action is: f2d2, value: 26
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 439
+Expanded states: 371003
+TT Hits: 94422
+Selected action is: f2d2, value: 16
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2969
+Expanded states: 2247507
+TT Hits: 424420
+Selected action is: f2d2, value: 36
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4033
+Expanded states: 5999683
+TT Hits: 1620590
+Selected action is: f2d2, value: 18
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 10369
+Expanded states: 16936787
+TT Hits: 3434110
+Selected action is: f2d2, value: 36
+Level 13 completed
+
+AlphaBetaTransposition:
+Elapsed time: 22698
+Expanded states: 35081688
+TT Hits: 12494075
+Selected action is: f2d2, value: 20
+Level 14 completed
+
+4178
+New state is:
+7 W--------O--------O
+6 |--O-----B-----B--|
+5 |--|--W--O--O--|--|
+4 B--B--W     O--O--W
+3 |--|--W--O--B--|--|
+2 |--W-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 7;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------O
+6 |--O-----B-----B--|
+5 |--|--W--O--O--|--|
+4 B--B--W     B--O--W
+3 |--|--W--O--O--|--|
+2 |--W-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 7;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 16678595
+TT Hits: 3413432
+Selected action is: g4g7, value: 80
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 52
+TT Hits: 1
+Selected action is: g4g7, value: 24
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 157
+TT Hits: 9
+Selected action is: g4f4, value: 30
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 276
+TT Hits: 35
+Selected action is: g4f4, value: 17
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 1884
+TT Hits: 161
+Selected action is: g4f4, value: 30
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 18
+Expanded states: 12463
+TT Hits: 1359
+Selected action is: a7d7, value: 14
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 33
+Expanded states: 29403
+TT Hits: 3677
+Selected action is: g4f4, value: 26
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 194
+Expanded states: 115926
+TT Hits: 19005
+Selected action is: g4f4, value: 16
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 613
+Expanded states: 382854
+TT Hits: 53291
+Selected action is: g4f4, value: 36
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1384
+Expanded states: 1111452
+TT Hits: 250414
+Selected action is: c5d5, value: 18
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3251
+Expanded states: 3059733
+TT Hits: 549312
+Selected action is: g4f4, value: 43
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3555
+Expanded states: 5325625
+TT Hits: 1483840
+Selected action is: g4f4, value: 20
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 14617
+Expanded states: 23246784
+TT Hits: 4659651
+Selected action is: g4f4, value: 23
+Level 13 completed
+
+4525
+New state is:
+7 W--------O--------O
+6 |--O-----B-----B--|
+5 |--|--W--O--O--|--|
+4 B--B--W     B--W--O
+3 |--|--W--O--O--|--|
+2 |--W-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 8;
+Black Checkers On Board: 7;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------O
+6 |--B-----B-----B--|
+5 |--|--W--O--O--|--|
+4 B--O--W     B--O--O
+3 |--|--W--O--O--|--|
+2 |--W-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 47618621
+TT Hits: 15322348
+Selected action is: b2b4, value: 30
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 21
+TT Hits: 1
+Selected action is: b2b4, value: 30
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 160
+TT Hits: 9
+Selected action is: c4b4, value: 33
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 246
+TT Hits: 30
+Selected action is: c4b4, value: 13
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3
+Expanded states: 2629
+TT Hits: 185
+Selected action is: c5d5, value: 33
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4
+Expanded states: 3610
+TT Hits: 742
+Selected action is: c5d5, value: 41
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 15
+Expanded states: 12672
+TT Hits: 1719
+Selected action is: c5d5, value: 56
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 53
+Expanded states: 39339
+TT Hits: 8420
+Selected action is: c5d5, value: 13
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 275
+Expanded states: 222507
+TT Hits: 30699
+Selected action is: c5d5, value: 43
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 599
+Expanded states: 468634
+TT Hits: 139607
+Selected action is: c5d5, value: 20
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2761
+Expanded states: 2276050
+TT Hits: 366594
+Selected action is: c5d5, value: 23
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3443
+Expanded states: 4546957
+TT Hits: 1497145
+Selected action is: c5d5, value: 16
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 10350
+Expanded states: 17225054
+TT Hits: 3357141
+Selected action is: c5d5, value: 32
+Level 13 completed
+
+AlphaBetaTransposition:
+Elapsed time: 30198
+Expanded states: 45269676
+TT Hits: 17330940
+Selected action is: c5d5, value: 22
+Level 14 completed
+
+4170
+New state is:
+7 W--------O--------O
+6 |--B-----B-----B--|
+5 |--|--O--W--O--|--|
+4 B--O--W     B--O--O
+3 |--|--W--O--O--|--|
+2 |--W-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------O
+6 |--B-----B-----B--|
+5 |--|--O--W--O--|--|
+4 O--B--W     B--O--O
+3 |--|--W--O--O--|--|
+2 |--W-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 12669765
+TT Hits: 2897731
+Selected action is: d5c5b4, value: 23
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 33
+TT Hits: 1
+Selected action is: d5c5b4, value: 13
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 182
+TT Hits: 13
+Selected action is: a7a4, value: 33
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 391
+TT Hits: 46
+Selected action is: a7a4, value: 49
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 1482
+TT Hits: 170
+Selected action is: a7a4, value: 56
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 9
+Expanded states: 7738
+TT Hits: 1347
+Selected action is: a7a4, value: 13
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 39
+Expanded states: 30498
+TT Hits: 3304
+Selected action is: g1g4, value: 50
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 126
+Expanded states: 71588
+TT Hits: 15945
+Selected action is: g1g4, value: 20
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 657
+Expanded states: 548278
+TT Hits: 76399
+Selected action is: g1g4, value: 23
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1219
+Expanded states: 990610
+TT Hits: 294000
+Selected action is: a7a4, value: 16
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3401
+Expanded states: 4809599
+TT Hits: 831393
+Selected action is: a7d7, value: 32
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4314
+Expanded states: 6488726
+TT Hits: 1993506
+Selected action is: a7d7, value: 22
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 16972
+Expanded states: 24197340
+TT Hits: 4719964
+Selected action is: a7a4, value: 42
+Level 13 completed
+
+AlphaBetaTransposition:
+Elapsed time: 21177
+Expanded states: 31742442
+TT Hits: 11976452
+Selected action is: a7d7, value: 36
+Level 14 completed
+
+4756
+New state is:
+7 O--------W--------O
+6 |--B-----B-----B--|
+5 |--|--O--W--O--|--|
+4 O--B--W     B--O--O
+3 |--|--W--O--O--|--|
+2 |--W-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------W--------O
+6 |--B-----B-----B--|
+5 |--|--O--W--O--|--|
+4 B--O--W     B--O--O
+3 |--|--W--O--O--|--|
+2 |--W-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 11112235
+TT Hits: 2520175
+Selected action is: d5c5e4, value: 33
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 31
+TT Hits: 1
+Selected action is: d5c5e4, value: 13
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 232
+TT Hits: 15
+Selected action is: d7g7, value: 30
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 649
+TT Hits: 65
+Selected action is: d7g7, value: 20
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 5
+Expanded states: 4147
+TT Hits: 306
+Selected action is: b2b4, value: 43
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 12
+Expanded states: 4274
+TT Hits: 1232
+Selected action is: b2b4, value: 52
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 29
+Expanded states: 30225
+TT Hits: 3560
+Selected action is: b2b4, value: 47
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 170
+Expanded states: 118024
+TT Hits: 31621
+Selected action is: b2b4, value: 16
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 613
+Expanded states: 436844
+TT Hits: 61702
+Selected action is: b2b4, value: 36
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 805
+Expanded states: 674898
+TT Hits: 258271
+Selected action is: b2b4, value: 31
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3560
+Expanded states: 4654656
+TT Hits: 723541
+Selected action is: b2b4, value: 45
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3944
+Expanded states: 6350442
+TT Hits: 2650235
+Selected action is: b2b4, value: 36
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 28276
+Expanded states: 47723548
+TT Hits: 8591841
+Selected action is: b2b4, value: 40
+Level 13 completed
+
+4698
+New state is:
+7 O--------W--------O
+6 |--B-----B-----B--|
+5 |--|--O--W--O--|--|
+4 B--W--W     B--O--O
+3 |--|--W--O--O--|--|
+2 |--O-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------W--------O
+6 |--B-----B-----B--|
+5 |--|--O--W--B--|--|
+4 B--W--W     O--O--O
+3 |--|--W--O--O--|--|
+2 |--O-----W-----O--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 20794529
+TT Hits: 8562068
+Selected action is: d5c5e5, value: 26
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 30
+TT Hits: 1
+Selected action is: d5c5e5, value: 18
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 180
+TT Hits: 15
+Selected action is: d5c5e5, value: 43
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 506
+TT Hits: 53
+Selected action is: d7a7, value: 54
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 1932
+TT Hits: 212
+Selected action is: d7a7, value: 61
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 15
+Expanded states: 12211
+TT Hits: 2124
+Selected action is: d7g7, value: 17
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 53
+Expanded states: 31035
+TT Hits: 3658
+Selected action is: d7a7, value: 36
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 94
+Expanded states: 55330
+TT Hits: 16819
+Selected action is: g1g4, value: 42
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 351
+Expanded states: 300977
+TT Hits: 40368
+Selected action is: g1g4, value: 55
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 752
+Expanded states: 596427
+TT Hits: 221020
+Selected action is: g1g4, value: 46
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3715
+Expanded states: 3964042
+TT Hits: 566093
+Selected action is: g1g4, value: 55
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3359
+Expanded states: 5256227
+TT Hits: 2186719
+Selected action is: g1g4, value: 45
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 22545
+Expanded states: 38771844
+TT Hits: 6493560
+Selected action is: d2f2, value: 65
+Level 13 completed
+
+4667
+New state is:
+7 O--------W--------O
+6 |--B-----B-----B--|
+5 |--|--O--W--B--|--|
+4 B--W--W     O--O--O
+3 |--|--W--O--O--|--|
+2 |--O-----O-----W--|
+1 B--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------W--------O
+6 |--B-----B-----B--|
+5 |--|--O--W--B--|--|
+4 B--W--W     O--O--O
+3 |--|--W--O--O--|--|
+2 |--O-----B-----W--|
+1 B--------O--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 36145344
+TT Hits: 12289468
+Selected action is: d5c5a4, value: 13
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 42
+TT Hits: 1
+Selected action is: d5c5d2, value: 6
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 275
+TT Hits: 13
+Selected action is: d5c5d2, value: 16
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 1253
+TT Hits: 119
+Selected action is: f2f4, value: 16
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3
+Expanded states: 2895
+TT Hits: 291
+Selected action is: d7a7, value: 26
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 15
+Expanded states: 9221
+TT Hits: 1740
+Selected action is: g1g4, value: 16
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 67
+Expanded states: 44490
+TT Hits: 5717
+Selected action is: f2f4, value: 55
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 223
+Expanded states: 37497
+TT Hits: 12458
+Selected action is: f2f4, value: 52
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 217
+Expanded states: 204885
+TT Hits: 31488
+Selected action is: f2f4, value: 52
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 768
+Expanded states: 638292
+TT Hits: 202151
+Selected action is: f2f4, value: 45
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2884
+Expanded states: 2615910
+TT Hits: 468232
+Selected action is: f2f4, value: 68
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 5644
+Expanded states: 8813969
+TT Hits: 3500547
+Selected action is: f2f4, value: 58
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 20217
+Expanded states: 31362387
+TT Hits: 5864011
+Selected action is: f2f4, value: 68
+Level 13 completed
+
+4044
+New state is:
+7 O--------W--------O
+6 |--B-----B-----B--|
+5 |--|--O--W--B--|--|
+4 B--W--W     O--W--O
+3 |--|--W--O--O--|--|
+2 |--O-----B-----O--|
+1 B--------O--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------W--------O
+6 |--B-----B-----B--|
+5 |--|--O--W--B--|--|
+4 B--W--W     O--W--O
+3 |--|--W--B--O--|--|
+2 |--O-----O-----O--|
+1 B--------O--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 7;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 39385007
+TT Hits: 15051628
+Selected action is: d5c5d3, value: 16
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 30
+TT Hits: 1
+Selected action is: d5c5d3, value: 16
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 185
+TT Hits: 14
+Selected action is: d5c5d3, value: 23
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 514
+TT Hits: 87
+Selected action is: g1d1, value: 18
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4
+Expanded states: 3499
+TT Hits: 315
+Selected action is: d7g7, value: 55
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 8
+Expanded states: 4626
+TT Hits: 1285
+Selected action is: d7g7, value: 52
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 29
+Expanded states: 23377
+TT Hits: 3307
+Selected action is: d7g7, value: 52
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 141
+Expanded states: 88787
+TT Hits: 23738
+Selected action is: d7g7, value: 45
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 341
+Expanded states: 287934
+TT Hits: 42305
+Selected action is: d7g7, value: 68
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 791
+Expanded states: 686795
+TT Hits: 256119
+Selected action is: f4g4, value: 68
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3384
+Expanded states: 3030554
+TT Hits: 504896
+Selected action is: f4g4, value: 68
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2275
+Expanded states: 3820207
+TT Hits: 1715924
+Selected action is: f4g4, value: 61
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 17627
+Expanded states: 30796049
+TT Hits: 5688522
+Selected action is: f4g4, value: 84
+Level 13 completed
+
+AlphaBetaTransposition:
+Elapsed time: 24966
+Expanded states: 44374875
+TT Hits: 18313546
+Selected action is: d5c5d3, value: 75
+Level 14 completed
+
+4745
+New state is:
+7 O--------W--------O
+6 |--B-----B-----B--|
+5 |--|--W--O--B--|--|
+4 B--W--W     O--W--O
+3 |--|--W--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------O--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 6;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------W--------O
+6 |--B-----B-----B--|
+5 |--|--W--O--B--|--|
+4 B--W--W     O--W--O
+3 |--|--W--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 6;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 9041646
+TT Hits: 1583398
+Selected action is: d7g7, value: 23
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 37
+TT Hits: 1
+Selected action is: g1g4, value: 16
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 189
+TT Hits: 10
+Selected action is: d7g7, value: 45
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 370
+TT Hits: 56
+Selected action is: d7g7, value: 45
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 1862
+TT Hits: 170
+Selected action is: d7g7, value: 52
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 6
+Expanded states: 5959
+TT Hits: 1180
+Selected action is: f4g4, value: 45
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 29
+Expanded states: 26606
+TT Hits: 3374
+Selected action is: f4g4, value: 68
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 50
+Expanded states: 41181
+TT Hits: 12199
+Selected action is: f4g4, value: 68
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 254
+Expanded states: 233006
+TT Hits: 32863
+Selected action is: f4g4, value: 68
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 386
+Expanded states: 335659
+TT Hits: 127947
+Selected action is: f4g4, value: 61
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2345
+Expanded states: 2101384
+TT Hits: 341725
+Selected action is: f4g4, value: 92
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4071
+Expanded states: 7338764
+TT Hits: 2272309
+Selected action is: f4g4, value: 87
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 30126
+Expanded states: 54597271
+TT Hits: 9631331
+Selected action is: c5d5, value: 94
+Level 13 completed
+
+4737
+New state is:
+7 O--------W--------O
+6 |--B-----B-----B--|
+5 |--|--O--W--B--|--|
+4 B--W--W     O--W--O
+3 |--|--W--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 6;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------W--------O
+6 |--B-----B-----B--|
+5 |--|--O--W--B--|--|
+4 B--W--W     O--W--O
+3 |--|--W--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------O--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 6;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 27740844
+TT Hits: 8206807
+Selected action is: d5c5a4, value: 29
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 33
+TT Hits: 1
+Selected action is: d5c5a4, value: 22
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 206
+TT Hits: 14
+Selected action is: d7g7, value: 36
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 404
+TT Hits: 79
+Selected action is: d7g7, value: 29
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3
+Expanded states: 2396
+TT Hits: 232
+Selected action is: d7g7, value: 68
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 8
+Expanded states: 4266
+TT Hits: 1372
+Selected action is: d7g7, value: 68
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 30
+Expanded states: 25050
+TT Hits: 3292
+Selected action is: d7g7, value: 68
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 91
+Expanded states: 70022
+TT Hits: 24441
+Selected action is: d7g7, value: 61
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 337
+Expanded states: 315246
+TT Hits: 43274
+Selected action is: d7g7, value: 92
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 828
+Expanded states: 750321
+TT Hits: 290815
+Selected action is: f4g4, value: 87
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3990
+Expanded states: 4781850
+TT Hits: 734994
+Selected action is: f4g4, value: 94
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 4798
+Expanded states: 9380947
+TT Hits: 3411460
+Selected action is: f4g4, value: 89
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 32102
+Expanded states: 61271283
+TT Hits: 10867137
+Selected action is: d5c5a4, value: 142
+Level 13 completed
+
+4829
+New state is:
+7 O--------W--------O
+6 |--B-----B-----B--|
+5 |--|--W--O--B--|--|
+4 O--W--W     O--W--O
+3 |--|--W--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------O--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------W--------O
+6 |--B-----O-----B--|
+5 |--|--W--B--B--|--|
+4 O--W--W     O--W--O
+3 |--|--W--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------O--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 29263068
+TT Hits: 5711345
+Selected action is: d7d6, value: 65
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 24
+TT Hits: 1
+Selected action is: d7d6, value: 55
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 313
+TT Hits: 12
+Selected action is: d7d6, value: 62
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 251
+TT Hits: 32
+Selected action is: d7d6, value: 55
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3
+Expanded states: 2267
+TT Hits: 186
+Selected action is: d7d6, value: 71
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 3
+Expanded states: 2716
+TT Hits: 736
+Selected action is: d7d6, value: 61
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 28
+Expanded states: 25057
+TT Hits: 2758
+Selected action is: d7d6, value: 78
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 33
+Expanded states: 24055
+TT Hits: 9325
+Selected action is: d7d6, value: 75
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 255
+Expanded states: 223503
+TT Hits: 27709
+Selected action is: d7d6, value: 84
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 305
+Expanded states: 230010
+TT Hits: 107090
+Selected action is: d7d6, value: 74
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1644
+Expanded states: 1491121
+TT Hits: 220600
+Selected action is: d7d6, value: 152
+Level 11 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1837
+Expanded states: 2589202
+TT Hits: 1286291
+Selected action is: d7d6, value: 142
+Level 12 completed
+
+AlphaBetaTransposition:
+Elapsed time: 8029
+Expanded states: 15885372
+TT Hits: 2467336
+Selected action is: d7d6, value: 2147483646
+Level 13 completed
+
+46965
+New state is:
+7 O--------O--------O
+6 |--B-----W-----B--|
+5 |--|--W--B--B--|--|
+4 O--W--W     O--W--O
+3 |--|--W--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------O--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------O--------O
+6 |--B-----W-----B--|
+5 |--|--W--B--O--|--|
+4 O--W--W     B--W--O
+3 |--|--W--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------O--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 8
+TT Hits: 0
+Selected action is: g1g4, value: 62
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 21
+TT Hits: 1
+Selected action is: g1g4, value: 55
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 149
+TT Hits: 9
+Selected action is: c3d3, value: 71
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 241
+TT Hits: 32
+Selected action is: c3d3, value: 61
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 1148
+TT Hits: 111
+Selected action is: c3d3, value: 78
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 1884
+TT Hits: 498
+Selected action is: c3d3, value: 75
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 20
+Expanded states: 20543
+TT Hits: 2138
+Selected action is: g1d1, value: 84
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 16
+Expanded states: 15818
+TT Hits: 5954
+Selected action is: g1d1, value: 74
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 237
+Expanded states: 203438
+TT Hits: 25093
+Selected action is: g1d1, value: 152
+Level 9 completed
+
+AlphaBetaTransposition:
+Elapsed time: 236
+Expanded states: 192342
+TT Hits: 85141
+Selected action is: g1d1, value: 142
+Level 10 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1622
+Expanded states: 1650353
+TT Hits: 211755
+Selected action is: g1d1, value: 2147483646
+Level 11 completed
+
+56988
+New state is:
+7 O--------O--------O
+6 |--B-----W-----B--|
+5 |--|--W--B--O--|--|
+4 O--W--W     B--W--O
+3 |--|--W--O--O--|--|
+2 |--O-----O-----O--|
+1 B--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+
+Waiting for opponent move...
+Current state is:
+7 O--------O--------O
+6 |--B-----W-----B--|
+5 |--|--W--B--O--|--|
+4 B--W--W     B--W--O
+3 |--|--W--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------W--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 8
+TT Hits: 0
+Selected action is: d1g1, value: 55
+Level 1 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 23
+TT Hits: 1
+Selected action is: d1a1, value: 55
+Level 2 completed
+
+AlphaBetaTransposition:
+Elapsed time: 0
+Expanded states: 204
+TT Hits: 9
+Selected action is: c3d3, value: 71
+Level 3 completed
+
+AlphaBetaTransposition:
+Elapsed time: 1
+Expanded states: 237
+TT Hits: 26
+Selected action is: c3d3, value: 61
+Level 4 completed
+
+AlphaBetaTransposition:
+Elapsed time: 2
+Expanded states: 1512
+TT Hits: 112
+Selected action is: d1d2, value: 94
+Level 5 completed
+
+AlphaBetaTransposition:
+Elapsed time: 5
+Expanded states: 4006
+TT Hits: 910
+Selected action is: d1d2, value: 74
+Level 6 completed
+
+AlphaBetaTransposition:
+Elapsed time: 22
+Expanded states: 15527
+TT Hits: 1474
+Selected action is: d1a1, value: 152
+Level 7 completed
+
+AlphaBetaTransposition:
+Elapsed time: 86
+Expanded states: 28643
+TT Hits: 6890
+Selected action is: d1a1, value: 142
+Level 8 completed
+
+AlphaBetaTransposition:
+Elapsed time: 161
+Expanded states: 131052
+TT Hits: 16165
+Selected action is: d1a1, value: 2147483646
+Level 9 completed
+
+58999
+New state is:
+7 O--------O--------O
+6 |--B-----W-----B--|
+5 |--|--W--B--O--|--|
+4 B--W--W     B--W--O
+3 |--|--W--O--O--|--|
+2 |--O-----O-----O--|
+1 W--------O--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+
+Waiting for opponent move...
+Exception in thread "main" java.io.EOFException
+	at java.io.ObjectInputStream$BlockDataInputStream.peekByte(ObjectInputStream.java:2903)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1502)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:422)
+	at it.unibo.ai.mulino.CIRAMill.main.MulinoClient.read(MulinoClient.java:61)
+	at it.unibo.ai.mulino.CIRAMill.main.Program.main(Program.java:75)
