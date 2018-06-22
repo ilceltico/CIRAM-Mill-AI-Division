@@ -1,0 +1,617 @@
+Hello DeepMill!
+You are player B!
+Current state:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 9;
+Black Checkers: 9;
+White Checkers On Board: 0;
+Black Checkers On Board: 0;
+
+Waiting for your opponent move...
+Your Opponent did his move, and the result is:
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 8;
+Black Checkers: 9;
+White Checkers On Board: 1;
+Black Checkers On Board: 0;
+
+Player B, do your move:
+Depth 1... done! 6ms - Best move: d2 - [NODES = 26, QNODES = 0, TT HITS: 0%, TT SIZE: 1]
+Depth 2... done! 20ms - Best move: d1 - [NODES = 174, QNODES = 0, TT HITS: 4%, TT SIZE: 24]
+Depth 3... done! 105ms - Best move: d1 - [NODES = 1004, QNODES = 0, TT HITS: 11%, TT SIZE: 139]
+Depth 4... done! 181ms - Best move: d7 - [NODES = 7471, QNODES = 0, TT HITS: 20%, TT SIZE: 1188]
+Depth 5... done! 394ms - Best move: g1 - [NODES = 34561, QNODES = 376, TT HITS: 16%, TT SIZE: 7574]
+Depth 6... done! 987ms - Best move: d7 - [NODES = 125409, QNODES = 568, TT HITS: 19%, TT SIZE: 29347]
+Depth 7... done! 2301ms - Best move: d1 - [NODES = 537500, QNODES = 6048, TT HITS: 19%, TT SIZE: 132101]
+Depth 8... done! 6264ms - Best move: d7 - [NODES = 1658711, QNODES = 7046, TT HITS: 20%, TT SIZE: 447593]
+Depth 9... done! 13083ms - Best move: d1 - [NODES = 2937738, QNODES = 48616, TT HITS: 20%, TT SIZE: 1055717]
+Depth 10... aborted!
+Reached depth: 10
+Time elapsed: 58027ms
+d1
+Effect of your move:
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 8;
+Black Checkers: 8;
+White Checkers On Board: 1;
+Black Checkers On Board: 1;
+
+Waiting for your opponent move...
+Your Opponent did his move, and the result is:
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 8;
+White Checkers On Board: 2;
+Black Checkers On Board: 1;
+
+Player B, do your move:
+Depth 1... done! 0ms - Best move: a1 - [NODES = 23, QNODES = 0, TT HITS: 0%, TT SIZE: 1]
+Depth 2... done! 2ms - Best move: a1 - [NODES = 86, QNODES = 0, TT HITS: 0%, TT SIZE: 22]
+Depth 3... done! 7ms - Best move: d2 - [NODES = 761, QNODES = 4, TT HITS: 11%, TT SIZE: 103]
+Depth 4... done! 14ms - Best move: d2 - [NODES = 1958, QNODES = 54, TT HITS: 12%, TT SIZE: 501]
+Depth 5... done! 37ms - Best move: d2 - [NODES = 8457, QNODES = 74, TT HITS: 14%, TT SIZE: 1726]
+Depth 6... done! 171ms - Best move: d2 - [NODES = 46399, QNODES = 146, TT HITS: 14%, TT SIZE: 10704]
+Depth 7... done! 606ms - Best move: c4 - [NODES = 184641, QNODES = 3998, TT HITS: 18%, TT SIZE: 48116]
+Depth 8... done! 2208ms - Best move: g1 - [NODES = 786713, QNODES = 10205, TT HITS: 25%, TT SIZE: 178470]
+Depth 9... done! 6273ms - Best move: c4 - [NODES = 2079260, QNODES = 54142, TT HITS: 28%, TT SIZE: 588760]
+Depth 10... done! 21972ms - Best move: c4 - [NODES = 7091553, QNODES = 129187, TT HITS: 27%, TT SIZE: 1800451]
+Depth 11... aborted!
+Reached depth: 11
+Time elapsed: 58016ms
+c4
+Effect of your move:
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 7;
+White Checkers On Board: 2;
+Black Checkers On Board: 2;
+
+Waiting for your opponent move...
+Your Opponent did his move, and the result is:
+7 W--------W--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 7;
+White Checkers On Board: 3;
+Black Checkers On Board: 2;
+
+Player B, do your move:
+Depth 1... done! 3ms - Best move: d3 - [NODES = 23, QNODES = 0, TT HITS: 0%, TT SIZE: 1]
+Depth 2... done! 5ms - Best move: g7 - [NODES = 145, QNODES = 0, TT HITS: 9%, TT SIZE: 20]
+Depth 3... done! 8ms - Best move: g7 - [NODES = 465, QNODES = 0, TT HITS: 3%, TT SIZE: 58]
+Depth 4... done! 15ms - Best move: g7 - [NODES = 1326, QNODES = 4, TT HITS: 19%, TT SIZE: 351]
+Depth 5... done! 41ms - Best move: g7 - [NODES = 6436, QNODES = 54, TT HITS: 13%, TT SIZE: 1248]
+Depth 6... done! 140ms - Best move: g7 - [NODES = 20215, QNODES = 156, TT HITS: 18%, TT SIZE: 5864]
+Depth 7... done! 958ms - Best move: g7 - [NODES = 85169, QNODES = 1977, TT HITS: 24%, TT SIZE: 17624]
+Depth 8... done! 1642ms - Best move: g7 - [NODES = 263791, QNODES = 4823, TT HITS: 24%, TT SIZE: 70837]
+Depth 9... done! 2758ms - Best move: g7 - [NODES = 568273, QNODES = 20033, TT HITS: 20%, TT SIZE: 178046]
+Depth 10... done! 6388ms - Best move: g7 - [NODES = 1628726, QNODES = 65854, TT HITS: 23%, TT SIZE: 545475]
+Depth 11... done! 17828ms - Best move: g7 - [NODES = 4409090, QNODES = 222921, TT HITS: 24%, TT SIZE: 1384631]
+Depth 12... completed! 42512ms [NODES = 9203210, QNODES = 591115, TT HITS: 26%, TT SIZE: 3362792]
+Reached depth: 12
+Time elapsed: 42527ms
+g7
+Timeout thread is alive!
+Effect of your move:
+7 W--------W--------B
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 6;
+White Checkers On Board: 3;
+Black Checkers On Board: 3;
+
+Waiting for your opponent move...
+Your Opponent did his move, and the result is:
+7 W--------W--------B
+6 |--W-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 5;
+Black Checkers: 6;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+Player B, do your move:
+Depth 1... done! 1ms - Best move: d5 - [NODES = 21, QNODES = 0, TT HITS: 0%, TT SIZE: 1]
+Depth 2... done! 2ms - Best move: b2 - [NODES = 88, QNODES = 0, TT HITS: 5%, TT SIZE: 18]
+Depth 3... done! 5ms - Best move: b2 - [NODES = 432, QNODES = 24, TT HITS: 2%, TT SIZE: 60]
+Depth 4... done! 10ms - Best move: b2 - [NODES = 1301, QNODES = 34, TT HITS: 10%, TT SIZE: 356]
+Depth 5... done! 30ms - Best move: b2 - [NODES = 6444, QNODES = 343, TT HITS: 12%, TT SIZE: 1133]
+Depth 6... done! 65ms - Best move: b2 - [NODES = 12785, QNODES = 599, TT HITS: 16%, TT SIZE: 4060]
+Depth 7... done! 159ms - Best move: b2 - [NODES = 47144, QNODES = 1454, TT HITS: 16%, TT SIZE: 10793]
+Depth 8... done! 476ms - Best move: b2 - [NODES = 151136, QNODES = 8552, TT HITS: 25%, TT SIZE: 43626]
+Depth 9... done! 970ms - Best move: b2 - [NODES = 289828, QNODES = 13542, TT HITS: 27%, TT SIZE: 90741]
+Depth 10... done! 2322ms - Best move: b2 - [NODES = 618787, QNODES = 58868, TT HITS: 25%, TT SIZE: 252391]
+Depth 11... done! 11068ms - Best move: b2 - [NODES = 3057210, QNODES = 7076, TT HITS: 30%, TT SIZE: 839362]
+Depth 12... done! 26618ms - Best move: b2 - [NODES = 4586634, QNODES = 1788, TT HITS: 31%, TT SIZE: 1967449]
+Depth 13... aborted!
+Reached depth: 13
+Time elapsed: 58004ms
+b2
+Effect of your move:
+7 W--------W--------B
+6 |--W-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--B-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 5;
+Black Checkers: 5;
+White Checkers On Board: 4;
+Black Checkers On Board: 4;
+
+Waiting for your opponent move...
+Your Opponent did his move, and the result is:
+7 W--------W--------B
+6 |--W-----W-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--B-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 4;
+Black Checkers: 5;
+White Checkers On Board: 5;
+Black Checkers On Board: 4;
+
+Player B, do your move:
+Depth 1... done! 1ms - Best move: f4 - [NODES = 20, QNODES = 22, TT HITS: 0%, TT SIZE: 1]
+Depth 2... done! 6ms - Best move: d5 - [NODES = 179, QNODES = 0, TT HITS: 15%, TT SIZE: 16]
+Depth 3... done! 7ms - Best move: d5 - [NODES = 300, QNODES = 44, TT HITS: 5%, TT SIZE: 53]
+Depth 4... done! 11ms - Best move: d5 - [NODES = 905, QNODES = 23, TT HITS: 10%, TT SIZE: 292]
+Depth 5... done! 18ms - Best move: d5 - [NODES = 3950, QNODES = 35, TT HITS: 19%, TT SIZE: 715]
+Depth 6... done! 38ms - Best move: d5 - [NODES = 8702, QNODES = 672, TT HITS: 23%, TT SIZE: 2583]
+Depth 7... done! 98ms - Best move: d5 - [NODES = 33081, QNODES = 1296, TT HITS: 22%, TT SIZE: 6257]
+Depth 8... done! 259ms - Best move: d5 - [NODES = 71430, QNODES = 9231, TT HITS: 27%, TT SIZE: 23624]
+Depth 9... done! 1135ms - Best move: d5 - [NODES = 317576, QNODES = 865, TT HITS: 26%, TT SIZE: 80276]
+Depth 10... done! 3621ms - Best move: f6 - [NODES = 985124, QNODES = 888, TT HITS: 30%, TT SIZE: 341758]
+Depth 11... done! 9604ms - Best move: d5 - [NODES = 1969034, QNODES = 2700, TT HITS: 28%, TT SIZE: 699883]
+Depth 12... done! 25551ms - Best move: d5 - [NODES = 4329829, QNODES = 1803, TT HITS: 25%, TT SIZE: 1972831]
+Depth 13... aborted!
+Reached depth: 13
+Time elapsed: 58003ms
+d5
+Effect of your move:
+7 W--------W--------B
+6 |--W-----W-----O--|
+5 |--|--O--B--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--B-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 4;
+Black Checkers: 4;
+White Checkers On Board: 5;
+Black Checkers On Board: 5;
+
+Waiting for your opponent move...
+Your Opponent did his move, and the result is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 3;
+Black Checkers: 4;
+White Checkers On Board: 6;
+Black Checkers On Board: 4;
+
+Player B, do your move:
+Depth 1... done! 1ms - Best move: e3 - [NODES = 18, QNODES = 0, TT HITS: 0%, TT SIZE: 1]
+Depth 2... done! 2ms - Best move: b2 - [NODES = 75, QNODES = 4, TT HITS: 6%, TT SIZE: 15]
+Depth 3... done! 5ms - Best move: b2 - [NODES = 260, QNODES = 0, TT HITS: 1%, TT SIZE: 41]
+Depth 4... done! 7ms - Best move: b2 - [NODES = 708, QNODES = 42, TT HITS: 19%, TT SIZE: 204]
+Depth 5... done! 14ms - Best move: b2 - [NODES = 2966, QNODES = 112, TT HITS: 15%, TT SIZE: 595]
+Depth 6... done! 30ms - Best move: b2 - [NODES = 6560, QNODES = 746, TT HITS: 19%, TT SIZE: 2100]
+Depth 7... done! 88ms - Best move: b2 - [NODES = 20843, QNODES = 395, TT HITS: 18%, TT SIZE: 5198]
+Depth 8... done! 213ms - Best move: b2 - [NODES = 56520, QNODES = 262, TT HITS: 25%, TT SIZE: 23232]
+Depth 9... done! 532ms - Best move: b2 - [NODES = 112815, QNODES = 647, TT HITS: 23%, TT SIZE: 42536]
+Depth 10... done! 970ms - Best move: b2 - [NODES = 133906, QNODES = 150, TT HITS: 19%, TT SIZE: 92084]
+Depth 11... done! 4732ms - Best move: b2 - [NODES = 1105338, QNODES = 2217, TT HITS: 22%, TT SIZE: 253425]
+Depth 12... done! 9031ms - Best move: b2 - [NODES = 1341057, QNODES = 568, TT HITS: 23%, TT SIZE: 717884]
+Depth 13... done! 27046ms - Best move: b2 - [NODES = 5365324, QNODES = 6592, TT HITS: 22%, TT SIZE: 1557791]
+Depth 14... aborted!
+Reached depth: 14
+Time elapsed: 58003ms
+b2
+Effect of your move:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--B-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 3;
+Black Checkers: 3;
+White Checkers On Board: 6;
+Black Checkers On Board: 5;
+
+Waiting for your opponent move...
+Your Opponent did his move, and the result is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--O--|--|
+4 O--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--B-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 2;
+Black Checkers: 3;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+Player B, do your move:
+Depth 1... done! 0ms - Best move: e3 - [NODES = 17, QNODES = 0, TT HITS: 0%, TT SIZE: 1]
+Depth 2... done! 2ms - Best move: f2 - [NODES = 72, QNODES = 6, TT HITS: 7%, TT SIZE: 13]
+Depth 3... done! 3ms - Best move: f2 - [NODES = 268, QNODES = 0, TT HITS: 3%, TT SIZE: 44]
+Depth 4... done! 7ms - Best move: f2 - [NODES = 561, QNODES = 170, TT HITS: 10%, TT SIZE: 182]
+Depth 5... done! 16ms - Best move: f2 - [NODES = 2558, QNODES = 2, TT HITS: 11%, TT SIZE: 494]
+Depth 6... done! 31ms - Best move: f2 - [NODES = 4461, QNODES = 0, TT HITS: 21%, TT SIZE: 1559]
+Depth 7... done! 79ms - Best move: f2 - [NODES = 13987, QNODES = 0, TT HITS: 19%, TT SIZE: 3562]
+Depth 8... done! 178ms - Best move: f2 - [NODES = 29838, QNODES = 3, TT HITS: 14%, TT SIZE: 13328]
+Depth 9... done! 535ms - Best move: f2 - [NODES = 94019, QNODES = 39, TT HITS: 12%, TT SIZE: 29544]
+Depth 10... done! 1085ms - Best move: f2 - [NODES = 162002, QNODES = 11, TT HITS: 16%, TT SIZE: 86814]
+Depth 11... done! 2920ms - Best move: f2 - [NODES = 603369, QNODES = 210, TT HITS: 16%, TT SIZE: 196878]
+Depth 12... done! 6190ms - Best move: f2 - [NODES = 1147369, QNODES = 287, TT HITS: 23%, TT SIZE: 563900]
+Depth 13... done! 21251ms - Best move: f2 - [NODES = 4488505, QNODES = 3286, TT HITS: 23%, TT SIZE: 1263851]
+Depth 14... completed! 47765ms [NODES = 8079881, QNODES = 1701, TT HITS: 31%, TT SIZE: 3398606]
+Reached depth: 14
+Time elapsed: 47780ms
+f2
+Timeout thread is alive!
+Effect of your move:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--O--|--|
+4 O--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--B-----O-----B--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 2;
+Black Checkers: 2;
+White Checkers On Board: 7;
+Black Checkers On Board: 6;
+
+Waiting for your opponent move...
+Your Opponent did his move, and the result is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--O--|--|
+4 O--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--B-----W-----B--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 1;
+Black Checkers: 2;
+White Checkers On Board: 8;
+Black Checkers On Board: 6;
+
+Player B, do your move:
+Depth 1... done! 0ms - Best move: e3 - [NODES = 14, QNODES = 0, TT HITS: 0%, TT SIZE: 1]
+Depth 2... done! 2ms - Best move: g1 - [NODES = 54, QNODES = 15, TT HITS: 8%, TT SIZE: 11]
+Depth 3... done! 5ms - Best move: c5 - [NODES = 368, QNODES = 0, TT HITS: 23%, TT SIZE: 57]
+Depth 4... done! 7ms - Best move: c5 - [NODES = 337, QNODES = 0, TT HITS: 17%, TT SIZE: 155]
+Depth 5... done! 16ms - Best move: a4 - [NODES = 2686, QNODES = 0, TT HITS: 26%, TT SIZE: 659]
+Depth 6... done! 35ms - Best move: g1 - [NODES = 5258, QNODES = 0, TT HITS: 20%, TT SIZE: 2236]
+Depth 7... done! 109ms - Best move: a1 - [NODES = 24805, QNODES = 2, TT HITS: 24%, TT SIZE: 6229]
+Depth 8... done! 191ms - Best move: a1 - [NODES = 33867, QNODES = 0, TT HITS: 27%, TT SIZE: 16523]
+Depth 9... done! 471ms - Best move: a1 - [NODES = 100431, QNODES = 66, TT HITS: 26%, TT SIZE: 30502]
+Depth 10... done! 1175ms - Best move: e4 - [NODES = 275621, QNODES = 234, TT HITS: 26%, TT SIZE: 118169]
+Depth 11... done! 4824ms - Best move: a4 - [NODES = 1214441, QNODES = 788, TT HITS: 26%, TT SIZE: 333395]
+Depth 12... done! 8007ms - Best move: a4 - [NODES = 1013035, QNODES = 389, TT HITS: 24%, TT SIZE: 681659]
+Depth 13... done! 17128ms - Best move: a4 - [NODES = 2931665, QNODES = 3976, TT HITS: 23%, TT SIZE: 1145173]
+Depth 14... completed! 41331ms [NODES = 7448674, QNODES = 3087, TT HITS: 36%, TT SIZE: 3292032]
+Reached depth: 14
+Timeout thread is alive!
+Time elapsed: 41343ms
+a4
+Effect of your move:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--O--|--|
+4 B--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--B-----W-----B--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 1;
+Black Checkers: 1;
+White Checkers On Board: 8;
+Black Checkers On Board: 7;
+
+Waiting for your opponent move...
+Your Opponent did his move, and the result is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--O--|--|
+4 B--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--B-----W-----B--|
+1 O--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 0;
+Black Checkers: 1;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+Player B, do your move:
+Depth 1... done! 0ms - Best move: d3 - [NODES = 10, QNODES = 0, TT HITS: 0%, TT SIZE: 1]
+Depth 2... done! 1ms - Best move: d3 - [NODES = 20, QNODES = 0, TT HITS: 0%, TT SIZE: 9]
+Depth 3... done! 4ms - Best move: c3 - [NODES = 117, QNODES = 0, TT HITS: 14%, TT SIZE: 22]
+Depth 4... done! 6ms - Best move: e4 - [NODES = 267, QNODES = 0, TT HITS: 9%, TT SIZE: 109]
+Depth 5... done! 12ms - Best move: e5 - [NODES = 1185, QNODES = 0, TT HITS: 18%, TT SIZE: 265]
+Depth 6... done! 23ms - Best move: e5 - [NODES = 1678, QNODES = 0, TT HITS: 15%, TT SIZE: 893]
+Depth 7... done! 54ms - Best move: e5 - [NODES = 9485, QNODES = 19, TT HITS: 18%, TT SIZE: 2160]
+Depth 8... done! 112ms - Best move: e5 - [NODES = 20003, QNODES = 6, TT HITS: 23%, TT SIZE: 7927]
+Depth 9... done! 266ms - Best move: e4 - [NODES = 54412, QNODES = 139, TT HITS: 22%, TT SIZE: 16044]
+Depth 10... done! 676ms - Best move: e4 - [NODES = 163966, QNODES = 145, TT HITS: 31%, TT SIZE: 56052]
+Depth 11... done! 1671ms - Best move: e4 - [NODES = 353394, QNODES = 808, TT HITS: 28%, TT SIZE: 106647]
+Depth 12... done! 3797ms - Best move: e4 - [NODES = 795516, QNODES = 747, TT HITS: 32%, TT SIZE: 328796]
+Depth 13... done! 10013ms - Best move: e4 - [NODES = 2000711, QNODES = 2605, TT HITS: 30%, TT SIZE: 635551]
+Depth 14... done! 22652ms - Best move: e4 - [NODES = 4165089, QNODES = 2037, TT HITS: 34%, TT SIZE: 1675456]
+Depth 15... done! 39356ms - Best move: e5 - [NODES = 5254131, QNODES = 9409, TT HITS: 36%, TT SIZE: 2391731]
+Depth 16... aborted!
+Reached depth: 16
+Time elapsed: 58002ms
+e5
+Effect of your move:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--B--|--|
+4 B--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--B-----W-----B--|
+1 O--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+Waiting for your opponent move...
+Your Opponent did his move, and the result is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--B--|--|
+4 B--W--B     O--W--W
+3 |--|--O--O--O--|--|
+2 |--B-----W-----B--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+Player B, do your move:
+Depth 1... done! 0ms - Best move: c4c5d2 - [NODES = 16, QNODES = 0, TT HITS: 0%, TT SIZE: 1]
+Depth 2... done! 1ms - Best move: c4c5d2 - [NODES = 31, QNODES = 0, TT HITS: 0%, TT SIZE: 13]
+Depth 3... done! 3ms - Best move: c4c5d2 - [NODES = 152, QNODES = 0, TT HITS: 2%, TT SIZE: 27]
+Depth 4... done! 6ms - Best move: c4c5d2 - [NODES = 212, QNODES = 0, TT HITS: 9%, TT SIZE: 100]
+Depth 5... done! 11ms - Best move: c4c5d2 - [NODES = 1483, QNODES = 0, TT HITS: 8%, TT SIZE: 341]
+Depth 6... done! 23ms - Best move: c4c5g4 - [NODES = 3636, QNODES = 0, TT HITS: 20%, TT SIZE: 1486]
+Depth 7... done! 52ms - Best move: c4c5g4 - [NODES = 8640, QNODES = 82, TT HITS: 16%, TT SIZE: 3004]
+Depth 8... done! 117ms - Best move: c4c5g4 - [NODES = 23316, QNODES = 66, TT HITS: 21%, TT SIZE: 9198]
+Depth 9... done! 284ms - Best move: c4c5g4 - [NODES = 59359, QNODES = 48, TT HITS: 21%, TT SIZE: 19338]
+Depth 10... done! 502ms - Best move: c4c5g4 - [NODES = 84380, QNODES = 33, TT HITS: 23%, TT SIZE: 44075]
+Depth 11... done! 1641ms - Best move: d1g1 - [NODES = 375679, QNODES = 598, TT HITS: 21%, TT SIZE: 103954]
+Depth 12... done! 4077ms - Best move: d1g1 - [NODES = 844154, QNODES = 169, TT HITS: 30%, TT SIZE: 303466]
+Depth 13... done! 5158ms - Best move: d1g1 - [NODES = 382194, QNODES = 771, TT HITS: 29%, TT SIZE: 356939]
+Depth 14... done! 8031ms - Best move: d1g1 - [NODES = 996220, QNODES = 468, TT HITS: 32%, TT SIZE: 591227]
+Depth 15... done! 18098ms - Best move: d1g1 - [NODES = 3367890, QNODES = 7531, TT HITS: 36%, TT SIZE: 1104892]
+Depth 16... done! 36607ms - Best move: d1g1 - [NODES = 5845551, QNODES = 1560, TT HITS: 39%, TT SIZE: 2256157]
+Depth 17... aborted!
+Reached depth: 17
+Time elapsed: 58003ms
+d1g1
+Effect of your move:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--B--|--|
+4 B--W--B     O--W--W
+3 |--|--O--O--O--|--|
+2 |--B-----W-----B--|
+1 O--------O--------B
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+Waiting for your opponent move...
+Your Opponent did his move, and the result is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--B--|--|
+4 B--W--B     W--O--W
+3 |--|--O--O--O--|--|
+2 |--B-----W-----B--|
+1 O--------O--------B
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+Player B, do your move:
+Depth 1... done! 0ms - Best move: c4c5g4 - [NODES = 14, QNODES = 0, TT HITS: 0%, TT SIZE: 1]
+Depth 2... done! 1ms - Best move: c4c5e4 - [NODES = 42, QNODES = 0, TT HITS: 7%, TT SIZE: 12]
+Depth 3... done! 4ms - Best move: f2f4 - [NODES = 176, QNODES = 0, TT HITS: 21%, TT SIZE: 35]
+Depth 4... done! 7ms - Best move: f2f4 - [NODES = 222, QNODES = 0, TT HITS: 10%, TT SIZE: 112]
+Depth 5... done! 11ms - Best move: f2f4 - [NODES = 656, QNODES = 0, TT HITS: 9%, TT SIZE: 198]
+Depth 6... done! 17ms - Best move: f2f4 - [NODES = 1450, QNODES = 0, TT HITS: 10%, TT SIZE: 674]
+Depth 7... done! 34ms - Best move: f2f4 - [NODES = 4740, QNODES = 0, TT HITS: 12%, TT SIZE: 1323]
+Depth 8... done! 55ms - Best move: f2f4 - [NODES = 6663, QNODES = 0, TT HITS: 17%, TT SIZE: 3721]
+Depth 9... done! 206ms - Best move: f2f4 - [NODES = 52976, QNODES = 13, TT HITS: 23%, TT SIZE: 11786]
+Depth 10... done! 344ms - Best move: f2f4 - [NODES = 55368, QNODES = 2, TT HITS: 22%, TT SIZE: 30529]
+Depth 11... done! 434ms - Best move: f2f4 - [NODES = 30959, QNODES = 69, TT HITS: 22%, TT SIZE: 35051]
+Depth 12... done! 450ms - Best move: f2f4 - [NODES = 6170, QNODES = 8, TT HITS: 22%, TT SIZE: 37253]
+Depth 13... done! 554ms - Best move: f2f4 - [NODES = 35495, QNODES = 578, TT HITS: 21%, TT SIZE: 41858]
+Depth 14... done! 656ms - Best move: f2f4 - [NODES = 45412, QNODES = 330, TT HITS: 22%, TT SIZE: 56429]
+Depth 15... done! 1114ms - Best move: f2f4 - [NODES = 160362, QNODES = 961, TT HITS: 20%, TT SIZE: 73696]
+Depth 16... done! 1565ms - Best move: f2f4 - [NODES = 201596, QNODES = 487, TT HITS: 23%, TT SIZE: 140701]
+Depth 17... done! 3847ms - Best move: f2f4 - [NODES = 775440, QNODES = 3105, TT HITS: 21%, TT SIZE: 238563]
+Depth 18... done! 6351ms - Best move: f2f4 - [NODES = 969567, QNODES = 1334, TT HITS: 25%, TT SIZE: 557685]
+Depth 19... done! 18561ms - Best move: f2f4 - [NODES = 3752820, QNODES = 29652, TT HITS: 24%, TT SIZE: 1004554]
+Depth 20... done! 33699ms - Best move: f2f4 - [NODES = 4810841, QNODES = 12681, TT HITS: 29%, TT SIZE: 2461654]
+Depth 21... aborted!
+Reached depth: 21
+Time elapsed: 58003ms
+f2f4
+Effect of your move:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--B--|--|
+4 B--W--B     W--B--W
+3 |--|--O--O--O--|--|
+2 |--B-----W-----O--|
+1 O--------O--------B
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+Waiting for your opponent move...
+Your Opponent did his move, and the result is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--B--|--|
+4 B--W--B     O--B--W
+3 |--|--O--O--W--|--|
+2 |--B-----W-----O--|
+1 O--------O--------B
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+Player B, do your move:
+Depth 1... done! 0ms - Best move: c4c5d2 - [NODES = 16, QNODES = 0, TT HITS: 0%, TT SIZE: 1]
+Depth 2... done! 1ms - Best move: c4c5g4 - [NODES = 43, QNODES = 0, TT HITS: 6%, TT SIZE: 14]
+Depth 3... done! 3ms - Best move: c4c5g4 - [NODES = 223, QNODES = 0, TT HITS: 15%, TT SIZE: 34]
+Depth 4... done! 5ms - Best move: c4c5g4 - [NODES = 407, QNODES = 0, TT HITS: 18%, TT SIZE: 163]
+Depth 5... done! 11ms - Best move: c4c5g4 - [NODES = 1564, QNODES = 0, TT HITS: 17%, TT SIZE: 387]
+Depth 6... done! 20ms - Best move: c4c5g4 - [NODES = 2945, QNODES = 0, TT HITS: 24%, TT SIZE: 1225]
+Depth 7... done! 78ms - Best move: c4c5g4 - [NODES = 19325, QNODES = 6, TT HITS: 31%, TT SIZE: 3056]
+Depth 8... done! 144ms - Best move: c4c5g4 - [NODES = 30754, QNODES = 7, TT HITS: 37%, TT SIZE: 10517]
+Depth 9... done! 398ms - Best move: c4c5e3 - [NODES = 89206, QNODES = 86, TT HITS: 38%, TT SIZE: 18659]
+Depth 10... done! 401ms - Best move: c4c5e3 - [NODES = 648, QNODES = 53, TT HITS: 37%, TT SIZE: 18889]
+Depth 11... done! 409ms - Best move: c4c5e3 - [NODES = 2362, QNODES = 88, TT HITS: 37%, TT SIZE: 19079]
+Depth 12... done! 414ms - Best move: c4c5e3 - [NODES = 1315, QNODES = 68, TT HITS: 37%, TT SIZE: 19422]
+Depth 13... done! 417ms - Best move: c4c5e3 - [NODES = 663, QNODES = 60, TT HITS: 37%, TT SIZE: 19498]
+Depth 14... done! 423ms - Best move: c4c5e3 - [NODES = 1519, QNODES = 34, TT HITS: 37%, TT SIZE: 20096]
+Depth 15... done! 448ms - Best move: c4c5e3 - [NODES = 6657, QNODES = 565, TT HITS: 36%, TT SIZE: 21078]
+Depth 16... done! 469ms - Best move: c4c5e3 - [NODES = 8569, QNODES = 229, TT HITS: 34%, TT SIZE: 24137]
+Depth 17... done! 571ms - Best move: c4c5e3 - [NODES = 33407, QNODES = 1109, TT HITS: 32%, TT SIZE: 27934]
+Depth 18... done! 655ms - Best move: c4c5e3 - [NODES = 37202, QNODES = 404, TT HITS: 30%, TT SIZE: 40219]
+Depth 19... done! 1114ms - Best move: c4c5e3 - [NODES = 158301, QNODES = 2557, TT HITS: 26%, TT SIZE: 62547]
+Depth 20... done! 1726ms - Best move: c4c5e3 - [NODES = 280588, QNODES = 1809, TT HITS: 26%, TT SIZE: 163938]
+Depth 21... done! 4418ms - Best move: c4c5e3 - [NODES = 900850, QNODES = 21100, TT HITS: 24%, TT SIZE: 265583]
+Depth 22... done! 6440ms - Best move: c4c5e3 - [NODES = 781879, QNODES = 4535, TT HITS: 27%, TT SIZE: 504305]
+Depth 23... done! 14416ms - Best move: c4c5e3 - [NODES = 2632865, QNODES = 22964, TT HITS: 26%, TT SIZE: 823961]
+Depth 24... done! 24806ms - Best move: c4c5e3 - [NODES = 3553317, QNODES = 10502, TT HITS: 30%, TT SIZE: 1834677]
+Depth 25... aborted!
+Reached depth: 25
+Time elapsed: 58004ms
+c4c5e3
+java.net.SocketException: Connection reset
+        at java.base/java.net.SocketInputStream.read(Unknown Source)
+        at java.base/java.net.SocketInputStream.read(Unknown Source)
+        at java.base/java.io.BufferedInputStream.fill(Unknown Source)
+        at java.base/java.io.BufferedInputStream.read(Unknown Source)
+        at java.base/java.io.ObjectInputStream$PeekInputStream.peek(Unknown Source)
+        at java.base/java.io.ObjectInputStream$BlockDataInputStream.peek(Unknown Source)
+        at java.base/java.io.ObjectInputStream$BlockDataInputStream.peekByte(Unknown Source)
+        at java.base/java.io.ObjectInputStream.readObject0(Unknown Source)
+        at java.base/java.io.ObjectInputStream.readObject(Unknown Source)
+        at it.unibo.ai.didattica.mulino.client.MulinoClient.read(MulinoClient.java:91)
+        at it.unibo.ai.didattica.mulino.client.players.Player.run(Player.java:52)

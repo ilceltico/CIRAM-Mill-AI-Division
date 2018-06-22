@@ -1,0 +1,1514 @@
+Current state is:
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 9;
+Black Checkers: 9;
+White Checkers On Board: 0;
+Black Checkers On Board: 0;
+
+New state is:
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 8;
+Black Checkers: 9;
+White Checkers On Board: 1;
+Black Checkers On Board: 0;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 8;
+Black Checkers: 8;
+White Checkers On Board: 1;
+Black Checkers On Board: 1;
+
+MTD-f Variant Transposition History:
+Elapsed time: 13
+Expanded states: 23
+Number of Alpha-Beta iterations: 2
+First guess: 0
+TT Hits: 1
+Selected action is: d7, value: 18
+Level 1 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 5
+Expanded states: 73
+Number of Alpha-Beta iterations: 2
+First guess: 0
+TT Hits: 3
+Selected action is: d7, value: 0
+Level 2 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 15
+Expanded states: 548
+Number of Alpha-Beta iterations: 2
+First guess: 18
+TT Hits: 26
+Selected action is: d7, value: 18
+Level 3 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 60
+Expanded states: 2897
+Number of Alpha-Beta iterations: 2
+First guess: 0
+TT Hits: 361
+Selected action is: d2, value: -1
+Level 4 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 175
+Expanded states: 15450
+Number of Alpha-Beta iterations: 2
+First guess: 18
+TT Hits: 843
+Selected action is: d2, value: 18
+Level 5 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 390
+Expanded states: 84608
+Number of Alpha-Beta iterations: 2
+First guess: -1
+TT Hits: 8428
+Selected action is: d2, value: -2
+Level 6 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 1712
+Expanded states: 415044
+Number of Alpha-Beta iterations: 3
+First guess: 18
+TT Hits: 35469
+Selected action is: d2, value: 19
+Level 7 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 2869
+Expanded states: 1464823
+Number of Alpha-Beta iterations: 2
+First guess: -2
+TT Hits: 207312
+Selected action is: d2, value: -2
+Level 8 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 42400
+Expanded states: 26616999
+Number of Alpha-Beta iterations: 3
+First guess: 19
+TT Hits: 3164039
+Selected action is: b4, value: 20
+Level 9 completed
+
+1733
+New state is:
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 8;
+White Checkers On Board: 2;
+Black Checkers On Board: 1;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 7;
+Black Checkers: 7;
+White Checkers On Board: 2;
+Black Checkers On Board: 2;
+
+MTD-f Variant Transposition History:
+Elapsed time: 0
+Expanded states: 5134031
+Number of Alpha-Beta iterations: 4
+First guess: -2
+TT Hits: 472575
+Selected action is: d7, value: 18
+Level 1 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 1
+Expanded states: 105
+Number of Alpha-Beta iterations: 3
+First guess: 20
+TT Hits: 24
+Selected action is: a1, value: 0
+Level 2 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 1
+Expanded states: 861
+Number of Alpha-Beta iterations: 3
+First guess: 18
+TT Hits: 43
+Selected action is: d6, value: 25
+Level 3 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 3
+Expanded states: 1860
+Number of Alpha-Beta iterations: 2
+First guess: 0
+TT Hits: 204
+Selected action is: g7, value: 0
+Level 4 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 45
+Expanded states: 34619
+Number of Alpha-Beta iterations: 9
+First guess: 25
+TT Hits: 3539
+Selected action is: b6, value: 36
+Level 5 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 85
+Expanded states: 57577
+Number of Alpha-Beta iterations: 2
+First guess: 0
+TT Hits: 4785
+Selected action is: b6, value: -1
+Level 6 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 523
+Expanded states: 275667
+Number of Alpha-Beta iterations: 4
+First guess: 36
+TT Hits: 28868
+Selected action is: b6, value: 38
+Level 7 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 5564
+Expanded states: 2486988
+Number of Alpha-Beta iterations: 3
+First guess: -1
+TT Hits: 308485
+Selected action is: d2, value: 0
+Level 8 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 13906
+Expanded states: 13274562
+Number of Alpha-Beta iterations: 4
+First guess: 38
+TT Hits: 1451921
+Selected action is: d7, value: 35
+Level 9 completed
+
+1637
+New state is:
+7 W--------W--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 7;
+White Checkers On Board: 3;
+Black Checkers On Board: 2;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------W--------B
+6 |--O-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 6;
+Black Checkers: 6;
+White Checkers On Board: 3;
+Black Checkers On Board: 3;
+
+MTD-f Variant Transposition History:
+Elapsed time: 0
+Expanded states: 20507708
+Number of Alpha-Beta iterations: 5
+First guess: 0
+TT Hits: 3295923
+Selected action is: a1, value: 18
+Level 1 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 0
+Expanded states: 228
+Number of Alpha-Beta iterations: 6
+First guess: 35
+TT Hits: 82
+Selected action is: a1, value: -1
+Level 2 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 3
+Expanded states: 1061
+Number of Alpha-Beta iterations: 8
+First guess: 18
+TT Hits: 153
+Selected action is: d6, value: 35
+Level 3 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 5
+Expanded states: 1421
+Number of Alpha-Beta iterations: 2
+First guess: -1
+TT Hits: 104
+Selected action is: d6, value: -2
+Level 4 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 26
+Expanded states: 25143
+Number of Alpha-Beta iterations: 5
+First guess: 35
+TT Hits: 1787
+Selected action is: b6, value: 38
+Level 5 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 78
+Expanded states: 52013
+Number of Alpha-Beta iterations: 2
+First guess: -2
+TT Hits: 5907
+Selected action is: a1, value: -2
+Level 6 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 620
+Expanded states: 418340
+Number of Alpha-Beta iterations: 4
+First guess: 38
+TT Hits: 40469
+Selected action is: a1, value: 35
+Level 7 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 1544
+Expanded states: 945206
+Number of Alpha-Beta iterations: 2
+First guess: -2
+TT Hits: 134361
+Selected action is: d6, value: -2
+Level 8 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 2856
+Expanded states: 2095570
+Number of Alpha-Beta iterations: 3
+First guess: 35
+TT Hits: 279433
+Selected action is: d6, value: 36
+Level 9 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 12307
+Expanded states: 11375885
+Number of Alpha-Beta iterations: 5
+First guess: -2
+TT Hits: 2358655
+Selected action is: b6, value: 1
+Level 10 completed
+
+1318
+New state is:
+7 W--------W--------B
+6 |--W-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 5;
+Black Checkers: 6;
+White Checkers On Board: 4;
+Black Checkers On Board: 3;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------W--------B
+6 |--W-----O-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--B-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 5;
+Black Checkers: 5;
+White Checkers On Board: 4;
+Black Checkers On Board: 4;
+
+MTD-f Variant Transposition History:
+Elapsed time: 0
+Expanded states: 29004618
+Number of Alpha-Beta iterations: 3
+First guess: 36
+TT Hits: 4475135
+Selected action is: d6, value: 35
+Level 1 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 0
+Expanded states: 86
+Number of Alpha-Beta iterations: 3
+First guess: 1
+TT Hits: 20
+Selected action is: d6, value: -2
+Level 2 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 2
+Expanded states: 988
+Number of Alpha-Beta iterations: 8
+First guess: 35
+TT Hits: 130
+Selected action is: d6, value: 48
+Level 3 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 4
+Expanded states: 2218
+Number of Alpha-Beta iterations: 6
+First guess: -2
+TT Hits: 282
+Selected action is: d6, value: 11
+Level 4 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 10
+Expanded states: 7919
+Number of Alpha-Beta iterations: 2
+First guess: 48
+TT Hits: 463
+Selected action is: d6, value: 47
+Level 5 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 45
+Expanded states: 24212
+Number of Alpha-Beta iterations: 2
+First guess: 11
+TT Hits: 4157
+Selected action is: d6, value: 10
+Level 6 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 226
+Expanded states: 192101
+Number of Alpha-Beta iterations: 3
+First guess: 47
+TT Hits: 18090
+Selected action is: d6, value: 45
+Level 7 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 765
+Expanded states: 433766
+Number of Alpha-Beta iterations: 2
+First guess: 10
+TT Hits: 87270
+Selected action is: d6, value: 10
+Level 8 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 7809
+Expanded states: 8744791
+Number of Alpha-Beta iterations: 12
+First guess: 45
+TT Hits: 1260904
+Selected action is: d6, value: 34
+Level 9 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 28600
+Expanded states: 30316980
+Number of Alpha-Beta iterations: 24
+First guess: 10
+TT Hits: 14054254
+Selected action is: d6, value: -13
+Level 10 completed
+
+1522
+New state is:
+7 W--------W--------B
+6 |--W-----W-----O--|
+5 |--|--O--O--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--B-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 4;
+Black Checkers: 5;
+White Checkers On Board: 5;
+Black Checkers On Board: 4;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------W--------B
+6 |--W-----W-----O--|
+5 |--|--O--B--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--B-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 4;
+Black Checkers: 4;
+White Checkers On Board: 5;
+Black Checkers On Board: 5;
+
+MTD-f Variant Transposition History:
+Elapsed time: 1
+Expanded states: 21107536
+Number of Alpha-Beta iterations: 9
+First guess: 34
+TT Hits: 6176497
+Selected action is: f6g7, value: 48
+Level 1 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 2
+Expanded states: 66
+Number of Alpha-Beta iterations: 2
+First guess: -13
+TT Hits: 3
+Selected action is: f6g7, value: 12
+Level 2 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 5
+Expanded states: 628
+Number of Alpha-Beta iterations: 2
+First guess: 48
+TT Hits: 32
+Selected action is: f6g7, value: 47
+Level 3 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 10
+Expanded states: 1503
+Number of Alpha-Beta iterations: 2
+First guess: 12
+TT Hits: 149
+Selected action is: f6g7, value: 11
+Level 4 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 13
+Expanded states: 8367
+Number of Alpha-Beta iterations: 2
+First guess: 47
+TT Hits: 478
+Selected action is: f6g7, value: 46
+Level 5 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 28
+Expanded states: 17887
+Number of Alpha-Beta iterations: 2
+First guess: 11
+TT Hits: 3230
+Selected action is: f6g7, value: 10
+Level 6 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 948
+Expanded states: 1055018
+Number of Alpha-Beta iterations: 13
+First guess: 46
+TT Hits: 142128
+Selected action is: f6g7, value: 34
+Level 7 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 3255
+Expanded states: 2112667
+Number of Alpha-Beta iterations: 19
+First guess: 10
+TT Hits: 940199
+Selected action is: f6g7, value: -8
+Level 8 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 11636
+Expanded states: 11445873
+Number of Alpha-Beta iterations: 32
+First guess: 34
+TT Hits: 3494169
+Selected action is: f6b2, value: 3
+Level 9 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 10884
+Expanded states: 8796692
+Number of Alpha-Beta iterations: 15
+First guess: -8
+TT Hits: 3802999
+Selected action is: f6b2, value: -22
+Level 10 completed
+
+1833
+New state is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 3;
+Black Checkers: 4;
+White Checkers On Board: 6;
+Black Checkers On Board: 4;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--O--|--|
+4 O--W--B     O--O--O
+3 |--|--O--O--O--|--|
+2 |--B-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 3;
+Black Checkers: 3;
+White Checkers On Board: 6;
+Black Checkers On Board: 5;
+
+MTD-f Variant Transposition History:
+Elapsed time: 3
+Expanded states: 23103105
+Number of Alpha-Beta iterations: 18
+First guess: 3
+TT Hits: 6473066
+Selected action is: f2, value: 47
+Level 1 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 1
+Expanded states: 106
+Number of Alpha-Beta iterations: 3
+First guess: -22
+TT Hits: 11
+Selected action is: a1, value: 11
+Level 2 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 2
+Expanded states: 310
+Number of Alpha-Beta iterations: 2
+First guess: 47
+TT Hits: 20
+Selected action is: f2, value: 46
+Level 3 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 2
+Expanded states: 818
+Number of Alpha-Beta iterations: 2
+First guess: 11
+TT Hits: 71
+Selected action is: f2, value: 10
+Level 4 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 20
+Expanded states: 17998
+Number of Alpha-Beta iterations: 10
+First guess: 46
+TT Hits: 2934
+Selected action is: f2, value: 34
+Level 5 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 78
+Expanded states: 65589
+Number of Alpha-Beta iterations: 18
+First guess: 10
+TT Hits: 28185
+Selected action is: f2, value: -8
+Level 6 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 332
+Expanded states: 240329
+Number of Alpha-Beta iterations: 24
+First guess: 34
+TT Hits: 80924
+Selected action is: f4, value: 3
+Level 7 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 331
+Expanded states: 244984
+Number of Alpha-Beta iterations: 15
+First guess: -8
+TT Hits: 114637
+Selected action is: f4, value: -22
+Level 8 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 1356
+Expanded states: 890102
+Number of Alpha-Beta iterations: 19
+First guess: 3
+TT Hits: 259502
+Selected action is: f4, value: -15
+Level 9 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 4677
+Expanded states: 2836471
+Number of Alpha-Beta iterations: 19
+First guess: -22
+TT Hits: 813819
+Selected action is: d2, value: -40
+Level 10 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 6914
+Expanded states: 5369115
+Number of Alpha-Beta iterations: 15
+First guess: -15
+TT Hits: 1445224
+Selected action is: d2, value: -29
+Level 11 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 19277
+Expanded states: 14511299
+Number of Alpha-Beta iterations: 10
+First guess: -40
+TT Hits: 2679848
+Selected action is: f4, value: -49
+Level 12 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 8535
+Expanded states: 5299843
+Number of Alpha-Beta iterations: 2
+First guess: -29
+TT Hits: 1682497
+Selected action is: f4, value: -30
+Level 13 completed
+
+1937
+New state is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--O--|--|
+4 O--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--B-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 2;
+Black Checkers: 3;
+White Checkers On Board: 7;
+Black Checkers On Board: 5;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--O--|--|
+4 O--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--B-----O-----B--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 2;
+Black Checkers: 2;
+White Checkers On Board: 7;
+Black Checkers On Board: 6;
+
+MTD-f Variant Transposition History:
+Elapsed time: 0
+Expanded states: 11267165
+Number of Alpha-Beta iterations: 4
+First guess: -49
+TT Hits: 1716037
+Selected action is: d2, value: 36
+Level 1 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 0
+Expanded states: 70
+Number of Alpha-Beta iterations: 2
+First guess: -30
+TT Hits: 3
+Selected action is: d2, value: -1
+Level 2 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 5
+Expanded states: 291
+Number of Alpha-Beta iterations: 2
+First guess: 36
+TT Hits: 24
+Selected action is: d2, value: 26
+Level 3 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 10
+Expanded states: 2827
+Number of Alpha-Beta iterations: 11
+First guess: -1
+TT Hits: 1198
+Selected action is: d2, value: -17
+Level 4 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 12
+Expanded states: 8064
+Number of Alpha-Beta iterations: 12
+First guess: 26
+TT Hits: 2520
+Selected action is: d2, value: 3
+Level 5 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 20
+Expanded states: 10525
+Number of Alpha-Beta iterations: 6
+First guess: -17
+TT Hits: 3375
+Selected action is: d2, value: -22
+Level 6 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 91
+Expanded states: 70736
+Number of Alpha-Beta iterations: 19
+First guess: 3
+TT Hits: 19861
+Selected action is: d2, value: -15
+Level 7 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 302
+Expanded states: 242869
+Number of Alpha-Beta iterations: 23
+First guess: -22
+TT Hits: 77428
+Selected action is: d2, value: -44
+Level 8 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 554
+Expanded states: 381333
+Number of Alpha-Beta iterations: 15
+First guess: -15
+TT Hits: 98692
+Selected action is: d2, value: -29
+Level 9 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 457
+Expanded states: 391598
+Number of Alpha-Beta iterations: 6
+First guess: -44
+TT Hits: 108158
+Selected action is: d2, value: -49
+Level 10 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 1024
+Expanded states: 536602
+Number of Alpha-Beta iterations: 2
+First guess: -29
+TT Hits: 106755
+Selected action is: d2, value: -30
+Level 11 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 7993
+Expanded states: 5879385
+Number of Alpha-Beta iterations: 2
+First guess: -49
+TT Hits: 706362
+Selected action is: d2, value: -49
+Level 12 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 33206
+Expanded states: 25965873
+Number of Alpha-Beta iterations: 20
+First guess: -30
+TT Hits: 7237181
+Selected action is: d2, value: -49
+Level 13 completed
+
+1326
+New state is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--O--|--|
+4 O--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--B-----W-----B--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 1;
+Black Checkers: 2;
+White Checkers On Board: 8;
+Black Checkers On Board: 6;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--O--|--|
+4 B--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--B-----W-----B--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 1;
+Black Checkers: 1;
+White Checkers On Board: 8;
+Black Checkers On Board: 7;
+
+MTD-f Variant Transposition History:
+Elapsed time: 0
+Expanded states: 11904989
+Number of Alpha-Beta iterations: 12
+First guess: -49
+TT Hits: 5422571
+Selected action is: g4, value: 47
+Level 1 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 1
+Expanded states: 27
+Number of Alpha-Beta iterations: 2
+First guess: -49
+TT Hits: 3
+Selected action is: g4, value: 9
+Level 2 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 1
+Expanded states: 151
+Number of Alpha-Beta iterations: 4
+First guess: 47
+TT Hits: 54
+Selected action is: e4, value: 12
+Level 3 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 9
+Expanded states: 1558
+Number of Alpha-Beta iterations: 15
+First guess: 9
+TT Hits: 679
+Selected action is: g4, value: -17
+Level 4 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 3
+Expanded states: 1560
+Number of Alpha-Beta iterations: 6
+First guess: 12
+TT Hits: 445
+Selected action is: g4, value: -15
+Level 5 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 10
+Expanded states: 6878
+Number of Alpha-Beta iterations: 13
+First guess: -17
+TT Hits: 2801
+Selected action is: g4, value: -30
+Level 6 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 13
+Expanded states: 7669
+Number of Alpha-Beta iterations: 5
+First guess: -15
+TT Hits: 1854
+Selected action is: g4, value: -20
+Level 7 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 154
+Expanded states: 117957
+Number of Alpha-Beta iterations: 20
+First guess: -30
+TT Hits: 30008
+Selected action is: a1, value: -49
+Level 8 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 170
+Expanded states: 113072
+Number of Alpha-Beta iterations: 10
+First guess: -20
+TT Hits: 27189
+Selected action is: d3, value: -30
+Level 9 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 628
+Expanded states: 163289
+Number of Alpha-Beta iterations: 2
+First guess: -49
+TT Hits: 19553
+Selected action is: g1, value: -49
+Level 10 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 3038
+Expanded states: 1611770
+Number of Alpha-Beta iterations: 20
+First guess: -30
+TT Hits: 472254
+Selected action is: d3, value: -49
+Level 11 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 2297
+Expanded states: 2324348
+Number of Alpha-Beta iterations: 17
+First guess: -49
+TT Hits: 693991
+Selected action is: d3, value: -65
+Level 12 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 2804
+Expanded states: 2610904
+Number of Alpha-Beta iterations: 7
+First guess: -49
+TT Hits: 904598
+Selected action is: d3, value: -55
+Level 13 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 11501
+Expanded states: 11500935
+Number of Alpha-Beta iterations: 8
+First guess: -65
+TT Hits: 2742873
+Selected action is: g1, value: -72
+Level 14 completed
+
+1561
+New state is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--O--|--|
+4 B--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--B-----W-----B--|
+1 O--------B--------W
+  a  b  c  d  e  f  g
+Phase: First;
+White Checkers: 0;
+Black Checkers: 1;
+White Checkers On Board: 9;
+Black Checkers On Board: 7;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--B--|--|
+4 B--W--B     O--W--O
+3 |--|--O--O--O--|--|
+2 |--B-----W-----B--|
+1 O--------B--------W
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+MTD-f Variant Transposition History:
+Elapsed time: 1
+Expanded states: 30921493
+Number of Alpha-Beta iterations: 26
+First guess: -55
+TT Hits: 9787549
+Selected action is: g1g4, value: 17
+Level 1 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 0
+Expanded states: 49
+Number of Alpha-Beta iterations: 3
+First guess: -72
+TT Hits: 6
+Selected action is: f4e4, value: -27
+Level 2 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 0
+Expanded states: 93
+Number of Alpha-Beta iterations: 3
+First guess: 17
+TT Hits: 25
+Selected action is: f4e4, value: -10
+Level 3 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 2
+Expanded states: 641
+Number of Alpha-Beta iterations: 11
+First guess: -27
+TT Hits: 244
+Selected action is: f4g4, value: -59
+Level 4 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 6
+Expanded states: 1035
+Number of Alpha-Beta iterations: 6
+First guess: -10
+TT Hits: 252
+Selected action is: f4e4, value: -49
+Level 5 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 13
+Expanded states: 10843
+Number of Alpha-Beta iterations: 11
+First guess: -59
+TT Hits: 2388
+Selected action is: f4e4, value: -39
+Level 6 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 45
+Expanded states: 39263
+Number of Alpha-Beta iterations: 22
+First guess: -49
+TT Hits: 20910
+Selected action is: f4e4, value: -28
+Level 7 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 67
+Expanded states: 45578
+Number of Alpha-Beta iterations: 11
+First guess: -39
+TT Hits: 7451
+Selected action is: f4e4, value: -49
+Level 8 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 81
+Expanded states: 54967
+Number of Alpha-Beta iterations: 17
+First guess: -28
+TT Hits: 14864
+Selected action is: f4e4, value: -49
+Level 9 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 706
+Expanded states: 469040
+Number of Alpha-Beta iterations: 5
+First guess: -49
+TT Hits: 79551
+Selected action is: g1g4, value: -46
+Level 10 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 2399
+Expanded states: 1746529
+Number of Alpha-Beta iterations: 15
+First guess: -49
+TT Hits: 927422
+Selected action is: g1g4, value: -36
+Level 11 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 2255
+Expanded states: 2222515
+Number of Alpha-Beta iterations: 27
+First guess: -46
+TT Hits: 547768
+Selected action is: g1g4, value: -72
+Level 12 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 12749
+Expanded states: 9674588
+Number of Alpha-Beta iterations: 50
+First guess: -36
+TT Hits: 3767079
+Selected action is: g1g4, value: -85
+Level 13 completed
+
+1981
+New state is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--B--|--|
+4 B--W--B     O--W--W
+3 |--|--O--O--O--|--|
+2 |--B-----W-----B--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--B--|--|
+4 B--W--B     O--W--W
+3 |--|--O--O--O--|--|
+2 |--B-----W-----B--|
+1 O--------O--------B
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+MTD-f Variant Transposition History:
+Elapsed time: 0
+Expanded states: 38143998
+Number of Alpha-Beta iterations: 51
+First guess: -72
+TT Hits: 8218561
+Selected action is: f4e4, value: 27
+Level 1 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 0
+Expanded states: 25
+Number of Alpha-Beta iterations: 2
+First guess: -85
+TT Hits: 3
+Selected action is: f4e4, value: -17
+Level 2 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 0
+Expanded states: 123
+Number of Alpha-Beta iterations: 4
+First guess: 27
+TT Hits: 24
+Selected action is: f4e4, value: -7
+Level 3 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 3
+Expanded states: 571
+Number of Alpha-Beta iterations: 4
+First guess: -17
+TT Hits: 101
+Selected action is: d2d1, value: -25
+Level 4 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 5
+Expanded states: 537
+Number of Alpha-Beta iterations: 2
+First guess: -7
+TT Hits: 72
+Selected action is: d2d1, value: -10
+Level 5 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 11
+Expanded states: 4658
+Number of Alpha-Beta iterations: 4
+First guess: -25
+TT Hits: 694
+Selected action is: d2d1, value: -28
+Level 6 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 17
+Expanded states: 8727
+Number of Alpha-Beta iterations: 10
+First guess: -10
+TT Hits: 2317
+Selected action is: d2d3, value: -23
+Level 7 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 27
+Expanded states: 19890
+Number of Alpha-Beta iterations: 9
+First guess: -28
+TT Hits: 5165
+Selected action is: d2d1, value: -36
+Level 8 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 41
+Expanded states: 25155
+Number of Alpha-Beta iterations: 2
+First guess: -23
+TT Hits: 6271
+Selected action is: d2d1, value: -24
+Level 9 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 492
+Expanded states: 446818
+Number of Alpha-Beta iterations: 37
+First guess: -36
+TT Hits: 102731
+Selected action is: d2d3, value: -72
+Level 10 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 351
+Expanded states: 283124
+Number of Alpha-Beta iterations: 34
+First guess: -24
+TT Hits: 111876
+Selected action is: d2d3, value: -85
+Level 11 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 1335
+Expanded states: 956519
+Number of Alpha-Beta iterations: 37
+First guess: -72
+TT Hits: 160618
+Selected action is: f4e4, value: -2147483647
+Level 12 completed
+
+56811
+New state is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--B--|--|
+4 B--W--B     W--O--W
+3 |--|--O--O--O--|--|
+2 |--B-----W-----B--|
+1 O--------O--------B
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Current state is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--B--|--|
+4 B--W--B     W--B--W
+3 |--|--O--O--O--|--|
+2 |--B-----W-----O--|
+1 O--------O--------B
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+MTD-f Variant Transposition History:
+Elapsed time: 0
+Expanded states: 8
+Number of Alpha-Beta iterations: 3
+First guess: -85
+TT Hits: 2
+Selected action is: d2f2, value: 2
+Level 1 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 1
+Expanded states: 52
+Number of Alpha-Beta iterations: 3
+First guess: -2147483647
+TT Hits: 8
+Selected action is: d2d1, value: -37
+Level 2 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 0
+Expanded states: 78
+Number of Alpha-Beta iterations: 3
+First guess: 2
+TT Hits: 23
+Selected action is: d2d1, value: -20
+Level 3 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 4
+Expanded states: 542
+Number of Alpha-Beta iterations: 2
+First guess: -37
+TT Hits: 32
+Selected action is: d2d1, value: -39
+Level 4 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 6
+Expanded states: 1970
+Number of Alpha-Beta iterations: 8
+First guess: -20
+TT Hits: 520
+Selected action is: d2f2, value: -42
+Level 5 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 6
+Expanded states: 3157
+Number of Alpha-Beta iterations: 8
+First guess: -39
+TT Hits: 1001
+Selected action is: d2d3, value: -54
+Level 6 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 12
+Expanded states: 6171
+Number of Alpha-Beta iterations: 2
+First guess: -42
+TT Hits: 1507
+Selected action is: e4e3, value: -43
+Level 7 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 62
+Expanded states: 50034
+Number of Alpha-Beta iterations: 18
+First guess: -54
+TT Hits: 13684
+Selected action is: d2d3, value: -72
+Level 8 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 453
+Expanded states: 107041
+Number of Alpha-Beta iterations: 24
+First guess: -43
+TT Hits: 40578
+Selected action is: e4e3, value: -85
+Level 9 completed
+
+MTD-f Variant Transposition History:
+Elapsed time: 159
+Expanded states: 153425
+Number of Alpha-Beta iterations: 35
+First guess: -72
+TT Hits: 32654
+Selected action is: e4e3, value: -2147483647
+Level 10 completed
+
+59000
+New state is:
+7 W--------W--------B
+6 |--W-----W-----W--|
+5 |--|--O--B--B--|--|
+4 B--W--B     O--B--W
+3 |--|--O--O--W--|--|
+2 |--B-----W-----O--|
+1 O--------O--------B
+  a  b  c  d  e  f  g
+Phase: Second;
+White Checkers: 0;
+Black Checkers: 0;
+White Checkers On Board: 9;
+Black Checkers On Board: 8;
+
+
+Waiting for opponent move...
+Exception in thread "main" java.net.SocketException: Connection reset
+	at java.base/java.net.SocketInputStream.read(Unknown Source)
+	at java.base/java.net.SocketInputStream.read(Unknown Source)
+	at java.base/java.io.BufferedInputStream.fill(Unknown Source)
+	at java.base/java.io.BufferedInputStream.read(Unknown Source)
+	at java.base/java.io.ObjectInputStream$PeekInputStream.peek(Unknown Source)
+	at java.base/java.io.ObjectInputStream$BlockDataInputStream.peek(Unknown Source)
+	at java.base/java.io.ObjectInputStream$BlockDataInputStream.peekByte(Unknown Source)
+	at java.base/java.io.ObjectInputStream.readObject0(Unknown Source)
+	at java.base/java.io.ObjectInputStream.readObject(Unknown Source)
+	at it.unibo.ai.mulino.CIRAMill.main.MulinoClient.read(MulinoClient.java:61)
+	at it.unibo.ai.mulino.CIRAMill.main.Program.main(Program.java:96)
