@@ -1,0 +1,17 @@
+Waiting for C++ Agent connection
+C++ Agent connected
+Connecting to server
+Connected to server
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.io.BufferedInputStream.fill(Unknown Source)
+	at java.io.BufferedInputStream.read(Unknown Source)
+	at java.io.ObjectInputStream$PeekInputStream.peek(Unknown Source)
+	at java.io.ObjectInputStream$BlockDataInputStream.peek(Unknown Source)
+	at java.io.ObjectInputStream$BlockDataInputStream.peekByte(Unknown Source)
+	at java.io.ObjectInputStream.readObject0(Unknown Source)
+	at java.io.ObjectInputStream.readObject(Unknown Source)
+	at it.unibo.ai.didattica.mulino.client.MulinoClient.read(MulinoClient.java:56)
+	at it.millgates.mw.MGCppAgent.main(MGCppAgent.java:108)
+Closing sockets

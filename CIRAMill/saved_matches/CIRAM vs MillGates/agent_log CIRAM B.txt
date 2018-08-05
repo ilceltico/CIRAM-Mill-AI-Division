@@ -1,0 +1,1200 @@
+
+C:\Users\Federico Stella\Desktop\New folder>.\MillGatesAgent.exe white  
+Chosen action: d6 with depth 3
+Chosen action: d5 with depth 4
+Chosen action: c5 with depth 5
+Chosen action: c5 with depth 6
+Chosen action: c5 with depth 6
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--W--O--B--|--|
+4 O--O--O     O--O--O
+3 |--|--O--O--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              8, 8
+pawns on board             1, 1
+new morris                 0
+morrises                   0, 0
+blocked pawns              0, 0
+potential morrises         0, 0
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: e4 with depth 3
+Chosen action: e4 with depth 4
+Chosen action: e3 with depth 5
+Chosen action: d6 with depth 6
+Chosen action: d6 with depth 6
+7 O--------O--------O
+6 |--O-----W-----O--|
+5 |--|--W--O--B--|--|
+4 O--O--O     O--O--O
+3 |--|--O--B--O--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              7, 7
+pawns on board             2, 2
+new morris                 0
+morrises                   0, 0
+blocked pawns              0, 0
+potential morrises         0, 0
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: c3 with depth 3
+Chosen action: b6 with depth 4
+Chosen action: c4 with depth 5
+Chosen action: d7 with depth 6
+Chosen action: d7 with depth 6
+7 O--------W--------O
+6 |--O-----W-----O--|
+5 |--|--W--O--B--|--|
+4 O--O--O     O--O--O
+3 |--|--O--B--B--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              6, 6
+pawns on board             3, 3
+new morris                 0
+morrises                   0, 0
+blocked pawns              0, 0
+potential morrises         1, 2
+opened morrises            1, 2
+potential double morrises  0, 1
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: c3 with depth 3
+Chosen action: c3 with depth 4
+Chosen action: c3 with depth 5
+Chosen action: c3 with depth 6
+Chosen action: c3 with depth 6
+7 O--------W--------O
+6 |--O-----W-----O--|
+5 |--|--W--O--B--|--|
+4 O--O--O     B--O--O
+3 |--|--O--B--B--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              5, 5
+pawns on board             3, 4
+new morris                 1
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         1, 1
+opened morrises            1, 1
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: c3 with depth 3
+Chosen action: c3 with depth 4
+Chosen action: c3 with depth 5
+Chosen action: c3 with depth 6
+Chosen action: c3 with depth 6
+7 O--------W--------O
+6 |--O-----W-----O--|
+5 |--|--W--O--B--|--|
+4 O--O--B     B--O--O
+3 |--|--W--B--B--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              4, 4
+pawns on board             4, 5
+new morris                 0
+morrises                   0, 1
+blocked pawns              1, 1
+potential morrises         1, 0
+opened morrises            1, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: b6 with depth 3
+Chosen action: d2 with depth 4
+Chosen action: b6 with depth 5
+Chosen action: b2 with depth 6
+Chosen action: b4 with depth 7
+Chosen action: b4 with depth 7
+7 O--------W--------O
+6 |--O-----W-----O--|
+5 |--|--W--O--B--|--|
+4 O--W--B     B--O--O
+3 |--|--W--B--B--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+
+pawns to play              3, 3
+pawns on board             5, 6
+new morris                 0
+morrises                   0, 1
+blocked pawns              1, 2
+potential morrises         1, 1
+opened morrises            1, 1
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: d5d1 with depth 3
+Chosen action: d2 with depth 4
+Chosen action: d2 with depth 5
+Chosen action: d5c4 with depth 6
+Chosen action: d2 with depth 7
+Chosen action: d2 with depth 7
+7 O--------W--------O
+6 |--O-----W-----O--|
+5 |--|--W--O--B--|--|
+4 O--W--B     B--O--O
+3 |--|--W--B--B--|--|
+2 |--O-----W-----O--|
+1 O--------B--------B
+  a  b  c  d  e  f  g
+
+pawns to play              2, 2
+pawns on board             6, 7
+new morris                 0
+morrises                   0, 1
+blocked pawns              1, 3
+potential morrises         1, 1
+opened morrises            1, 1
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: f4 with depth 3
+Chosen action: d5c4 with depth 4
+Chosen action: a1 with depth 5
+Chosen action: a1 with depth 6
+Chosen action: a1 with depth 7
+Chosen action: a1 with depth 7
+7 O--------W--------O
+6 |--O-----W-----O--|
+5 |--|--W--O--B--|--|
+4 O--W--B     B--O--B
+3 |--|--W--B--B--|--|
+2 |--O-----W-----O--|
+1 W--------B--------B
+  a  b  c  d  e  f  g
+
+pawns to play              1, 1
+pawns on board             7, 8
+new morris                 0
+morrises                   0, 1
+blocked pawns              1, 5
+potential morrises         1, 2
+opened morrises            1, 2
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: d5c4 with depth 3
+Chosen action: d5c4 with depth 4
+Chosen action: f4 with depth 5
+Chosen action: d5c4 with depth 6
+Chosen action: f4 with depth 7
+Chosen action: f4 with depth 7
+7 O--------O--------B
+6 |--O-----W-----O--|
+5 |--|--W--O--B--|--|
+4 O--W--B     B--W--B
+3 |--|--W--B--B--|--|
+2 |--O-----W-----O--|
+1 W--------B--------B
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             7, 9
+new morris                 1
+morrises                   0, 2
+blocked pawns              1, 7
+potential morrises         0, 0
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: c5d5 with depth 3
+Chosen action: c5d5 with depth 4
+Chosen action: c5d5 with depth 5
+Chosen action: c5d5 with depth 6
+Chosen action: c5d5 with depth 7
+Chosen action: d6b6 with depth 8
+Chosen action: d6b6 with depth 9
+Chosen action: d6b6 with depth 9
+7 O--------O--------B
+6 |--W-----O-----O--|
+5 |--|--W--B--O--|--|
+4 O--W--B     B--W--B
+3 |--|--W--B--B--|--|
+2 |--O-----W-----O--|
+1 W--------B--------B
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             7, 9
+new morris                 0
+morrises                   0, 1
+blocked pawns              2, 6
+potential morrises         1, 1
+opened morrises            1, 1
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: d2b2d5 with depth 3
+Chosen action: d2b2c4 with depth 4
+Chosen action: d2b2c4 with depth 5
+Chosen action: d2b2c4 with depth 6
+Chosen action: d2b2c4 with depth 7
+Chosen action: d2b2c4 with depth 8
+Chosen action: d2b2c4 with depth 8
+7 O--------O--------B
+6 |--W-----O-----O--|
+5 |--|--W--O--B--|--|
+4 O--W--O     B--W--B
+3 |--|--O--B--B--|--|
+2 |--W-----O-----O--|
+1 W--------B--------B
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             6, 8
+new morris                 1
+morrises                   1, 2
+blocked pawns              0, 4
+potential morrises         0, 2
+opened morrises            0, 0
+potential double morrises  0, 1
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: b2d2 with depth 3
+Chosen action: b6d6 with depth 4
+Chosen action: b2d2 with depth 5
+Chosen action: b2d2 with depth 6
+Chosen action: b2d2 with depth 7
+Chosen action: b4c4 with depth 8
+Chosen action: b4c4 with depth 8
+7 O--------B--------O
+6 |--W-----O-----O--|
+5 |--|--W--O--B--|--|
+4 O--O--W     B--W--B
+3 |--|--O--B--B--|--|
+2 |--W-----O-----O--|
+1 W--------B--------B
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             6, 8
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 3
+potential morrises         2, 3
+opened morrises            1, 1
+potential double morrises  0, 1
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: c4b4d7 with depth 3
+Chosen action: c5d5 with depth 4
+Chosen action: c5d5 with depth 5
+Chosen action: a1a4 with depth 6
+Chosen action: c4b4d1 with depth 7
+Chosen action: c4b4d1 with depth 7
+7 O--------B--------O
+6 |--W-----O-----O--|
+5 |--|--W--B--O--|--|
+4 O--W--O     B--W--B
+3 |--|--O--B--B--|--|
+2 |--W-----O-----O--|
+1 W--------O--------B
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             6, 7
+new morris                 0
+morrises                   1, 0
+blocked pawns              0, 1
+potential morrises         0, 4
+opened morrises            0, 2
+potential double morrises  0, 1
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: c5c4 with depth 3
+Chosen action: c5c4 with depth 4
+Chosen action: b4a4 with depth 5
+Chosen action: c5c4 with depth 6
+Chosen action: b4c4 with depth 7
+Chosen action: a1a4 with depth 8
+Chosen action: a1a4 with depth 8
+7 O--------O--------B
+6 |--W-----O-----O--|
+5 |--|--W--B--O--|--|
+4 O--W--O     B--W--B
+3 |--|--O--B--B--|--|
+2 |--W-----O-----O--|
+1 O--------O--------B
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             5, 7
+new morris                 1
+morrises                   1, 1
+blocked pawns              0, 2
+potential morrises         0, 2
+opened morrises            0, 1
+potential double morrises  0, 1
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: b2d2 with depth 3
+Chosen action: b6d6 with depth 4
+Chosen action: b6d6 with depth 5
+Chosen action: b6d6 with depth 6
+Chosen action: c5c4 with depth 7
+Chosen action: c5c4 with depth 8
+Chosen action: c5c4 with depth 8
+7 O--------O--------B
+6 |--W-----O-----O--|
+5 |--|--O--B--O--|--|
+4 O--W--W     B--W--B
+3 |--|--O--B--B--|--|
+2 |--W-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             5, 7
+new morris                 0
+morrises                   1, 0
+blocked pawns              0, 1
+potential morrises         1, 4
+opened morrises            0, 2
+potential double morrises  0, 2
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: b2d2 with depth 3
+Chosen action: b4a4 with depth 4
+Chosen action: b4a4 with depth 5
+Chosen action: b4a4 with depth 6
+Chosen action: b6d6 with depth 7
+Chosen action: b4a4 with depth 8
+Chosen action: b4a4 with depth 8
+7 O--------O--------B
+6 |--W-----O-----O--|
+5 |--|--O--B--O--|--|
+4 W--O--W     B--W--O
+3 |--|--O--B--B--|--|
+2 |--W-----O-----O--|
+1 O--------B--------B
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             5, 7
+new morris                 0
+morrises                   0, 0
+blocked pawns              0, 1
+potential morrises         2, 5
+opened morrises            1, 1
+potential double morrises  0, 4
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: b6b4d5 with depth 3
+Chosen action: b6b4d5 with depth 4
+Chosen action: b6b4d5 with depth 5
+Chosen action: b6b4d5 with depth 6
+Chosen action: b6b4d3 with depth 7
+Chosen action: b6b4d3 with depth 7
+7 O--------O--------B
+6 |--O-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--W     B--W--O
+3 |--|--O--O--B--|--|
+2 |--O-----O-----O--|
+1 O--------B--------B
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             4, 6
+new morris                 1
+morrises                   1, 1
+blocked pawns              0, 1
+potential morrises         0, 2
+opened morrises            0, 0
+potential double morrises  0, 1
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: c4c3 with depth 3
+Chosen action: c4c3 with depth 4
+Chosen action: c4c3 with depth 5
+Chosen action: c4c3 with depth 6
+Chosen action: c4c3 with depth 7
+Chosen action: c4c3 with depth 7
+7 O--------O--------B
+6 |--O-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--W--O     B--W--O
+3 |--|--W--O--B--|--|
+2 |--O-----B-----O--|
+1 O--------O--------B
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             4, 6
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         1, 1
+opened morrises            1, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: c3c4d2 with depth 3
+Chosen action: c3c4g7 with depth 4
+Chosen action: f4g4 with depth 5
+Chosen action: c3c4g7 with depth 6
+Chosen action: c3c4d2 with depth 7
+Chosen action: c3c4d2 with depth 7
+7 O--------O--------B
+6 |--O-----O-----O--|
+5 |--|--O--B--O--|--|
+4 W--W--W     B--W--O
+3 |--|--O--O--B--|--|
+2 |--O-----O-----O--|
+1 O--------O--------B
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             4, 5
+new morris                 0
+morrises                   1, 0
+blocked pawns              0, 0
+potential morrises         0, 2
+opened morrises            0, 1
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: c4c3 with depth 3
+Chosen action: c4c3 with depth 4
+Chosen action: c4c3 with depth 5
+Chosen action: c4c3 with depth 6
+Chosen action: c4c3 with depth 7
+Chosen action: c4c3 with depth 7
+7 O--------O--------B
+6 |--O-----O-----O--|
+5 |--|--O--O--B--|--|
+4 W--O--O     B--W--O
+3 |--|--W--O--B--|--|
+2 |--O-----O-----O--|
+1 O--------O--------B
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 5
+new morris                 1
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         0, 1
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: a4d5 with depth 3
+Chosen action: a4f6 with depth 4
+Chosen action: a4c5 with depth 5
+Chosen action: a4f6 with depth 6
+Chosen action: a4f6 with depth 6
+7 O--------B--------O
+6 |--O-----O-----W--|
+5 |--|--O--O--B--|--|
+4 O--O--O     B--W--O
+3 |--|--W--O--B--|--|
+2 |--O-----O-----O--|
+1 O--------O--------B
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 5
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         1, 0
+opened morrises            1, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: c3f2d7 with depth 3
+Chosen action: f6f2 with depth 4
+Chosen action: f6c5 with depth 5
+Chosen action: c3g7 with depth 6
+Chosen action: c3g7 with depth 6
+7 O--------B--------W
+6 |--O-----O-----W--|
+5 |--|--O--O--B--|--|
+4 O--O--O     B--W--O
+3 |--|--O--O--B--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 5
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         1, 0
+opened morrises            1, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: g7f2d7 with depth 3
+Chosen action: f6f2 with depth 4
+Chosen action: f6g4 with depth 5
+Chosen action: f6g4 with depth 5
+7 O--------B--------W
+6 |--O-----O-----O--|
+5 |--|--O--O--B--|--|
+4 O--O--O     B--W--W
+3 |--|--O--O--B--|--|
+2 |--O-----O-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 5
+new morris                 0
+morrises                   0, 1
+blocked pawns              1, 1
+potential morrises         1, 0
+opened morrises            1, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: f4g1d7 with depth 3
+Chosen action: g7f6 with depth 4
+Chosen action: g7f6 with depth 5
+Chosen action: g7f6 with depth 5
+7 O--------B--------O
+6 |--O-----O-----W--|
+5 |--|--O--O--B--|--|
+4 B--O--O     B--W--W
+3 |--|--O--O--B--|--|
+2 |--O-----O-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 5
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         1, 0
+opened morrises            1, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: g4f2d7 with depth 3
+Chosen action: f6f2 with depth 4
+Chosen action: g4f2d7 with depth 5
+Chosen action: g4f2d7 with depth 5
+7 O--------O--------O
+6 |--O-----O-----W--|
+5 |--|--O--O--B--|--|
+4 O--O--O     B--W--O
+3 |--|--O--O--B--|--|
+2 |--O-----O-----W--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   1, 1
+blocked pawns              0, 1
+potential morrises         0, 0
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: f6d5 with depth 3
+Chosen action: f6d3 with depth 4
+Chosen action: f6d5 with depth 5
+Chosen action: f6d5 with depth 5
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--W--B--|--|
+4 O--O--O     B--W--O
+3 |--|--O--O--B--|--|
+2 |--O-----O-----W--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 2
+potential morrises         1, 0
+opened morrises            1, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: f4d6 with depth 3
+Chosen action: d5d2 with depth 4
+Chosen action: f4b6 with depth 5
+Chosen action: f4b6 with depth 5
+7 O--------O--------O
+6 |--W-----O-----O--|
+5 |--|--O--W--B--|--|
+4 O--O--O     B--O--O
+3 |--|--O--O--B--|--|
+2 |--O-----O-----W--|
+1 O--------O--------B
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         0, 0
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: b6d6 with depth 3
+Chosen action: b6a7 with depth 4
+Chosen action: b6d3 with depth 5
+Chosen action: b6d3 with depth 5
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--W--B--|--|
+4 O--O--O     B--O--B
+3 |--|--O--W--B--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 2
+potential morrises         0, 1
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: f2d6 with depth 3
+Chosen action: d5f4 with depth 4
+Chosen action: d5d2 with depth 5
+Chosen action: d3f4 with depth 6
+Chosen action: d3f4 with depth 6
+7 O--------O--------B
+6 |--O-----O-----O--|
+5 |--|--O--W--B--|--|
+4 O--O--O     B--W--O
+3 |--|--O--O--B--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 2
+potential morrises         1, 0
+opened morrises            1, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: f4d7 with depth 3
+Chosen action: d5d6 with depth 4
+Chosen action: f2d3 with depth 5
+Chosen action: d5d6 with depth 6
+Chosen action: d5d6 with depth 6
+7 O--------B--------O
+6 |--O-----W-----O--|
+5 |--|--O--O--B--|--|
+4 O--O--O     B--W--O
+3 |--|--O--O--B--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         1, 0
+opened morrises            1, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: d6d5 with depth 3
+Chosen action: f4b6 with depth 4
+Chosen action: d6d3 with depth 5
+Chosen action: d6d3 with depth 5
+7 O--------O--------O
+6 |--O-----B-----O--|
+5 |--|--O--O--B--|--|
+4 O--O--O     B--W--O
+3 |--|--O--W--B--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 2
+potential morrises         1, 0
+opened morrises            1, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: f4d2 with depth 3
+Chosen action: f2d5 with depth 4
+Chosen action: f4c5 with depth 5
+Chosen action: f4c5 with depth 5
+7 O--------O--------O
+6 |--B-----O-----O--|
+5 |--|--W--O--B--|--|
+4 O--O--O     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         0, 0
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: c5d1 with depth 3
+Chosen action: c5d5 with depth 4
+Chosen action: c5d5 with depth 5
+Chosen action: c5d5 with depth 5
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--W--B--|--|
+4 O--B--O     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 2
+potential morrises         0, 0
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: d5d1 with depth 3
+Chosen action: d5a1 with depth 4
+Chosen action: d5f4 with depth 5
+Chosen action: d5f4 with depth 5
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--B--|--|
+4 B--O--O     B--W--O
+3 |--|--O--W--B--|--|
+2 |--O-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 2
+potential morrises         1, 0
+opened morrises            1, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: f2d2 with depth 3
+Chosen action: f4c5 with depth 4
+Chosen action: f4b2 with depth 5
+Chosen action: f4b6 with depth 6
+Chosen action: f4b6 with depth 6
+7 O--------O--------O
+6 |--W-----O-----O--|
+5 |--|--O--O--B--|--|
+4 O--O--O     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----O-----W--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         0, 0
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: b6d1 with depth 3
+Chosen action: b6b4 with depth 4
+Chosen action: b6d5 with depth 5
+Chosen action: b6a7 with depth 6
+Chosen action: b6a7 with depth 6
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--B--|--|
+4 O--O--O     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----O-----W--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         0, 0
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: a7d5 with depth 3
+Chosen action: f2d5 with depth 4
+Chosen action: d3d5 with depth 5
+Chosen action: a7c5 with depth 6
+Chosen action: a7c5 with depth 6
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--W--O--B--|--|
+4 O--O--O     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----B-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         0, 0
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: c5d5 with depth 3
+Chosen action: c5b6 with depth 4
+Chosen action: c5d5 with depth 5
+Chosen action: c5b6 with depth 6
+Chosen action: c5b6 with depth 6
+7 O--------O--------O
+6 |--W-----O-----O--|
+5 |--|--O--O--B--|--|
+4 O--O--O     B--O--O
+3 |--|--O--W--B--|--|
+2 |--B-----O-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         0, 0
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: b6d2 with depth 3
+Chosen action: b6d2 with depth 4
+Chosen action: d3d5 with depth 5
+Chosen action: b6a7 with depth 6
+Chosen action: b6a7 with depth 6
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--B--|--|
+4 O--O--O     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----B-----W--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         0, 0
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: a7c5 with depth 3
+Chosen action: a7f4 with depth 4
+Chosen action: a7d5 with depth 5
+Chosen action: f2f4 with depth 6
+Chosen action: f2f4 with depth 6
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--B--|--|
+4 O--O--O     B--W--O
+3 |--|--O--W--B--|--|
+2 |--O-----O-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 2
+potential morrises         0, 0
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: a7d5 with depth 3
+Chosen action: a7d5 with depth 4
+Chosen action: a7d5 with depth 5
+Chosen action: a7d2 with depth 6
+Chosen action: a7d2 with depth 6
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--B--|--|
+4 O--O--O     B--W--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 2
+potential morrises         1, 0
+opened morrises            1, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: d2d1 with depth 3
+Chosen action: f4c5 with depth 4
+Chosen action: f4d5 with depth 5
+Chosen action: f4a7 with depth 6
+Chosen action: f4a7 with depth 6
+7 W--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--O--B--|--|
+4 O--O--O     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----O--|
+1 O--------B--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         0, 0
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: a7f4 with depth 3
+Chosen action: d3f4 with depth 4
+Chosen action: a7d5 with depth 5
+Chosen action: a7d5 with depth 5
+7 O--------O--------O
+6 |--O-----O-----O--|
+5 |--|--O--W--B--|--|
+4 O--O--O     B--O--O
+3 |--|--O--W--B--|--|
+2 |--O-----W-----O--|
+1 B--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 2
+potential morrises         1, 0
+opened morrises            1, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: d3d6 with depth 3
+Chosen action: d5c5 with depth 4
+Chosen action: d3b6 with depth 5
+Chosen action: d3b6 with depth 5
+7 O--------O--------O
+6 |--W-----O-----O--|
+5 |--|--O--W--B--|--|
+4 B--O--O     B--O--O
+3 |--|--O--O--B--|--|
+2 |--O-----W-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         0, 0
+opened morrises            0, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: d2d7 with depth 3
+Chosen action: b6a7 with depth 4
+Chosen action: b6d6 with depth 5
+Chosen action: b6d6 with depth 5
+7 B--------O--------O
+6 |--O-----W-----O--|
+5 |--|--O--W--B--|--|
+4 O--O--O     B--O--O
+3 |--|--O--O--B--|--|
+2 |--O-----W-----O--|
+1 O--------O--------O
+  a  b  c  d  e  f  g
+
+pawns to play              0, 0
+pawns on board             3, 4
+new morris                 0
+morrises                   0, 1
+blocked pawns              0, 1
+potential morrises         1, 0
+opened morrises            1, 0
+potential double morrises  0, 0
+double morrises            0, 0
+terminal                   0
+
+
+Chosen action: d5d3 with depth 3
+Chosen action: d5f4 with depth 4
+Chosen action: d5d3 with depth 5
+Chosen action: d5b4 with depth 6
+Chosen action: d5b4 with depth 6
+connection closed
+
+C:\Users\Federico Stella\Desktop\New folder>'.\ALL' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Federico Stella\Desktop\New folder>
+C:\Users\Federico Stella\Desktop\New folder>START /B java -jar middleware.jar black  1>middleware_log.txt 2>&1 
+
+C:\Users\Federico Stella\Desktop\New folder>ping -n 1 127.0.0.1  1>nul 
+
+C:\Users\Federico Stella\Desktop\New folder>START /B agent.bat black   1>agent_log.txt 2>&1 
+The process cannot access the file because it is being used by another process.
+
+C:\Users\Federico Stella\Desktop\New folder>

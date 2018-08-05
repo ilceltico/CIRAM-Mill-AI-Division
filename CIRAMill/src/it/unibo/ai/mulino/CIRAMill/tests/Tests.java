@@ -43,9 +43,9 @@ import it.unibo.ai.mulino.CIRAMill.minimax.ValuedAction;
 
 public class Tests {
 
-	public static final int DEPTH = 6;
+	public static final int DEPTH = 7;
 	public static final int KNUM = 10;
-	public static final int STATE = 4;
+	public static final int STATE = 0;
 	
 	public static final boolean minimax = false;
 	public static final boolean alphabeta = false;
@@ -76,10 +76,10 @@ public class Tests {
 	public static final boolean mtd_variant_transposition_relative_history = false;
 	public static final boolean negascout_transposition_relative_history = false;
 		
-	public static final int seconds = 6000;
+	public static final int seconds = 60;
 	public static final int startingDepth = 1;
 	
-	public static final boolean it_minimax = false;
+	public static final boolean it_minimax = true;
 	public static final boolean it_alphabeta = false;
 	public static final boolean it_alphabeta_killer = false;
 	public static final boolean it_alphabeta_killer_variant = false;
@@ -91,7 +91,7 @@ public class Tests {
 	public static final boolean it_history = false;
 	public static final boolean it_relative_history = false;
 	public static final boolean it_relative_history_color = false;
-	public static final boolean it_relative_history_transposition = true; ////
+	public static final boolean it_relative_history_transposition = false; ////
 	public static final boolean it_mtd_transposition = false; //
 	public static final boolean it_mtd_variant_transposition = false; ////
 	public static final boolean it_negascout_transposition = false; //

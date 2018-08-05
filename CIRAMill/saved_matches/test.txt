@@ -1,0 +1,41 @@
+7 W--------B--------B
+6 |--W-----W-----W--|
+5 |--|--W--W--B--|--|
+4 O--O--O     O--O--W
+3 |--|--O--B--O--|--|
+2 |--B-----O-----O--|
+1 B--------W--------B
+  a  b  c  d  e  f  g
+
+7 W--------O--------W
+6 |--O-----W-----O--|
+5 |--|--O--W--O--|--|
+4 B--W--W     B--O--O
+3 |--|--O--W--O--|--|
+2 |--B-----B-----B--|
+1 B--------B--------B
+  a  b  c  d  e  f  g
+
+  state->setPawnAt2D('a', '1', PAWN_BLACK);
+	state->setPawnAt2D('a', '4', PAWN_BLACK);
+	state->setPawnAt2D('b', '2', PAWN_BLACK);
+	state->setPawnAt2D('d', '1', PAWN_BLACK);
+	state->setPawnAt2D('d', '2', PAWN_BLACK);
+	state->setPawnAt2D('e', '4', PAWN_BLACK);
+	state->setPawnAt2D('f', '2', PAWN_BLACK);
+	state->setPawnAt2D('f', '1', PAWN_BLACK);
+
+	state->setPawnAt2D('a', '1', PAWN_WHITE);
+	state->setPawnAt2D('g', '1', PAWN_WHITE);
+	state->setPawnAt2D('d', '6', PAWN_WHITE);
+	state->setPawnAt2D('d', '5', PAWN_WHITE);
+	state->setPawnAt2D('b', '4', PAWN_WHITE);
+	state->setPawnAt2D('c', '4', PAWN_WHITE);
+	state->setPawnAt2D('d', '3', PAWN_WHITE);
+
+	state->setPawnsToPlay(PAWN_WHITE, 0);
+	state->setPawnsToPlay(PAWN_BLACK, 0);
+	state->setPawnsOnBoard(PAWN_WHITE, 7);
+	state->setPawnsOnBoard(PAWN_BLACK, 8);
+
+	state->setPlayer(PAWN_BLACK);
